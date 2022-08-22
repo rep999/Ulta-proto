@@ -22,7 +22,8 @@ body {
   cursor: default;
   display: flex;
   flex-direction: column;
-  font-family: GuruProximaNova,HelveticaNeue-Light,Helvetica Neue Light,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-family: GuruProximaNova, HelveticaNeue-Light, Helvetica Neue Light,
+    Helvetica Neue, Helvetica, Arial, sans-serif;
   justify-content: center;
   overflow: hidden;
 }
@@ -35,7 +36,6 @@ a {
   color: inherit;
   text-decoration: none;
 }
-
 
 @media (prefers-color-scheme: dark) {
   html {
