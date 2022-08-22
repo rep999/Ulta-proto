@@ -1,0 +1,78 @@
+* {
+  box-sizing: border-box;
+  font-family: orpheus-pro;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+body {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.2;
+  align-items: stretch;
+  color: #090b0e;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  font-family: GuruProximaNova,HelveticaNeue-Light,Helvetica Neue Light,Helvetica Neue,Helvetica,Arial,sans-serif;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#__next {
+  height: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: black;
+  }
+}
+
+.main {
+  background: purple;
+}
+
+/* REPorts */
+#header {
+  width: 100%;
+  border: 2px solid purple;
+  height: 30%;
+}
+
+#nav {
+  width: 100%;
+  height: 30%;
+  border: 12px solid purple;
+}
+
+#dash {
+  width: 100%;
+  height: 30%;
+  border: 2px solid purple;
+}
+
+#panel {
+  width: 100%;
+  height: 30%;
+  border: 2px solid purple;
+  height: 10%;
+}
