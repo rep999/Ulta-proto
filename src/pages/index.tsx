@@ -6,6 +6,7 @@ import styles from '$styles/Home.module.css'
 // REPorts
 import Header from '$Sections/Header'
 import Dash from '$Sections/Dash'
+import Testy from '$Sections/Testy'
 import Nav from '$Sections/Nav'
 import Panel from '$Sections/Panel'
 import styled from 'styled-components'
@@ -59,12 +60,13 @@ const Home: NextPage = () => {
       <WebFire_App_Shell_Parent>
         <WebFire_App_Shell>
           <Header></Header>
-          {/*    
-        <Nav></Nav>
-        <MainFlexContainer>
-       <Dash></Dash>
-        <Panel></Panel> 
-      </MainFlexContainer> */}
+
+          <Nav></Nav>
+          <MainFlexContainer>
+            {/* <Dash></Dash> */}
+            <Testy></Testy>
+            <Panel></Panel>
+          </MainFlexContainer>
         </WebFire_App_Shell>
       </WebFire_App_Shell_Parent>
     </WebFire_App>
