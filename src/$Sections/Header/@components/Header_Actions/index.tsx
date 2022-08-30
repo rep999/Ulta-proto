@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+// @ts-ignore
+import Modal from '$components/Modal.js'
+
 const Parent = styled.div`
   display: flex;
   /* Temp */
@@ -95,9 +98,9 @@ const Profile_Icon_Button = styled.div`
 `
 
 const Header_Actions = () => {
-  const [modalOpen, setModalOpen] = useState(false)
+  const [showModal, setShowModal] = useState(false)
   const ChirpClk = () => {
-    setModalOpen(true)
+    setShowModal(true)
   }
 
   return (
@@ -113,6 +116,11 @@ const Header_Actions = () => {
         <Break_Div></Break_Div>
         <Profile_Icon_Button></Profile_Icon_Button>
       </Wrapper>
+      {showModal && (
+        <Modal onClose={() => setShowModal(false)} show={showModal}>
+          Hello from the modal!
+        </Modal>
+      )}
     </Parent>
   )
 }
