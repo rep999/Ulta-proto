@@ -5,7 +5,7 @@ const PanelEl = styled.div`
   height: 100%;
   right: 0%;
   position: absolute;
-  border: 7px solid brown;
+  border: 3px solid brown;
   flex-grow: 1;
   max-width: calc(166px * 1.61);
   min-width: calc(166px * 1.61);

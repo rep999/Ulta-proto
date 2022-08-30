@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Header_Actions from './@components/Header_Actions'
 
 const Header_Parent = styled.header`
   background-color: transparent;
@@ -41,13 +42,13 @@ const Header_Search = styled.div`
   border: 1px solid white;
 `
 
-const Header_Actions = styled.div`
-  display: flex;
-  /* Temp */
-  width: 253px;
-  height: 36px;
-  border: 1px solid white;
-`
+// const Header_Actions = styled.div`
+//   display: flex;
+//   /* Temp */
+//   width: 253px;
+//   height: 36px;
+//   border: 1px solid white;
+// `
 
 const Header = () => {
   return (
