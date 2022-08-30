@@ -12,6 +12,8 @@ const DashContainer = styled.div`
 const TopHeaderContainer = styled.div`
   /* border: 2px solid green; */
   height: 15.12%;
+  min-height: 93px;
+  max-height: 103px;
   width: 100%;
   display: flex;
   flex-direction: column;

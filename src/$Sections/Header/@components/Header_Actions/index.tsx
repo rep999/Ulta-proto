@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { ChirpModal } from '../../../../modals/ChirpModal.js'
-
 const Parent = styled.div`
   display: flex;
   /* Temp */
@@ -104,7 +102,6 @@ const Header_Actions = () => {
 
   return (
     <Parent>
-      <ChirpModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
       <Wrapper>
         <Create_Chirp_Button onClick={() => ChirpClk()}>
           <Chirp_Span>
