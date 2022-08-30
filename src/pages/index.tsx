@@ -35,13 +35,24 @@ const WebFire_App_Shell = styled.div`
   width: 100%;
 `
 
-const MainFlexContainer = styled.main`
+const WebFire_App_Shell_Content = styled.div`
   display: flex;
   flex: 1 1 auto;
   overflow: hidden;
-  width: 77%;
-  top: 66px;
-  border: 2px solid blue;
+  position: relative;
+  border: 2px solid white;
+`
+
+const MainFlexContainer = styled.main`
+  display: flex;
+  /* flex: 1 1 auto; */
+  width: calc(100% - 166px);
+  left: 166px;
+  overflow: hidden;
+  left: 166px;
+  position: relative;
+  border: 4px solid yellow;
+  border-top-left-radius: 12px;
 `
 
 const Home: NextPage = () => {
@@ -57,16 +68,17 @@ const Home: NextPage = () => {
         ></meta>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <WebFire_App_Shell_Parent>
         <WebFire_App_Shell>
           <Header></Header>
-
-          <Nav></Nav>
-          <MainFlexContainer>
-            {/* <Dash></Dash> */}
-            <Testy></Testy>
-            <Panel></Panel>
-          </MainFlexContainer>
+          <WebFire_App_Shell_Content>
+            <Nav></Nav>
+            <MainFlexContainer>
+              <Dash></Dash>
+              <Panel></Panel>
+            </MainFlexContainer>
+          </WebFire_App_Shell_Content>
         </WebFire_App_Shell>
       </WebFire_App_Shell_Parent>
     </WebFire_App>

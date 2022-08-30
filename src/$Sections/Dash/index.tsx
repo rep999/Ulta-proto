@@ -5,9 +5,8 @@ import MockFireObjReturned from '../../data/MockFire'
 
 const DashContainer = styled.div`
   height: 100%;
-  /* width: 66%; */
-  flex: 3;
-  border: 2px solid green;
+  width: calc(100% - 267px);
+  /* border: 6px solid purple; */
 `
 
 const TopHeaderContainer = styled.div`

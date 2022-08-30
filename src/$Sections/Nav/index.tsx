@@ -2,13 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 
 const NavEl = styled.div`
-  height: calc(100% - 66px);
+  height: 100%;
   min-width: 166px;
   max-width: 166px;
-  top: 66px;
   position: absolute;
   left: 0px;
-  border: 2px solid orange;
+  border: 2px solid purple;
   flex-grow: 1;
 `
 
