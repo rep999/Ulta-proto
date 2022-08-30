@@ -8,7 +8,8 @@ const Header_Parent = styled.header`
   padding-bottom: 0;
   padding-top: 0;
   /* Temp */
-  height: 63px;
+  max-height: 63px;
+  min-height: 63px;
   width: 100%;
   border: 1px solid white;
 `
