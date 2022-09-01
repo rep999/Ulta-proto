@@ -2,12 +2,12 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "$Sections/*": ["src/$Sections/*"],
+      "$components/*": ["src/1_components/*"],
+      "$Sections/*": ["src/2_Sections/*"],
       "$lib/*": ["src/lib/*"],
       "$temp/*": ["src/temp/*"],
       "$assets/*": ["src/assets/*"],
-      "$styles/*": ["/styles/*"],
-      "$components/*": ["/components/*"]
+      "$styles/*": ["/styles/*"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -30,7 +30,7 @@
     "**/*.tsx",
     "client.js",
     "src/pages/api/auth.js",
-    "src/$Sections/Testy/index.js"
+    "src/2_Sections/Testy/index.js"
   ],
   "exclude": ["node_modules"]
 }
