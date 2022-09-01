@@ -34,10 +34,11 @@ const Modal = ({ onClose }) => {
     onClose()
   }
 
-  const saveClick = async (e) => {
+  const saveClick = async (event) => {
+    event.preventDefault()
     const { data, error } = await supabase.from('chirp').insert([
       {
-        url: `EPIC DAY23`,
+        url: `Eporn`,
         text: `inputData.text`,
         category: `inputData.category`,
       },
@@ -52,10 +53,7 @@ const Modal = ({ onClose }) => {
             <SMTitle>Richy's Note</SMTitle>
           </SMHeader>
           <SMBody>
-            <SMFinishButtonContainer>
-              <SMFinishButton onClick={() => saveClick()}>Save</SMFinishButton>
-            </SMFinishButtonContainer>
-            <SMForm>
+            <SMForm onsubmit={saveClick()}>
               <SMTextArea id="SMTextArea"></SMTextArea>
               <SMTopicsFlexContainer>
                 <SMTopicContainer>
@@ -113,11 +111,9 @@ const Modal = ({ onClose }) => {
                     <SMInputSlider type="range" min="10" max="100" />
                   </SMSliderDiv>
                 </SMSubSubTopicContainer>
-                {/* <SMFinishButtonContainer>
-                  <SMFinishButton onClick={() => saveClick()}>
-                    Save
-                  </SMFinishButton>
-                </SMFinishButtonContainer> */}
+                <SMFinishButtonContainer>
+                  <SMFinishButton type="submit">Save</SMFinishButton>
+                </SMFinishButtonContainer>
               </SMTopicsFlexContainer>
             </SMForm>
           </SMBody>
@@ -389,7 +385,7 @@ const SMFinishButtonContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 9%;
+  height: 28%;
 `
 
 const SMFinishButton = styled.button`
