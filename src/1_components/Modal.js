@@ -35,14 +35,9 @@ const Modal = ({ onClose }) => {
   }
 
   const saveClick = async (e) => {
-    // const textEntered = document.getElementById('SMTextArea')
-    //     const { data, error } = await supabase
-    //       .from('chirp')
-    //       .insert([{ text: `textEntered` }])
-    //   }
     const { data, error } = await supabase.from('chirp').insert([
       {
-        url: `EPIC DAY`,
+        url: `EPIC DAY23`,
         text: `inputData.text`,
         category: `inputData.category`,
       },
@@ -60,77 +55,71 @@ const Modal = ({ onClose }) => {
             <SMFinishButtonContainer>
               <SMFinishButton onClick={() => saveClick()}>Save</SMFinishButton>
             </SMFinishButtonContainer>
-            {/* <SMForm>
-                    <SMTextArea id="SMTextArea"></SMTextArea>
-                    <SMTopicsFlexContainer>
-                      <SMTopicContainer>
-                        <KnowledgeContainer>
-                          <KnowledgeLabel>Knowledge</KnowledgeLabel>
-                          <Knowledge
-                            name="Knowledge"
-                            type="checkbox"
-                          ></Knowledge>
-                        </KnowledgeContainer>
+            <SMForm>
+              <SMTextArea id="SMTextArea"></SMTextArea>
+              <SMTopicsFlexContainer>
+                <SMTopicContainer>
+                  <KnowledgeContainer>
+                    <KnowledgeLabel>Knowledge</KnowledgeLabel>
+                    <Knowledge name="Knowledge" type="checkbox"></Knowledge>
+                  </KnowledgeContainer>
 
-                        <CareerContainer>
-                          <CareerLabel>Career</CareerLabel>
-                          <Career name="Career" type="checkbox"></Career>
-                        </CareerContainer>
+                  <CareerContainer>
+                    <CareerLabel>Career</CareerLabel>
+                    <Career name="Career" type="checkbox"></Career>
+                  </CareerContainer>
 
-                        <EntertainmentContainer>
-                          <EntertainmentLabel>Entertainment</EntertainmentLabel>
-                          <Entertainment
-                            name="Entertainment"
-                            type="checkbox"
-                          ></Entertainment>
-                        </EntertainmentContainer>
+                  <EntertainmentContainer>
+                    <EntertainmentLabel>Entertainment</EntertainmentLabel>
+                    <Entertainment
+                      name="Entertainment"
+                      type="checkbox"
+                    ></Entertainment>
+                  </EntertainmentContainer>
 
-                        <LifeContainer>
-                          <LifeLabel>Life</LifeLabel>
-                          <Life name="Life" type="checkbox"></Life>
-                        </LifeContainer>
+                  <LifeContainer>
+                    <LifeLabel>Life</LifeLabel>
+                    <Life name="Life" type="checkbox"></Life>
+                  </LifeContainer>
 
-                        <SocialContainer>
-                          <SocialLabel>Social</SocialLabel>
-                          <Social name="Social" type="checkbox"></Social>
-                        </SocialContainer>
-                      </SMTopicContainer>
-                      <SMSubTopicContainer>
-                        <QuestionContainer>
-                          <QuestionLabel>Question</QuestionLabel>
-                          <Question name="Question" type="checkbox"></Question>
-                        </QuestionContainer>
+                  <SocialContainer>
+                    <SocialLabel>Social</SocialLabel>
+                    <Social name="Social" type="checkbox"></Social>
+                  </SocialContainer>
+                </SMTopicContainer>
+                <SMSubTopicContainer>
+                  <QuestionContainer>
+                    <QuestionLabel>Question</QuestionLabel>
+                    <Question name="Question" type="checkbox"></Question>
+                  </QuestionContainer>
 
-                        <ImportantContainer>
-                          <ImportantLabel>Important</ImportantLabel>
-                          <Important
-                            name="Important"
-                            type="checkbox"
-                          ></Important>
-                        </ImportantContainer>
+                  <ImportantContainer>
+                    <ImportantLabel>Important</ImportantLabel>
+                    <Important name="Important" type="checkbox"></Important>
+                  </ImportantContainer>
 
-                        <KeyContainer>
-                          <KeyLabel>Key</KeyLabel>
-                          <Key name="Key" type="checkbox"></Key>
-                        </KeyContainer>
+                  <KeyContainer>
+                    <KeyLabel>Key</KeyLabel>
+                    <Key name="Key" type="checkbox"></Key>
+                  </KeyContainer>
 
-                        <NoteContainer>
-                          <NoteLabel>Note</NoteLabel>
-                          <Note name="Note" type="checkbox"></Note>
-                        </NoteContainer>
-                      </SMSubTopicContainer>
-                      <SMSubSubTopicContainer>
-                        <SMSliderDiv>
-                          <SMInputSlider type="range" min="10" max="100" />
-                        </SMSliderDiv> 
-                      </SMSubSubTopicContainer>
-                      <SMFinishButtonContainer>
-                        <SMFinishButton onClick={() => saveClick()}>
-                          Save
-                        </SMFinishButton>
-                      </SMFinishButtonContainer>
-                    </SMTopicsFlexContainer>
-                  </SMForm> */}
+                  <NoteContainer>
+                    <NoteLabel>Note</NoteLabel>
+                    <Note name="Note" type="checkbox"></Note>
+                  </NoteContainer>
+                </SMSubTopicContainer>
+                <SMSubSubTopicContainer>
+                  <SMSliderDiv>
+                    <SMInputSlider type="range" min="10" max="100" />
+                  </SMSliderDiv>
+                </SMSubSubTopicContainer>
+                {/* <SMFinishButtonContainer>
+                  <SMFinishButton onClick={() => saveClick()}>
+                    Save
+                  </SMFinishButton>
+                </SMFinishButtonContainer> */}
+              </SMTopicsFlexContainer>
+            </SMForm>
           </SMBody>
         </SMain>
       </SMWrapper>
@@ -400,7 +389,7 @@ const SMFinishButtonContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 28%;
+  height: 9%;
 `
 
 const SMFinishButton = styled.button`
