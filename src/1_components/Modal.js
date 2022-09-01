@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom'
 import styled from 'styled-components'
 import { supabase } from '../../client.js'
-import { createPortal } from 'react-dom'
 
 const Modal = ({ onClose }) => {
   const [isBrowser, setIsBrowser] = useState(false)
@@ -23,7 +22,6 @@ const Modal = ({ onClose }) => {
 
   useEffect(() => {
     setIsBrowser(true)
-    alert(window)
     // attach event listener to the whole windor with our handler
     window.addEventListener('click', backDropHandler)
 
@@ -42,20 +40,17 @@ const Modal = ({ onClose }) => {
     //       .from('chirp')
     //       .insert([{ text: `textEntered` }])
     //   }
-    const { data, error } = await supabase.from('chirp').insert([
-      {
-        url: `inputData.url`,
-        text: `inputData.text`,
-        category: `inputData.category`,
-      },
-    ])
+    // const { data, error } = await supabase.from('chirp').insert([
+    //   {
+    //     url: `inputData.url`,
+    //     text: `inputData.text`,
+    //     category: `inputData.category`,
+    //   },
+    // ])
   }
 
   const modalContent = (
     <SMOverlay>
-      {/* Wrap the whole Modal inside the newly created SMWrapper
-            and use the ref
-        */}
       <SMWrapper ref={modalWrapperRef}>
         <SMain>
           <SMHeader>
@@ -83,11 +78,6 @@ const Modal = ({ onClose }) => {
                       type="checkbox"
                     ></Entertainment>
                   </EntertainmentContainer>
-
-                  {/* <NewsContainer>
-                    <NewsLabel>News</NewsLabel>
-                    <News name="News" type="checkbox"></News>
-                  </NewsContainer> */}
 
                   <LifeContainer>
                     <LifeLabel>Life</LifeLabel>
@@ -129,11 +119,12 @@ const Modal = ({ onClose }) => {
                   <SMFinishButton onClick={() => saveClick()}>
                     Save
                   </SMFinishButton>
-                  {/* <br />
-                  <input type="submit" value="Finished" id="submit" /> */}
                 </SMFinishButtonContainer>
               </SMTopicsFlexContainer>
             </SMForm>
+            <SMFinishButtonContainer>
+              <SMFinishButton onClick={() => saveClick()}>Save</SMFinishButton>
+            </SMFinishButtonContainer>
           </SMBody>
         </SMain>
       </SMWrapper>
@@ -141,7 +132,10 @@ const Modal = ({ onClose }) => {
   )
 
   if (isBrowser) {
-    return createPortal(modalContent, document.getElementById('modal-root'))
+    return ReactDOM.createPortal(
+      modalContent,
+      document.getElementById('modal-root'),
+    )
   } else {
     return null
   }
@@ -208,24 +202,6 @@ const Knowledge = styled.input`
   height: 30%;
   border: 1px solid grey;
 `
-
-// const NewsContainer = styled.div`
-//   border: 1px solid grey;
-//   width: 100%;
-//   justify-content: center;
-//   height: 100%;
-// `
-
-// const NewsLabel = styled.div`
-//   color: black;
-//   font-size: .85rem;
-// `
-
-// const News = styled.input`
-//   width: 30%;
-//   height: 30%;
-//   border: 1px solid grey;
-// `
 
 const LifeContainer = styled.div`
   border: 1px solid grey;
@@ -334,7 +310,6 @@ const SMSubTopicContainer = styled.div`
   height: 40%;
   display: flex;
   width: 100%;
-  /* border: 1px solid grey; */
 `
 
 const SMSubTopicLabel = styled.label`
@@ -342,20 +317,6 @@ const SMSubTopicLabel = styled.label`
   height: 100%;
   border: 1px solid grey;
 `
-
-// const SMWeightingContainer = styled.div`
-//   width: 100%;
-//   height: 7%;
-//   display: flex;
-//   width: 100%;
-//   border: 1px solid grey;
-// `
-
-// const SMSubSubTopicLabel = styled.label`
-//   width: 100%;
-//   height: 100%;
-//   border: 1px solid grey;
-// `
 
 const QuestionContainer = styled.div`
   border: 1px solid grey;
