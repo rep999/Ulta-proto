@@ -30,15 +30,14 @@ const Modal = ({ onClose }) => {
   }, [])
 
   const handleCloseClick = (e) => {
-    e.preventDefault()
     onClose()
   }
 
   const saveClick = async (event) => {
-    event.preventDefault()
+    if (event) event.preventDefault()
     const { data, error } = await supabase.from('chirp').insert([
       {
-        url: `Eporn`,
+        url: `derp_derp2`,
         text: `inputData.text`,
         category: `inputData.category`,
       },
