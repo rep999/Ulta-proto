@@ -5,7 +5,7 @@ import MockFireObjReturned from '../../data/MockFire'
 
 const DashContainer = styled.div`
   height: 100%;
-  width: calc(100% - 267px);
+  width: calc(100% - 333px);
   /* border: 6px solid purple; */
 `
 
@@ -87,6 +87,7 @@ const WelcomeTitle = styled.span`
   width: 100%;
   /* position: relative; */
   left: 0px;
+  padding-left: 9px;
   color: white;
   display: flex;
   font-size: 23px;
@@ -653,10 +654,10 @@ const Dash = () => {
       <TopHeaderContainer>
         <TopHeaderTitleRow>
           <WelcomeTitleContainer>
-            <WelcomeTitle>Welcome to WebFire </WelcomeTitle>
-            <WelcomeTitleImgContainer>
+            <WelcomeTitle>Welcome to FireNet </WelcomeTitle>
+            {/* <WelcomeTitleImgContainer>
               <WelcomeTitleImg src="/OfficialLogo.png" />
-            </WelcomeTitleImgContainer>
+            </WelcomeTitleImgContainer> */}
           </WelcomeTitleContainer>
           <GlamourShotContainer>
             <GlamourShot src="/ProfilePic.jpg"></GlamourShot>
