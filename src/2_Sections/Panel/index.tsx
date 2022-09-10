@@ -28,7 +28,6 @@ const PanelWrapper = styled.div`
 const FireNetLogo = styled.img`
   height: 88%;
   width: 88%;
-  right: 0%;
   position: absolute;
   flex-grow: 1;
 `
@@ -48,15 +47,17 @@ const Panel = () => {
     if (FireNetLogo) { FireNetLogo.style.display = 'none' }
     if (Fruit) { Fruit.style.display = 'block' }
   }
-  const mouseOverFruit = () => {
-    // const Fruit = document.getElementById('Fruit')
-    // if (FireNetLogo) { FireNetLogo.style.display = 'none' }
+  const mouseLeaveFruit = () => {
+    const FireNetLogo = document.getElementById('FireNetLogo')
+    const Fruit = document.getElementById('Fruit')
+    if (FireNetLogo) { FireNetLogo.style.display = 'block' }
+    if (Fruit) { Fruit.style.display = 'none' }
   }
 
   return <PanelParent>
     <PanelWrapper>
       <FireNetLogo id='FireNetLogo' onMouseEnter={() => mouseOverLogo()} src="/OfficialLogo.png"></FireNetLogo>
-      <Fruit id='Fruit' onMouseEnter={() => mouseOverFruit()} src="/Fruit.png"></Fruit>
+      <Fruit id='Fruit' onMouseLeave={() => mouseLeaveFruit()} src="/Fruit.png"></Fruit>
     </PanelWrapper>
   </PanelParent>
 }
