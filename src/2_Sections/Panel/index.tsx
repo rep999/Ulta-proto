@@ -100,7 +100,7 @@ const CenterBottomCircleCont = styled.div`
   height: calc(305.5px / 5);
   width: calc(305.5px / 5);;
   position: absolute;
-  bottom: 61.1px;
+  bottom: 61.15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -110,8 +110,19 @@ const UpperLeftCircleCont = styled.div`
   height: calc(305.5px / 5);
   width: calc(305.5px / 5);;
   position: absolute;
-  left: 67.888px;
-  top: 91.888px;
+  left: 69.286px;
+  top: 91.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+const UpperLeftLeftCircleCont = styled.div`
+  height: calc(305.5px / 5);
+  width: calc(305.5px / 5);;
+  position: absolute;
+  left: 16.885px;
+  top: 61.1px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -121,61 +132,8 @@ const UpperRightCircleCont = styled.div`
   height: calc(305.5px / 5);
   width: calc(305.5px / 5);;
   position: absolute;
-  right: 68.888px;
-  top: 90.888px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
-
-const BottomRightCircleCont = styled.div`
-  height: calc(305.5px / 5);
-  width: calc(305.5px / 5);;
-  position: absolute;
-  right: 67.888px;
-  bottom: 91.888px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
-
-const BottomRightRightCircleCont = styled.div`
-  height: calc(305.5px / 5);
-  width: calc(305.5px / 5);;
-  position: absolute;
-  right: 17.888px;
-  bottom: 54.888px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
-const UpperLeftLeftCircleCont = styled.div`
-  height: calc(305.5px / 5);
-  width: calc(305.5px / 5);;
-  position: absolute;
-  left: 17.888px;
-  top: 54.888px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
-
-const BottomLeftCircleCont = styled.div`
-  height: calc(305.5px / 5);
-  width: calc(305.5px / 5);;
-  position: absolute;
-  left: 67.888px;
-  bottom: 91.888px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
-const BottomLeftLeftCircleCont = styled.div`
-  height: calc(305.5px / 5);
-  width: calc(305.5px / 5);;
-  position: absolute;
-  left: 17.888px;
-  bottom: 54.888px;
+  right: 69.286px;
+  top: 91.5px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -185,12 +143,57 @@ const UpperRightRightCircleCont = styled.div`
   height: calc(305.5px / 5);
   width: calc(305.5px / 5);;
   position: absolute;
-  right: 17.888px;
-  top: 54.888px;
+  right: 16.885px;
+  top: 61.1px;
   display: flex;
   justify-content: center;
   align-items: center;
 `
+
+const BottomRightCircleCont = styled.div`
+  height: calc(305.5px / 5);
+  width: calc(305.5px / 5);;
+  position: absolute;
+  right: 69.286px;
+  bottom: 91.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+const BottomRightRightCircleCont = styled.div`
+  height: calc(305.5px / 5);
+  width: calc(305.5px / 5);;
+  position: absolute;
+  right: 16.885px;
+  bottom: 61.1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+
+const BottomLeftCircleCont = styled.div`
+  height: calc(305.5px / 5);
+  width: calc(305.5px / 5);;
+  position: absolute;
+  left: 69.286px;
+  bottom: 91.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+const BottomLeftLeftCircleCont = styled.div`
+  height: calc(305.5px / 5);
+  width: calc(305.5px / 5);;
+  position: absolute;
+  left: 16.885px;
+  bottom: 61.1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
 
 const CenterTopTopCircle = styled(Circle)`
 `
@@ -255,12 +258,17 @@ const Panel = () => {
   //   if (Fruit) { Fruit.style.display = 'none' }
   // }onMouseEnter={() => mouseOverLogo()} 
 
+  const CenterCircleClick = () => {
+    const CenterCircle = document.getElementById('CenterCircle')
+    // CenterCircle.style.src = '/purpleCircle.png'
+  }
+
   return <PanelParent>
     <PanelWrapper>
       <FireNetLogo id='FireNetLogo' src="/OfficialLogo.png"></FireNetLogo>
-
+{/* 
       <FruitCake id='FruitCake' >
-        <CenterCircleCont>Topics<CenterCircle id='CenterCircle' src="/whiteCircle.png"></CenterCircle></CenterCircleCont>
+        <CenterCircleCont>Topics<CenterCircle onClick={() => CenterCircleClick()} id='CenterCircle' src="/whiteCircle.png"></CenterCircle></CenterCircleCont>
         <CenterTopCircleCont>News<CenterTopCircle id='CenterTopCircle' src="/whiteCircle.png"></CenterTopCircle></CenterTopCircleCont>
         <CenterTopTopCircleCont>Politics<CenterTopTopCircle id='CenterTopTopCircle' src="/whiteCircle.png"></CenterTopTopCircle></CenterTopTopCircleCont>
         <UpperRightCircleCont>Religion<UpperRightCircle id='UpperRightCircle' src="/whiteCircle.png"></UpperRightCircle></UpperRightCircleCont>
@@ -275,6 +283,22 @@ const Panel = () => {
         <BottomLeftLeftCircleCont><BottomLeftLeftCircle id='BottomLeftLeftCircle' src="/whiteCircle.png"></BottomLeftLeftCircle></BottomLeftLeftCircleCont>
         <UpperRightRightCircleCont><UpperRightRightCircle id='UpperRightRightCircle' src="/whiteCircle.png"></UpperRightRightCircle></UpperRightRightCircleCont>
         <CenterBottomBottomCircleCont><CenterBottomBottomCircle id='CenterBottomBottomCircle' src="/whiteCircle.png"></CenterBottomBottomCircle></CenterBottomBottomCircleCont>
+        <CenterBottomCircleCont><CenterBottomCircle id='CenterBottomCircle' src="/whiteCircle.png"></CenterBottomCircle></CenterBottomCircleCont>
+        <CenterBottomBottomCircleCont><CenterBottomBottomCircle id='CenterBottomBottomCircle' src="/whiteCircle.png"></CenterBottomBottomCircle></CenterBottomBottomCircleCont>
+      </FruitCake> */}
+
+      <FruitCake id='FruitCake' >
+        <CenterCircleCont>Topics<CenterCircle onClick={() => CenterCircleClick()} id='CenterCircle' src="/whiteCircle.png"></CenterCircle></CenterCircleCont>
+        <CenterTopCircleCont><CenterTopCircle id='CenterTopCircle' src="/whiteCircle.png"></CenterTopCircle></CenterTopCircleCont>
+        <CenterTopTopCircleCont><CenterTopTopCircle id='CenterTopTopCircle' src="/whiteCircle.png"></CenterTopTopCircle></CenterTopTopCircleCont>
+        <UpperRightCircleCont><UpperRightCircle id='UpperRightCircle' src="/whiteCircle.png"></UpperRightCircle></UpperRightCircleCont>
+        <UpperRightRightCircleCont><UpperRightRightCircle id='UpperRightRightCircle' src="/whiteCircle.png"></UpperRightRightCircle></UpperRightRightCircleCont>
+        <UpperLeftCircleCont><UpperLeftCircle id='UpperLeftCircle' src="/whiteCircle.png"></UpperLeftCircle></UpperLeftCircleCont>
+        <UpperLeftLeftCircleCont><UpperLeftLeftCircle id='UpperLeftLeftCircle' src="/whiteCircle.png"></UpperLeftLeftCircle></UpperLeftLeftCircleCont>
+        <BottomRightRightCircleCont><BottomRightRightCircle id='BottomRightRightCircle' src="/whiteCircle.png"></BottomRightRightCircle></BottomRightRightCircleCont>
+        <BottomRightCircleCont><BottomRightCircle id='BottomRightCircle' src="/whiteCircle.png"></BottomRightCircle></BottomRightCircleCont>
+        <BottomLeftCircleCont><BottomLeftCircle id='BottomLeftCircle' src="/whiteCircle.png"></BottomLeftCircle></BottomLeftCircleCont>
+        <BottomLeftLeftCircleCont><BottomLeftLeftCircle id='BottomLeftLeftCircle' src="/whiteCircle.png"></BottomLeftLeftCircle></BottomLeftLeftCircleCont>
         <CenterBottomCircleCont><CenterBottomCircle id='CenterBottomCircle' src="/whiteCircle.png"></CenterBottomCircle></CenterBottomCircleCont>
         <CenterBottomBottomCircleCont><CenterBottomBottomCircle id='CenterBottomBottomCircle' src="/whiteCircle.png"></CenterBottomBottomCircle></CenterBottomBottomCircleCont>
       </FruitCake>
