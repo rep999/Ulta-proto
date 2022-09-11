@@ -121,8 +121,8 @@ const UpperRightCircleCont = styled.div`
   height: calc(305.5px / 5);
   width: calc(305.5px / 5);;
   position: absolute;
-  right: 67.888px;
-  top: 91.888px;
+  right: 68.888px;
+  top: 90.888px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -260,12 +260,12 @@ const Panel = () => {
       <FireNetLogo id='FireNetLogo' src="/OfficialLogo.png"></FireNetLogo>
 
       <FruitCake id='FruitCake' >
-        <CenterCircleCont><CenterCircle id='CenterCircle' src="/whiteCircle.png"></CenterCircle></CenterCircleCont>
-        <CenterTopCircleCont><CenterTopCircle id='CenterTopCircle' src="/whiteCircle.png"></CenterTopCircle></CenterTopCircleCont>
-        <CenterTopTopCircleCont><CenterTopTopCircle id='CenterTopTopCircle' src="/whiteCircle.png"></CenterTopTopCircle></CenterTopTopCircleCont>
-        <UpperRightCircleCont><UpperRightCircle id='UpperRightCircle' src="/whiteCircle.png"></UpperRightCircle></UpperRightCircleCont>
-        <UpperRightRightCircleCont><UpperRightRightCircle id='UpperRightRightCircle' src="/whiteCircle.png"></UpperRightRightCircle></UpperRightRightCircleCont>
-        <UpperLeftCircleCont><UpperLeftCircle id='UpperLeftCircle' src="/whiteCircle.png"></UpperLeftCircle></UpperLeftCircleCont>
+        <CenterCircleCont>Topics<CenterCircle id='CenterCircle' src="/whiteCircle.png"></CenterCircle></CenterCircleCont>
+        <CenterTopCircleCont>News<CenterTopCircle id='CenterTopCircle' src="/whiteCircle.png"></CenterTopCircle></CenterTopCircleCont>
+        <CenterTopTopCircleCont>Politics<CenterTopTopCircle id='CenterTopTopCircle' src="/whiteCircle.png"></CenterTopTopCircle></CenterTopTopCircleCont>
+        <UpperRightCircleCont>Religion<UpperRightCircle id='UpperRightCircle' src="/whiteCircle.png"></UpperRightCircle></UpperRightCircleCont>
+        <UpperRightRightCircleCont>Social<UpperRightRightCircle id='UpperRightRightCircle' src="/whiteCircle.png"></UpperRightRightCircle></UpperRightRightCircleCont>
+        <UpperLeftCircleCont>Sports<UpperLeftCircle id='UpperLeftCircle' src="/whiteCircle.png"></UpperLeftCircle></UpperLeftCircleCont>
         <UpperLeftLeftCircleCont><UpperLeftLeftCircle id='UpperLeftLeftCircle' src="/whiteCircle.png"></UpperLeftLeftCircle></UpperLeftLeftCircleCont>
         <UpperRightRightCircleCont><UpperRightRightCircle id='UpperRightRightCircle' src="/whiteCircle.png"></UpperRightRightCircle></UpperRightRightCircleCont>
         <BottomRightCircleCont><BottomRightCircle id='BottomRightCircle' src="/whiteCircle.png"></BottomRightCircle></BottomRightCircleCont>
