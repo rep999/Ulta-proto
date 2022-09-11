@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+// import CircleClicked from './3_Utils/CircleClicked'
 
 const PanelParent = styled.div`
   height: 100%;
@@ -172,7 +173,6 @@ const BottomRightRightCircleCont = styled.div`
   align-items: center;
 `
 
-
 const BottomLeftCircleCont = styled.div`
   height: calc(305.5px / 5);
   width: calc(305.5px / 5);;
@@ -227,6 +227,7 @@ const BottomLeftLeftCircle = styled(Circle)`
 // `
 
 const Panel = () => {
+  const [centerCircleToggled, setCenterCircleToggled] = useState(false)
   // const mouseOverLogo = () => {
   //   const FireNetLogo = document.getElementById('FireNetLogo')
   //   const Fruit = document.getElementById('Fruit')
@@ -258,15 +259,42 @@ const Panel = () => {
   //   if (Fruit) { Fruit.style.display = 'none' }
   // }onMouseEnter={() => mouseOverLogo()} 
 
-  const CenterCircleClick = () => {
-    const CenterCircle = document.getElementById('CenterCircle')
-    // CenterCircle.style.src = '/purpleCircle.png'
+
+  // const CenterCircleClick = () => {
+  //   const CenterCircle = document.getElementById('CenterCircle') as HTMLImageElement;
+  //   if (CenterCircle && !centerCircleToggled) {
+  //     CenterCircle.src = '/purpleCircle.png'
+  //     setCenterCircleToggled(true)
+  //     CenterCircle.style.zIndex = '999';
+  //   }
+  //   else {
+  //     if (CenterCircle) CenterCircle.src = '/whiteCircle.png'
+  //     setCenterCircleToggled(false)
+  //     CenterCircle.style.zIndex = '0';
+  //   }
+  // }
+
+  const CircleClicked = (elementID: any, stateSetter: any, stateVal: any): any => {
+    const CircleSelected = document.getElementById(elementID) as HTMLImageElement;
+
+    if (CircleSelected && !stateVal) {
+      CircleSelected.src = '/purpleCircle.png'
+      stateSetter(true)
+      CircleSelected.style.zIndex = '999';
+    }
+    else {
+      if (CircleSelected) CircleSelected.src = '/whiteCircle.png'
+      stateSetter(false)
+      CircleSelected.style.zIndex = '0';
+    }
   }
 
-  return <PanelParent>
+  // CircleClicked('CenterCircle', setCenterCircleToggled, centerCircleToggled)
+
+  return (<PanelParent>
     <PanelWrapper>
       <FireNetLogo id='FireNetLogo' src="/OfficialLogo.png"></FireNetLogo>
-{/* 
+      {/* 
       <FruitCake id='FruitCake' >
         <CenterCircleCont>Topics<CenterCircle onClick={() => CenterCircleClick()} id='CenterCircle' src="/whiteCircle.png"></CenterCircle></CenterCircleCont>
         <CenterTopCircleCont>News<CenterTopCircle id='CenterTopCircle' src="/whiteCircle.png"></CenterTopCircle></CenterTopCircleCont>
@@ -288,7 +316,9 @@ const Panel = () => {
       </FruitCake> */}
 
       <FruitCake id='FruitCake' >
-        <CenterCircleCont>Topics<CenterCircle onClick={() => CenterCircleClick()} id='CenterCircle' src="/whiteCircle.png"></CenterCircle></CenterCircleCont>
+        <CenterCircleCont>Topics<CenterCircle
+          onClick={() => CircleClicked('CenterCircle', setCenterCircleToggled, centerCircleToggled)} id='CenterCircle' src="/whiteCircle.png"></CenterCircle></CenterCircleCont>
+
         <CenterTopCircleCont><CenterTopCircle id='CenterTopCircle' src="/whiteCircle.png"></CenterTopCircle></CenterTopCircleCont>
         <CenterTopTopCircleCont><CenterTopTopCircle id='CenterTopTopCircle' src="/whiteCircle.png"></CenterTopTopCircle></CenterTopTopCircleCont>
         <UpperRightCircleCont><UpperRightCircle id='UpperRightCircle' src="/whiteCircle.png"></UpperRightCircle></UpperRightCircleCont>
@@ -302,11 +332,10 @@ const Panel = () => {
         <CenterBottomCircleCont><CenterBottomCircle id='CenterBottomCircle' src="/whiteCircle.png"></CenterBottomCircle></CenterBottomCircleCont>
         <CenterBottomBottomCircleCont><CenterBottomBottomCircle id='CenterBottomBottomCircle' src="/whiteCircle.png"></CenterBottomBottomCircle></CenterBottomBottomCircleCont>
       </FruitCake>
-
-      
       {/* <Fruit id='Fruit' onMouseLeave={() => mouseLeaveFruit()} src="/Fruit.png"></Fruit> */}
     </PanelWrapper>
   </PanelParent>
+  )
 }
 
 export default Panel
