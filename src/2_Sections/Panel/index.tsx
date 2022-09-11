@@ -285,6 +285,7 @@ const Panel = () => {
     else {
       if (CircleSelected) CircleSelected.src = '/whiteCircle.png'
       stateSetter(false)
+
       CircleSelected.style.zIndex = '0';
     }
   }
