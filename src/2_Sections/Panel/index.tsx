@@ -1,17 +1,148 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-// import CircleClicked from './3_Utils/CircleClicked'
+
+// const Fruit = styled.img`
+//   height: 94%;
+//   width: 94%;
+//   position: absolute;
+//   flex-grow: 1;
+//   display: block;
+// `
+
+const Panel = () => {
+  // STATE
+  const [centerCircleToggled, setCenterCircleToggled] = useState(false)
+  const [centerTopCircleToggled, setCenterTopCircleToggled] = useState(false)
+  const [centerTopTopCircleToggled, setCenterTopTopCircleToggled] = useState(false)
+  const [centerBottomCircleToggled, setCenterBottomCircleToggled] = useState(false)
+  const [centerBottomBottomCircleToggled, setCenterBottomBottomCircleToggled] = useState(false)
+  const [upperRightCircleToggled, setUpperRightCircleToggled] = useState(false)
+  const [upperRightRightCircleToggled, setUpperRightRightCircleToggled] = useState(false)
+  const [upperLeftCircleToggled, setUpperLeftCircleToggled] = useState(false)
+  const [upperLeftLeftCircleToggled, setUpperLeftLeftCircleToggled] = useState(false)
+  const [bottomRightCircleToggled, setBottomRightCircleToggled] = useState(false)
+  const [bottomRightRightCircleToggled, setBottomRightRightCircleToggled] = useState(false)
+  const [bottomLeftCircleToggled, setBottomLeftCircleToggled] = useState(false)
+  const [bottomLeftLeftCircleToggled, setBottomLeftLeftCircleToggled] = useState(false)
+  // END
+
+
+  // const mouseOverLogo = () => {
+  //   const FireNetLogo = document.getElementById('FireNetLogo')
+  //   const Fruit = document.getElementById('Fruit')
+  //   const FruitCake = document.getElementById('FruitCake')
+  //   const CenterCircle = document.getElementById('CenterCircle')
+  //   const CenterTopCircle = document.getElementById('CenterTopCircle')
+  //   if (FireNetLogo) { FireNetLogo.style.display = 'none' }
+  //   if (Fruit) { Fruit.style.display = 'block' }
+  //   if (FruitCake) { FruitCake.style.display = 'flex' }
+  //   if (CenterCircle) { CenterCircle.style.display = 'block' }
+  //   if (CenterTopCircle) { CenterTopCircle.style.display = 'block' }
+  // }
+  // const mouseLeaveFruitCake = () => {
+  //   const FireNetLogo = document.getElementById('FireNetLogo')
+  //   const Fruit = document.getElementById('Fruit')
+  //   const FruitCake = document.getElementById('FruitCake')
+  //   const CenterCircle = document.getElementById('CenterCircle')
+  //   const CenterTopCircle = document.getElementById('CenterTopCircle')
+  //   if (FireNetLogo) { FireNetLogo.style.display = 'block' }
+  //   if (Fruit) { Fruit.style.display = 'none' }
+  //   if (FruitCake) { FruitCake.style.display = 'flex' }
+  //   if (CenterCircle) { CenterCircle.style.display = 'none' }
+  //   if (CenterTopCircle) { CenterTopCircle.style.display = 'none' }
+  // }onMouseLeave={() => mouseLeaveFruitCake()} 
+  // const mouseLeaveFruit = () => {
+  //   const FireNetLogo = document.getElementById('FireNetLogo')
+  //   const Fruit = document.getElementById('Fruit')
+  //   if (FireNetLogo) { FireNetLogo.style.display = 'block' }
+  //   if (Fruit) { Fruit.style.display = 'none' }
+  // }onMouseEnter={() => mouseOverLogo()} 
+
+
+  // const CenterCircleClick = () => {
+  //   const CenterCircle = document.getElementById('CenterCircle') as HTMLImageElement;
+  //   if (CenterCircle && !centerCircleToggled) {
+  //     CenterCircle.src = '/purpleCircle.png'
+  //     setCenterCircleToggled(true)
+  //     CenterCircle.style.zIndex = '999';
+  //   }
+  //   else {
+  //     if (CenterCircle) CenterCircle.src = '/whiteCircle.png'
+  //     setCenterCircleToggled(false)
+  //     CenterCircle.style.zIndex = '0';
+  //   }
+  // }
+
+  const CircleClicked = (elementID: any, stateSetter: any, stateVal: any): any => {
+    const CircleSelected = document.getElementById(elementID) as HTMLImageElement;
+
+    if (CircleSelected && !stateVal) {
+      CircleSelected.src = '/purpleStrokedCircle.png'
+      stateSetter(true)
+      CircleSelected.style.zIndex = '999';
+    }
+    else {
+      if (CircleSelected) CircleSelected.src = '/whiteCircle.png'
+      stateSetter(false)
+      CircleSelected.style.zIndex = '0';
+    }
+  }
+
+  return (<PanelParent>
+    <PanelWrapper>
+      <FireNetLogo id='FireNetLogo' src="/OfficialLogo.png"></FireNetLogo>
+      <FruitCake id='FruitCake' >
+        <CenterCircleCont>Topics<CenterCircle
+          onClick={() => CircleClicked('CenterCircle', setCenterCircleToggled, centerCircleToggled)} id='CenterCircle' src="/whiteCircle.png">
+        </CenterCircle></CenterCircleCont>
+        <CenterTopCircleCont>Religion<CenterTopCircle
+          onClick={() => CircleClicked('CenterTopCircle', setCenterTopCircleToggled, centerTopCircleToggled)} id='CenterTopCircle' src="/whiteCircle.png">
+        </CenterTopCircle></CenterTopCircleCont>
+        <CenterTopTopCircleCont>Politics<CenterTopTopCircle
+          onClick={() => CircleClicked('CenterTopTopCircle', setCenterTopTopCircleToggled, centerTopTopCircleToggled)} id='CenterTopTopCircle' src="/whiteCircle.png"></CenterTopTopCircle></CenterTopTopCircleCont>
+        <UpperRightCircleCont>News<UpperRightCircle
+          onClick={() => CircleClicked('UpperRightCircle', setUpperRightCircleToggled, upperRightCircleToggled)} id='UpperRightCircle' src="/whiteCircle.png"></UpperRightCircle></UpperRightCircleCont>
+        <UpperRightRightCircleCont>Business<UpperRightRightCircle
+          onClick={() => CircleClicked('UpperRightRightCircle', setUpperRightRightCircleToggled, upperRightRightCircleToggled)} id='UpperRightRightCircle' src="/whiteCircle.png"></UpperRightRightCircle></UpperRightRightCircleCont>
+        <UpperLeftCircleCont>Software<UpperLeftCircle
+          onClick={() => CircleClicked('UpperLeftCircle', setUpperLeftCircleToggled, upperLeftCircleToggled)} id='UpperLeftCircle' src="/whiteCircle.png"></UpperLeftCircle></UpperLeftCircleCont>
+        <UpperLeftLeftCircleCont>Stocks<UpperLeftLeftCircle
+          onClick={() => CircleClicked('UpperLeftLeftCircle', setUpperLeftLeftCircleToggled, upperLeftLeftCircleToggled)} id='UpperLeftLeftCircle' src="/whiteCircle.png"></UpperLeftLeftCircle></UpperLeftLeftCircleCont>
+        <BottomRightRightCircleCont>Science<BottomRightRightCircle
+          onClick={() => CircleClicked('BottomRightRightCircle', setBottomRightRightCircleToggled, bottomRightRightCircleToggled)} id='BottomRightRightCircle' src="/whiteCircle.png"></BottomRightRightCircle></BottomRightRightCircleCont>
+        <BottomRightCircleCont>Nature<BottomRightCircle
+          onClick={() => CircleClicked('BottomRightCircle', setBottomRightCircleToggled, bottomRightCircleToggled)} id='BottomRightCircle' src="/whiteCircle.png"></BottomRightCircle></BottomRightCircleCont>
+        <BottomLeftCircleCont>Health<BottomLeftCircle
+          onClick={() => CircleClicked('BottomLeftCircle', setBottomLeftCircleToggled, bottomLeftCircleToggled)} id='BottomLeftCircle' src="/whiteCircle.png"></BottomLeftCircle></BottomLeftCircleCont>
+        <BottomLeftLeftCircleCont>Fashion<BottomLeftLeftCircle
+          onClick={() => CircleClicked('BottomLeftLeftCircle', setBottomLeftLeftCircleToggled, bottomLeftLeftCircleToggled)} id='BottomLeftLeftCircle' src="/whiteCircle.png"></BottomLeftLeftCircle></BottomLeftLeftCircleCont>
+        <CenterBottomCircleCont>Art<CenterBottomCircle
+          onClick={() => CircleClicked('CenterBottomCircle', setCenterBottomCircleToggled, centerBottomCircleToggled)} id='CenterBottomCircle' src="/whiteCircle.png"></CenterBottomCircle></CenterBottomCircleCont>
+        <CenterBottomBottomCircleCont>Finance<CenterBottomBottomCircle
+          onClick={() => CircleClicked('CenterBottomBottomCircle', setCenterBottomBottomCircleToggled, centerBottomBottomCircleToggled)} id='CenterBottomBottomCircle' src="/whiteCircle.png"></CenterBottomBottomCircle></CenterBottomBottomCircleCont>
+      </FruitCake>
+    </PanelWrapper>
+    <DockWrapper>
+      <Dock></Dock>
+    </DockWrapper>
+
+
+  </PanelParent>
+  )
+}
+
+export default Panel
+
 
 const PanelParent = styled.div`
   height: 100%;
   right: 0%;
   position: absolute;
-  // border: 3px solid brown;
-  flex-grow: 1;
+  flex-direction: column;
   max-width: calc(333px);
   min-width: calc(333px);
 `
-
+// PANEL
 const PanelWrapper = styled.div`
   max-height: calc(333px);
   min-height: calc(333px);
@@ -41,6 +172,7 @@ const FruitCake = styled.div`
   flex-grow: 1;
   display: flex;
   border: 1px solid white;
+  border-radius: 50%;
   justify-content: center;
   align-items: center;
 `
@@ -56,6 +188,7 @@ const CenterCircleCont = styled.div`
   height: calc(305.5px / 5);
   width: calc(305.5px / 5);;
   position: absolute;
+  color: gold;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -217,126 +350,68 @@ const BottomLeftCircle = styled(Circle)`
 `
 const BottomLeftLeftCircle = styled(Circle)`
 `
+// end
 
-// const Fruit = styled.img`
-//   height: 94%;
-//   width: 94%;
-//   position: absolute;
-//   flex-grow: 1;
-//   display: block;
+// DOCK
+const DockWrapper = styled.div`
+  max-height: calc(66px);
+  min-height: calc(66px);
+  right: 0%;
+  position: absolute;
+  border: 1px solid gold;
+  max-width: calc(333px);
+  min-width: calc(333px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 333px;
+`
+
+const Dock = styled.div`
+
+`
+const DockButtonContainer = styled.div`
+
+`
+
+const MenuHeirachyArrowContainer = styled.div`
+
+`
+
+const MenuHeirachyArrow = styled.div`
+
+`
+
+const MenuOverFlowUpContainer = styled.div`
+
+`
+
+const MenuOverFlowUp = styled.div`
+
+`
+const MenuOverFlowDownContainer = styled.div`
+
+`
+
+const MenuOverFlowDown = styled.div`
+
+`
+const NavContainer = styled.div`
+
+`
+
+// const Nav = styled.div`
+
+// `
+// const HistoryContainer = styled.div`
+
 // `
 
-const Panel = () => {
-  const [centerCircleToggled, setCenterCircleToggled] = useState(false)
-  // const mouseOverLogo = () => {
-  //   const FireNetLogo = document.getElementById('FireNetLogo')
-  //   const Fruit = document.getElementById('Fruit')
-  //   const FruitCake = document.getElementById('FruitCake')
-  //   const CenterCircle = document.getElementById('CenterCircle')
-  //   const CenterTopCircle = document.getElementById('CenterTopCircle')
-  //   if (FireNetLogo) { FireNetLogo.style.display = 'none' }
-  //   if (Fruit) { Fruit.style.display = 'block' }
-  //   if (FruitCake) { FruitCake.style.display = 'flex' }
-  //   if (CenterCircle) { CenterCircle.style.display = 'block' }
-  //   if (CenterTopCircle) { CenterTopCircle.style.display = 'block' }
-  // }
-  // const mouseLeaveFruitCake = () => {
-  //   const FireNetLogo = document.getElementById('FireNetLogo')
-  //   const Fruit = document.getElementById('Fruit')
-  //   const FruitCake = document.getElementById('FruitCake')
-  //   const CenterCircle = document.getElementById('CenterCircle')
-  //   const CenterTopCircle = document.getElementById('CenterTopCircle')
-  //   if (FireNetLogo) { FireNetLogo.style.display = 'block' }
-  //   if (Fruit) { Fruit.style.display = 'none' }
-  //   if (FruitCake) { FruitCake.style.display = 'flex' }
-  //   if (CenterCircle) { CenterCircle.style.display = 'none' }
-  //   if (CenterTopCircle) { CenterTopCircle.style.display = 'none' }
-  // }onMouseLeave={() => mouseLeaveFruitCake()} 
-  // const mouseLeaveFruit = () => {
-  //   const FireNetLogo = document.getElementById('FireNetLogo')
-  //   const Fruit = document.getElementById('Fruit')
-  //   if (FireNetLogo) { FireNetLogo.style.display = 'block' }
-  //   if (Fruit) { Fruit.style.display = 'none' }
-  // }onMouseEnter={() => mouseOverLogo()} 
+// const History = styled.div`
+
+// `
 
 
-  // const CenterCircleClick = () => {
-  //   const CenterCircle = document.getElementById('CenterCircle') as HTMLImageElement;
-  //   if (CenterCircle && !centerCircleToggled) {
-  //     CenterCircle.src = '/purpleCircle.png'
-  //     setCenterCircleToggled(true)
-  //     CenterCircle.style.zIndex = '999';
-  //   }
-  //   else {
-  //     if (CenterCircle) CenterCircle.src = '/whiteCircle.png'
-  //     setCenterCircleToggled(false)
-  //     CenterCircle.style.zIndex = '0';
-  //   }
-  // }
 
-  const CircleClicked = (elementID: any, stateSetter: any, stateVal: any): any => {
-    const CircleSelected = document.getElementById(elementID) as HTMLImageElement;
 
-    if (CircleSelected && !stateVal) {
-      CircleSelected.src = '/purpleCircle.png'
-      stateSetter(true)
-      CircleSelected.style.zIndex = '999';
-    }
-    else {
-      if (CircleSelected) CircleSelected.src = '/whiteCircle.png'
-      stateSetter(false)
-
-      CircleSelected.style.zIndex = '0';
-    }
-  }
-
-  // CircleClicked('CenterCircle', setCenterCircleToggled, centerCircleToggled)
-
-  return (<PanelParent>
-    <PanelWrapper>
-      <FireNetLogo id='FireNetLogo' src="/OfficialLogo.png"></FireNetLogo>
-      {/* 
-      <FruitCake id='FruitCake' >
-        <CenterCircleCont>Topics<CenterCircle onClick={() => CenterCircleClick()} id='CenterCircle' src="/whiteCircle.png"></CenterCircle></CenterCircleCont>
-        <CenterTopCircleCont>News<CenterTopCircle id='CenterTopCircle' src="/whiteCircle.png"></CenterTopCircle></CenterTopCircleCont>
-        <CenterTopTopCircleCont>Politics<CenterTopTopCircle id='CenterTopTopCircle' src="/whiteCircle.png"></CenterTopTopCircle></CenterTopTopCircleCont>
-        <UpperRightCircleCont>Religion<UpperRightCircle id='UpperRightCircle' src="/whiteCircle.png"></UpperRightCircle></UpperRightCircleCont>
-        <UpperRightRightCircleCont>Social<UpperRightRightCircle id='UpperRightRightCircle' src="/whiteCircle.png"></UpperRightRightCircle></UpperRightRightCircleCont>
-        <UpperLeftCircleCont>Sports<UpperLeftCircle id='UpperLeftCircle' src="/whiteCircle.png"></UpperLeftCircle></UpperLeftCircleCont>
-        <UpperLeftLeftCircleCont><UpperLeftLeftCircle id='UpperLeftLeftCircle' src="/whiteCircle.png"></UpperLeftLeftCircle></UpperLeftLeftCircleCont>
-        <UpperRightRightCircleCont><UpperRightRightCircle id='UpperRightRightCircle' src="/whiteCircle.png"></UpperRightRightCircle></UpperRightRightCircleCont>
-        <BottomRightCircleCont><BottomRightCircle id='BottomRightCircle' src="/whiteCircle.png"></BottomRightCircle></BottomRightCircleCont>
-        <BottomRightRightCircleCont><BottomRightRightCircle id='BottomRightRightCircle' src="/whiteCircle.png"></BottomRightRightCircle></BottomRightRightCircleCont>
-        <BottomRightCircleCont><BottomRightCircle id='BottomRightCircle' src="/whiteCircle.png"></BottomRightCircle></BottomRightCircleCont>
-        <BottomLeftCircleCont><BottomLeftCircle id='BottomLeftCircle' src="/whiteCircle.png"></BottomLeftCircle></BottomLeftCircleCont>
-        <BottomLeftLeftCircleCont><BottomLeftLeftCircle id='BottomLeftLeftCircle' src="/whiteCircle.png"></BottomLeftLeftCircle></BottomLeftLeftCircleCont>
-        <UpperRightRightCircleCont><UpperRightRightCircle id='UpperRightRightCircle' src="/whiteCircle.png"></UpperRightRightCircle></UpperRightRightCircleCont>
-        <CenterBottomBottomCircleCont><CenterBottomBottomCircle id='CenterBottomBottomCircle' src="/whiteCircle.png"></CenterBottomBottomCircle></CenterBottomBottomCircleCont>
-        <CenterBottomCircleCont><CenterBottomCircle id='CenterBottomCircle' src="/whiteCircle.png"></CenterBottomCircle></CenterBottomCircleCont>
-        <CenterBottomBottomCircleCont><CenterBottomBottomCircle id='CenterBottomBottomCircle' src="/whiteCircle.png"></CenterBottomBottomCircle></CenterBottomBottomCircleCont>
-      </FruitCake> */}
-
-      <FruitCake id='FruitCake' >
-        <CenterCircleCont>Topics<CenterCircle
-          onClick={() => CircleClicked('CenterCircle', setCenterCircleToggled, centerCircleToggled)} id='CenterCircle' src="/whiteCircle.png"></CenterCircle></CenterCircleCont>
-
-        <CenterTopCircleCont><CenterTopCircle id='CenterTopCircle' src="/whiteCircle.png"></CenterTopCircle></CenterTopCircleCont>
-        <CenterTopTopCircleCont><CenterTopTopCircle id='CenterTopTopCircle' src="/whiteCircle.png"></CenterTopTopCircle></CenterTopTopCircleCont>
-        <UpperRightCircleCont><UpperRightCircle id='UpperRightCircle' src="/whiteCircle.png"></UpperRightCircle></UpperRightCircleCont>
-        <UpperRightRightCircleCont><UpperRightRightCircle id='UpperRightRightCircle' src="/whiteCircle.png"></UpperRightRightCircle></UpperRightRightCircleCont>
-        <UpperLeftCircleCont><UpperLeftCircle id='UpperLeftCircle' src="/whiteCircle.png"></UpperLeftCircle></UpperLeftCircleCont>
-        <UpperLeftLeftCircleCont><UpperLeftLeftCircle id='UpperLeftLeftCircle' src="/whiteCircle.png"></UpperLeftLeftCircle></UpperLeftLeftCircleCont>
-        <BottomRightRightCircleCont><BottomRightRightCircle id='BottomRightRightCircle' src="/whiteCircle.png"></BottomRightRightCircle></BottomRightRightCircleCont>
-        <BottomRightCircleCont><BottomRightCircle id='BottomRightCircle' src="/whiteCircle.png"></BottomRightCircle></BottomRightCircleCont>
-        <BottomLeftCircleCont><BottomLeftCircle id='BottomLeftCircle' src="/whiteCircle.png"></BottomLeftCircle></BottomLeftCircleCont>
-        <BottomLeftLeftCircleCont><BottomLeftLeftCircle id='BottomLeftLeftCircle' src="/whiteCircle.png"></BottomLeftLeftCircle></BottomLeftLeftCircleCont>
-        <CenterBottomCircleCont><CenterBottomCircle id='CenterBottomCircle' src="/whiteCircle.png"></CenterBottomCircle></CenterBottomCircleCont>
-        <CenterBottomBottomCircleCont><CenterBottomBottomCircle id='CenterBottomBottomCircle' src="/whiteCircle.png"></CenterBottomBottomCircle></CenterBottomBottomCircleCont>
-      </FruitCake>
-      {/* <Fruit id='Fruit' onMouseLeave={() => mouseLeaveFruit()} src="/Fruit.png"></Fruit> */}
-    </PanelWrapper>
-  </PanelParent>
-  )
-}
-
-export default Panel
+// end
