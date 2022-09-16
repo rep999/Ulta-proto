@@ -35,13 +35,13 @@ const Modal = ({ onClose }) => {
 
   const saveClick = async (event) => {
     if (event) event.preventDefault()
-    const { data, error } = await supabase.from('chirp').insert([
-      {
-        url: `derp_derp2`,
-        text: `inputData.text`,
-        category: `inputData.category`,
-      },
-    ])
+    // const { data, error } = await supabase.from('chirp').insert([
+    //   {
+    //     url: `derp_derp2`,
+    //     text: `inputData.text`,
+    //     category: `inputData.category`,
+    //   },
+    // ])
   }
 
   const modalContent = (

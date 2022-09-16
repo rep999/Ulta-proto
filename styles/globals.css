@@ -14,7 +14,7 @@ body {
 }
 
 body {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
   line-height: 1.2;
   align-items: stretch;
@@ -41,6 +41,7 @@ a {
   html {
     color-scheme: dark;
   }
+
   body {
     color: white;
     background: black;

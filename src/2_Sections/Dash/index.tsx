@@ -2,6 +2,140 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Image from 'next/image'
 import MockFireObjReturned from '../../data/MockFire'
+import { supabase } from '../../../client.js'
+
+interface Fire {
+  fireUrl?: string
+  fireTimeStamp?: string
+  fireCategory?: string
+  fireCount?: string
+  fireTitle?: string
+}
+
+const Dash = ({ fires }) => {
+  const [initialRender, setInitialRender] = useState(true)
+  const [mockFireData, setMockFireData] = useState<any>([])
+  const CardClick = () => { }
+
+  const CubeClick = () => { }
+
+  useEffect(() => {
+    if (initialRender) {
+      setMockFireData(MockFireObjReturned)
+    }
+    setInitialRender(false)
+  }, [mockFireData])
+
+  const CardMainTitleME = () => { }
+  const CardMainTitleMO = () => { }
+  const ByDateClick = () => {
+    const data = MockFireObjReturned
+    data.sort((a, b) =>
+      parseInt(a.fireCount) > parseInt(b.fireCount) ? 1 : -1,
+    )
+    setMockFireData(data)
+  }
+  const ByFireClick = () => {
+    const data = MockFireObjReturned
+    data.sort((a, b) =>
+      parseInt(a.fireCount) > parseInt(b.fireCount) ? 1 : -1,
+    )
+    setMockFireData(data)
+  }
+  const ByCategoryClick = () => { }
+  return (
+    <DashContainer>
+      <TopHeaderContainer>
+        <TopHeaderTitleRow>
+          <WelcomeTitleContainer>
+            <WelcomeTitle>Welcome to FireNet </WelcomeTitle>
+            {/* <WelcomeTitleImgContainer>
+              <WelcomeTitleImg src="/OfficialLogo.png" />
+            </WelcomeTitleImgContainer> */}
+          </WelcomeTitleContainer>
+          <GlamourShotContainer>
+            <GlamourShot src="/ProfilePic.jpg"></GlamourShot>
+          </GlamourShotContainer>
+        </TopHeaderTitleRow>
+        <TopHeaderSpacerContainer>
+          <TopHeaderSpacer></TopHeaderSpacer>
+        </TopHeaderSpacerContainer>
+        <DockPanel>
+          <ByDateContainer>
+            <ByDate onClick={() => ByDateClick()}>By Date</ByDate>
+          </ByDateContainer>
+          <ByFireContainer>
+            <ByFire onClick={() => ByFireClick()}>By Fire</ByFire>
+          </ByFireContainer>
+          <ByCategoryContainer>
+            <ByCategory onClick={() => ByCategoryClick()}>
+              By Category
+            </ByCategory>
+          </ByCategoryContainer>
+          <DockBtnSpace>
+            <DockBtnContainer>
+              <DockCardsBtnContainer onClick={() => CardClick()}>
+                <DockCardsBtn src="/CardsIcon.png" />
+              </DockCardsBtnContainer>
+              <DockCubesBtnContainer onClick={() => CubeClick()}>
+                <DockCubesBtn src="/CubesIcon.png" />
+              </DockCubesBtnContainer>
+            </DockBtnContainer>
+          </DockBtnSpace>
+        </DockPanel>
+      </TopHeaderContainer>
+
+      <ContentSectional>
+        <CardsContentContainer>
+          <CardListUL>
+            {mockFireData &&
+              mockFireData.map((fire: Fire, i: number) => (
+                <CardListLi key={i}>
+                  <CardListItem>
+                    <CardMainSection>
+                      <CardMainContainer>
+                        <FireEmojiContainer>
+                          <FireEmoji src="/FireEmoji.png"></FireEmoji>
+                        </FireEmojiContainer>
+                        <CardMainTitleContainer>
+                          <CardMainTitle
+                            onMouseEnter={() => CardMainTitleME()}
+                            onMouseOut={() => CardMainTitleMO()}
+                          >
+                            {fire.fireTitle}
+                          </CardMainTitle>
+                          <CardMainUrl>{fire.fireCount} </CardMainUrl>
+                        </CardMainTitleContainer>
+                        <CategorySection>
+                          <CategoryContainer>
+                            <CategoryTitleContainer>
+                              <CategoryTitle>Category:</CategoryTitle>
+                            </CategoryTitleContainer>
+                            <CategoryValueContainer>
+                              <CategoryValue>{fire.fireCategory}</CategoryValue>
+                            </CategoryValueContainer>
+                          </CategoryContainer>
+                        </CategorySection>
+                      </CardMainContainer>
+                    </CardMainSection>
+                    <CardDateSection>
+                      <CardDateContainer>
+                        <CardDate>{fire.fireTimeStamp}</CardDate>
+                        <CardLikesCount>{fire.fireCount}</CardLikesCount>
+                      </CardDateContainer>
+                    </CardDateSection>
+                  </CardListItem>
+                </CardListLi>
+              ))}
+          </CardListUL>
+        </CardsContentContainer>
+      </ContentSectional>
+    </DashContainer>
+  )
+}
+
+export default Dash
+
 
 const DashContainer = styled.div`
   height: 100%;
@@ -609,135 +743,3 @@ const TabsGroupSage = styled.section`
 
 const AppendageWrapper = styled.div``
 
-interface Fire {
-  fireUrl: string
-  fireTimeStamp: string
-  fireCategory: string
-  fireCount: string
-  fireTitle: string
-}
-
-const Dash = () => {
-  const [initialRender, setInitialRender] = useState(true)
-  const [mockFireData, setMockFireData] = useState<any>([])
-
-  const CardClick = () => {}
-
-  const CubeClick = () => {}
-
-  useEffect(() => {
-    if (initialRender) {
-      setMockFireData(MockFireObjReturned)
-    }
-    setInitialRender(false)
-  }, [mockFireData])
-
-  const CardMainTitleME = () => {}
-  const CardMainTitleMO = () => {}
-  const ByDateClick = () => {
-    const data = MockFireObjReturned
-    data.sort((a, b) =>
-      parseInt(a.fireCount) > parseInt(b.fireCount) ? 1 : -1,
-    )
-    setMockFireData(data)
-  }
-  const ByFireClick = () => {
-    const data = MockFireObjReturned
-    data.sort((a, b) =>
-      parseInt(a.fireCount) > parseInt(b.fireCount) ? 1 : -1,
-    )
-    setMockFireData(data)
-  }
-  const ByCategoryClick = () => {}
-  return (
-    <DashContainer>
-      <TopHeaderContainer>
-        <TopHeaderTitleRow>
-          <WelcomeTitleContainer>
-            <WelcomeTitle>Welcome to FireNet </WelcomeTitle>
-            {/* <WelcomeTitleImgContainer>
-              <WelcomeTitleImg src="/OfficialLogo.png" />
-            </WelcomeTitleImgContainer> */}
-          </WelcomeTitleContainer>
-          <GlamourShotContainer>
-            <GlamourShot src="/ProfilePic.jpg"></GlamourShot>
-          </GlamourShotContainer>
-        </TopHeaderTitleRow>
-        <TopHeaderSpacerContainer>
-          <TopHeaderSpacer></TopHeaderSpacer>
-        </TopHeaderSpacerContainer>
-        <DockPanel>
-          <ByDateContainer>
-            <ByDate onClick={() => ByDateClick()}>By Date</ByDate>
-          </ByDateContainer>
-          <ByFireContainer>
-            <ByFire onClick={() => ByFireClick()}>By Fire</ByFire>
-          </ByFireContainer>
-          <ByCategoryContainer>
-            <ByCategory onClick={() => ByCategoryClick()}>
-              By Category
-            </ByCategory>
-          </ByCategoryContainer>
-          <DockBtnSpace>
-            <DockBtnContainer>
-              <DockCardsBtnContainer onClick={() => CardClick()}>
-                <DockCardsBtn src="/CardsIcon.png" />
-              </DockCardsBtnContainer>
-              <DockCubesBtnContainer onClick={() => CubeClick()}>
-                <DockCubesBtn src="/CubesIcon.png" />
-              </DockCubesBtnContainer>
-            </DockBtnContainer>
-          </DockBtnSpace>
-        </DockPanel>
-      </TopHeaderContainer>
-
-      <ContentSectional>
-        <CardsContentContainer>
-          <CardListUL>
-            {mockFireData &&
-              mockFireData.map((fire: Fire, i: number) => (
-                <CardListLi key={i}>
-                  <CardListItem>
-                    <CardMainSection>
-                      <CardMainContainer>
-                        <FireEmojiContainer>
-                          <FireEmoji src="/FireEmoji.png"></FireEmoji>
-                        </FireEmojiContainer>
-                        <CardMainTitleContainer>
-                          <CardMainTitle
-                            onMouseEnter={() => CardMainTitleME()}
-                            onMouseOut={() => CardMainTitleMO()}
-                          >
-                            {fire.fireTitle}
-                          </CardMainTitle>
-                          <CardMainUrl>{fire.fireCount} </CardMainUrl>
-                        </CardMainTitleContainer>
-                        <CategorySection>
-                          <CategoryContainer>
-                            <CategoryTitleContainer>
-                              <CategoryTitle>Category:</CategoryTitle>
-                            </CategoryTitleContainer>
-                            <CategoryValueContainer>
-                              <CategoryValue>{fire.fireCategory}</CategoryValue>
-                            </CategoryValueContainer>
-                          </CategoryContainer>
-                        </CategorySection>
-                      </CardMainContainer>
-                    </CardMainSection>
-                    <CardDateSection>
-                      <CardDateContainer>
-                        <CardDate>{fire.fireTimeStamp}</CardDate>
-                        <CardLikesCount>{fire.fireCount}</CardLikesCount>
-                      </CardDateContainer>
-                    </CardDateSection>
-                  </CardListItem>
-                </CardListLi>
-              ))}
-          </CardListUL>
-        </CardsContentContainer>
-      </ContentSectional>
-    </DashContainer>
-  )
-}
-
-export default Dash

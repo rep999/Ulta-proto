@@ -35,20 +35,13 @@ const Testy = () => {
 
   const onSubmit = async (inputData: any) => {
     const inputObj = JSON.stringify(inputData)
-    // let { data: chirp, error } = await supabase.from('chirp').select('*')
     console.log(inputData)
     console.log(inputData.url)
     console.log(inputData.text)
     console.log(inputData.category)
-    const { data, error } = await supabase.from('chirp').insert([
-      {
-        url: inputData.url,
-        text: inputData.text,
-        category: inputData.category,
-      },
-    ])
+
   }
-  useEffect(() => {}, [])
+  useEffect(() => { }, [])
 
   return (
     <TestyContainer>

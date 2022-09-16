@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -11,6 +11,7 @@ import Testy from 'src/2_Sections/Testy'
 import Nav from 'src/2_Sections/Nav'
 import Panel from 'src/2_Sections/Panel'
 import styled from 'styled-components'
+import { supabase } from '../../client.js'
 
 const WebFire_App = styled.div`
   border: 2px solid white;
@@ -57,6 +58,44 @@ const MainFlexContainer = styled.main`
 `
 
 const Home: NextPage = () => {
+  const [isLoading, setIsLoading] = useState(true)
+  const [session, setSession] = useState<any>(null)
+
+  useEffect(() => {
+    let mounted = true
+
+    async function getInitialSession() {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession()
+      // only update the react state if the component is still mounted
+      console.log(`session`)
+      console.log(session)
+      if (mounted) {
+        if (session) {
+          setSession(session)
+        }
+
+        setIsLoading(false)
+      }
+    }
+
+    getInitialSession()
+
+    const { subscription } = supabase.auth.onAuthStateChange(
+      (_event, session) => {
+        setSession(session)
+      }
+    )
+
+    return () => {
+      mounted = false
+
+      subscription?.unsubscribe()
+    }
+  }, [])
+
+
   return (
     <WebFire_App>
       <Head>

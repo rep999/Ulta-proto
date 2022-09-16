@@ -10,7 +10,7 @@ import styled from 'styled-components'
 // `
 
 const Panel = () => {
-  // STATE
+  // STATE TOGGLES
   const [centerCircleToggled, setCenterCircleToggled] = useState(false)
   const [centerTopCircleToggled, setCenterTopCircleToggled] = useState(false)
   const [centerTopTopCircleToggled, setCenterTopTopCircleToggled] = useState(false)
@@ -24,7 +24,13 @@ const Panel = () => {
   const [bottomRightRightCircleToggled, setBottomRightRightCircleToggled] = useState(false)
   const [bottomLeftCircleToggled, setBottomLeftCircleToggled] = useState(false)
   const [bottomLeftLeftCircleToggled, setBottomLeftLeftCircleToggled] = useState(false)
-  // END
+  // STATE BOOLEANS
+  const [topics, setTopics] = useState(true)
+  const [subTopics, setSubTopics] = useState(false)
+  const [subSubTopics, setSubSubTopics] = useState(false)
+  // STATE CIRCLES
+  const [centerCircle, setCenterCircle] = useState('Topics')
+  const [centerTopCircle, setCenterTopCircle] = useState('')
 
 
   // const mouseOverLogo = () => {
@@ -73,61 +79,203 @@ const Panel = () => {
   //   }
   // }
 
+  const CenterCircleClicked = (elementID: any, stateSetter: any, stateVal: any): any => {
+    // const CircleSelected = document.getElementById(elementID) as HTMLImageElement;
+
+    // if (CircleSelected && !stateVal) {
+    //   setCenterCircle('Search')
+    //   CircleSelected.src = '/purpleStrokedCircle.png'
+    //   stateSetter(true)
+    //   CircleSelected.style.zIndex = '999';
+    // }
+    // else {
+    //   if (CircleSelected) {
+    //     CircleSelected.src = '/whiteCircle.png';
+    //     setCenterCircle('Topics')
+    //   }
+    //   stateSetter(false)
+    //   CircleSelected.style.zIndex = '0';
+    // }
+  }
+
   const CircleClicked = (elementID: any, stateSetter: any, stateVal: any): any => {
+
     const CircleSelected = document.getElementById(elementID) as HTMLImageElement;
 
     if (CircleSelected && !stateVal) {
+      setCenterCircle('Search')
       CircleSelected.src = '/purpleStrokedCircle.png'
       stateSetter(true)
       CircleSelected.style.zIndex = '999';
     }
     else {
-      if (CircleSelected) CircleSelected.src = '/whiteCircle.png'
+      if (CircleSelected) {
+        CircleSelected.src = '/whiteCircle.png';
+        setCenterCircle('Topics')
+      }
       stateSetter(false)
       CircleSelected.style.zIndex = '0';
     }
   }
 
-  return (<PanelParent>
-    <PanelWrapper>
-      <FireNetLogo id='FireNetLogo' src="/OfficialLogo.png"></FireNetLogo>
-      <FruitCake id='FruitCake' >
-        <CenterCircleCont>Topics<CenterCircle
-          onClick={() => CircleClicked('CenterCircle', setCenterCircleToggled, centerCircleToggled)} id='CenterCircle' src="/whiteCircle.png">
-        </CenterCircle></CenterCircleCont>
-        <CenterTopCircleCont>Religion<CenterTopCircle
-          onClick={() => CircleClicked('CenterTopCircle', setCenterTopCircleToggled, centerTopCircleToggled)} id='CenterTopCircle' src="/whiteCircle.png">
-        </CenterTopCircle></CenterTopCircleCont>
-        <CenterTopTopCircleCont>Politics<CenterTopTopCircle
-          onClick={() => CircleClicked('CenterTopTopCircle', setCenterTopTopCircleToggled, centerTopTopCircleToggled)} id='CenterTopTopCircle' src="/whiteCircle.png"></CenterTopTopCircle></CenterTopTopCircleCont>
-        <UpperRightCircleCont>News<UpperRightCircle
-          onClick={() => CircleClicked('UpperRightCircle', setUpperRightCircleToggled, upperRightCircleToggled)} id='UpperRightCircle' src="/whiteCircle.png"></UpperRightCircle></UpperRightCircleCont>
-        <UpperRightRightCircleCont>Business<UpperRightRightCircle
-          onClick={() => CircleClicked('UpperRightRightCircle', setUpperRightRightCircleToggled, upperRightRightCircleToggled)} id='UpperRightRightCircle' src="/whiteCircle.png"></UpperRightRightCircle></UpperRightRightCircleCont>
-        <UpperLeftCircleCont>Software<UpperLeftCircle
-          onClick={() => CircleClicked('UpperLeftCircle', setUpperLeftCircleToggled, upperLeftCircleToggled)} id='UpperLeftCircle' src="/whiteCircle.png"></UpperLeftCircle></UpperLeftCircleCont>
-        <UpperLeftLeftCircleCont>Stocks<UpperLeftLeftCircle
-          onClick={() => CircleClicked('UpperLeftLeftCircle', setUpperLeftLeftCircleToggled, upperLeftLeftCircleToggled)} id='UpperLeftLeftCircle' src="/whiteCircle.png"></UpperLeftLeftCircle></UpperLeftLeftCircleCont>
-        <BottomRightRightCircleCont>Science<BottomRightRightCircle
-          onClick={() => CircleClicked('BottomRightRightCircle', setBottomRightRightCircleToggled, bottomRightRightCircleToggled)} id='BottomRightRightCircle' src="/whiteCircle.png"></BottomRightRightCircle></BottomRightRightCircleCont>
-        <BottomRightCircleCont>Nature<BottomRightCircle
-          onClick={() => CircleClicked('BottomRightCircle', setBottomRightCircleToggled, bottomRightCircleToggled)} id='BottomRightCircle' src="/whiteCircle.png"></BottomRightCircle></BottomRightCircleCont>
-        <BottomLeftCircleCont>Health<BottomLeftCircle
-          onClick={() => CircleClicked('BottomLeftCircle', setBottomLeftCircleToggled, bottomLeftCircleToggled)} id='BottomLeftCircle' src="/whiteCircle.png"></BottomLeftCircle></BottomLeftCircleCont>
-        <BottomLeftLeftCircleCont>Fashion<BottomLeftLeftCircle
-          onClick={() => CircleClicked('BottomLeftLeftCircle', setBottomLeftLeftCircleToggled, bottomLeftLeftCircleToggled)} id='BottomLeftLeftCircle' src="/whiteCircle.png"></BottomLeftLeftCircle></BottomLeftLeftCircleCont>
-        <CenterBottomCircleCont>Art<CenterBottomCircle
-          onClick={() => CircleClicked('CenterBottomCircle', setCenterBottomCircleToggled, centerBottomCircleToggled)} id='CenterBottomCircle' src="/whiteCircle.png"></CenterBottomCircle></CenterBottomCircleCont>
-        <CenterBottomBottomCircleCont>Finance<CenterBottomBottomCircle
-          onClick={() => CircleClicked('CenterBottomBottomCircle', setCenterBottomBottomCircleToggled, centerBottomBottomCircleToggled)} id='CenterBottomBottomCircle' src="/whiteCircle.png"></CenterBottomBottomCircle></CenterBottomBottomCircleCont>
-      </FruitCake>
-    </PanelWrapper>
-    <DockWrapper>
-      <Dock></Dock>
-    </DockWrapper>
+  const MenuHeirachyArrowLeftClk = () => {
+    const DockTextEl = document.getElementById('DockText');
+    if (DockTextEl) { DockTextEl.innerText = 'Menu Over Flow Up' }
+  }
 
+  const MenuOverFlowUpClk = () => {
+    // if (topics) { setTopics(false); setSubTopics(true); setSubSubTopics(false); }
+    if (subTopics) { setTopics(true); setSubTopics(false); setSubSubTopics(false); }
+    if (subSubTopics) { setTopics(false); setSubTopics(true); setSubSubTopics(false); }
+  }
 
-  </PanelParent>
+  const HistoryClk = () => {
+    const DockTextEl = document.getElementById('DockText');
+    if (DockTextEl) { DockTextEl.innerText = 'Menu Over Flow Up' }
+  }
+
+  const MenuOverFlowDownClk = () => {
+    if (topics) { setTopics(false); setSubTopics(true); setSubSubTopics(false); }
+    if (subTopics) { setTopics(false); setSubTopics(false); setSubSubTopics(true); }
+    // if (subSubTopics) { setTopics(false); setSubTopics(false); setSubSubTopics(true); }
+  }
+
+  const MenuHeirachyArrowRightClk = () => {
+    const DockTextEl = document.getElementById('DockText');
+    if (DockTextEl) { DockTextEl.innerText = 'Menu Over Flow Up' }
+  }
+
+  const MenuOverFlowUpME = () => {
+    const DockTextEl = document.getElementById('DockText');
+    if (DockTextEl) { DockTextEl.innerText = 'Menu Over Flow Up' }
+  }
+
+  const MenuOverFlowDownME = () => {
+    const DockTextEl = document.getElementById('DockText');
+    if (DockTextEl) { DockTextEl.innerText = 'Menu Over Flow Down' }
+  }
+
+  const HistoryME = () => {
+    const DockTextEl = document.getElementById('DockText');
+    if (DockTextEl) { DockTextEl.innerText = 'History' }
+  }
+
+  const MenuHeirachyArrowLeftME = () => {
+    const DockTextEl = document.getElementById('DockText');
+    if (DockTextEl) { DockTextEl.innerText = 'Menu Heirarchy Arrow' }
+  }
+
+  const MenuHeirachyArrowRightME = () => {
+    const DockTextEl = document.getElementById('DockText');
+    if (DockTextEl) { DockTextEl.innerText = 'Menu Heirarchy Arrow' }
+  }
+
+  const MenuOverFlowUpMO = () => {
+    const DockTextEl = document.getElementById('DockText');
+    if (DockTextEl) { DockTextEl.innerText = '' }
+  }
+
+  const MenuOverFlowDownMO = () => {
+    const DockTextEl = document.getElementById('DockText');
+    if (DockTextEl) { DockTextEl.innerText = '' }
+  }
+
+  const HistoryMO = () => {
+    const DockTextEl = document.getElementById('DockText');
+    if (DockTextEl) { DockTextEl.innerText = '' }
+  }
+
+  const MenuHeirachyArrowLeftMO = () => {
+    const DockTextEl = document.getElementById('DockText');
+    if (DockTextEl) { DockTextEl.innerText = '' }
+  }
+
+  const MenuHeirachyArrowRightMO = () => {
+    const DockTextEl = document.getElementById('DockText');
+    if (DockTextEl) { DockTextEl.innerText = '' }
+  }
+
+  return (
+
+    <PanelParent>
+      <PanelWrapper>
+        <FireNetLogo id='FireNetLogo' src="/OfficialLogo.png"></FireNetLogo>
+        <FruitCake id='FruitCake' >
+          <CenterCircleCont>
+            {topics ? centerCircle : subTopics ? 'SubTopics' : subSubTopics ? "SubSubTopic" : ''}<CenterCircle
+              onClick={() => CenterCircleClicked('CenterCircle', setCenterCircleToggled, centerCircleToggled)} id='CenterCircle' src="/whiteCircle.png">
+            </CenterCircle></CenterCircleCont>
+          <CenterTopCircleCont>
+            {topics ? 'Religion' : subTopics ? 'Important' : subSubTopics ? "SubSubTopic" : ''}<CenterTopCircle
+              onClick={() => CircleClicked('CenterTopCircle', setCenterTopCircleToggled, centerTopCircleToggled)} id='CenterTopCircle' src="/whiteCircle.png">
+            </CenterTopCircle></CenterTopCircleCont>
+          <CenterTopTopCircleCont>
+            {topics ? 'Religion' : subTopics ? 'Note' : subSubTopics ? "SubSubTopic" : ''}<CenterTopTopCircle
+              onClick={() => CircleClicked('CenterTopTopCircle', setCenterTopTopCircleToggled, centerTopTopCircleToggled)} id='CenterTopTopCircle' src="/whiteCircle.png"></CenterTopTopCircle></CenterTopTopCircleCont>
+          <UpperRightCircleCont>
+            {topics ? 'News' : subTopics ? 'Key' : subSubTopics ? "SubSubTopic" : ''}<UpperRightCircle
+              onClick={() => CircleClicked('UpperRightCircle', setUpperRightCircleToggled, upperRightCircleToggled)} id='UpperRightCircle' src="/whiteCircle.png"></UpperRightCircle></UpperRightCircleCont>
+          <UpperRightRightCircleCont>
+            {topics ? 'Business' : subTopics ? 'Date' : subSubTopics ? "SubSubTopic" : ''}<UpperRightRightCircle
+              onClick={() => CircleClicked('UpperRightRightCircle', setUpperRightRightCircleToggled, upperRightRightCircleToggled)} id='UpperRightRightCircle' src="/whiteCircle.png"></UpperRightRightCircle></UpperRightRightCircleCont>
+          <UpperLeftCircleCont>
+            {topics ? 'Software' : subTopics ? 'Interesting' : subSubTopics ? "SubSubTopic" : ''}<UpperLeftCircle
+              onClick={() => CircleClicked('UpperLeftCircle', setUpperLeftCircleToggled, upperLeftCircleToggled)} id='UpperLeftCircle' src="/whiteCircle.png"></UpperLeftCircle></UpperLeftCircleCont>
+          <UpperLeftLeftCircleCont>
+            {topics ? 'Fitness' : subTopics ? 'Helpful' : subSubTopics ? "SubSubTopic" : ''}<UpperLeftLeftCircle
+              onClick={() => CircleClicked('UpperLeftLeftCircle', setUpperLeftLeftCircleToggled, upperLeftLeftCircleToggled)} id='UpperLeftLeftCircle' src="/whiteCircle.png"></UpperLeftLeftCircle></UpperLeftLeftCircleCont>
+          <BottomRightRightCircleCont>
+            {topics ? 'Science' : subTopics ? 'Applicable' : subSubTopics ? "SubSubTopic" : ''}<BottomRightRightCircle
+              onClick={() => CircleClicked('BottomRightRightCircle', setBottomRightRightCircleToggled, bottomRightRightCircleToggled)} id='BottomRightRightCircle' src="/whiteCircle.png"></BottomRightRightCircle></BottomRightRightCircleCont>
+          <BottomRightCircleCont>
+            {topics ? 'Nature' : subTopics ? 'Career' : subSubTopics ? "SubSubTopic" : ''}<BottomRightCircle
+              onClick={() => CircleClicked('BottomRightCircle', setBottomRightCircleToggled, bottomRightCircleToggled)} id='BottomRightCircle' src="/whiteCircle.png"></BottomRightCircle></BottomRightCircleCont>
+          <BottomLeftCircleCont>
+            {topics ? 'Health' : subTopics ? 'Knowledge' : subSubTopics ? "SubSubTopic" : ''}<BottomLeftCircle
+              onClick={() => CircleClicked('BottomLeftCircle', setBottomLeftCircleToggled, bottomLeftCircleToggled)} id='BottomLeftCircle' src="/whiteCircle.png"></BottomLeftCircle></BottomLeftCircleCont>
+          <BottomLeftLeftCircleCont>
+            {topics ? 'Fashion' : subTopics ? 'Question' : subSubTopics ? "SubSubTopic" : ''}<BottomLeftLeftCircle
+              onClick={() => CircleClicked('BottomLeftLeftCircle', setBottomLeftLeftCircleToggled, bottomLeftLeftCircleToggled)} id='BottomLeftLeftCircle' src="/whiteCircle.png"></BottomLeftLeftCircle></BottomLeftLeftCircleCont>
+          <CenterBottomCircleCont>
+            {topics ? 'Art' : subTopics ? 'Insightful' : subSubTopics ? "SubSubTopic" : ''}<CenterBottomCircle
+              onClick={() => CircleClicked('CenterBottomCircle', setCenterBottomCircleToggled, centerBottomCircleToggled)} id='CenterBottomCircle' src="/whiteCircle.png"></CenterBottomCircle></CenterBottomCircleCont>
+          <CenterBottomBottomCircleCont>
+            {topics ? 'Finance' : subTopics ? 'Funny' : subSubTopics ? "SubSubTopic" : ''}<CenterBottomBottomCircle
+              onClick={() => CircleClicked('CenterBottomBottomCircle', setCenterBottomBottomCircleToggled, centerBottomBottomCircleToggled)} id='CenterBottomBottomCircle' src="/whiteCircle.png"></CenterBottomBottomCircle></CenterBottomBottomCircleCont>
+        </FruitCake>
+      </PanelWrapper>
+      <DockWrapper>
+        <Dock>
+          <DockButtonContainer>
+            <MenuHeirachyArrowLeftContainer>
+              <MenuHeirachyArrowLeft onClick={() => MenuHeirachyArrowLeftClk()} onMouseEnter={() => MenuHeirachyArrowLeftME()} onMouseOut={() => MenuHeirachyArrowLeftMO()} src="/MenuHeirarchyArrow.png"></MenuHeirachyArrowLeft>
+            </MenuHeirachyArrowLeftContainer>
+
+            <MenuOverFlowUpContainer>
+              <MenuOverFlowUp onClick={() => MenuOverFlowUpClk()} onMouseEnter={() => MenuOverFlowUpME()} onMouseOut={() => MenuOverFlowUpMO()} src="/Arrow.png"></MenuOverFlowUp>
+            </MenuOverFlowUpContainer>
+
+            <HistoryContainer>
+              <History onClick={() => HistoryClk()} onMouseEnter={() => HistoryME()} onMouseOut={() => HistoryMO()} src="/History.png"></History>
+            </HistoryContainer>
+
+            <MenuOverFlowDownContainer>
+              <MenuOverFlowDown onClick={() => MenuOverFlowDownClk()} onMouseEnter={() => MenuOverFlowDownME()} onMouseOut={() => MenuOverFlowDownMO()} src="/Arrow.png"></MenuOverFlowDown>
+            </MenuOverFlowDownContainer>
+
+            <MenuHeirachyArrowRightContainer>
+              <MenuHeirachyArrowRight onClick={() => MenuHeirachyArrowRightClk()} onMouseEnter={() => MenuHeirachyArrowRightME()} onMouseOut={() => MenuHeirachyArrowRightMO()} src="/MenuHeirarchyArrow.png"></MenuHeirachyArrowRight>
+            </MenuHeirachyArrowRightContainer>
+
+          </DockButtonContainer>
+        </Dock>
+        <DockTextWrapper>
+          <DockTextContainer>
+            <DockText id="DockText"></DockText>
+          </DockTextContainer>
+        </DockTextWrapper>
+      </DockWrapper>
+    </PanelParent>
   )
 }
 
@@ -171,8 +319,8 @@ const FruitCake = styled.div`
   position: absolute;
   flex-grow: 1;
   display: flex;
-  border: 1px solid white;
-  border-radius: 50%;
+  border: 1px solid transparent;
+  // border-radius: 50%;
   justify-content: center;
   align-items: center;
 `
@@ -365,53 +513,100 @@ const DockWrapper = styled.div`
   align-items: center;
   justify-content: center;
   top: 333px;
+  flex-direction: column;
 `
 
 const Dock = styled.div`
-
+  width: 80%;
+  height: 58px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 `
+
 const DockButtonContainer = styled.div`
-
+  width: 100%;
+  height: 100%;
+  // border: 1px solid white;
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 3px;
 `
 
-const MenuHeirachyArrowContainer = styled.div`
-
+const MenuHeirachyArrowLeftContainer = styled.div`
+  width: 33px;
+  height: 33px;
+  // border: 1px solid white;
 `
 
-const MenuHeirachyArrow = styled.div`
+const MenuHeirachyArrowLeft = styled.img`
+  height: 100%;
+  width: 100%;
+  transform: rotate(180deg);
+`
 
+const MenuHeirachyArrowRightContainer = styled.div`
+  width: 33px;
+  height: 33px;
+  // border: 1px solid white;
+`
+
+const MenuHeirachyArrowRight = styled.img`
+  height: 100%;
+  width: 100%;
+  // transform: rotate(180deg);
 `
 
 const MenuOverFlowUpContainer = styled.div`
-
+  width: 33px;
+  height: 33px;
+  // border: 1px solid white;
 `
 
-const MenuOverFlowUp = styled.div`
-
+const MenuOverFlowUp = styled.img`
+  height: 100%;
+  width: 100%;
 `
 const MenuOverFlowDownContainer = styled.div`
-
+  width: 33px;
+  height: 33px;
+  // border: 1px solid white;
 `
 
-const MenuOverFlowDown = styled.div`
-
+const MenuOverFlowDown = styled.img`
+  height: 100%;
+  width: 100%;
+  transform: rotate(180deg);
 `
-const NavContainer = styled.div`
 
+const HistoryContainer = styled.div`
+  width: 33px;
+  height: 33px;
+  // border: 1px solid white;
 `
 
-// const Nav = styled.div`
+const History = styled.img`
+  height: 100%;
+  width: 100%;
+`
 
-// `
-// const HistoryContainer = styled.div`
+const DockTextWrapper = styled.div`
+  width: 80%;
+  height: 33px;
+  // border: 1px solid white;
+  display: flex;
+  align-content; center;
+`
 
-// `
+const DockTextContainer = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`
 
-// const History = styled.div`
-
-// `
-
-
-
+const DockText = styled.div`
+  color: white;
+`
 
 // end
