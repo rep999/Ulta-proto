@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { supabase } from '../../../client.js';
 import { GetServerSideProps } from 'next';
 import { text } from 'stream/consumers';
-import Card from './#Sections/Cube';
+import Card from './#Sections/Card';
 
 interface Fire {
     category?: string;
@@ -16,11 +16,6 @@ interface Fire {
     title?: string;
     topic?: string;
     url?: string;
-    // fireUrl?: string
-    // fireTimeStamp?: string
-    // fireCategory?: string
-    // fireCount?: string
-    // fireTitle?: string
 }
 
 const Dash = ({ fires }: Fire[]) => {
@@ -57,7 +52,7 @@ const Dash = ({ fires }: Fire[]) => {
     };
     const ByCategoryClick = () => {};
     return (
-        <DashContainer>
+        <DashContainer key={Math.random()}>
             <TopHeaderContainer>
                 <TopHeaderTitleRow>
                     <WelcomeTitleContainer>
@@ -102,7 +97,6 @@ const Dash = ({ fires }: Fire[]) => {
                         {fires &&
                             fires.map((fire: Fire, i: number) => (
                                 <Card
-                                    key={i}
                                     category={fire.category}
                                     count={fire.count}
                                     created_at={fire.created_at}
@@ -111,42 +105,6 @@ const Dash = ({ fires }: Fire[]) => {
                                     title={fire.title}
                                     topic={fire.topic}
                                     url={fire.url}></Card>
-                                // <CardListLi key={i}>
-                                //   <CardListItem>
-                                //     <CardMainSection>
-                                //       <CardMainContainer>
-                                //         <FireEmojiContainer>
-                                //           <FireEmoji src="/FireEmoji.png"></FireEmoji>
-                                //         </FireEmojiContainer>
-                                //         <CardMainTitleContainer>
-                                //           <CardMainTitle
-                                //             onMouseEnter={() => CardMainTitleME()}
-                                //             onMouseOut={() => CardMainTitleMO()}
-                                //           >
-                                //             {fire.title}
-                                //           </CardMainTitle>
-                                //           <CardMainUrl>{fire.count} </CardMainUrl>
-                                //         </CardMainTitleContainer>
-                                //         <CategorySection>
-                                //           <CategoryContainer>
-                                //             <CategoryTitleContainer>
-                                //               <CategoryTitle>Category:</CategoryTitle>
-                                //             </CategoryTitleContainer>
-                                //             <CategoryValueContainer>
-                                //               <CategoryValue>{fire.category}</CategoryValue>
-                                //             </CategoryValueContainer>
-                                //           </CategoryContainer>
-                                //         </CategorySection>
-                                //       </CardMainContainer>
-                                //     </CardMainSection>
-                                //     <CardDateSection>
-                                //       <CardDateContainer>
-                                //         <CardDate>{fire.created_at}</CardDate>
-                                //         <CardLikesCount>{fire.count}</CardLikesCount>
-                                //       </CardDateContainer>
-                                //     </CardDateSection>
-                                //   </CardListItem>
-                                // </CardListLi>
                             ))}
                     </CardListUL>
                 </CardsContentContainer>
