@@ -12,14 +12,19 @@ interface Fire {
   fireTitle?: string
 }
 
-const Dash = ({ fires }) => {
+const Dash = ({ Fires }) => {
   const [initialRender, setInitialRender] = useState(true)
   const [mockFireData, setMockFireData] = useState<any>([])
+  console.log(`Fires`)
+  console.log(`Fires`)
+  console.log(Fires)
   const CardClick = () => { }
 
   const CubeClick = () => { }
-
+ 
   useEffect(() => {
+    console.log(`Fires`)
+    console.log(Fires)
     if (initialRender) {
       setMockFireData(MockFireObjReturned)
     }
@@ -136,6 +141,21 @@ const Dash = ({ fires }) => {
 
 export default Dash
 
+export async function getServerSideProps() {
+  let { data: Fires, error } = await supabase
+    .from('Fires')
+    .select('*')
+
+  if (error) {
+    throw new Error(error as any);
+  }
+
+  return {
+    props: {
+      Fires,
+    },
+  };
+}
 
 const DashContainer = styled.div`
   height: 100%;

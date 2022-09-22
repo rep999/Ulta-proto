@@ -61,9 +61,17 @@ const Home: NextPage = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [session, setSession] = useState<any>(null)
 
+  async function fetchPosts() {
+    const { data } = await supabase.from('items').select()
+    console.log(`posts`)
+    console.log(data);
+  }
+
   useEffect(() => {
     let mounted = true
 
+
+    fetchPosts()
     async function getInitialSession() {
       const {
         data: { session },
