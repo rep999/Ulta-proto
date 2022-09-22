@@ -34,7 +34,7 @@ const Card = ({ category, count, created_at, id, text, title, topic, url }: Fire
     const ByFireClick = () => {};
     const ByCategoryClick = () => {};
     return (
-        <CardListLi key={Math.random()}>
+        <CardListLi>
             <CardListItem>
                 <CardMainSection>
                     <CardMainContainer>
