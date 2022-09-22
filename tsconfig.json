@@ -3,7 +3,7 @@
     "baseUrl": ".",
     "paths": {
       "$components/*": ["src/1_components/*"],
-      "$Sections/*": ["src/2_Sections/*"],
+      "$Sections/*": ["src/#Sections/*"],
       "$lib/*": ["src/lib/*"],
       "$temp/*": ["src/temp/*"],
       "$assets/*": ["src/assets/*"],
