@@ -3,25 +3,54 @@ import styled from 'styled-components'
 import Image from 'next/image'
 import MockFireObjReturned from '../../data/MockFire'
 import { supabase } from '../../../client.js'
+import { NextPage, GetServerSideProps } from 'next'
 
 interface Fire {
-  fireUrl?: string
-  fireTimeStamp?: string
-  fireCategory?: string
+  url?: string
+  created_at?: string
+  topic?: string
   fireCount?: string
   fireTitle?: string
 }
 
+export async function getStaticProps() {
+  console.log(`it ran`)
+  // let { data: fires, error } = await supabase
+  //   .from('fires')
+  //   .select('*')
+  let { data: fires } = await supabase.from('fires').select()
+  // if (error) {
+  //   throw new Error(error as any);
+  // }
+  alert(`aye`)
+  alert(fires?.length)
+  return {
+    props: {
+      fires,
+    },
+  };
+}
+
 const Dash = ({ fires }: any) => {
-  console.log(`fires`)
+  console.log(`fires333`)
   console.log(fires)
   const [initialRender, setInitialRender] = useState(true)
-  const [mockFireData, setMockFireData] = useState<any>([])
+  const [mockFireData, setMockFireData] = useState<Fire[]>([])
+
   const CardClick = () => { }
 
   const CubeClick = () => { }
+
+  async function fetchPosts() {
+    const { data } = await supabase.from('fires').select()
+    console.log(`fires45`)
+    console.log(data);
+    // setMockFireData(data);
+  }
+
  
   useEffect(() => {
+    fetchPosts()
     if (initialRender) {
       setMockFireData(MockFireObjReturned)
     }
@@ -114,7 +143,7 @@ const Dash = ({ fires }: any) => {
                               <CategoryTitle>Category:</CategoryTitle>
                             </CategoryTitleContainer>
                             <CategoryValueContainer>
-                              <CategoryValue>{fire.fireCategory}</CategoryValue>
+                              <CategoryValue>{fire.topic}</CategoryValue>
                             </CategoryValueContainer>
                           </CategoryContainer>
                         </CategorySection>
@@ -122,7 +151,7 @@ const Dash = ({ fires }: any) => {
                     </CardMainSection>
                     <CardDateSection>
                       <CardDateContainer>
-                        <CardDate>{fire.fireTimeStamp}</CardDate>
+                        <CardDate>{fire.created_at}</CardDate>
                         <CardLikesCount>{fire.fireCount}</CardLikesCount>
                       </CardDateContainer>
                     </CardDateSection>
@@ -137,22 +166,6 @@ const Dash = ({ fires }: any) => {
 }
 
 export default Dash
-
-export async function getServerSideProps() {
-  let { data: fires, error } = await supabase
-    .from('fires')
-    .select('*')
-
-  if (error) {
-    throw new Error(error as any);
-  }
-
-  return {
-    props: {
-      fires,
-    },
-  };
-}
 
 const DashContainer = styled.div`
   height: 100%;
