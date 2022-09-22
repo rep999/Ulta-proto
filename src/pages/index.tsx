@@ -13,12 +13,16 @@ import Panel from '$Sections/Panel'
 import Auth from '$components/Auth'
 import styled from 'styled-components'
 import { supabase } from '../../client.js'
+import { useRouter } from 'next/router'
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
   const [session, setSession] = useState<any>(null)
+  const router = useRouter()
+
 
   useEffect(() => {
+    router.push('/Home')
     let mounted = true
 
     async function getInitialSession() {
@@ -54,7 +58,7 @@ export default function Home() {
 
   return (
     <div className="container" style={{ padding: '50px 0 100px 0' }}>
-      {!session ? (
+      {/* {!session ? (
         <Auth />
       ) : (
         <WebFire_App>
@@ -82,7 +86,7 @@ export default function Home() {
           </WebFire_App_Shell>
         </WebFire_App_Shell_Parent>
       </WebFire_App>
-      )}
+      )} */}
     </div>
   )
 }

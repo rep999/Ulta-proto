@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Image from 'next/image'
 import MockFireObjReturned from '../../data/MockFire'
 import { supabase } from '../../../client.js'
+import { GetServerSideProps } from 'next'
 
 interface Fire {
   fireUrl?: string
@@ -12,9 +13,43 @@ interface Fire {
   fireTitle?: string
 }
 
-const Dash = ({ fires }: any) => {
-  console.log(`fires`)
-  console.log(fires)
+// export const getServerSideProps: GetServerSideProps = async (context) => {
+//   console.log(`hiii`)
+//     // Fetch data from external API
+//     const res = await fetch(`https://hp-api.herokuapp.com/api/characters`)
+//     const data = await res.json()
+  
+//     // Pass data to the page via props
+//     return { props: { data } }
+//   // const postData = await fetch("https://hp-api.herokuapp.com/api/characters").then(
+//   //   (res) => res.json() // Fecthing data and turning response to json
+//   // );
+
+//   // return {
+//   //   props: {
+//   //     postData, // Returing feteched data as prop
+//   //   },
+//   // };
+// }
+
+export async function getServerSideProps(context) {
+  const res = await fetch(`https://hp-api.herokuapp.com/api/characters`)
+  const data = await res.json()
+
+  if (!data) {
+    return {
+      notFound: true,
+    }
+  }
+
+  return {
+    props: { data }, // will be passed to the page component as props
+  }
+}
+
+const Dash = ({ data }: any) => {
+  console.log(`data22333332`)
+  console.log(data)
   const [initialRender, setInitialRender] = useState(true)
   const [mockFireData, setMockFireData] = useState<any>([])
   const CardClick = () => { }
@@ -138,21 +173,21 @@ const Dash = ({ fires }: any) => {
 
 export default Dash
 
-export async function getServerSideProps() {
-  let { data: fires, error } = await supabase
-    .from('fires')
-    .select('*')
+// export async function getServerSideProps() {
+//   let { data: fires, error } = await supabase
+//     .from('fires')
+//     .select('*')
 
-  if (error) {
-    throw new Error(error as any);
-  }
+//   if (error) {
+//     throw new Error(error as any);
+//   }
 
-  return {
-    props: {
-      fires,
-    },
-  };
-}
+//   return {
+//     props: {
+//       fires,
+//     },
+//   };
+// }
 
 const DashContainer = styled.div`
   height: 100%;
