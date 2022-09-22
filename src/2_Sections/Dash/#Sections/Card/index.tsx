@@ -30,125 +30,58 @@ const Dash = ( {fires}: Fire[]) => {
 
   const CubeClick = () => { }
  
-  // useEffect(() => {
-  //   if (initialRender) {
-  //     setMockFireData(MockFireObjReturned)
-  //   }
-  //   setInitialRender(false)
-  // }, [mockFireData])
+//   <Card key={i} category={fire.category} count={fire.count}  created_at={fire.created_at}
+//   id={fire.id} text={fire.text} title={fire.title} topic={fire.topic} url={fire.url}></Card>
 
   const CardMainTitleME = () => { }
   const CardMainTitleMO = () => { }
 
   const ByDateClick = () => {
-    // const data = MockFireObjReturned
-    // data.sort((a, b) =>
-    //   parseInt(a.fireCount) > parseInt(b.fireCount) ? 1 : -1,
-    // )
-    // setMockFireData(data)
+
   }
 
   const ByFireClick = () => {
-    // const data = MockFireObjReturned
-    // data.sort((a, b) =>
-    //   parseInt(a.fireCount) > parseInt(b.fireCount) ? 1 : -1,
-    // )
-    // setMockFireData(data)
+
   }
   const ByCategoryClick = () => { }
   return (
-    <DashContainer>
-      <TopHeaderContainer>
-        <TopHeaderTitleRow>
-          <WelcomeTitleContainer>
-            <WelcomeTitle>Welcome to FireNet </WelcomeTitle>
-            {/* <WelcomeTitleImgContainer>
-              <WelcomeTitleImg src="/OfficialLogo.png" />
-            </WelcomeTitleImgContainer> */}
-          </WelcomeTitleContainer>
-          <GlamourShotContainer>
-            <GlamourShot src="/ProfilePic.jpg"></GlamourShot>
-          </GlamourShotContainer>
-        </TopHeaderTitleRow>
-        <TopHeaderSpacerContainer>
-          <TopHeaderSpacer></TopHeaderSpacer>
-        </TopHeaderSpacerContainer>
-        <DockPanel>
-          <ByDateContainer>
-            <ByDate onClick={() => ByDateClick()}>By Date</ByDate>
-          </ByDateContainer>
-          <ByFireContainer>
-            <ByFire onClick={() => ByFireClick()}>By Fire</ByFire>
-          </ByFireContainer>
-          <ByCategoryContainer>
-            <ByCategory onClick={() => ByCategoryClick()}>
-              By Category
-            </ByCategory>
-          </ByCategoryContainer>
-          <DockBtnSpace>
-            <DockBtnContainer>
-              <DockCardsBtnContainer onClick={() => CardClick()}>
-                <DockCardsBtn src="/CardsIcon.png" />
-              </DockCardsBtnContainer>
-              <DockCubesBtnContainer onClick={() => CubeClick()}>
-                <DockCubesBtn src="/CubesIcon.png" />
-              </DockCubesBtnContainer>
-            </DockBtnContainer>
-          </DockBtnSpace>
-        </DockPanel>
-      </TopHeaderContainer>
 
-      <ContentSectional>
-        <CardsContentContainer>
-          <CardListUL>
-            {fires &&
-              fires.map((fire: Fire, i: number) => (
-                <Card key={i} category={fire.category} count={fire.count}  created_at={fire.created_at}
-                  id={fire.id} text={fire.text} title={fire.title} topic={fire.topic} url={fire.url}></Card>
-                // category?: string
-                // count?: string
-                // created_at?: string
-                // id?: string
-                // text?: string
-                // title?: string
-                // topic?: string
-                // url?: string
-                // <CardListLi key={i}>
-                //   <CardListItem>
-                //     <CardMainSection>
-                //       <CardMainContainer>
-                //         <FireEmojiContainer>
-                //           <FireEmoji src="/FireEmoji.png"></FireEmoji>
-                //         </FireEmojiContainer>
-                //         <CardMainTitleContainer>
-                //           <CardMainTitle
-                //             onMouseEnter={() => CardMainTitleME()}
-                //             onMouseOut={() => CardMainTitleMO()}
-                //           >
-                //             {fire.title}
-                //           </CardMainTitle>
-                //           <CardMainUrl>{fire.count} </CardMainUrl>
-                //         </CardMainTitleContainer>
-                //         <CategorySection>
-                //           <CategoryContainer>
-                //             <CategoryTitleContainer>
-                //               <CategoryTitle>Category:</CategoryTitle>
-                //             </CategoryTitleContainer>
-                //             <CategoryValueContainer>
-                //               <CategoryValue>{fire.category}</CategoryValue>
-                //             </CategoryValueContainer>
-                //           </CategoryContainer>
-                //         </CategorySection>
-                //       </CardMainContainer>
-                //     </CardMainSection>
-                //     <CardDateSection>
-                //       <CardDateContainer>
-                //         <CardDate>{fire.created_at}</CardDate>
-                //         <CardLikesCount>{fire.count}</CardLikesCount>
-                //       </CardDateContainer>
-                //     </CardDateSection>
-                //   </CardListItem>
-                // </CardListLi>
+          <CardListLi key={i}>
+                  <CardListItem>
+                    <CardMainSection>
+                      <CardMainContainer>
+                        <FireEmojiContainer>
+                          <FireEmoji src="/FireEmoji.png"></FireEmoji>
+                        </FireEmojiContainer>
+                        <CardMainTitleContainer>
+                          <CardMainTitle
+                            onMouseEnter={() => CardMainTitleME()}
+                            onMouseOut={() => CardMainTitleMO()}
+                          >
+                            {fire.title}
+                          </CardMainTitle>
+                          <CardMainUrl>{fire.count} </CardMainUrl>
+                        </CardMainTitleContainer>
+                        <CategorySection>
+                          <CategoryContainer>
+                            <CategoryTitleContainer>
+                              <CategoryTitle>Category:</CategoryTitle>
+                            </CategoryTitleContainer>
+                            <CategoryValueContainer>
+                              <CategoryValue>{fire.category}</CategoryValue>
+                            </CategoryValueContainer>
+                          </CategoryContainer>
+                        </CategorySection>
+                      </CardMainContainer>
+                    </CardMainSection>
+                    <CardDateSection>
+                      <CardDateContainer>
+                        <CardDate>{fire.created_at}</CardDate>
+                        <CardLikesCount>{fire.count}</CardLikesCount>
+                      </CardDateContainer>
+                    </CardDateSection>
+                  </CardListItem>
+                </CardListLi>
               ))}
           </CardListUL>
         </CardsContentContainer>
