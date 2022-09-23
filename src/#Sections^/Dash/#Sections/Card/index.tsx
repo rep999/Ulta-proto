@@ -50,6 +50,7 @@ const Card = ({
                     <CardMainContainer>
                         <FireEmojiContainer>
                             <FireEmoji src='/FireEmoji.png'></FireEmoji>
+                            <LikesContainer>{count}</LikesContainer>
                         </FireEmojiContainer>
                         <CardMainTitleContainer>
                             <CardMainTitle
@@ -57,7 +58,6 @@ const Card = ({
                                 onMouseOut={() => CardMainTitleMO()}>
                                 {title}
                             </CardMainTitle>
-                            <CardMainUrl>{count} </CardMainUrl>
                             <CardTopicsContainer>
                                 <CardTopicContainer>{topic}</CardTopicContainer>
                                 <CardSubTopicContainer>{subtopic}</CardSubTopicContainer>
@@ -79,7 +79,7 @@ const Card = ({
                 <CardDateSection>
                     <CardDateContainer>
                         <CardDate>{created_at}</CardDate>
-                        <CardLikesCount>{count}</CardLikesCount>
+                        {/* <CardLikesCount>{count}</CardLikesCount> */}
                     </CardDateContainer>
                 </CardDateSection>
             </CardListItem>
@@ -461,22 +461,41 @@ const CardMainContainer = styled.div`
 `;
 
 const FireEmojiContainer = styled.div`
-    /* border: 2px solid orange; */
+    // border: 2px solid orange;
     display: flex;
     align-self: center;
+    position: relative;
     flex-direction: column;
-    max-height: 28px;
-    max-width: 28px;
+    // max-height: 28px;
+    // max-width: 28px;
+    justify-content: center;
+    height: 100%;
     min-height: 28px;
     min-width: 28px;
-    margin: 0px 4px;
+    margin: 0px 7px;
 `;
 
 const FireEmoji = styled.img`
-    /* border: 2px solid purple; */
+    // border: 2px solid pink;
     display: flex;
+    // position: absolute;
     align-self: center;
+    min-height: 28px;
+    min-width: 28px;
+    max-height: 28px;
+    max-width: 28px;
     height: 100%;
+    width: 100%;
+`;
+
+const LikesContainer = styled.div`
+    // border: 2px solid purple;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-self: flex-end;
+    height: 20%;
+    top: 79%;
     width: 100%;
 `;
 
@@ -541,21 +560,14 @@ const CategoryValue = styled.div`
 const CardMainTitle = styled.div`
     /* border: 2px solid purple; */
     display: flex-start;
-    height: 33.33%;
-    width: 80%;
-`;
-
-const CardMainUrl = styled.div`
-    /* border: 2px solid white; */
-    display: flex-start;
-    height: 33.33%;
+    height: 50%;
     width: 80%;
 `;
 
 const CardTopicsContainer = styled.div`
     border: 2px solid white;
     display: flex;
-    height: 33.33%;
+    height: 100%;
     width: 100%;
 `;
 
@@ -595,7 +607,7 @@ const CardDateContainer = styled.div`
     /* border: 2px solid purple; */
     display: flex;
     justify-content: flex-end;
-    height: 70%;
+    height: 60%;
     width: 80%;
     flex-direction: column;
     border: 1px solid purple;
