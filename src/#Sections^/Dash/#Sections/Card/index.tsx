@@ -71,9 +71,19 @@ const Card = ({
                                 {title}
                             </CardMainTitle>
                             <CardTopicsContainer>
-                                <CardTopicContainer>{topic}</CardTopicContainer>
-                                <CardSubTopicContainer>{subtopic}</CardSubTopicContainer>
-                                <CardSubSubTopicContainer>{subsubtopic}</CardSubSubTopicContainer>
+                                <CardTopicContainer>
+                                    <CardTopicContainerText>{topic}</CardTopicContainerText>
+                                </CardTopicContainer>
+                                <CardSubTopicContainer>
+                                    <CardSubTopicContainerText>
+                                        {subtopic}
+                                    </CardSubTopicContainerText>
+                                </CardSubTopicContainer>
+                                <CardSubSubTopicContainer>
+                                    <CardSubSubTopicContainerText>
+                                        {subsubtopic}
+                                    </CardSubSubTopicContainerText>
+                                </CardSubSubTopicContainer>
                             </CardTopicsContainer>
                         </CardMainTitleContainer>
                         <TextSection>
@@ -573,35 +583,51 @@ const CardMainTitle = styled.div`
     /* border: 2px solid purple; */
     display: flex-start;
     height: 50%;
-    width: 80%;
+    display: flex;
+    width: 100%;
+    justify-content: center;
 `;
 
 const CardTopicsContainer = styled.div`
     border: 2px solid white;
     display: flex;
-    height: 100%;
+    height: 50%;
     width: 100%;
 `;
 
 const CardTopicContainer = styled.div`
     border: 2px solid white;
-    display: flex-start;
-    height: 50%;
+    display: flex;
+    align-items: center;
+    height: 100%;
     width: 80%;
 `;
 
 const CardSubTopicContainer = styled.div`
     border: 2px solid white;
-    display: flex-start;
-    height: 50%;
+    display: flex;
+    display: flex;
+    align-items: center;
+    height: 100%;
     width: 80%;
 `;
 
 const CardSubSubTopicContainer = styled.div`
     border: 2px solid white;
-    display: flex-start;
-    height: 50%;
+    display: flex;
+    align-items: center;
+    height: 100%;
     width: 80%;
+`;
+
+const CardTopicContainerText = styled.div`
+    color: white;
+`;
+const CardSubTopicContainerText = styled.div`
+    color: white;
+`;
+const CardSubSubTopicContainerText = styled.div`
+    color: white;
 `;
 
 const CardDateSection = styled.section`
