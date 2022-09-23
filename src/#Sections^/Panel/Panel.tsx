@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import useStore from '$Store/Store';
 
 // const Fruit = styled.img`
 //   height: 94%;
@@ -10,6 +11,8 @@ import styled from 'styled-components';
 // `
 
 const Panel = () => {
+    const pokemons = useStore((state) => state.pokemons);
+    const addPokemons = useStore((state) => state.addPokemons);
     // STATE TOGGLES
     const [centerCircleToggled, setCenterCircleToggled] = useState(false);
     const [centerTopCircleToggled, setCenterTopCircleToggled] = useState(false);
@@ -96,6 +99,18 @@ const Panel = () => {
     };
 
     const CircleClicked = (elementID: any, stateSetter: any, stateVal: any): any => {
+        console.log(`pokemons`);
+        console.log(pokemons);
+        if (stateSetter === setCenterTopTopCircleToggled) {
+            if (topics) {
+                let name = 'charichard';
+                addPokemons({ name: name });
+            }
+            if (subTopics) {
+            }
+            if (subSubTopics) {
+            }
+        }
         const CircleSelected = document.getElementById(elementID) as HTMLImageElement;
 
         if (CircleSelected && !stateVal) {
@@ -140,6 +155,8 @@ const Panel = () => {
             setSubSubTopics(false);
         }
     };
+
+    useEffect(() => {}, []);
 
     const HistoryClk = () => {
         const DockTextEl = document.getElementById('DockText');

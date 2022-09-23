@@ -9,11 +9,12 @@ import Header from '$Sections/Header';
 import Dash from 'src/#Sections^/Dash';
 import Testy from '$Sections/Testy';
 import Nav from '$Sections/Nav';
-import Panel from '$Sections/Panel';
+import Panel from '$Sections/Panel/Panel';
 import Auth from 'src/@components^/Auth';
 import styled from 'styled-components';
 import { supabase } from '../../../client.js';
 import { useRouter } from 'next/router';
+import create from 'zustand';
 
 interface Fire {
     count?: string;
@@ -42,6 +43,9 @@ export async function getServerSideProps() {
 }
 
 export default function Home({ fires }: Fire) {
+    const useStore = create((set) => ({
+        topicSelection: 'monkey',
+    }));
     const [isLoading, setIsLoading] = useState(true);
     const [session, setSession] = useState<any>(null);
     const [session2, setSession2] = useState<any>(null);

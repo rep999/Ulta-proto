@@ -9,7 +9,7 @@ import Header from 'src/#Sections^/Header';
 import Dash from 'src/#Sections^/Dash';
 import Testy from 'src/#Sections^/Testy';
 import Nav from 'src/#Sections^/Nav';
-import Panel from 'src/#Sections^/Panel';
+import Panel from 'src/#Sections^/Panel/Panel';
 import Auth from 'src/@components^/Auth';
 import styled from 'styled-components';
 import { supabase } from '../../client.js';

@@ -88,7 +88,7 @@ const Dash = ({ fires }: Fire) => {
             <TopHeaderContainer>
                 <TopHeaderTitleRow>
                     <WelcomeTitleContainer>
-                        <WelcomeTitle>Welcome to FireNet </WelcomeTitle>
+                        <WelcomeTitle>Welcome to The FireNet </WelcomeTitle>
                         {/* <WelcomeTitleImgContainer>
               <WelcomeTitleImg src="/OfficialLogo.png" />
             </WelcomeTitleImgContainer> */}
