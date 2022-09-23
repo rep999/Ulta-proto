@@ -15,6 +15,19 @@ import styled from 'styled-components';
 import { supabase } from '../../../client.js';
 import { useRouter } from 'next/router';
 
+// interface Fire {
+//     count?: string;
+//     created_at?: string;
+//     id?: string;
+//     text?: string;
+//     text_title?: string;
+//     title?: string;
+//     topic?: string;
+//     subtopic?: string;
+//     subsubtopic?: string;
+//     url?: string;
+// }
+
 export async function getServerSideProps() {
     let { data: fires, error } = await supabase.from('fires').select('*');
 

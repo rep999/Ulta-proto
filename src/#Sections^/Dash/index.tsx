@@ -5,9 +5,23 @@ import { supabase } from '../../../client.js';
 import { GetServerSideProps } from 'next';
 import { text } from 'stream/consumers';
 import Card from './#Sections/Card';
-import Fire from '$Interfaces/Fire';
 
-const Dash = ({ fires }: Fire[]) => {
+interface Fire {
+    count?: string;
+    created_at?: string;
+    id?: string;
+    text?: string;
+    text_title?: string;
+    title?: string;
+    topic?: string;
+    subtopic?: string;
+    subsubtopic?: string;
+    url?: string;
+}
+
+const Dash = ({ fires }: Fire) => {
+    console.log(`fires111`);
+    console.log(fires);
     const [initialRender, setInitialRender] = useState(true);
     const [mockFireData, setMockFireData] = useState<any>([]);
     const CardClick = () => {};
@@ -91,6 +105,7 @@ const Dash = ({ fires }: Fire[]) => {
                                     created_at={fire.created_at}
                                     id={fire.id}
                                     text={fire.text}
+                                    text_title={fire.text_title}
                                     title={fire.title}
                                     topic={fire.topic}
                                     url={fire.url}></Card>

@@ -4,27 +4,39 @@ import Image from 'next/image';
 import { supabase } from '../../../../../client.js';
 import { GetServerSideProps } from 'next';
 import { text } from 'stream/consumers';
-import Fire from '$Interfaces/Fire';
+
+interface Fire {
+    count?: string;
+    created_at?: string;
+    id?: string;
+    text?: string;
+    text_title?: string;
+    title?: string;
+    topic?: string;
+    subtopic?: string;
+    subsubtopic?: string;
+    url?: string;
+}
 
 const Card = ({
     count,
     created_at,
-    id,
     text,
+    text_title,
     title,
     topic,
     subtopic,
     subsubtopic,
     url,
-}: Fire[]) => {
-    // console.log(`category`, category);
+}: Fire) => {
+    // console.log(`Text`, Text);
     // console.log(`count`, count);
     // console.log(`text`, text);
     // console.log(count);
     // console.log(created_at);
     // console.log(id);
     // console.log(text);
-    console.log(`title`, title);
+    console.log(`text_title`, text_title);
     // console.log(topic);
     // console.log(url);
     const [initialRender, setInitialRender] = useState(true);
@@ -33,7 +45,7 @@ const Card = ({
 
     const CubeClick = () => {};
     // ANCHOR: This is a comment anchor.
-    //   <Card key={i} category={category} count={fire.count}  created_at={fire.created_at}
+    //   <Card key={i} Text={Text} count={fire.count}  created_at={fire.created_at}
     //   id={fire.id} text={fire.text} title={fire.title} topic={fire.topic} url={fire.url}></Card>
 
     const CardMainTitleME = () => {};
@@ -42,7 +54,7 @@ const Card = ({
     const ByDateClick = () => {};
 
     const ByFireClick = () => {};
-    const ByCategoryClick = () => {};
+    const ByTextClick = () => {};
     return (
         <CardListLi>
             <CardListItem>
@@ -64,22 +76,22 @@ const Card = ({
                                 <CardSubSubTopicContainer>{subsubtopic}</CardSubSubTopicContainer>
                             </CardTopicsContainer>
                         </CardMainTitleContainer>
-                        <CategorySection>
-                            <CategoryContainer>
-                                <CategoryTitleContainer>
-                                    <CategoryTitle>Category:</CategoryTitle>
-                                </CategoryTitleContainer>
-                                <CategoryValueContainer>
-                                    <CategoryValue>{topic}</CategoryValue>
-                                </CategoryValueContainer>
-                            </CategoryContainer>
-                        </CategorySection>
+                        <TextSection>
+                            <TextContainer>
+                                <TextTitleContainer>
+                                    <TextTitle>{text_title}</TextTitle>
+                                </TextTitleContainer>
+                                <TextValueContainer>
+                                    <TextValue>{text}</TextValue>
+                                </TextValueContainer>
+                            </TextContainer>
+                        </TextSection>
                     </CardMainContainer>
                 </CardMainSection>
                 <CardDateSection>
                     <CardDateContainer>
                         <CardDate>{created_at}</CardDate>
-                        {/* <CardLikesCount>{count}</CardLikesCount> */}
+                        <CardLikesCount>{Math.round(count / 2)}</CardLikesCount>
                     </CardDateContainer>
                 </CardDateSection>
             </CardListItem>
@@ -232,7 +244,7 @@ const ByFireContainer = styled.div`
     align-items: center;
 `;
 
-const ByCategoryContainer = styled.div`
+const ByTextContainer = styled.div`
     /* border: 2px solid pink; */
     height: 40%;
     width: 100%;
@@ -261,7 +273,7 @@ const ByFire = styled.div`
     align-items: center;
 `;
 
-const ByCategory = styled.div`
+const ByText = styled.div`
     /* border: 2px solid orange; */
     height: 100%;
     width: 100%;
@@ -440,7 +452,7 @@ const CardListItem = styled.div`
     border-radius: 8px;
     display: flex;
     position: relative;
-    height: 72px;
+    height: 77.7px;
     width: 100%;
 `;
 
@@ -457,7 +469,7 @@ const CardMainContainer = styled.div`
     display: flex;
     align-self: center;
     height: 81%;
-    width: 80%;
+    width: 100%;
 `;
 
 const FireEmojiContainer = styled.div`
@@ -495,7 +507,7 @@ const LikesContainer = styled.div`
     justify-content: center;
     align-self: flex-end;
     height: 20%;
-    top: 79%;
+    top: 81%;
     width: 100%;
 `;
 
@@ -503,11 +515,11 @@ const CardMainTitleContainer = styled.div`
     border: 1px solid yellow;
     display: flex-start;
     height: 100%;
-    width: 100%;
+    width: 38%;
     flex-direction: column;
 `;
 
-const CategorySection = styled.section`
+const TextSection = styled.section`
     /* border: 1px solid pink; */
     display: flex-start;
     height: 100%;
@@ -515,7 +527,7 @@ const CategorySection = styled.section`
     flex-direction: column;
 `;
 
-const CategoryContainer = styled.div`
+const TextContainer = styled.div`
     /* border: 1px solid yellow; */
     display: flex-start;
     height: 100%;
@@ -523,7 +535,7 @@ const CategoryContainer = styled.div`
     flex-direction: column;
 `;
 
-const CategoryTitleContainer = styled.div`
+const TextTitleContainer = styled.div`
     /* border: 1px solid yellow; */
     display: flex-start;
     height: 50%;
@@ -531,7 +543,7 @@ const CategoryTitleContainer = styled.div`
     flex-direction: column;
 `;
 
-const CategoryTitle = styled.div`
+const TextTitle = styled.div`
     /* border: 1px solid yellow; */
     display: flex-start;
     height: 100%;
@@ -540,7 +552,7 @@ const CategoryTitle = styled.div`
     flex-direction: column;
 `;
 
-const CategoryValueContainer = styled.div`
+const TextValueContainer = styled.div`
     /* border: 1px solid yellow; */
     display: flex-start;
     height: 50%;
@@ -548,7 +560,7 @@ const CategoryValueContainer = styled.div`
     flex-direction: column;
 `;
 
-const CategoryValue = styled.div`
+const TextValue = styled.div`
     /* border: 1px solid yellow; */
     display: flex-start;
     height: 100%;
