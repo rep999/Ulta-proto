@@ -15,18 +15,18 @@ import styled from 'styled-components';
 import { supabase } from '../../../client.js';
 import { useRouter } from 'next/router';
 
-// interface Fire {
-//     count?: string;
-//     created_at?: string;
-//     id?: string;
-//     text?: string;
-//     text_title?: string;
-//     title?: string;
-//     topic?: string;
-//     subtopic?: string;
-//     subsubtopic?: string;
-//     url?: string;
-// }
+interface Fire {
+    count?: string;
+    created_at?: string;
+    id?: string;
+    text?: string;
+    text_title?: string;
+    title?: string;
+    topic?: string;
+    subtopic?: string;
+    subsubtopic?: string;
+    url?: string;
+}
 
 export async function getServerSideProps() {
     let { data: fires, error } = await supabase.from('fires').select('*');
@@ -41,15 +41,10 @@ export async function getServerSideProps() {
     };
 }
 
-export default function Home({ fires }: any) {
+export default function Home({ fires }: Fire) {
     const [isLoading, setIsLoading] = useState(true);
     const [session, setSession] = useState<any>(null);
     const [session2, setSession2] = useState<any>(null);
-    let apple = fires;
-    console.log(fires);
-    if (session2 && session2.length !== fires.length) {
-        setSession2(apple);
-    }
     const router = useRouter();
 
     return (

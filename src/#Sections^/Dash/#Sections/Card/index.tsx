@@ -29,8 +29,9 @@ const Card = ({
     subsubtopic,
     url,
 }: Fire) => {
-    // console.log(`Text`, Text);
-    // console.log(`count`, count);
+    // console.log(`subsubtopic`, subsubtopic);
+    // console.log(`subtopic`, subtopic);
+    // console.log(`url`, url);
     // console.log(`text`, text);
     // console.log(count);
     // console.log(created_at);
@@ -100,7 +101,7 @@ const Card = ({
                 </CardMainSection>
                 <CardDateSection>
                     <CardDateContainer>
-                        <CardDate>{created_at}</CardDate>
+                        <CardDate>{created_at?.slice(0, 10)}</CardDate>
                         <CardLikesCount>{Math.round(count / 2)}</CardLikesCount>
                     </CardDateContainer>
                 </CardDateSection>
@@ -596,7 +597,7 @@ const CardTopicsContainer = styled.div`
 `;
 
 const CardTopicContainer = styled.div`
-    border: 2px solid white;
+    border: 1px solid white;
     display: flex;
     align-items: center;
     height: 100%;
@@ -604,7 +605,7 @@ const CardTopicContainer = styled.div`
 `;
 
 const CardSubTopicContainer = styled.div`
-    border: 2px solid white;
+    border: 1px solid white;
     display: flex;
     display: flex;
     align-items: center;
@@ -613,7 +614,7 @@ const CardSubTopicContainer = styled.div`
 `;
 
 const CardSubSubTopicContainer = styled.div`
-    border: 2px solid white;
+    border: 1px solid white;
     display: flex;
     align-items: center;
     height: 100%;

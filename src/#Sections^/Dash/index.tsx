@@ -18,9 +18,13 @@ interface Fire {
     subtopic?: string;
     subsubtopic?: string;
     url?: string;
+    category?: string;
+    weight?: string;
 }
 
 const Dash = ({ fires }: Fire) => {
+    console.log(`asdasdad`);
+    console.log(fires);
     const [initialRender, setInitialRender] = useState(true);
     const [fireData, setFireData] = useState<any>([]);
     const [renderToggle, setRenderToggle] = useState<boolean>(false);
@@ -133,6 +137,10 @@ const Dash = ({ fires }: Fire) => {
                                     text_title={fire.text_title}
                                     title={fire.title}
                                     topic={fire.topic}
+                                    subtopic={fire.subtopic}
+                                    subsubtopic={fire.subsubtopic}
+                                    category={fire.category}
+                                    weight={fire.weight}
                                     url={fire.url}></Card>
                             ))}
                     </CardListUL>
