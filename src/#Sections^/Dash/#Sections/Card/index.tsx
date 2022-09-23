@@ -36,7 +36,7 @@ const Card = ({
     // console.log(created_at);
     // console.log(id);
     // console.log(text);
-    console.log(`text_title`, text_title);
+    // console.log(`text_title`, text_title);
     // console.log(topic);
     // console.log(url);
     const [initialRender, setInitialRender] = useState(true);

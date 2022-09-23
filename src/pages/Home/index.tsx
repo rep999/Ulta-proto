@@ -36,7 +36,6 @@ export async function getServerSideProps() {
             notFound: true,
         };
     }
-
     return {
         props: { fires }, // will be passed to the page component as props
     };
@@ -45,6 +44,12 @@ export async function getServerSideProps() {
 export default function Home({ fires }: any) {
     const [isLoading, setIsLoading] = useState(true);
     const [session, setSession] = useState<any>(null);
+    const [session2, setSession2] = useState<any>(null);
+    let apple = fires;
+    console.log(fires);
+    if (session2 && session2.length !== fires.length) {
+        setSession2(apple);
+    }
     const router = useRouter();
 
     return (

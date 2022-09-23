@@ -5,6 +5,7 @@ import { supabase } from '../../../client.js';
 import { GetServerSideProps } from 'next';
 import { text } from 'stream/consumers';
 import Card from './#Sections/Card';
+import { compareCreated_At, compareFiresAsc, compareFiresDesc } from './Fn/compare';
 
 interface Fire {
     count?: string;
@@ -20,10 +21,17 @@ interface Fire {
 }
 
 const Dash = ({ fires }: Fire) => {
-    console.log(`fires111`);
-    console.log(fires);
     const [initialRender, setInitialRender] = useState(true);
-    const [mockFireData, setMockFireData] = useState<any>([]);
+    const [fireData, setFireData] = useState<any>([]);
+    const [renderToggle, setRenderToggle] = useState<boolean>(false);
+    const [firesAsc, setFiresAsc] = useState<boolean>(false);
+    const [firesDesc, setFiresDesc] = useState<boolean>(false);
+
+    let apple = fires;
+    console.log(fires);
+    if (fireData && fireData.length !== fires.length) {
+        setFireData(apple);
+    }
     const CardClick = () => {};
 
     const CubeClick = () => {};
@@ -39,20 +47,37 @@ const Dash = ({ fires }: Fire) => {
     const CardMainTitleMO = () => {};
 
     const ByDateClick = () => {
-        // const data = MockFireObjReturned
-        // data.sort((a, b) =>
-        //   parseInt(a.fireCount) > parseInt(b.fireCount) ? 1 : -1,
-        // )
-        // setMockFireData(data)
+        setFireData(fireData.sort(compareCreated_At));
+        setRenderToggle(!renderToggle);
     };
 
     const ByFireClick = () => {
-        // const data = MockFireObjReturned
-        // data.sort((a, b) =>
-        //   parseInt(a.fireCount) > parseInt(b.fireCount) ? 1 : -1,
-        // )
-        // setMockFireData(data)
+        // ANCHOR
+        if (!firesAsc && !firesDesc) {
+            // Initial State
+            setFireData(fireData.sort(compareFiresAsc));
+            setRenderToggle(!renderToggle);
+            setFiresAsc(true);
+            setFiresDesc(false);
+        } else if (firesAsc && !firesDesc) {
+            // Asc
+            setFireData(fireData.sort(compareFiresDesc));
+            setRenderToggle(!renderToggle);
+            setFiresAsc(false);
+            setFiresDesc(true);
+        } else if (!firesAsc && firesDesc) {
+            // Desc
+            setFireData(fireData.sort(compareFiresAsc));
+            setRenderToggle(!renderToggle);
+            setFiresAsc(true);
+            setFiresDesc(false);
+        }
     };
+
+    useEffect(() => {
+        console.log(`hi23`);
+    }, []);
+
     const ByCategoryClick = () => {};
     return (
         <DashContainer>
@@ -79,7 +104,7 @@ const Dash = ({ fires }: Fire) => {
                         <ByFire onClick={() => ByFireClick()}>By Fire</ByFire>
                     </ByFireContainer>
                     <ByCategoryContainer>
-                        <ByCategory onClick={() => ByCategoryClick()}>By Category</ByCategory>
+                        <ByCategory onClick={() => ByCategoryClick()}>By Topic</ByCategory>
                     </ByCategoryContainer>
                     <DockBtnSpace>
                         <DockBtnContainer>
@@ -97,8 +122,8 @@ const Dash = ({ fires }: Fire) => {
             <ContentSectional>
                 <CardsContentContainer>
                     <CardListUL>
-                        {fires &&
-                            fires.map((fire: Fire, i: number) => (
+                        {fireData &&
+                            fireData.map((fire: Fire, i: number) => (
                                 <Card
                                     key={Math.random()}
                                     count={fire.count}
