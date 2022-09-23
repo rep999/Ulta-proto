@@ -4,19 +4,29 @@ import Image from 'next/image';
 import { supabase } from '../../../../../client.js';
 import { GetServerSideProps } from 'next';
 import { text } from 'stream/consumers';
+import Fire from '$Interfaces/Fire';
 
-interface Fire {
-    category?: string;
-    count?: string;
-    created_at?: string;
-    id?: string;
-    text?: string;
-    title?: string;
-    topic?: string;
-    url?: string;
-}
-
-const Card = ({ category, count, created_at, id, text, title, topic, url }: Fire[]) => {
+const Card = ({
+    count,
+    created_at,
+    id,
+    text,
+    title,
+    topic,
+    subtopic,
+    subsubtopic,
+    url,
+}: Fire[]) => {
+    // console.log(`category`, category);
+    // console.log(`count`, count);
+    // console.log(`text`, text);
+    // console.log(count);
+    // console.log(created_at);
+    // console.log(id);
+    // console.log(text);
+    console.log(`title`, title);
+    // console.log(topic);
+    // console.log(url);
     const [initialRender, setInitialRender] = useState(true);
     const [mockFireData, setMockFireData] = useState<any>([]);
     const CardClick = () => {};
@@ -48,6 +58,11 @@ const Card = ({ category, count, created_at, id, text, title, topic, url }: Fire
                                 {title}
                             </CardMainTitle>
                             <CardMainUrl>{count} </CardMainUrl>
+                            <CardTopicsContainer>
+                                <CardTopicContainer>{topic}</CardTopicContainer>
+                                <CardSubTopicContainer>{subtopic}</CardSubTopicContainer>
+                                <CardSubSubTopicContainer>{subsubtopic}</CardSubSubTopicContainer>
+                            </CardTopicsContainer>
                         </CardMainTitleContainer>
                         <CategorySection>
                             <CategoryContainer>
@@ -55,7 +70,7 @@ const Card = ({ category, count, created_at, id, text, title, topic, url }: Fire
                                     <CategoryTitle>Category:</CategoryTitle>
                                 </CategoryTitleContainer>
                                 <CategoryValueContainer>
-                                    <CategoryValue>{category}</CategoryValue>
+                                    <CategoryValue>{topic}</CategoryValue>
                                 </CategoryValueContainer>
                             </CategoryContainer>
                         </CategorySection>
@@ -441,7 +456,7 @@ const CardMainContainer = styled.div`
     /* border: 2px solid purple; */
     display: flex;
     align-self: center;
-    height: 80%;
+    height: 81%;
     width: 80%;
 `;
 
@@ -466,7 +481,7 @@ const FireEmoji = styled.img`
 `;
 
 const CardMainTitleContainer = styled.div`
-    /* border: 1px solid yellow; */
+    border: 1px solid yellow;
     display: flex-start;
     height: 100%;
     width: 100%;
@@ -526,12 +541,40 @@ const CategoryValue = styled.div`
 const CardMainTitle = styled.div`
     /* border: 2px solid purple; */
     display: flex-start;
-    height: 50%;
+    height: 33.33%;
     width: 80%;
 `;
 
 const CardMainUrl = styled.div`
     /* border: 2px solid white; */
+    display: flex-start;
+    height: 33.33%;
+    width: 80%;
+`;
+
+const CardTopicsContainer = styled.div`
+    border: 2px solid white;
+    display: flex;
+    height: 33.33%;
+    width: 100%;
+`;
+
+const CardTopicContainer = styled.div`
+    border: 2px solid white;
+    display: flex-start;
+    height: 50%;
+    width: 80%;
+`;
+
+const CardSubTopicContainer = styled.div`
+    border: 2px solid white;
+    display: flex-start;
+    height: 50%;
+    width: 80%;
+`;
+
+const CardSubSubTopicContainer = styled.div`
+    border: 2px solid white;
     display: flex-start;
     height: 50%;
     width: 80%;

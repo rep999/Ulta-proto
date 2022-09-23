@@ -4,7 +4,7 @@
     "paths": {
       "$components/*": ["src/@components^/*"],
       "$Sections/*": ["src/#Sections^/*"],
-      // "$lib/*": ["src/lib/*"],
+      "$interfaces/*": ["src/%interfaces^/*"],
       // "$temp/*": ["src/temp/*"],
       // "$assets/*": ["src/assets/*"],
       // "$styles/*": ["/styles/*"]

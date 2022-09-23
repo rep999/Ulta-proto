@@ -11,7 +11,6 @@ const Modal = ({ onClose }) => {
 
   // check if the user has clickedinside or outside the modal
   const backDropHandler = (e) => {
-    console.log(modalWrapperRef)
     if (
       modalWrapperRef.current &&
       !modalWrapperRef?.current?.contains(e.target)

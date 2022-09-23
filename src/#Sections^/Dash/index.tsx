@@ -1,22 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
-// import MockFireObjReturned from '../../data/MockFire'
 import { supabase } from '../../../client.js';
 import { GetServerSideProps } from 'next';
 import { text } from 'stream/consumers';
 import Card from './#Sections/Card';
-
-interface Fire {
-    category?: string;
-    count?: string;
-    created_at?: string;
-    id?: string;
-    text?: string;
-    title?: string;
-    topic?: string;
-    url?: string;
-}
+import Fire from '$Interfaces/Fire';
 
 const Dash = ({ fires }: Fire[]) => {
     const [initialRender, setInitialRender] = useState(true);
@@ -98,7 +87,6 @@ const Dash = ({ fires }: Fire[]) => {
                             fires.map((fire: Fire, i: number) => (
                                 <Card
                                     key={Math.random()}
-                                    category={fire.category}
                                     count={fire.count}
                                     created_at={fire.created_at}
                                     id={fire.id}
