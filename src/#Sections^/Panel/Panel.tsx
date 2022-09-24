@@ -15,12 +15,12 @@ import { compareCreated_At } from '$Sections/Dash/Fn/compare';
 // `
 
 const Panel = () => {
-    // @ts-ignore
-    const topicsSelected = useStore((state) => state.topicsSelected);
+    // @ts-ignore Selected Topic
+    const topicSelection = useStore((state) => state.topicSelection);
+    // @ts-ignore Add Topic
+    const selectTopic = useStore((state) => state.selectTopic);
     // @ts-ignore
     const topicsEnum = useStore((state) => state.topics);
-    // @ts-ignore
-    const pushTopic = useStore((state) => state.pushTopic);
     // @ts-ignore
     const removeTopic = useStore((state) => state.removeTopic);
     // STATE TOGGLES
@@ -43,61 +43,118 @@ const Panel = () => {
     const [subSubTopics, setSubSubTopics] = useState(false);
     // STATE CIRCLES
     const [centerCircle, setCenterCircle] = useState('Topics');
-    const [centerTopCircle, setCenterTopCircle] = useState('');
+    // New State
+    const [moniker, setMoniker] = useState('topics');
+    const [circSelected, setCircSelected] = useState<any>();
 
-    // const mouseOverLogo = () => {
-    //   const FireNetLogo = document.getElementById('FireNetLogo')
-    //   const Fruit = document.getElementById('Fruit')
-    //   const FruitCake = document.getElementById('FruitCake')
-    //   const CenterCircle = document.getElementById('CenterCircle')
-    //   const CenterTopCircle = document.getElementById('CenterTopCircle')
-    //   if (FireNetLogo) { FireNetLogo.style.display = 'none' }
-    //   if (Fruit) { Fruit.style.display = 'block' }
-    //   if (FruitCake) { FruitCake.style.display = 'flex' }
-    //   if (CenterCircle) { CenterCircle.style.display = 'block' }
-    //   if (CenterTopCircle) { CenterTopCircle.style.display = 'block' }
-    // }
-    // const mouseLeaveFruitCake = () => {
-    //   const FireNetLogo = document.getElementById('FireNetLogo')
-    //   const Fruit = document.getElementById('Fruit')
-    //   const FruitCake = document.getElementById('FruitCake')
-    //   const CenterCircle = document.getElementById('CenterCircle')
-    //   const CenterTopCircle = document.getElementById('CenterTopCircle')
-    //   if (FireNetLogo) { FireNetLogo.style.display = 'block' }
-    //   if (Fruit) { Fruit.style.display = 'none' }
-    //   if (FruitCake) { FruitCake.style.display = 'flex' }
-    //   if (CenterCircle) { CenterCircle.style.display = 'none' }
-    //   if (CenterTopCircle) { CenterTopCircle.style.display = 'none' }
-    // }onMouseLeave={() => mouseLeaveFruitCake()}
-    // const mouseLeaveFruit = () => {
-    //   const FireNetLogo = document.getElementById('FireNetLogo')
-    //   const Fruit = document.getElementById('Fruit')
-    //   if (FireNetLogo) { FireNetLogo.style.display = 'block' }
-    //   if (Fruit) { Fruit.style.display = 'none' }
-    // }onMouseEnter={() => mouseOverLogo()}
+    const C2C = (parentID: any, elementID: any, stateSetter: any, stateVal: any): any => {
+        console.log(`topicSelection`);
+        console.log(topicSelection);
+        switch (moniker) {
+            case 'topics':
+            //   selectTopic(textFinder(parentID))
+              break;
+            case 'subtopics':
+            case 'subsubtopics':
+            case 'category':
+            case 'weight':
+            case 'category':
+              console.log('Mangoes and papayas are $2.79 a pound.');
+              // expected output: "Mangoes and papayas are $2.79 a pound."
+              break;
+            default:
+              console.log(`Sorry, we are out of`);
+          }
+        // selectTopic(textFinder(parentID));
+        const CircleSelected = document.getElementById(elementID) as HTMLImageElement;
+        if (CircleSelected && !stateVal) {
+            setCenterCircle('Go 🚀');
+            CircleSelected.src = '/cH.png';
+            stateSetter(true);
+            CircleSelected.style.zIndex = '999';
+        } else {
+            if (CircleSelected) {
+                CircleSelected.src = '/whiteCircle.png';
+                setCenterCircle('Topics');
+            }
+            stateSetter(false);
+            CircleSelected.style.zIndex = '0';
+        }
+    };
 
-    // const CenterCircleClick = () => {
-    //   const CenterCircle = document.getElementById('CenterCircle') as HTMLImageElement;
-    //   if (CenterCircle && !centerCircleToggled) {
-    //     CenterCircle.src = '/purpleCircle.png'
-    //     setCenterCircleToggled(true)
-    //     CenterCircle.style.zIndex = '999';
-    //   }
-    //   else {
-    //     if (CenterCircle) CenterCircle.src = '/whiteCircle.png'
-    //     setCenterCircleToggled(false)
-    //     CenterCircle.style.zIndex = '0';
-    //   }
-    // }
+    // ANCHOR
+    useEffect(() => {
+    }, [topicSelection])
+
+    function cH(stateSetter, elementID, stateVal) {
+        const CircleSelected = document.getElementById(elementID) as HTMLImageElement;
+        if (circSelected && CircleSelected != circSelected) { 
+            circSelected.src = '/whiteCircle.png';
+        }
+        if (CircleSelected && !stateVal) {
+            // setCenterCircle('Go 🚀');
+            CircleSelected.src = '/purpleStrokedCircle.png';
+            setCircSelected(CircleSelected);
+            stateSetter(true);
+            CircleSelected.style.zIndex = '999';
+        } else {
+            if (CircleSelected) {
+                CircleSelected.src = '/whiteCircle.png';
+                setCenterCircle('Topics');
+            }
+            stateSetter(false);
+            CircleSelected.style.zIndex = '0';
+        }
+    }
 
     const CC = (parentID: any, elementID: any, stateSetter: any, stateVal: any): any => {
-        console.log(`topicsSelected`);
-        console.log(topicsSelected);
-        if (topicsSelected.filter((t) => t.topic === textFinder(parentID)).length > 0) {
-            removeTopic(textFinder(parentID));
-        } else {
-            pushTopic(textFinder(parentID));
-        }
+        switch (moniker) {
+            case 'topics':
+                cH(stateSetter, elementID, stateVal)
+                if (topicSelection != textFinder(parentID)) { 
+                    selectTopic(textFinder(parentID))
+                }
+                // if (topicSelection.some(e => e.topic === textFinder(parentID))) {
+                //     removeTopic(textFinder(parentID))
+                //     return;
+                //   } else { 
+                //     selectTopic(textFinder(parentID))
+                //     break;
+                //   }
+              break;
+            case 'subtopics':
+            case 'subsubtopics':
+            case 'category':
+            case 'weight':
+            case 'category':
+              console.log('Mangoes and papayas are $2.79 a pound.');
+              // expected output: "Mangoes and papayas are $2.79 a pound."
+              break;
+            default:
+              console.log(`Sorry, we are out of`);
+          }
+    };
+    
+
+    const CCold = (parentID: any, elementID: any, stateSetter: any, stateVal: any): any => {
+        console.log(`topicSelection`);
+        console.log(topicSelection);
+
+        // topicSelection.forEach((t, i) => {
+        //     if (t.topic === textFinder(parentID)) { removeTopic(textFinder(parentID)) }
+        //     // if (i === topicSelection.length - 1) {
+        //     //     selectTopic(textFinder(parentID));
+        //     // }
+        // })
+        // selectTopic(textFinder(parentID));
+        console.log(`topicSelection`);
+        console.log(topicSelection);
+        // selectTopic(textFinder(parentID)); OLD WAY
+        // if (topicSelection.forEach((t) => t.topic === textFinder(parentID)).length > 0) {
+        //     removeTopic(textFinder(parentID));
+        // } else {
+        //     selectTopic(textFinder(parentID));
+        // }
         const CircleSelected = document.getElementById(elementID) as HTMLImageElement;
         if (CircleSelected && !stateVal) {
             setCenterCircle('Go 🚀');
@@ -116,7 +173,7 @@ const Panel = () => {
 
     const validationFn = (topicName) => {
         // ANCHOR
-        topicsSelected.forEach((topic) => {
+        topicSelection.forEach((topic) => {
             if (topicName === topic.name) {
                 return false;
             }
@@ -136,10 +193,10 @@ const Panel = () => {
         if (stateSetter === setCenterTopTopCircleToggled) {
             if (topics) {
                 let topicName = 'Tech';
-                pushTopic({ name: topicName });
+                // selectTopic({ name: topicName });
                 // console.log(validationFn(topicName));
-                if (topicsEnum.includes(topicName) && !topicsSelected.includes(topicName)) {
-                    pushTopic({ name: topicName });
+                if (topicsEnum.includes(topicName) && !topicSelection.includes(topicName)) {
+                    // selectTopic({ name: topicName });
                 }
             }
             if (subTopics) {
@@ -319,7 +376,7 @@ const Panel = () => {
                             : ''}
                         <CenterCircle
                             onClick={() =>
-                                CC(
+                                CCold(
                                     'CircZero',
                                     'CenterCircle',
                                     setCenterCircleToggled,
@@ -362,11 +419,12 @@ const Panel = () => {
                             id='CenterTopTopCircle'
                             src='/whiteCircle.png'></CenterTopTopCircle>
                     </CenterTopTopCircleCont>
-                    <UpperRightCircleCont>
+                    <C2 id='C2'>
                         {topics ? 'News' : subTopics ? 'Key' : subSubTopics ? '0-7' : ''}
                         <UpperRightCircle
                             onClick={() =>
-                                CircleClicked(
+                                C2C(
+                                    'C2',
                                     'UpperRightCircle',
                                     setUpperRightCircleToggled,
                                     upperRightCircleToggled,
@@ -374,7 +432,7 @@ const Panel = () => {
                             }
                             id='UpperRightCircle'
                             src='/whiteCircle.png'></UpperRightCircle>
-                    </UpperRightCircleCont>
+                    </C2>
                     <UpperRightRightCircleCont>
                         {topics ? 'Business' : subTopics ? 'Date' : subSubTopics ? '8-14' : ''}
                         <UpperRightRightCircle
@@ -472,11 +530,12 @@ const Panel = () => {
                             id='BottomLeftLeftCircle'
                             src='/whiteCircle.png'></BottomLeftLeftCircle>
                     </Circ11>
-                    <CenterBottomCircleCont>
+                    <C4 id='C4'>
                         {topics ? 'Art' : subTopics ? 'Insightful' : subSubTopics ? '50-56' : ''}
                         <CenterBottomCircle
                             onClick={() =>
-                                CircleClicked(
+                                CC(
+                                    'C4',
                                     'CenterBottomCircle',
                                     setCenterBottomCircleToggled,
                                     centerBottomCircleToggled,
@@ -484,7 +543,7 @@ const Panel = () => {
                             }
                             id='CenterBottomCircle'
                             src='/whiteCircle.png'></CenterBottomCircle>
-                    </CenterBottomCircleCont>
+                    </C4>
                     <CenterBottomBottomCircleCont>
                         {topics ? 'Finance' : subTopics ? 'Funny' : subSubTopics ? '57-63' : ''}
                         <CenterBottomBottomCircle
@@ -503,38 +562,6 @@ const Panel = () => {
             <DockWrapper>
                 <Dock>
                     <DockButtonContainer>
-                        {/* <MenuHeirachyArrowLeftContainer>
-                            <MenuHeirachyArrowLeft
-                                onClick={() => MenuHeirachyArrowLeftClk()}
-                                onMouseEnter={() => MenuHeirachyArrowLeftME()}
-                                onMouseOut={() => MenuHeirachyArrowLeftMO()}
-                                src='/MenuHeirarchyArrow.png'></MenuHeirachyArrowLeft>
-                        </MenuHeirachyArrowLeftContainer> */}
-
-                        <MenuOverFlowUpContainer>
-                            <MenuOverFlowUp
-                                onClick={() => MenuOverFlowUpClk()}
-                                onMouseEnter={() => MenuOverFlowUpME()}
-                                onMouseOut={() => MenuOverFlowUpMO()}
-                                src='/Arrow.png'></MenuOverFlowUp>
-                        </MenuOverFlowUpContainer>
-
-                        <HistoryContainer>
-                            <History
-                                onClick={() => HistoryClk()}
-                                onMouseEnter={() => HistoryME()}
-                                onMouseOut={() => HistoryMO()}
-                                src='/History.png'></History>
-                        </HistoryContainer>
-
-                        <MenuOverFlowDownContainer>
-                            <MenuOverFlowDown
-                                onClick={() => MenuOverFlowDownClk()}
-                                onMouseEnter={() => MenuOverFlowDownME()}
-                                onMouseOut={() => MenuOverFlowDownMO()}
-                                src='/Arrow.png'></MenuOverFlowDown>
-                        </MenuOverFlowDownContainer>
-
                         <MenuHeirachyArrowRightContainer>
                             <MenuHeirachyArrowRight
                                 onClick={() => MenuHeirachyArrowRightClk()}
@@ -650,7 +677,7 @@ const CenterBottomBottomCircleCont = styled.div`
     align-items: center;
 `;
 
-const CenterBottomCircleCont = styled.div`
+const C4 = styled.div`
     height: calc(305.5px / 5);
     width: calc(305.5px / 5);
     position: absolute;
@@ -682,7 +709,7 @@ const UpperLeftLeftCircleCont = styled.div`
     align-items: center;
 `;
 
-const UpperRightCircleCont = styled.div`
+const C2 = styled.div`
     height: calc(305.5px / 5);
     width: calc(305.5px / 5);
     position: absolute;

@@ -27,7 +27,7 @@ interface Fire {
 // @ts-ignore
 const Dash = ({ fires }: Fire) => {
     // @ts-ignore
-    const topicsSelected = useStore((state) => state.topicsSelected);
+    const topicSelection = useStore((state) => state.topicSelection);
     const [initialRender, setInitialRender] = useState(true);
     const [fireDT, setFireDT] = useState<any>([]);
     const [nwFireDT, setNwFireDT] = useState<any>([]);
@@ -46,16 +46,17 @@ const Dash = ({ fires }: Fire) => {
     // }
 
     useEffect(() => {
-        // ANCHOR
-        if (topicsSelected.length > 0) {
-            const t = fireDT.filter((fire) => fire.topic === topicsSelected[0].topic);
+        // ANCHOR important...
+        alert(topicSelection)
+        if (topicSelection) {
+            const t = fireDT.filter((fire) => fire.topic === topicSelection);
             setNwFireDT(t);
             setRenderTG(!renderTG);
-        } else if (topicsSelected.length === 0) {
+        } else {
             setNwFireDT([]);
         }
-        // setFireDT(fireDT.filter((fire) => fire.topic === topicsSelected[0].topic));
-    }, [topicsSelected]);
+        // setFireDT(fireDT.filter((fire) => fire.topic === topicSelection[0].topic));
+    }, [topicSelection]);
 
     let apple = fires;
     if (fireDT && fireDT.length !== fires.length) {

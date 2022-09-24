@@ -1,7 +1,7 @@
 import create from "zustand";
 
 const useStore = create((set) => ({
-    topicsSelected: [],
+    topicSelection: '',
     subTopicsSelected: [],
     subSubTopicsSelected: [],
     categoriesSelected: [],
@@ -41,16 +41,13 @@ const useStore = create((set) => ({
         { id: 4, name: "Charmander" },
         { id: 5, name: "Charmeleon" },
     ],
-pushTopic: (topic) =>
+selectTopic: (topic) =>
     set((state) => ({
-        topicsSelected: [
-            { topic: topic, id: Math.random() * 100 },
-            ...state.topicsSelected,
-        ]
+        topicSelection: topic
     })),
 removeTopic: async (topic) =>
     set((state) => ({
-        topicsSelected: state.topicsSelected.filter((iT) => iT.topic !== topic),
+        topicSelection: ''
     })),
 pushSubTopic: (subTopic) =>
     set((state) => ({

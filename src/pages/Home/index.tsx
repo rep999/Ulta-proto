@@ -43,7 +43,7 @@ export async function getServerSideProps() {
 export default function Home({ fires }: Fire) {
     // const topicsSelected = useStore((state) => state.topicsSelected);
     // const topicsEnum = useStore((state) => state.topics);
-    // const pushTopic = useStore((state) => state.pushTopic);
+    // const selectTopic = useStore((state) => state.selectTopic);
     const useStore = create((set) => ({
         topicSelection: 'monkey',
     }));
