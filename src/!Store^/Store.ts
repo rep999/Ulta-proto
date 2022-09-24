@@ -45,10 +45,10 @@ selectTopic: (topic) =>
     set((state) => ({
         topicSelection: topic
     })),
-removeTopic: async (topic) =>
-    set((state) => ({
-        topicSelection: ''
-    })),
+// removeTopic: async (topic) =>
+//     set((state) => ({
+//         topicSelection: ''
+//     })),
 pushSubTopic: (subTopic) =>
     set((state) => ({
         subTopicsSelected: [

@@ -16,6 +16,7 @@ interface Fire {
     subtopic?: string;
     subsubtopic?: string;
     url?: string;
+    category?: string;
 }
 
 const Card = ({
@@ -25,9 +26,10 @@ const Card = ({
     text_title,
     title,
     topic,
-    subtopic,
-    subsubtopic,
+    // subtopic,
+    // subsubtopic,
     url,
+    category,
 }: Fire) => {
     const [initialRender, setInitialRender] = useState(true);
     const [mockFireData, setMockFireData] = useState<any>([]);
@@ -64,16 +66,21 @@ const Card = ({
                                 <CardTopicContainer>
                                     <CardTopicContainerText>{topic}</CardTopicContainerText>
                                 </CardTopicContainer>
-                                <CardSubTopicContainer>
+                                <CardCategoryContainer>
+                                    <CardSubTopicContainerText>
+                                        {category}
+                                        </CardSubTopicContainerText>
+                                </CardCategoryContainer>
+                                {/* <CardCategoryContainer>
                                     <CardSubTopicContainerText>
                                         {subtopic}
                                     </CardSubTopicContainerText>
-                                </CardSubTopicContainer>
+                                </CardCategoryContainer>
                                 <CardSubSubTopicContainer>
                                     <CardSubSubTopicContainerText>
                                         {subsubtopic}
                                     </CardSubSubTopicContainerText>
-                                </CardSubSubTopicContainer>
+                                </CardSubSubTopicContainer> */}
                             </CardTopicsContainer>
                         </CardMainTitleContainer>
                         <TextSection>
@@ -91,6 +98,7 @@ const Card = ({
                 <CardDateSection>
                     <CardDateContainer>
                         <CardDate>{created_at?.slice(0, 10)}</CardDate>
+                         {/* @ts-ignore */}
                         <CardLikesCount>{Math.round(count / 2)}</CardLikesCount>
                     </CardDateContainer>
                 </CardDateSection>
@@ -576,6 +584,7 @@ const CardMainTitle = styled.div`
     display: flex;
     width: 100%;
     justify-content: center;
+    align-items: center;
 `;
 
 const CardTopicsContainer = styled.div`
@@ -589,17 +598,18 @@ const CardTopicContainer = styled.div`
     border: 1px solid white;
     display: flex;
     align-items: center;
-    height: 100%;
-    width: 80%;
+    justify-content: center;
+    height: 50%;
+    width: 100%;
 `;
 
-const CardSubTopicContainer = styled.div`
+const CardCategoryContainer = styled.div`
     border: 1px solid white;
     display: flex;
     display: flex;
     align-items: center;
-    height: 100%;
-    width: 80%;
+    height: 50%;
+    width: 100%;
 `;
 
 const CardSubSubTopicContainer = styled.div`
@@ -612,6 +622,7 @@ const CardSubSubTopicContainer = styled.div`
 
 const CardTopicContainerText = styled.div`
     color: white;
+    text-align: center;
 `;
 const CardSubTopicContainerText = styled.div`
     color: white;

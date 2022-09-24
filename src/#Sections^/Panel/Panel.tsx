@@ -15,13 +15,13 @@ import { compareCreated_At } from '$Sections/Dash/Fn/compare';
 // `
 
 const Panel = () => {
-    // @ts-ignore Selected Topic
-    const topicSelection = useStore((state) => state.topicSelection);
-    // @ts-ignore Add Topic
-    const selectTopic = useStore((state) => state.selectTopic);
-    // @ts-ignore
+    // @ts-ignore        Topics Enum
     const topicsEnum = useStore((state) => state.topics);
-    // @ts-ignore
+    // @ts-ignore        Selected Topic
+    const topicSelection = useStore((state) => state.topicSelection);
+    // @ts-ignore        Add Topic
+    const selectTopic = useStore((state) => state.selectTopic);
+    // @ts-ignore        Remove Topic
     const removeTopic = useStore((state) => state.removeTopic);
     // STATE TOGGLES
     const [centerCircleToggled, setCenterCircleToggled] = useState(false);
@@ -47,41 +47,6 @@ const Panel = () => {
     const [moniker, setMoniker] = useState('topics');
     const [circSelected, setCircSelected] = useState<any>();
 
-    const C2C = (parentID: any, elementID: any, stateSetter: any, stateVal: any): any => {
-        console.log(`topicSelection`);
-        console.log(topicSelection);
-        switch (moniker) {
-            case 'topics':
-            //   selectTopic(textFinder(parentID))
-              break;
-            case 'subtopics':
-            case 'subsubtopics':
-            case 'category':
-            case 'weight':
-            case 'category':
-              console.log('Mangoes and papayas are $2.79 a pound.');
-              // expected output: "Mangoes and papayas are $2.79 a pound."
-              break;
-            default:
-              console.log(`Sorry, we are out of`);
-          }
-        // selectTopic(textFinder(parentID));
-        const CircleSelected = document.getElementById(elementID) as HTMLImageElement;
-        if (CircleSelected && !stateVal) {
-            setCenterCircle('Go 🚀');
-            CircleSelected.src = '/cH.png';
-            stateSetter(true);
-            CircleSelected.style.zIndex = '999';
-        } else {
-            if (CircleSelected) {
-                CircleSelected.src = '/whiteCircle.png';
-                setCenterCircle('Topics');
-            }
-            stateSetter(false);
-            CircleSelected.style.zIndex = '0';
-        }
-    };
-
     // ANCHOR
     useEffect(() => {
     }, [topicSelection])
@@ -92,7 +57,6 @@ const Panel = () => {
             circSelected.src = '/whiteCircle.png';
         }
         if (CircleSelected && !stateVal) {
-            // setCenterCircle('Go 🚀');
             CircleSelected.src = '/purpleStrokedCircle.png';
             setCircSelected(CircleSelected);
             stateSetter(true);
@@ -111,64 +75,18 @@ const Panel = () => {
         switch (moniker) {
             case 'topics':
                 cH(stateSetter, elementID, stateVal)
-                if (topicSelection != textFinder(parentID)) { 
+                // If its the Same Selection:
+                if (topicSelection === textFinder(parentID)) { 
+                    selectTopic('') 
+                } else {
                     selectTopic(textFinder(parentID))
                 }
-                // if (topicSelection.some(e => e.topic === textFinder(parentID))) {
-                //     removeTopic(textFinder(parentID))
-                //     return;
-                //   } else { 
-                //     selectTopic(textFinder(parentID))
-                //     break;
-                //   }
               break;
-            case 'subtopics':
-            case 'subsubtopics':
             case 'category':
             case 'weight':
-            case 'category':
-              console.log('Mangoes and papayas are $2.79 a pound.');
-              // expected output: "Mangoes and papayas are $2.79 a pound."
-              break;
             default:
-              console.log(`Sorry, we are out of`);
+              console.log(`DEFAULT`);
           }
-    };
-    
-
-    const CCold = (parentID: any, elementID: any, stateSetter: any, stateVal: any): any => {
-        console.log(`topicSelection`);
-        console.log(topicSelection);
-
-        // topicSelection.forEach((t, i) => {
-        //     if (t.topic === textFinder(parentID)) { removeTopic(textFinder(parentID)) }
-        //     // if (i === topicSelection.length - 1) {
-        //     //     selectTopic(textFinder(parentID));
-        //     // }
-        // })
-        // selectTopic(textFinder(parentID));
-        console.log(`topicSelection`);
-        console.log(topicSelection);
-        // selectTopic(textFinder(parentID)); OLD WAY
-        // if (topicSelection.forEach((t) => t.topic === textFinder(parentID)).length > 0) {
-        //     removeTopic(textFinder(parentID));
-        // } else {
-        //     selectTopic(textFinder(parentID));
-        // }
-        const CircleSelected = document.getElementById(elementID) as HTMLImageElement;
-        if (CircleSelected && !stateVal) {
-            setCenterCircle('Go 🚀');
-            CircleSelected.src = '/purpleStrokedCircle.png';
-            stateSetter(true);
-            CircleSelected.style.zIndex = '999';
-        } else {
-            if (CircleSelected) {
-                CircleSelected.src = '/whiteCircle.png';
-                setCenterCircle('Topics');
-            }
-            stateSetter(false);
-            CircleSelected.style.zIndex = '0';
-        }
     };
 
     const validationFn = (topicName) => {
@@ -185,92 +103,6 @@ const Panel = () => {
     const textFinder = (ElemID) => {
         let Text = document.getElementById(ElemID)?.innerText;
         return Text;
-    };
-
-    const CircleClicked = (elementID: any, stateSetter: any, stateVal: any): any => {
-        // textFinder();
-
-        if (stateSetter === setCenterTopTopCircleToggled) {
-            if (topics) {
-                let topicName = 'Tech';
-                // selectTopic({ name: topicName });
-                // console.log(validationFn(topicName));
-                if (topicsEnum.includes(topicName) && !topicSelection.includes(topicName)) {
-                    // selectTopic({ name: topicName });
-                }
-            }
-            if (subTopics) {
-                // ANCHOR how do you overcome the 10000 line file problem?  Also in the context of repetitive re-renders?
-                // Import the function that you can port state into?
-            }
-            if (subSubTopics) {
-            }
-        }
-        const CircleSelected = document.getElementById(elementID) as HTMLImageElement;
-
-        if (CircleSelected && !stateVal) {
-            setCenterCircle('Go 🚀');
-            CircleSelected.src = '/purpleStrokedCircle.png';
-            stateSetter(true);
-            CircleSelected.style.zIndex = '999';
-        } else {
-            if (CircleSelected) {
-                CircleSelected.src = '/whiteCircle.png';
-                setCenterCircle('Topics');
-            }
-            stateSetter(false);
-            CircleSelected.style.zIndex = '0';
-        }
-    };
-
-    // const MenuHeirachyArrowLeftClk = () => {
-    //     // if (topics) { setTopics(false); setSubTopics(true); setSubSubTopics(false); }
-    //     if (subTopics) {
-    //         setTopics(true);
-    //         setSubTopics(false);
-    //         setSubSubTopics(false);
-    //     }
-    //     if (subSubTopics) {
-    //         setTopics(false);
-    //         setSubTopics(true);
-    //         setSubSubTopics(false);
-    //     }
-    // };
-
-    const MenuOverFlowUpClk = () => {
-        // if (topics) { setTopics(false); setSubTopics(true); setSubSubTopics(false); }
-        if (subTopics) {
-            setTopics(true);
-            setSubTopics(false);
-            setSubSubTopics(false);
-        }
-        if (subSubTopics) {
-            setTopics(false);
-            setSubTopics(true);
-            setSubSubTopics(false);
-        }
-    };
-
-    useEffect(() => {}, []);
-
-    const HistoryClk = () => {
-        const DockTextEl = document.getElementById('DockText');
-        if (DockTextEl) {
-            DockTextEl.innerText = 'Menu Over Flow Up';
-        }
-    };
-
-    const MenuOverFlowDownClk = () => {
-        if (topics) {
-            setTopics(false);
-            setSubTopics(true);
-            setSubSubTopics(false);
-        }
-        if (subTopics) {
-            setTopics(false);
-            setSubTopics(false);
-            setSubSubTopics(true);
-        }
     };
 
     const MenuHeirachyArrowRightClk = () => {
@@ -291,66 +123,10 @@ const Panel = () => {
         }
     };
 
-    const MenuOverFlowUpME = () => {
-        const DockTextEl = document.getElementById('DockText');
-        if (DockTextEl) {
-            DockTextEl.innerText = 'Menu Over Flow Up';
-        }
-    };
-
-    const MenuOverFlowDownME = () => {
-        const DockTextEl = document.getElementById('DockText');
-        if (DockTextEl) {
-            DockTextEl.innerText = 'Menu Over Flow Down';
-        }
-    };
-
-    const HistoryME = () => {
-        const DockTextEl = document.getElementById('DockText');
-        if (DockTextEl) {
-            DockTextEl.innerText = 'History';
-        }
-    };
-
-    const MenuHeirachyArrowLeftME = () => {
-        const DockTextEl = document.getElementById('DockText');
-        if (DockTextEl) {
-            DockTextEl.innerText = 'Menu Heirarchy Arrow';
-        }
-    };
-
     const MenuHeirachyArrowRightME = () => {
         const DockTextEl = document.getElementById('DockText');
         if (DockTextEl) {
             DockTextEl.innerText = 'Menu Heirarchy Arrow';
-        }
-    };
-
-    const MenuOverFlowUpMO = () => {
-        const DockTextEl = document.getElementById('DockText');
-        if (DockTextEl) {
-            DockTextEl.innerText = '';
-        }
-    };
-
-    const MenuOverFlowDownMO = () => {
-        const DockTextEl = document.getElementById('DockText');
-        if (DockTextEl) {
-            DockTextEl.innerText = '';
-        }
-    };
-
-    const HistoryMO = () => {
-        const DockTextEl = document.getElementById('DockText');
-        if (DockTextEl) {
-            DockTextEl.innerText = '';
-        }
-    };
-
-    const MenuHeirachyArrowLeftMO = () => {
-        const DockTextEl = document.getElementById('DockText');
-        if (DockTextEl) {
-            DockTextEl.innerText = '';
         }
     };
 
@@ -366,7 +142,7 @@ const Panel = () => {
             <PanelWrapper>
                 <FireNetLogo id='FireNetLogo' src='/OfficialLogo.png'></FireNetLogo>
                 <FruitCake id='FruitCake'>
-                    <CircZero id='CircZero'>
+                    <C0 id='C0'>
                         {topics
                             ? centerCircle
                             : subTopics
@@ -376,8 +152,8 @@ const Panel = () => {
                             : ''}
                         <CenterCircle
                             onClick={() =>
-                                CCold(
-                                    'CircZero',
+                                CC(
+                                    'C0',
                                     'CenterCircle',
                                     setCenterCircleToggled,
                                     centerCircleToggled,
@@ -385,8 +161,8 @@ const Panel = () => {
                             }
                             id='CenterCircle'
                             src='/whiteCircle.png'></CenterCircle>
-                    </CircZero>
-                    <CircOne id='CircOne'>
+                    </C0>
+                    <C1 id='C1'>
                         {topics
                             ? 'Religion'
                             : subTopics
@@ -397,7 +173,7 @@ const Panel = () => {
                         <CenterTopCircle
                             onClick={() =>
                                 CC(
-                                    'CircOne',
+                                    'C1',
                                     'CenterTopCircle',
                                     setCenterTopCircleToggled,
                                     centerTopCircleToggled,
@@ -405,12 +181,13 @@ const Panel = () => {
                             }
                             id='CenterTopCircle'
                             src='/whiteCircle.png'></CenterTopCircle>
-                    </CircOne>
-                    <CenterTopTopCircleCont>
+                    </C1>
+                    <C7 id='C7'>
                         {topics ? 'Tech' : subTopics ? 'Note' : subSubTopics ? '71-77' : ''}
                         <CenterTopTopCircle
                             onClick={() =>
-                                CircleClicked(
+                                CC(
+                                    'C7',
                                     'CenterTopTopCircle',
                                     setCenterTopTopCircleToggled,
                                     centerTopTopCircleToggled,
@@ -418,12 +195,12 @@ const Panel = () => {
                             }
                             id='CenterTopTopCircle'
                             src='/whiteCircle.png'></CenterTopTopCircle>
-                    </CenterTopTopCircleCont>
+                    </C7>
                     <C2 id='C2'>
                         {topics ? 'News' : subTopics ? 'Key' : subSubTopics ? '0-7' : ''}
                         <UpperRightCircle
                             onClick={() =>
-                                C2C(
+                                CC(
                                     'C2',
                                     'UpperRightCircle',
                                     setUpperRightCircleToggled,
@@ -433,11 +210,12 @@ const Panel = () => {
                             id='UpperRightCircle'
                             src='/whiteCircle.png'></UpperRightCircle>
                     </C2>
-                    <UpperRightRightCircleCont>
+                    <C8 id='C8'>
                         {topics ? 'Business' : subTopics ? 'Date' : subSubTopics ? '8-14' : ''}
                         <UpperRightRightCircle
                             onClick={() =>
-                                CircleClicked(
+                                CC(
+                                    'C8',
                                     'UpperRightRightCircle',
                                     setUpperRightRightCircleToggled,
                                     upperRightRightCircleToggled,
@@ -445,8 +223,8 @@ const Panel = () => {
                             }
                             id='UpperRightRightCircle'
                             src='/whiteCircle.png'></UpperRightRightCircle>
-                    </UpperRightRightCircleCont>
-                    <UpperLeftCircleCont>
+                    </C8>
+                    <C6 id='C6'>
                         {topics
                             ? 'Software'
                             : subTopics
@@ -456,7 +234,8 @@ const Panel = () => {
                             : ''}
                         <UpperLeftCircle
                             onClick={() =>
-                                CircleClicked(
+                                CC(
+                                    'C6',
                                     'UpperLeftCircle',
                                     setUpperLeftCircleToggled,
                                     upperLeftCircleToggled,
@@ -464,12 +243,13 @@ const Panel = () => {
                             }
                             id='UpperLeftCircle'
                             src='/whiteCircle.png'></UpperLeftCircle>
-                    </UpperLeftCircleCont>
-                    <UpperLeftLeftCircleCont>
+                    </C6>
+                    <C12 id='C12'>
                         {topics ? 'Fitness' : subTopics ? 'Helpful' : subSubTopics ? '22-28' : ''}
                         <UpperLeftLeftCircle
                             onClick={() =>
-                                CircleClicked(
+                                CC(
+                                    'C12',
                                     'UpperLeftLeftCircle',
                                     setUpperLeftLeftCircleToggled,
                                     upperLeftLeftCircleToggled,
@@ -477,12 +257,13 @@ const Panel = () => {
                             }
                             id='UpperLeftLeftCircle'
                             src='/whiteCircle.png'></UpperLeftLeftCircle>
-                    </UpperLeftLeftCircleCont>
-                    <BottomRightRightCircleCont>
+                    </C12>
+                    <C9 id="C9">
                         {topics ? 'Science' : subTopics ? 'Applicable' : subSubTopics ? '100' : ''}
                         <BottomRightRightCircle
                             onClick={() =>
-                                CircleClicked(
+                                CC(
+                                    'C9',
                                     'BottomRightRightCircle',
                                     setBottomRightRightCircleToggled,
                                     bottomRightRightCircleToggled,
@@ -490,12 +271,13 @@ const Panel = () => {
                             }
                             id='BottomRightRightCircle'
                             src='/whiteCircle.png'></BottomRightRightCircle>
-                    </BottomRightRightCircleCont>
-                    <BottomRightCircleCont>
+                    </C9>
+                    <C3 id='C3'>
                         {topics ? 'Nature' : subTopics ? 'Career' : subSubTopics ? '29-35' : ''}
                         <BottomRightCircle
                             onClick={() =>
-                                CircleClicked(
+                                CC(
+                                    'C3',
                                     'BottomRightCircle',
                                     setBottomRightCircleToggled,
                                     bottomRightCircleToggled,
@@ -503,12 +285,13 @@ const Panel = () => {
                             }
                             id='BottomRightCircle'
                             src='/whiteCircle.png'></BottomRightCircle>
-                    </BottomRightCircleCont>
-                    <BottomLeftCircleCont>
+                    </C3>
+                    <C5 id='C5'>
                         {topics ? 'Health' : subTopics ? 'Knowledge' : subSubTopics ? '36-42' : ''}
                         <BottomLeftCircle
                             onClick={() =>
-                                CircleClicked(
+                                CC(
+                                    'C5',
                                     'BottomLeftCircle',
                                     setBottomLeftCircleToggled,
                                     bottomLeftCircleToggled,
@@ -516,12 +299,13 @@ const Panel = () => {
                             }
                             id='BottomLeftCircle'
                             src='/whiteCircle.png'></BottomLeftCircle>
-                    </BottomLeftCircleCont>
-                    <Circ11 id='Circ11'>
+                    </C5>
+                    <C11 id='C11'>
                         {topics ? 'Fashion' : subTopics ? 'Question' : subSubTopics ? '43-49' : ''}
                         <BottomLeftLeftCircle
                             onClick={() =>
-                                CircleClicked(
+                                CC(
+                                    'C11',
                                     'BottomLeftLeftCircle',
                                     setBottomLeftLeftCircleToggled,
                                     bottomLeftLeftCircleToggled,
@@ -529,7 +313,7 @@ const Panel = () => {
                             }
                             id='BottomLeftLeftCircle'
                             src='/whiteCircle.png'></BottomLeftLeftCircle>
-                    </Circ11>
+                    </C11>
                     <C4 id='C4'>
                         {topics ? 'Art' : subTopics ? 'Insightful' : subSubTopics ? '50-56' : ''}
                         <CenterBottomCircle
@@ -544,11 +328,12 @@ const Panel = () => {
                             id='CenterBottomCircle'
                             src='/whiteCircle.png'></CenterBottomCircle>
                     </C4>
-                    <CenterBottomBottomCircleCont>
+                    <C10 id='C10'>
                         {topics ? 'Finance' : subTopics ? 'Funny' : subSubTopics ? '57-63' : ''}
                         <CenterBottomBottomCircle
                             onClick={() =>
-                                CircleClicked(
+                                CC(
+                                    'C10',
                                     'CenterBottomBottomCircle',
                                     setCenterBottomBottomCircleToggled,
                                     centerBottomBottomCircleToggled,
@@ -556,7 +341,7 @@ const Panel = () => {
                             }
                             id='CenterBottomBottomCircle'
                             src='/whiteCircle.png'></CenterBottomBottomCircle>
-                    </CenterBottomBottomCircleCont>
+                    </C10>
                 </FruitCake>
             </PanelWrapper>
             <DockWrapper>
@@ -633,7 +418,7 @@ const Circle = styled.img`
     display: block;
 `;
 
-const CircZero = styled.div`
+const C0 = styled.div`
     height: calc(305.5px / 5);
     width: calc(305.5px / 5);
     position: absolute;
@@ -645,7 +430,7 @@ const CircZero = styled.div`
 
 const CenterCircle = styled(Circle)``;
 
-const CircOne = styled.div`
+const C1 = styled.div`
     height: calc(305.5px / 5);
     width: calc(305.5px / 5);
     position: absolute;
@@ -657,7 +442,7 @@ const CircOne = styled.div`
 
 const CenterTopCircle = styled(Circle)``;
 
-const CenterTopTopCircleCont = styled.div`
+const C7 = styled.div`
     height: calc(305.5px / 5);
     width: calc(305.5px / 5);
     position: absolute;
@@ -667,7 +452,7 @@ const CenterTopTopCircleCont = styled.div`
     align-items: center;
 `;
 
-const CenterBottomBottomCircleCont = styled.div`
+const C10 = styled.div`
     height: calc(305.5px / 5);
     width: calc(305.5px / 5);
     position: absolute;
@@ -687,7 +472,7 @@ const C4 = styled.div`
     align-items: center;
 `;
 
-const UpperLeftCircleCont = styled.div`
+const C6 = styled.div`
     height: calc(305.5px / 5);
     width: calc(305.5px / 5);
     position: absolute;
@@ -698,7 +483,7 @@ const UpperLeftCircleCont = styled.div`
     align-items: center;
 `;
 
-const UpperLeftLeftCircleCont = styled.div`
+const C12 = styled.div`
     height: calc(305.5px / 5);
     width: calc(305.5px / 5);
     position: absolute;
@@ -720,7 +505,7 @@ const C2 = styled.div`
     align-items: center;
 `;
 
-const UpperRightRightCircleCont = styled.div`
+const C8 = styled.div`
     height: calc(305.5px / 5);
     width: calc(305.5px / 5);
     position: absolute;
@@ -731,7 +516,7 @@ const UpperRightRightCircleCont = styled.div`
     align-items: center;
 `;
 
-const BottomRightCircleCont = styled.div`
+const C3 = styled.div`
     height: calc(305.5px / 5);
     width: calc(305.5px / 5);
     position: absolute;
@@ -742,7 +527,7 @@ const BottomRightCircleCont = styled.div`
     align-items: center;
 `;
 
-const BottomRightRightCircleCont = styled.div`
+const C9 = styled.div`
     height: calc(305.5px / 5);
     width: calc(305.5px / 5);
     position: absolute;
@@ -753,7 +538,7 @@ const BottomRightRightCircleCont = styled.div`
     align-items: center;
 `;
 
-const BottomLeftCircleCont = styled.div`
+const C5 = styled.div`
     height: calc(305.5px / 5);
     width: calc(305.5px / 5);
     position: absolute;
@@ -763,7 +548,7 @@ const BottomLeftCircleCont = styled.div`
     justify-content: center;
     align-items: center;
 `;
-const Circ11 = styled.div`
+const C11 = styled.div`
     height: calc(305.5px / 5);
     width: calc(305.5px / 5);
     position: absolute;

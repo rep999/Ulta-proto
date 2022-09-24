@@ -29,33 +29,32 @@ const Dash = ({ fires }: Fire) => {
     // @ts-ignore
     const topicSelection = useStore((state) => state.topicSelection);
     const [initialRender, setInitialRender] = useState(true);
+    const [welcomeTitleTxt, setWelcomeTitleTxt] = useState('Welcome to The FireNet');
     const [fireDT, setFireDT] = useState<any>([]);
     const [nwFireDT, setNwFireDT] = useState<any>([]);
     const [renderTG, setRenderTG] = useState<boolean>(false);
     const [firesAsc, setFiresAsc] = useState<boolean>(false);
     const [firesDesc, setFiresDesc] = useState<boolean>(false);
 
-    // function topicRD(firesST, chosenTopicsObj) {
-    //     console.log(`firesST`);
-    //     console.log(firesST);
-    //     console.log(`chosenTopicsObj`);
-    //     console.log(chosenTopicsObj);
-    //     // firstST.filter(fire => {
-    //     //     fire !==
-    //     // })
-    // }
-
     useEffect(() => {
         // ANCHOR important...
-        alert(topicSelection)
+
+        // Bug List:  
+        // 1.  When you click a topic that has no items, um wrong result?
+        // 2.  When you click a topic that has no items, um wrong result?
+        
         if (topicSelection) {
             const t = fireDT.filter((fire) => fire.topic === topicSelection);
+            if (t.length === 0) { 
+                setWelcomeTitleTxt('Nothing here yet 🥲')} 
+                    else {
+                setWelcomeTitleTxt('Welcome to The FireNet')
+            }
             setNwFireDT(t);
             setRenderTG(!renderTG);
         } else {
-            setNwFireDT([]);
+            setNwFireDT('');
         }
-        // setFireDT(fireDT.filter((fire) => fire.topic === topicSelection[0].topic));
     }, [topicSelection]);
 
     let apple = fires;
@@ -65,16 +64,6 @@ const Dash = ({ fires }: Fire) => {
     const CardClick = () => {};
 
     const CubeClick = () => {};
-
-    // useEffect(() => {
-    //   if (initialRender) {
-    //     setMockFireDT(MockFireObjReturned)
-    //   }
-    //   setInitialRender(false)
-    // }, [mockFireDT])
-
-    const CardMainTitleME = () => {};
-    const CardMainTitleMO = () => {};
 
     const ByDateClick = () => {
         setFireDT(fireDT.sort(compareCreated_At));
@@ -114,7 +103,7 @@ const Dash = ({ fires }: Fire) => {
             <TopHeaderContainer>
                 <TopHeaderTitleRow>
                     <WelcomeTitleContainer>
-                        <WelcomeTitle>Welcome to The FireNet </WelcomeTitle>
+                        <WelcomeTitle>{welcomeTitleTxt} </WelcomeTitle>
                         {/* <WelcomeTitleImgContainer>
               <WelcomeTitleImg src="/OfficialLogo.png" />
             </WelcomeTitleImgContainer> */}
@@ -167,6 +156,7 @@ const Dash = ({ fires }: Fire) => {
                                       subsubtopic={fire.subsubtopic}
                                       // @ts-ignore
                                       category={fire.category}
+                                      // @ts-ignore
                                       weight={fire.weight}
                                       url={fire.url}></Card>
                               ))
@@ -184,6 +174,7 @@ const Dash = ({ fires }: Fire) => {
                                       subsubtopic={fire.subsubtopic}
                                       // @ts-ignore
                                       category={fire.category}
+                                      // @ts-ignore
                                       weight={fire.weight}
                                       url={fire.url}></Card>
                               ))}
