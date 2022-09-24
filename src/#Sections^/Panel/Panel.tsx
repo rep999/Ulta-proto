@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import useStore from '$Store';
 // @ts-ignore
 import isFound from '$Utils/isFound.ts';
+import { compareCreated_At } from '$Sections/Dash/Fn/compare';
 
 // const Fruit = styled.img`
 //   height: 94%;
@@ -14,9 +15,14 @@ import isFound from '$Utils/isFound.ts';
 // `
 
 const Panel = () => {
+    // @ts-ignore
     const topicsSelected = useStore((state) => state.topicsSelected);
+    // @ts-ignore
     const topicsEnum = useStore((state) => state.topics);
+    // @ts-ignore
     const pushTopic = useStore((state) => state.pushTopic);
+    // @ts-ignore
+    const removeTopic = useStore((state) => state.removeTopic);
     // STATE TOGGLES
     const [centerCircleToggled, setCenterCircleToggled] = useState(false);
     const [centerTopCircleToggled, setCenterTopCircleToggled] = useState(false);
@@ -84,30 +90,17 @@ const Panel = () => {
     //   }
     // }
 
-    const CCClick = (elementID: any, stateSetter: any, stateVal: any): any => {
-        // const CircleSelected = document.getElementById(elementID) as HTMLImageElement;
-        // if (CircleSelected && !stateVal) {
-        //   setCenterCircle('Search')
-        //   CircleSelected.src = '/purpleStrokedCircle.png'
-        //   stateSetter(true)
-        //   CircleSelected.style.zIndex = '999';
-        // }
-        // else {
-        //   if (CircleSelected) {
-        //     CircleSelected.src = '/whiteCircle.png';
-        //     setCenterCircle('Topics')
-        //   }
-        //   stateSetter(false)
-        //   CircleSelected.style.zIndex = '0';
-        // }
-    };
-
     const CC = (parentID: any, elementID: any, stateSetter: any, stateVal: any): any => {
-        pushTopic(textFinder(parentID));
-        alert(topicsSelected);
+        console.log(`topicsSelected`);
+        console.log(topicsSelected);
+        if (topicsSelected.filter((t) => t.topic === textFinder(parentID)).length > 0) {
+            removeTopic(textFinder(parentID));
+        } else {
+            pushTopic(textFinder(parentID));
+        }
         const CircleSelected = document.getElementById(elementID) as HTMLImageElement;
         if (CircleSelected && !stateVal) {
-            setCenterCircle('Search');
+            setCenterCircle('Go 🚀');
             CircleSelected.src = '/purpleStrokedCircle.png';
             stateSetter(true);
             CircleSelected.style.zIndex = '999';

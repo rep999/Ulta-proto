@@ -44,9 +44,13 @@ const useStore = create((set) => ({
 pushTopic: (topic) =>
     set((state) => ({
         topicsSelected: [
-            { name: topic.name, id: Math.random() * 100 },
+            { topic: topic, id: Math.random() * 100 },
             ...state.topicsSelected,
         ]
+    })),
+removeTopic: async (topic) =>
+    set((state) => ({
+        topicsSelected: state.topicsSelected.filter((iT) => iT.topic !== topic),
     })),
 pushSubTopic: (subTopic) =>
     set((state) => ({

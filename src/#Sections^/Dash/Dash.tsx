@@ -26,25 +26,40 @@ interface Fire {
 
 // @ts-ignore
 const Dash = ({ fires }: Fire) => {
+    // @ts-ignore
     const topicsSelected = useStore((state) => state.topicsSelected);
     const [initialRender, setInitialRender] = useState(true);
-    const [fireData, setFireData] = useState<any>([]);
-    const [renderToggle, setRenderToggle] = useState<boolean>(false);
+    const [fireDT, setFireDT] = useState<any>([]);
+    const [nwFireDT, setNwFireDT] = useState<any>([]);
+    const [renderTG, setRenderTG] = useState<boolean>(false);
     const [firesAsc, setFiresAsc] = useState<boolean>(false);
     const [firesDesc, setFiresDesc] = useState<boolean>(false);
 
+    // function topicRD(firesST, chosenTopicsObj) {
+    //     console.log(`firesST`);
+    //     console.log(firesST);
+    //     console.log(`chosenTopicsObj`);
+    //     console.log(chosenTopicsObj);
+    //     // firstST.filter(fire => {
+    //     //     fire !==
+    //     // })
+    // }
+
     useEffect(() => {
-        console.log(fires);
-        fires.forEach((item) => {
-            if (topicsSelected.includes(item.name)) {
-                alert(`it does include ${item.name}`);
-            }
-        });
+        // ANCHOR
+        if (topicsSelected.length > 0) {
+            const t = fireDT.filter((fire) => fire.topic === topicsSelected[0].topic);
+            setNwFireDT(t);
+            setRenderTG(!renderTG);
+        } else if (topicsSelected.length === 0) {
+            setNwFireDT([]);
+        }
+        // setFireDT(fireDT.filter((fire) => fire.topic === topicsSelected[0].topic));
     }, [topicsSelected]);
 
     let apple = fires;
-    if (fireData && fireData.length !== fires.length) {
-        setFireData(apple);
+    if (fireDT && fireDT.length !== fires.length) {
+        setFireDT(apple);
     }
     const CardClick = () => {};
 
@@ -52,37 +67,37 @@ const Dash = ({ fires }: Fire) => {
 
     // useEffect(() => {
     //   if (initialRender) {
-    //     setMockFireData(MockFireObjReturned)
+    //     setMockFireDT(MockFireObjReturned)
     //   }
     //   setInitialRender(false)
-    // }, [mockFireData])
+    // }, [mockFireDT])
 
     const CardMainTitleME = () => {};
     const CardMainTitleMO = () => {};
 
     const ByDateClick = () => {
-        setFireData(fireData.sort(compareCreated_At));
-        setRenderToggle(!renderToggle);
+        setFireDT(fireDT.sort(compareCreated_At));
+        setRenderTG(!renderTG);
     };
 
     const ByFireClick = () => {
         // ANCHOR
         if (!firesAsc && !firesDesc) {
             // Initial State
-            setFireData(fireData.sort(compareFiresAsc));
-            setRenderToggle(!renderToggle);
+            setFireDT(fireDT.sort(compareFiresAsc));
+            setRenderTG(!renderTG);
             setFiresAsc(true);
             setFiresDesc(false);
         } else if (firesAsc && !firesDesc) {
             // Asc
-            setFireData(fireData.sort(compareFiresDesc));
-            setRenderToggle(!renderToggle);
+            setFireDT(fireDT.sort(compareFiresDesc));
+            setRenderTG(!renderTG);
             setFiresAsc(false);
             setFiresDesc(true);
         } else if (!firesAsc && firesDesc) {
             // Desc
-            setFireData(fireData.sort(compareFiresAsc));
-            setRenderToggle(!renderToggle);
+            setFireDT(fireDT.sort(compareFiresAsc));
+            setRenderTG(!renderTG);
             setFiresAsc(true);
             setFiresDesc(false);
         }
@@ -136,24 +151,41 @@ const Dash = ({ fires }: Fire) => {
             <ContentSectional>
                 <CardsContentContainer>
                     <CardListUL>
-                        {fireData &&
-                            fireData.map((fire: Fire, i: number) => (
-                                <Card
-                                    key={Math.random()}
-                                    count={fire.count}
-                                    created_at={fire.created_at}
-                                    id={fire.id}
-                                    text={fire.text}
-                                    text_title={fire.text_title}
-                                    title={fire.title}
-                                    topic={fire.topic}
-                                    subtopic={fire.subtopic}
-                                    subsubtopic={fire.subsubtopic}
-                                    // @ts-ignore
-                                    category={fire.category}
-                                    weight={fire.weight}
-                                    url={fire.url}></Card>
-                            ))}
+                        {fireDT && nwFireDT.length === 0
+                            ? fireDT.map((fire: Fire, i: number) => (
+                                  <Card
+                                      key={Math.random()}
+                                      count={fire.count}
+                                      created_at={fire.created_at}
+                                      id={fire.id}
+                                      text={fire.text}
+                                      text_title={fire.text_title}
+                                      title={fire.title}
+                                      topic={fire.topic}
+                                      subtopic={fire.subtopic}
+                                      subsubtopic={fire.subsubtopic}
+                                      // @ts-ignore
+                                      category={fire.category}
+                                      weight={fire.weight}
+                                      url={fire.url}></Card>
+                              ))
+                            : nwFireDT.map((fire: Fire, i: number) => (
+                                  <Card
+                                      key={Math.random()}
+                                      count={fire.count}
+                                      created_at={fire.created_at}
+                                      id={fire.id}
+                                      text={fire.text}
+                                      text_title={fire.text_title}
+                                      title={fire.title}
+                                      topic={fire.topic}
+                                      subtopic={fire.subtopic}
+                                      subsubtopic={fire.subsubtopic}
+                                      // @ts-ignore
+                                      category={fire.category}
+                                      weight={fire.weight}
+                                      url={fire.url}></Card>
+                              ))}
                     </CardListUL>
                 </CardsContentContainer>
             </ContentSectional>
