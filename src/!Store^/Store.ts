@@ -2,11 +2,11 @@ import create from "zustand";
 
 const useStore = create((set) => ({
     topicsSelected: [],
-    subtopicsSelected: [],
-    subsubtopicsSelected: [],
+    subTopicsSelected: [],
+    subSubTopicsSelected: [],
     categoriesSelected: [],
     weightSelected: '',
-    topic: [
+    topics: [
         { id: 1, name: "Tech" },
         { id: 2, name: "Religion" },
         { id: 3, name: "News" },
@@ -20,7 +20,7 @@ const useStore = create((set) => ({
         { id: 11, name: "Software" },
         { id: 12, name: "Fitness" },
         ],
-    category: [
+    categories: [
         { id: 11, name: "Note" },
         { id: 22, name: "Religion" },
         { id: 33, name: "Key" },
@@ -41,12 +41,39 @@ const useStore = create((set) => ({
         { id: 4, name: "Charmander" },
         { id: 5, name: "Charmeleon" },
     ],
-        
 pushTopic: (topic) =>
     set((state) => ({
         topicsSelected: [
-            { name: topic.name, id: topic.name },
+            { name: topic.name, id: Math.random() * 100 },
             ...state.topicsSelected,
+        ]
+    })),
+pushSubTopic: (subTopic) =>
+    set((state) => ({
+        subTopicsSelected: [
+            { name: subTopic.name, id: Math.random() * 100 },
+            ...state.subTopicsSelected,
+        ]
+    })),
+pushSubSubTopic: (subSubTopic) =>
+    set((state) => ({
+        subSubTopicsSelected: [
+            { name: subSubTopic.name, id: Math.random() * 100 },
+            ...state.subSubTopicsSelected,
+        ]
+    })),
+pushCategory: (category) =>
+    set((state) => ({
+        subSubTopicsSelected: [
+            { name: category.name, id: Math.random() * 100 },
+            ...state.subSubTopicsSelected,
+        ]
+    })),
+selectWeight: (weight) =>
+    set((state) => ({
+        weightSelected: [
+            { name: weight.name, id: Math.random() * 100 },
+            ...state.weightSelected,
         ]
     })),
 addPokemons: (pokemon) =>
@@ -56,10 +83,10 @@ addPokemons: (pokemon) =>
     ...state.pokemons,
         ]
     })),
-        removePokemon: (id) =>
-            set((state) => ({
-                pokemons: state.pokemons.filter((pokemon) => pokemon.id !== id),
-            }))
+removePokemon: (id) =>
+    set((state) => ({
+        pokemons: state.pokemons.filter((pokemon) => pokemon.id !== id),
+    }))
  }))
 
  

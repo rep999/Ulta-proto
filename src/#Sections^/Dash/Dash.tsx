@@ -4,8 +4,10 @@ import Image from 'next/image';
 import { supabase } from '../../../client.js';
 import { GetServerSideProps } from 'next';
 import { text } from 'stream/consumers';
-import Card from './#Sections/Card';
+import Card from './#Sections/Card/Card';
 import { compareCreated_At, compareFiresAsc, compareFiresDesc } from './Fn/compare';
+// @ts-ignore
+import useStore from '$Store';
 
 interface Fire {
     count?: string;
@@ -22,17 +24,25 @@ interface Fire {
     weight?: string;
 }
 
+// @ts-ignore
 const Dash = ({ fires }: Fire) => {
-    console.log(`asdasdad`);
-    console.log(fires);
+    const topicsSelected = useStore((state) => state.topicsSelected);
     const [initialRender, setInitialRender] = useState(true);
     const [fireData, setFireData] = useState<any>([]);
     const [renderToggle, setRenderToggle] = useState<boolean>(false);
     const [firesAsc, setFiresAsc] = useState<boolean>(false);
     const [firesDesc, setFiresDesc] = useState<boolean>(false);
 
+    useEffect(() => {
+        console.log(fires);
+        fires.forEach((item) => {
+            if (topicsSelected.includes(item.name)) {
+                alert(`it does include ${item.name}`);
+            }
+        });
+    }, [topicsSelected]);
+
     let apple = fires;
-    console.log(fires);
     if (fireData && fireData.length !== fires.length) {
         setFireData(apple);
     }
@@ -78,9 +88,9 @@ const Dash = ({ fires }: Fire) => {
         }
     };
 
-    useEffect(() => {
-        console.log(`hi23`);
-    }, []);
+    // useEffect(() => { ANCHOR
+    //     console.log(`hi23`);
+    // }, []);
 
     const ByCategoryClick = () => {};
     return (
@@ -139,6 +149,7 @@ const Dash = ({ fires }: Fire) => {
                                     topic={fire.topic}
                                     subtopic={fire.subtopic}
                                     subsubtopic={fire.subsubtopic}
+                                    // @ts-ignore
                                     category={fire.category}
                                     weight={fire.weight}
                                     url={fire.url}></Card>

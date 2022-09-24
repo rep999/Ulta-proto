@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import useStore from '$Store/Store';
+// @ts-ignore
+import useStore from '$Store';
+// @ts-ignore
+import isFound from '$Utils/isFound.ts';
 
 // const Fruit = styled.img`
 //   height: 94%;
@@ -11,8 +14,9 @@ import useStore from '$Store/Store';
 // `
 
 const Panel = () => {
-    const pokemons = useStore((state) => state.pokemons);
-    const addPokemons = useStore((state) => state.addPokemons);
+    const topicsSelected = useStore((state) => state.topicsSelected);
+    const topicsEnum = useStore((state) => state.topics);
+    const pushTopic = useStore((state) => state.pushTopic);
     // STATE TOGGLES
     const [centerCircleToggled, setCenterCircleToggled] = useState(false);
     const [centerTopCircleToggled, setCenterTopCircleToggled] = useState(false);
@@ -80,7 +84,7 @@ const Panel = () => {
     //   }
     // }
 
-    const CenterCircleClicked = (elementID: any, stateSetter: any, stateVal: any): any => {
+    const CCClick = (elementID: any, stateSetter: any, stateVal: any): any => {
         // const CircleSelected = document.getElementById(elementID) as HTMLImageElement;
         // if (CircleSelected && !stateVal) {
         //   setCenterCircle('Search')
@@ -98,15 +102,56 @@ const Panel = () => {
         // }
     };
 
+    const CC = (parentID: any, elementID: any, stateSetter: any, stateVal: any): any => {
+        pushTopic(textFinder(parentID));
+        alert(topicsSelected);
+        const CircleSelected = document.getElementById(elementID) as HTMLImageElement;
+        if (CircleSelected && !stateVal) {
+            setCenterCircle('Search');
+            CircleSelected.src = '/purpleStrokedCircle.png';
+            stateSetter(true);
+            CircleSelected.style.zIndex = '999';
+        } else {
+            if (CircleSelected) {
+                CircleSelected.src = '/whiteCircle.png';
+                setCenterCircle('Topics');
+            }
+            stateSetter(false);
+            CircleSelected.style.zIndex = '0';
+        }
+    };
+
+    const validationFn = (topicName) => {
+        // ANCHOR
+        topicsSelected.forEach((topic) => {
+            if (topicName === topic.name) {
+                return false;
+            }
+        });
+        console.log(`naa`);
+    };
+
+    // ANCHOR here a util Fn
+    const textFinder = (ElemID) => {
+        let Text = document.getElementById(ElemID)?.innerText;
+        return Text;
+    };
+
     const CircleClicked = (elementID: any, stateSetter: any, stateVal: any): any => {
-        console.log(`pokemons`);
-        console.log(pokemons);
+        // textFinder();
+
         if (stateSetter === setCenterTopTopCircleToggled) {
             if (topics) {
-                let name = 'charichard';
-                addPokemons({ name: name });
+                let topicName = 'Tech';
+                pushTopic({ name: topicName });
+                // console.log(validationFn(topicName));
+                if (topicsEnum.includes(topicName) && !topicsSelected.includes(topicName)) {
+                    pushTopic({ name: topicName });
+                }
             }
             if (subTopics) {
+                // ANCHOR how do you overcome the 10000 line file problem?  Also in the context of repetitive re-renders?
+                // Import the function that you can port state into?
             }
             if (subSubTopics) {
             }
@@ -271,7 +316,7 @@ const Panel = () => {
             <PanelWrapper>
                 <FireNetLogo id='FireNetLogo' src='/OfficialLogo.png'></FireNetLogo>
                 <FruitCake id='FruitCake'>
-                    <CenterCircleCont>
+                    <CircZero id='CircZero'>
                         {topics
                             ? centerCircle
                             : subTopics
@@ -281,7 +326,8 @@ const Panel = () => {
                             : ''}
                         <CenterCircle
                             onClick={() =>
-                                CenterCircleClicked(
+                                CC(
+                                    'CircZero',
                                     'CenterCircle',
                                     setCenterCircleToggled,
                                     centerCircleToggled,
@@ -289,8 +335,8 @@ const Panel = () => {
                             }
                             id='CenterCircle'
                             src='/whiteCircle.png'></CenterCircle>
-                    </CenterCircleCont>
-                    <CenterTopCircleCont>
+                    </CircZero>
+                    <CircOne id='CircOne'>
                         {topics
                             ? 'Religion'
                             : subTopics
@@ -300,7 +346,8 @@ const Panel = () => {
                             : ''}
                         <CenterTopCircle
                             onClick={() =>
-                                CircleClicked(
+                                CC(
+                                    'CircOne',
                                     'CenterTopCircle',
                                     setCenterTopCircleToggled,
                                     centerTopCircleToggled,
@@ -308,7 +355,7 @@ const Panel = () => {
                             }
                             id='CenterTopCircle'
                             src='/whiteCircle.png'></CenterTopCircle>
-                    </CenterTopCircleCont>
+                    </CircOne>
                     <CenterTopTopCircleCont>
                         {topics ? 'Tech' : subTopics ? 'Note' : subSubTopics ? '71-77' : ''}
                         <CenterTopTopCircle
@@ -419,7 +466,7 @@ const Panel = () => {
                             id='BottomLeftCircle'
                             src='/whiteCircle.png'></BottomLeftCircle>
                     </BottomLeftCircleCont>
-                    <BottomLeftLeftCircleCont>
+                    <Circ11 id='Circ11'>
                         {topics ? 'Fashion' : subTopics ? 'Question' : subSubTopics ? '43-49' : ''}
                         <BottomLeftLeftCircle
                             onClick={() =>
@@ -431,7 +478,7 @@ const Panel = () => {
                             }
                             id='BottomLeftLeftCircle'
                             src='/whiteCircle.png'></BottomLeftLeftCircle>
-                    </BottomLeftLeftCircleCont>
+                    </Circ11>
                     <CenterBottomCircleCont>
                         {topics ? 'Art' : subTopics ? 'Insightful' : subSubTopics ? '50-56' : ''}
                         <CenterBottomCircle
@@ -566,7 +613,7 @@ const Circle = styled.img`
     display: block;
 `;
 
-const CenterCircleCont = styled.div`
+const CircZero = styled.div`
     height: calc(305.5px / 5);
     width: calc(305.5px / 5);
     position: absolute;
@@ -578,7 +625,7 @@ const CenterCircleCont = styled.div`
 
 const CenterCircle = styled(Circle)``;
 
-const CenterTopCircleCont = styled.div`
+const CircOne = styled.div`
     height: calc(305.5px / 5);
     width: calc(305.5px / 5);
     position: absolute;
@@ -696,7 +743,7 @@ const BottomLeftCircleCont = styled.div`
     justify-content: center;
     align-items: center;
 `;
-const BottomLeftLeftCircleCont = styled.div`
+const Circ11 = styled.div`
     height: calc(305.5px / 5);
     width: calc(305.5px / 5);
     position: absolute;

@@ -1,20 +1,17 @@
-import type { NextPage } from 'next';
-import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
-import Image from 'next/image';
-import Link from 'next/link';
-import styles from '$styles/Home.module.css';
+import { useState } from 'react';
 // REPorts
+// @ts-ignore
 import Header from '$Sections/Header';
-import Dash from 'src/#Sections^/Dash';
-import Testy from '$Sections/Testy';
+// @ts-ignore
 import Nav from '$Sections/Nav';
+// @ts-ignore
 import Panel from '$Sections/Panel/Panel';
-import Auth from 'src/@components^/Auth';
-import styled from 'styled-components';
-import { supabase } from '../../../client.js';
 import { useRouter } from 'next/router';
+import Dash from 'src/#Sections^/Dash/Dash';
+import styled from 'styled-components';
 import create from 'zustand';
+import { supabase } from '../../../client.js';
 
 interface Fire {
     count?: string;
@@ -42,7 +39,11 @@ export async function getServerSideProps() {
     };
 }
 
+// @ts-ignore
 export default function Home({ fires }: Fire) {
+    // const topicsSelected = useStore((state) => state.topicsSelected);
+    // const topicsEnum = useStore((state) => state.topics);
+    // const pushTopic = useStore((state) => state.pushTopic);
     const useStore = create((set) => ({
         topicSelection: 'monkey',
     }));
@@ -67,6 +68,7 @@ export default function Home({ fires }: Fire) {
                     <WebFire_App_Shell_Content>
                         <Nav></Nav>
                         <MainFlexContainer>
+                            {/* @ts-ignore */}
                             <Dash fires={fires}></Dash>
                             <Panel></Panel>
                         </MainFlexContainer>

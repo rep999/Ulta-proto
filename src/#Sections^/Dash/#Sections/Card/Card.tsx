@@ -29,17 +29,6 @@ const Card = ({
     subsubtopic,
     url,
 }: Fire) => {
-    // console.log(`subsubtopic`, subsubtopic);
-    // console.log(`subtopic`, subtopic);
-    // console.log(`url`, url);
-    // console.log(`text`, text);
-    // console.log(count);
-    // console.log(created_at);
-    // console.log(id);
-    // console.log(text);
-    // console.log(`text_title`, text_title);
-    // console.log(topic);
-    // console.log(url);
     const [initialRender, setInitialRender] = useState(true);
     const [mockFireData, setMockFireData] = useState<any>([]);
     const CardClick = () => {};

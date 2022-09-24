@@ -6,7 +6,7 @@ import Link from 'next/link';
 import styles from '$styles/Home.module.css';
 // REPorts
 import Header from 'src/#Sections^/Header';
-import Dash from 'src/#Sections^/Dash';
+import Dash from 'src/#Sections^/Dash/Dash';
 import Testy from 'src/#Sections^/Testy';
 import Nav from 'src/#Sections^/Nav';
 import Panel from 'src/#Sections^/Panel/Panel';
