@@ -77,6 +77,7 @@ const Dash = ({ fires }: Fire) => {
                 setWelcomeTitleTxt('Welcome to The FireNet');
             }
             setNwFireDT(t);
+
             setRenderTG(!renderTG);
         } else {
             setNwFireDT('');
