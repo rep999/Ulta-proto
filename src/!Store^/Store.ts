@@ -1,11 +1,6 @@
 import create from "zustand";
 
 const useStore = create((set) => ({
-    topicSelection: '',
-    subTopicsSelected: [],
-    subSubTopicsSelected: [],
-    categoriesSelected: [],
-    weightSelected: '',
     topics: [
         { id: 1, name: "Tech" },
         { id: 2, name: "Religion" },
@@ -34,13 +29,6 @@ const useStore = create((set) => ({
         { id: 1111, name: "Interesting" },
         { id: 1212, name: "Helpful" },
     ],
-    pokemons: [
-        { id: 1, name: "Bulbasaur" },
-        { id: 2, name: "Ivysaur" },
-        { id: 3, name: "Venusaur" },
-        { id: 4, name: "Charmander" },
-        { id: 5, name: "Charmeleon" },
-    ],
 selectTopic: (topic) =>
     set((state) => ({
         topicSelection: topic
@@ -49,21 +37,10 @@ selectCategory: (category) =>
     set((state) => ({
         categorySelection: category
     })),
-selectWeight: (category) =>
+selectWeight: (weight) =>
     set((state) => ({
-        categorySelection: category
+        weightSelection: weight
     })),
-addPokemons: (pokemon) =>
-    set((state) => ({
-    pokemons: [
-    { name: pokemon.name, id: Math.random() * 100 },
-    ...state.pokemons,
-        ]
-    })),
-removePokemon: (id) =>
-    set((state) => ({
-        pokemons: state.pokemons.filter((pokemon) => pokemon.id !== id),
-    }))
  }))
 
  
