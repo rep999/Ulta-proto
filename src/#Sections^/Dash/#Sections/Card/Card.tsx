@@ -17,6 +17,7 @@ interface Fire {
     subsubtopic?: string;
     url?: string;
     category?: string;
+    weight?: string;
 }
 
 const Card = ({
@@ -26,10 +27,9 @@ const Card = ({
     text_title,
     title,
     topic,
-    // subtopic,
-    // subsubtopic,
     url,
     category,
+    weight,
 }: Fire) => {
     const [initialRender, setInitialRender] = useState(true);
     const [mockFireData, setMockFireData] = useState<any>([]);
@@ -99,7 +99,7 @@ const Card = ({
                     <CardDateContainer>
                         <CardDate>{created_at?.slice(0, 10)}</CardDate>
                         {/* @ts-ignore */}
-                        <CardLikesCount>{Math.round(count / 2)}</CardLikesCount>
+                        <CardLikesCount>{weight}</CardLikesCount>
                     </CardDateContainer>
                 </CardDateSection>
             </CardListItem>
@@ -628,17 +628,18 @@ const CardDateSection = styled.section`
     align-items: center;
     height: 100%;
     width: 20%;
-    border: 1px solid pink;
+    border: 1px solid whitesmoke;
 `;
 
 const CardDateContainer = styled.div`
     /* border: 2px solid purple; */
+    border-radius: 2px;
     display: flex;
     justify-content: flex-end;
-    height: 60%;
-    width: 80%;
+    height: 61.81%;
+    width: 61.81%;
     flex-direction: column;
-    border: 1px solid purple;
+    border: 1px solid whitesmoke;
 `;
 
 const CardDate = styled.div`

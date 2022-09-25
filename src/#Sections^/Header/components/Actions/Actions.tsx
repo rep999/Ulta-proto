@@ -31,6 +31,12 @@ const Actions_Parent = styled.div`
     border: 2px solid white;
     border-radius: 3px;
     cursor: pointer;
+    &:hover {
+        transform: scale(1.01);
+        box-shadow: rgba(255, 255, 255, 0.1112) 0px 4px 5px, rgba(217, 217, 217, 0.11) 0px -12px 3px,
+            rgba(224, 224, 224, 0.11) 0px 4px 6px, rgba(233, 233, 233, 0.11) 0px 3px 3px,
+            rgba(227, 227, 227, 0.09) 0px -3px 5px;
+    }
 `;
 
 // 205.79   127.184     78.60

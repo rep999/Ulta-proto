@@ -30,6 +30,8 @@ const Dash = ({ fires }: Fire) => {
     const topicSelection = useStore((state) => state.topicSelection);
     // @ts-ignore
     const categorySelection = useStore((state) => state.categorySelection);
+    // @ts-ignore
+    const weightSelection = useStore((state) => state.weightSelection);
     const [initialRender, setInitialRender] = useState(true);
     const [TheFireNetText, setTheFireNetText] = useState('The FireNet');
     const [fireDT, setFireDT] = useState<any>([]);
@@ -39,6 +41,8 @@ const Dash = ({ fires }: Fire) => {
     const [firesDesc, setFiresDesc] = useState<boolean>(false);
 
     useEffect(() => {
+        console.log(`topicSelection`);
+        console.log(topicSelection);
         if (topicSelection) {
             const t = fireDT.filter((fire) => fire.topic === topicSelection);
             if (t.length === 0) {
@@ -54,6 +58,8 @@ const Dash = ({ fires }: Fire) => {
     }, [topicSelection]);
 
     useEffect(() => {
+        console.log(`categorySelection`);
+        console.log(categorySelection);
         if (categorySelection) {
             const t = fireDT.filter((fire) => fire.category === categorySelection);
             if (t.length === 0) {
@@ -69,8 +75,10 @@ const Dash = ({ fires }: Fire) => {
     }, [categorySelection]);
 
     useEffect(() => {
-        if (categorySelection) {
-            const t = fireDT.filter((fire) => fire.category === categorySelection);
+        console.log(`weightSelection`);
+        console.log(weightSelection);
+        if (weightSelection) {
+            const t = fireDT.filter((fire) => fire.weight === weightSelection);
             if (t.length === 0) {
                 setTheFireNetText('Nothing here yet 🥲');
             } else {
@@ -82,7 +90,7 @@ const Dash = ({ fires }: Fire) => {
         } else {
             setNwFireDT('');
         }
-    }, [categorySelection]);
+    }, [weightSelection]);
 
     let apple = fires;
     if (fireDT && fireDT.length !== fires.length) {
@@ -146,12 +154,12 @@ const Dash = ({ fires }: Fire) => {
                     <ByDateContainer>
                         <ByDate onClick={() => ByDateClick()}>By Date</ByDate>
                     </ByDateContainer>
+                    <ByCategoryContainer>
+                        <ByCategory onClick={() => ByCategoryClick()}>By Category</ByCategory>
+                    </ByCategoryContainer>
                     <ByFireContainer>
                         <ByFire onClick={() => ByFireClick()}>By Fire</ByFire>
                     </ByFireContainer>
-                    <ByCategoryContainer>
-                        <ByCategory onClick={() => ByCategoryClick()}>By Topic</ByCategory>
-                    </ByCategoryContainer>
                 </DockPanel>
             </TopHeaderContainer>
 
@@ -203,22 +211,6 @@ const Dash = ({ fires }: Fire) => {
 };
 
 export default Dash;
-
-// export async function getServerSideProps() {
-//   let { data: fires, error } = await supabase
-//     .from('fires')
-//     .select('*')
-
-//   if (error) {
-//     throw new Error(error as any);
-//   }
-
-//   return {
-//     props: {
-//       fires,
-//     },
-//   };
-// }
 
 const DashContainer = styled.div`
     height: 100%;
@@ -277,7 +269,7 @@ const TopHeaderSpacerContainer = styled.div`
 
 const DockPanel = styled.div`
     // border: 2px solid pink;
-    height: 40%;
+    height: 34%;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -338,7 +330,7 @@ const ByCategoryContainer = styled.div`
 
 const ByCategory = styled.h3`
     height: 100%;
-    width: 47%;
+    width: 55%;
     text-align: center;
     color: white;
     display: flex;

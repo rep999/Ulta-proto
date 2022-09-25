@@ -16,6 +16,10 @@ const Panel = () => {
     const categorySelection = useStore((state) => state.categorySelection);
     // @ts-ignore        Add Topic
     const selectCategory = useStore((state) => state.selectCategory);
+    // @ts-ignore        Add Topic
+    const selectWeight = useStore((state) => state.selectWeight);
+    // @ts-ignore        Add Topic
+    const weightSelection = useStore((state) => state.weightSelection);
 
     // STATE TOGGLES
     const [centerCircleToggled, setCenterCircleToggled] = useState(false);
@@ -42,13 +46,12 @@ const Panel = () => {
     const [circSelectedST, setCircSelectedST] = useState<any>();
 
     // ANCHOR
-    useEffect(() => {
-    }, [topicSelection])
+    useEffect(() => {}, [topicSelection]);
 
     function circleHighlighterFn(stateSetter, elementID, stateVal) {
         const CircClickedCN = document.getElementById(elementID) as HTMLImageElement;
         // Remove the highlight from the other circle ; new click happened..
-        if (circSelectedST && CircClickedCN != circSelectedST) { 
+        if (circSelectedST && CircClickedCN != circSelectedST) {
             circSelectedST.src = '/whiteCircle.png';
         }
         // AND Circle clicked with no highlight
@@ -57,7 +60,7 @@ const Panel = () => {
             setCircSelectedST(CircClickedCN);
             stateSetter(true);
             CircClickedCN.style.zIndex = '999';
-        // Circle with Highlight
+            // Circle with Highlight
         } else {
             if (CircClickedCN) {
                 CircClickedCN.src = '/whiteCircle.png';
@@ -68,14 +71,19 @@ const Panel = () => {
         }
     }
 
-    const CenterCircleFn = (parentID: any, elementID: any, stateSetter: any, stateVal: any): any => {
+    const CenterCircleClickFn = (
+        parentID: any,
+        elementID: any,
+        stateSetter: any,
+        stateVal: any,
+    ): any => {
         // Do some other shit...
         // switch (moniker) {
         //     case 'topics':
         //         circleHighlighterFn(stateSetter, elementID, stateVal)
         //         // If its the Same Selection:
-        //         if (topicSelection === textFinder(parentID)) { 
-        //             selectTopic('') 
+        //         if (topicSelection === textFinder(parentID)) {
+        //             selectTopic('')
         //         } else {
         //             selectTopic(textFinder(parentID))
         //         }
@@ -87,30 +95,42 @@ const Panel = () => {
         //   }
     };
 
-    const CircleSelectionFn = (parentID: any, elementID: any, stateSetter: any, stateVal: any): any => {
+    const CircleClickFn = (parentID: any, elementID: any, stateSetter: any, stateVal: any): any => {
+        console.log(moniker);
         switch (moniker) {
             case 'topics':
-                circleHighlighterFn(stateSetter, elementID, stateVal)
+                console.log(`topics hit `);
+                circleHighlighterFn(stateSetter, elementID, stateVal);
                 // If its the Same Selection:
-                if (topicSelection === textFinder(parentID)) { 
-                    selectTopic('') 
+                if (topicSelection === textFinder(parentID)) {
+                    selectTopic('');
                 } else {
-                    selectTopic(textFinder(parentID))
+                    selectTopic(textFinder(parentID));
                 }
-              break;
+                break;
             case 'category':
-                circleHighlighterFn(stateSetter, elementID, stateVal)
+                console.log(`category hit `);
+                circleHighlighterFn(stateSetter, elementID, stateVal);
                 // If its the Same Selection:
-                if (categorySelection === textFinder(parentID)) { 
-                    selectCategory('') 
+                if (categorySelection === textFinder(parentID)) {
+                    selectCategory('');
                 } else {
-                    selectCategory(textFinder(parentID))
+                    selectCategory(textFinder(parentID));
                 }
-              break;
+                break;
             case 'weight':
+                console.log(`weight hit `);
+                circleHighlighterFn(stateSetter, elementID, stateVal);
+                // If its the Same Selection:
+                if (weightSelection === textFinder(parentID)) {
+                    selectWeight('');
+                } else {
+                    selectWeight(textFinder(parentID));
+                }
+                break;
             default:
-              console.log(`DEFAULT`);
-          }
+                console.log(`DEFAULT`);
+        }
     };
 
     // ANCHOR Move to a Global Utils Fn
@@ -138,31 +158,26 @@ const Panel = () => {
     };
 
     const MenuHeirachyArrowRightME = () => {
+        console.log(`moniker by butt`);
+        console.log(moniker);
         switch (moniker) {
             // This is the first case, always:
             case 'topics':
-                setMoniker('category')
-              break;
+                setMoniker('category');
+                break;
             // Second
             case 'category':
-                // circleHighlighterFn(stateSetter, elementID, stateVal)
-                // // If its the Same Selection:
-                // if (categorySelection === textFinder(parentID)) { 
-                //     selectCategory('') 
-                // } else {
-                //     selectCategory(textFinder(parentID))
-                // }
-                // setMoniker('weight')
-              break;
+                setMoniker('weight');
+                break;
             case 'weight':
-                setMoniker('topics')
-            break;
+                setMoniker('topics');
+                break;
             default:
-              console.log(`DEFAULT`);
-          }
-        if (circSelectedST) { 
-            circSelectedST.src = '/whiteCircle.png'
-         }
+                console.log(`DEFAULT`);
+        }
+        if (circSelectedST) {
+            circSelectedST.src = '/whiteCircle.png';
+        }
         const DockTextEl = document.getElementById('DockText');
         if (DockTextEl) {
             DockTextEl.innerText = 'Menu Heirarchy Arrow';
@@ -191,7 +206,7 @@ const Panel = () => {
                             : ''}
                         <CenterCircle
                             onClick={() =>
-                                CenterCircleFn(
+                                CenterCircleClickFn(
                                     'C0',
                                     'CenterCircle',
                                     setCenterCircleToggled,
@@ -202,16 +217,10 @@ const Panel = () => {
                             src='/whiteCircle.png'></CenterCircle>
                     </C0>
                     <C1 id='C1'>
-                        {topics
-                            ? 'Religion'
-                            : subTopics
-                            ? 'Important'
-                            : subSubTopics
-                            ? '64-70'
-                            : ''}
+                        {topics ? 'Religion' : subTopics ? 'Important' : subSubTopics ? '90s' : ''}
                         <CenterTopCircle
                             onClick={() =>
-                                CircleSelectionFn(
+                                CircleClickFn(
                                     'C1',
                                     'CenterTopCircle',
                                     setCenterTopCircleToggled,
@@ -222,10 +231,10 @@ const Panel = () => {
                             src='/whiteCircle.png'></CenterTopCircle>
                     </C1>
                     <C7 id='C7'>
-                        {topics ? 'Tech' : subTopics ? 'General' : subSubTopics ? '71-77' : ''}
+                        {topics ? 'Tech' : subTopics ? 'General' : subSubTopics ? '100' : ''}
                         <CenterTopTopCircle
                             onClick={() =>
-                                CircleSelectionFn(
+                                CircleClickFn(
                                     'C7',
                                     'CenterTopTopCircle',
                                     setCenterTopTopCircleToggled,
@@ -236,10 +245,10 @@ const Panel = () => {
                             src='/whiteCircle.png'></CenterTopTopCircle>
                     </C7>
                     <C2 id='C2'>
-                        {topics ? 'News' : subTopics ? 'Key' : subSubTopics ? '0-7' : ''}
+                        {topics ? 'News' : subTopics ? 'Key' : subSubTopics ? '80s' : ''}
                         <UpperRightCircle
                             onClick={() =>
-                                CircleSelectionFn(
+                                CircleClickFn(
                                     'C2',
                                     'UpperRightCircle',
                                     setUpperRightCircleToggled,
@@ -250,10 +259,10 @@ const Panel = () => {
                             src='/whiteCircle.png'></UpperRightCircle>
                     </C2>
                     <C8 id='C8'>
-                        {topics ? 'Business' : subTopics ? 'Date' : subSubTopics ? '8-14' : ''}
+                        {topics ? 'Business' : subTopics ? 'Date' : subSubTopics ? '70s' : ''}
                         <UpperRightRightCircle
                             onClick={() =>
-                                CircleSelectionFn(
+                                CircleClickFn(
                                     'C8',
                                     'UpperRightRightCircle',
                                     setUpperRightRightCircleToggled,
@@ -269,11 +278,11 @@ const Panel = () => {
                             : subTopics
                             ? 'Interesting'
                             : subSubTopics
-                            ? '15-21'
+                            ? '2-9'
                             : ''}
                         <UpperLeftCircle
                             onClick={() =>
-                                CircleSelectionFn(
+                                CircleClickFn(
                                     'C6',
                                     'UpperLeftCircle',
                                     setUpperLeftCircleToggled,
@@ -284,10 +293,10 @@ const Panel = () => {
                             src='/whiteCircle.png'></UpperLeftCircle>
                     </C6>
                     <C12 id='C12'>
-                        {topics ? 'Fitness' : subTopics ? 'Helpful' : subSubTopics ? '22-28' : ''}
+                        {topics ? 'Fitness' : subTopics ? 'Helpful' : subSubTopics ? '1' : ''}
                         <UpperLeftLeftCircle
                             onClick={() =>
-                                CircleSelectionFn(
+                                CircleClickFn(
                                     'C12',
                                     'UpperLeftLeftCircle',
                                     setUpperLeftLeftCircleToggled,
@@ -297,11 +306,11 @@ const Panel = () => {
                             id='UpperLeftLeftCircle'
                             src='/whiteCircle.png'></UpperLeftLeftCircle>
                     </C12>
-                    <C9 id="C9">
-                        {topics ? 'Science' : subTopics ? 'Applicable' : subSubTopics ? '100' : ''}
+                    <C9 id='C9'>
+                        {topics ? 'Science' : subTopics ? 'Applicable' : subSubTopics ? '50s' : ''}
                         <BottomRightRightCircle
                             onClick={() =>
-                                CircleSelectionFn(
+                                CircleClickFn(
                                     'C9',
                                     'BottomRightRightCircle',
                                     setBottomRightRightCircleToggled,
@@ -312,10 +321,10 @@ const Panel = () => {
                             src='/whiteCircle.png'></BottomRightRightCircle>
                     </C9>
                     <C3 id='C3'>
-                        {topics ? 'Nature' : subTopics ? 'Career' : subSubTopics ? '29-35' : ''}
+                        {topics ? 'Nature' : subTopics ? 'Career' : subSubTopics ? '60s' : ''}
                         <BottomRightCircle
                             onClick={() =>
-                                CircleSelectionFn(
+                                CircleClickFn(
                                     'C3',
                                     'BottomRightCircle',
                                     setBottomRightCircleToggled,
@@ -326,10 +335,10 @@ const Panel = () => {
                             src='/whiteCircle.png'></BottomRightCircle>
                     </C3>
                     <C5 id='C5'>
-                        {topics ? 'Health' : subTopics ? 'Knowledge' : subSubTopics ? '36-42' : ''}
+                        {topics ? 'Health' : subTopics ? 'Knowledge' : subSubTopics ? '20s' : ''}
                         <BottomLeftCircle
                             onClick={() =>
-                                CircleSelectionFn(
+                                CircleClickFn(
                                     'C5',
                                     'BottomLeftCircle',
                                     setBottomLeftCircleToggled,
@@ -340,10 +349,10 @@ const Panel = () => {
                             src='/whiteCircle.png'></BottomLeftCircle>
                     </C5>
                     <C11 id='C11'>
-                        {topics ? 'Fashion' : subTopics ? 'Question' : subSubTopics ? '43-49' : ''}
+                        {topics ? 'Fashion' : subTopics ? 'Question' : subSubTopics ? '10s' : ''}
                         <BottomLeftLeftCircle
                             onClick={() =>
-                                CircleSelectionFn(
+                                CircleClickFn(
                                     'C11',
                                     'BottomLeftLeftCircle',
                                     setBottomLeftLeftCircleToggled,
@@ -354,10 +363,10 @@ const Panel = () => {
                             src='/whiteCircle.png'></BottomLeftLeftCircle>
                     </C11>
                     <C4 id='C4'>
-                        {topics ? 'Art' : subTopics ? 'Insightful' : subSubTopics ? '50-56' : ''}
+                        {topics ? 'Art' : subTopics ? 'Insightful' : subSubTopics ? '40s' : ''}
                         <CenterBottomCircle
                             onClick={() =>
-                                CircleSelectionFn(
+                                CircleClickFn(
                                     'C4',
                                     'CenterBottomCircle',
                                     setCenterBottomCircleToggled,
@@ -368,10 +377,10 @@ const Panel = () => {
                             src='/whiteCircle.png'></CenterBottomCircle>
                     </C4>
                     <C10 id='C10'>
-                        {topics ? 'Finance' : subTopics ? 'Funny' : subSubTopics ? '57-63' : ''}
+                        {topics ? 'Finance' : subTopics ? 'Funny' : subSubTopics ? '30s' : ''}
                         <CenterBottomBottomCircle
                             onClick={() =>
-                                CircleSelectionFn(
+                                CircleClickFn(
                                     'C10',
                                     'CenterBottomBottomCircle',
                                     setCenterBottomBottomCircleToggled,
@@ -461,7 +470,7 @@ const C0 = styled.div`
     height: calc(305.5px / 5);
     width: calc(305.5px / 5);
     position: absolute;
-    color: gold;
+    color: #37bfb0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -516,7 +525,7 @@ const C6 = styled.div`
     width: calc(305.5px / 5);
     position: absolute;
     left: 69.286px;
-    top: 91.5px;
+    top: 90.5px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -560,7 +569,7 @@ const C3 = styled.div`
     width: calc(305.5px / 5);
     position: absolute;
     right: 69.286px;
-    bottom: 91.5px;
+    bottom: 90.5px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -571,7 +580,7 @@ const C9 = styled.div`
     width: calc(305.5px / 5);
     position: absolute;
     right: 16.885px;
-    bottom: 61.1px;
+    bottom: 60.1px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -582,7 +591,7 @@ const C5 = styled.div`
     width: calc(305.5px / 5);
     position: absolute;
     left: 69.286px;
-    bottom: 91.5px;
+    bottom: 90.45px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -592,7 +601,7 @@ const C11 = styled.div`
     width: calc(305.5px / 5);
     position: absolute;
     left: 16.885px;
-    bottom: 61.1px;
+    bottom: 60.1px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -617,7 +626,7 @@ const DockWrapper = styled.div`
     min-height: calc(66px);
     right: 0%;
     position: absolute;
-    border: 1px solid gold;
+    border: 1px solid white;
     max-width: calc(333px);
     min-width: calc(333px);
     display: flex;
