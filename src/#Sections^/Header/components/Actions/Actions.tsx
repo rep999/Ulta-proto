@@ -30,6 +30,7 @@ const Actions_Parent = styled.div`
     height: 46.9px;
     border: 2px solid white;
     border-radius: 3px;
+    cursor: pointer;
 `;
 
 // 205.79   127.184     78.60

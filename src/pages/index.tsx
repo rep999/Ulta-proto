@@ -106,6 +106,6 @@ const MainFlexContainer = styled.main`
     overflow: hidden;
     left: 166px;
     position: relative;
-    border: 4px solid yellow;
+    border: 2px solid white;
     border-top-left-radius: 12px;
 `;

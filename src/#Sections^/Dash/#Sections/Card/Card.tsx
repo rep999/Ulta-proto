@@ -62,14 +62,14 @@ const Card = ({
                                 onMouseOut={() => CardMainTitleMO()}>
                                 {title}
                             </CardMainTitle>
-                            <CardTopicsContainer>
+                            <CardWrapper>
                                 <CardTopicContainer>
                                     <CardTopicContainerText>{topic}</CardTopicContainerText>
                                 </CardTopicContainer>
                                 <CardCategoryContainer>
                                     <CardSubTopicContainerText>
                                         {category}
-                                        </CardSubTopicContainerText>
+                                    </CardSubTopicContainerText>
                                 </CardCategoryContainer>
                                 {/* <CardCategoryContainer>
                                     <CardSubTopicContainerText>
@@ -81,7 +81,7 @@ const Card = ({
                                         {subsubtopic}
                                     </CardSubSubTopicContainerText>
                                 </CardSubSubTopicContainer> */}
-                            </CardTopicsContainer>
+                            </CardWrapper>
                         </CardMainTitleContainer>
                         <TextSection>
                             <TextContainer>
@@ -98,7 +98,7 @@ const Card = ({
                 <CardDateSection>
                     <CardDateContainer>
                         <CardDate>{created_at?.slice(0, 10)}</CardDate>
-                         {/* @ts-ignore */}
+                        {/* @ts-ignore */}
                         <CardLikesCount>{Math.round(count / 2)}</CardLikesCount>
                     </CardDateContainer>
                 </CardDateSection>
@@ -456,7 +456,7 @@ const CardListLi = styled.li`
 const CardListItem = styled.div`
     /* border: 2px solid purple; */
     align-items: center;
-    background: green;
+    background: black;
     border-radius: 8px;
     display: flex;
     position: relative;
@@ -520,7 +520,8 @@ const LikesContainer = styled.div`
 `;
 
 const CardMainTitleContainer = styled.div`
-    border: 1px solid yellow;
+    border: 1px solid white;
+    border-radius: 2px;
     display: flex-start;
     height: 100%;
     width: 38%;
@@ -587,8 +588,7 @@ const CardMainTitle = styled.div`
     align-items: center;
 `;
 
-const CardTopicsContainer = styled.div`
-    border: 2px solid white;
+const CardWrapper = styled.div`
     display: flex;
     height: 50%;
     width: 100%;
@@ -606,18 +606,10 @@ const CardTopicContainer = styled.div`
 const CardCategoryContainer = styled.div`
     border: 1px solid white;
     display: flex;
-    display: flex;
     align-items: center;
+    justify-content: center;
     height: 100%;
     width: 100%;
-`;
-
-const CardSubSubTopicContainer = styled.div`
-    border: 1px solid white;
-    display: flex;
-    align-items: center;
-    height: 100%;
-    width: 80%;
 `;
 
 const CardTopicContainerText = styled.div`
@@ -625,9 +617,6 @@ const CardTopicContainerText = styled.div`
     text-align: center;
 `;
 const CardSubTopicContainerText = styled.div`
-    color: white;
-`;
-const CardSubSubTopicContainerText = styled.div`
     color: white;
 `;
 

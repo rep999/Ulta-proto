@@ -31,7 +31,7 @@ const Dash = ({ fires }: Fire) => {
     // @ts-ignore
     const categorySelection = useStore((state) => state.categorySelection);
     const [initialRender, setInitialRender] = useState(true);
-    const [welcomeTitleTxt, setWelcomeTitleTxt] = useState('Welcome to The FireNet');
+    const [TheFireNetText, setTheFireNetText] = useState('The FireNet');
     const [fireDT, setFireDT] = useState<any>([]);
     const [nwFireDT, setNwFireDT] = useState<any>([]);
     const [renderTG, setRenderTG] = useState<boolean>(false);
@@ -42,9 +42,9 @@ const Dash = ({ fires }: Fire) => {
         if (topicSelection) {
             const t = fireDT.filter((fire) => fire.topic === topicSelection);
             if (t.length === 0) {
-                setWelcomeTitleTxt('Nothing here yet 🥲');
+                setTheFireNetText('Nothing here yet 🥲');
             } else {
-                setWelcomeTitleTxt('Welcome to The FireNet');
+                setTheFireNetText('The FireNet');
             }
             setNwFireDT(t);
             setRenderTG(!renderTG);
@@ -57,9 +57,9 @@ const Dash = ({ fires }: Fire) => {
         if (categorySelection) {
             const t = fireDT.filter((fire) => fire.category === categorySelection);
             if (t.length === 0) {
-                setWelcomeTitleTxt('Nothing here yet 🥲');
+                setTheFireNetText('Nothing here yet 🥲');
             } else {
-                setWelcomeTitleTxt('Welcome to The FireNet');
+                setTheFireNetText('The FireNet');
             }
             setNwFireDT(t);
             setRenderTG(!renderTG);
@@ -72,9 +72,9 @@ const Dash = ({ fires }: Fire) => {
         if (categorySelection) {
             const t = fireDT.filter((fire) => fire.category === categorySelection);
             if (t.length === 0) {
-                setWelcomeTitleTxt('Nothing here yet 🥲');
+                setTheFireNetText('Nothing here yet 🥲');
             } else {
-                setWelcomeTitleTxt('Welcome to The FireNet');
+                setTheFireNetText('The FireNet');
             }
             setNwFireDT(t);
 
@@ -126,7 +126,17 @@ const Dash = ({ fires }: Fire) => {
             <TopHeaderContainer>
                 <TopHeaderTitleRow>
                     <WelcomeTitleContainer>
-                        <WelcomeTitle>{welcomeTitleTxt} </WelcomeTitle>
+                        <TheFireNet>{TheFireNetText} </TheFireNet>
+                        <DockBtnSpace>
+                            <DockBtnContainer>
+                                <DockCardsBtnContainer onClick={() => CardClick()}>
+                                    <DockCardsBtn src='/CardsIcon.png' />
+                                </DockCardsBtnContainer>
+                                <DockCubesBtnContainer onClick={() => CubeClick()}>
+                                    <DockCubesBtn src='/CubesIcon.png' />
+                                </DockCubesBtnContainer>
+                            </DockBtnContainer>
+                        </DockBtnSpace>
                     </WelcomeTitleContainer>
                 </TopHeaderTitleRow>
                 <TopHeaderSpacerContainer>
@@ -142,16 +152,6 @@ const Dash = ({ fires }: Fire) => {
                     <ByCategoryContainer>
                         <ByCategory onClick={() => ByCategoryClick()}>By Topic</ByCategory>
                     </ByCategoryContainer>
-                    <DockBtnSpace>
-                        <DockBtnContainer>
-                            <DockCardsBtnContainer onClick={() => CardClick()}>
-                                <DockCardsBtn src='/CardsIcon.png' />
-                            </DockCardsBtnContainer>
-                            <DockCubesBtnContainer onClick={() => CubeClick()}>
-                                <DockCubesBtn src='/CubesIcon.png' />
-                            </DockCubesBtnContainer>
-                        </DockBtnContainer>
-                    </DockBtnSpace>
                 </DockPanel>
             </TopHeaderContainer>
 
@@ -251,59 +251,19 @@ const WelcomeTitleContainer = styled.div`
     justify-content: center;
 `;
 
-const WelcomeTitleImgContainer = styled.div`
-    max-height: 66px;
-    max-width: 66px;
-    min-height: 66px;
-    min-width: 66px;
-    display: flex;
-    align-items: center;
-    position: relative;
-    top: 1px;
-`;
-
-const WelcomeTitleImg = styled.img`
-    height: 66%;
-    width: 66%;
-`;
-
-const GlamourShotContainer = styled.div`
-    /* border: 2px solid white; */
-    height: 100%;
-    width: 70%;
-    right: 0px;
-    position: relative;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-`;
-
-const GlamourShot = styled.img`
-    border: 1.3px solid white;
-    max-height: 56px;
-    max-width: 56px;
-    border-radius: 50%;
-    position: relative;
-    display: flex;
-    align-items: center;
-    right: 4px;
-    /* &:hover {
-    transform: scale(1.04);
-    box-shadow: rgba(255, 255, 255, 0.4212) 0px 4px 5px,
-      rgba(217, 217, 217, 0.12) 0px -12px 3px,
-      rgba(224, 224, 224, 0.12) 0px 4px 6px,
-      rgba(233, 233, 233, 0.17) 0px 3px 3px,
-      rgba(227, 227, 227, 0.09) 0px -3px 5px;
-  } */
-`;
-
-const WelcomeTitle = styled.span`
+const TheFireNet = styled.span`
     height: 50%;
     width: 40%;
     text-align: center;
     color: white;
     font-size: 23px;
     text-align: center;
+    &:hover {
+        transform: scale(1.2);
+        box-shadow: rgba(255, 255, 255, 0.1112) 0px 4px 5px, rgba(217, 217, 217, 0.11) 0px -12px 3px,
+            rgba(224, 224, 224, 0.11) 0px 4px 6px, rgba(233, 233, 233, 0.11) 0px 3px 3px,
+            rgba(227, 227, 227, 0.09) 0px -3px 5px;
+    }
 `;
 
 const TopHeaderSpacerContainer = styled.div`
@@ -316,79 +276,84 @@ const TopHeaderSpacerContainer = styled.div`
 `;
 
 const DockPanel = styled.div`
-    border: 2px solid pink;
+    // border: 2px solid pink;
     height: 40%;
     width: 100%;
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
 `;
 
 const ByDateContainer = styled.div`
-    /* border: 2px solid pink; */
-    height: 40%;
-    width: 100%;
+    // border: 2px solid pink;
+    height: 100%;
+    width: 23%;
     display: flex;
-    justify-content: start;
+    justify-content: center;
+    align-items: center;
+`;
+
+const ByDate = styled.h3`
+    height: 100%;
+    width: 44%;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    // border: 2px solid purple;
+    white-space: nowrap;
     align-items: center;
 `;
 
 const ByFireContainer = styled.div`
-    /* border: 2px solid pink; */
-    cursor: pointer;
-    height: 40%;
-    width: 100%;
+    // border: 2px solid pink;
+    height: 100%;
+    width: 23%;
     display: flex;
-    justify-content: start;
+    justify-content: center;
+    align-items: center;
+`;
+
+const ByFire = styled.h3`
+    height: 100%;
+    width: 41%;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    // border: 2px solid purple;
+    white-space: nowrap;
     align-items: center;
 `;
 
 const ByCategoryContainer = styled.div`
-    /* border: 2px solid pink; */
-    height: 40%;
-    width: 100%;
+    // border: 2px solid pink;
+    height: 100%;
+    width: 23%;
+    cursor: pointer;
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
 `;
 
-const ByDate = styled.div`
-    /* border: 2px solid orange; */
+const ByCategory = styled.h3`
     height: 100%;
-    width: 100%;
-    display: flex;
+    width: 47%;
+    text-align: center;
     color: white;
-    justify-self: center;
-    align-items: center;
-`;
-
-const ByFire = styled.div`
-    /* border: 2px solid orange; */
-    height: 100%;
-    width: 100%;
     display: flex;
-    color: white;
-    justify-self: center;
-    align-items: center;
-`;
-
-const ByCategory = styled.div`
-    /* border: 2px solid orange; */
-    height: 100%;
-    width: 100%;
-    display: flex;
-    color: white;
-    justify-self: center;
+    // border: 2px solid purple;
+    white-space: nowrap;
     align-items: center;
 `;
 
 const DockBtnSpace = styled.div`
+    position: absolute;
     /* border: 2px solid white; */
-    height: 100%;
+    height: 37.2px;
     width: 100%;
     display: flex;
     color: white;
-    position: relative;
     right: 0px;
     justify-content: end;
     align-items: center;
@@ -397,9 +362,10 @@ const DockBtnSpace = styled.div`
 const DockBtnContainer = styled.div`
     border: 0.4px solid white;
     border-radius: 3px;
-    height: 91%;
-    width: 100px;
-    right: 20px;
+    border-radius: 6px;
+    height: 100%;
+    width: 86.6px;
+    right: 10px;
     display: flex;
     justify-content: space-evenly;
     color: white;
@@ -413,10 +379,10 @@ const DockBtnContainer = styled.div`
 `;
 
 const DockCardsBtnContainer = styled.div`
-    border: 2px solid white;
+    border: 0.4px solid white;
     padding: 4px;
-    border-radius: 2px;
-    height: 33px;
+    border-radius: 12px;
+    height: 82%;
     width: 33px;
     display: flex;
     color: white;
@@ -446,23 +412,23 @@ const DockCardsBtn = styled.img`
 `;
 
 const DockCubesBtnContainer = styled.div`
-    border: 2px solid white;
+    border: 0.4px solid white;
     padding: 4px;
-    border-radius: 2px;
-    height: 33px;
+    border-radius: 12px;
+    height: 82%;
     width: 33px;
     display: flex;
     color: white;
     position: relative;
     right: 0px;
-    justify-self: center;
+    justify-content: center;
     align-items: center;
 `;
 
 const DockCubesBtn = styled.img`
     /* border: 2px solid purple; */
-    height: 100%;
-    width: 100%;
+    height: 77%;
+    width: 77%;
     display: flex;
     color: white;
     position: relative;
@@ -509,7 +475,6 @@ const TopHeaderCatchUpText = styled.div`
     width: 100%;
     display: flex;
 `;
-// Contents
 
 const ContentSectional = styled.section`
     /* border: 2px solid orange; */

@@ -60,14 +60,23 @@ const Glamour_Shot_Container = styled.div`
     height: 66px;
     border: 1.2px solid white;
     border-radius: 50%;
+    &:hover {
+        box-shadow: rgba(255, 255, 255, 0.1112) 0px 4px 5px, rgba(217, 217, 217, 0.11) 0px -12px 3px,
+            rgba(224, 224, 224, 0.11) 0px 4px 6px, rgba(233, 233, 233, 0.11) 0px 3px 3px,
+            rgba(227, 227, 227, 0.09) 0px -3px 5px;
+    }
 `;
 
 const Glamour_Shot = styled.img`
     align-self: center;
     display: flex;
+    cursor: pointer;
     justify-self: center;
     width: calc(100% - 1.2px);
     height: calc(100% - 1.2px);
+    &:hover {
+        transform: scale(1.14);
+    }
 `;
 const Header_Container_Main = styled.section`
     width: calc(100% - 176px);
@@ -100,6 +109,7 @@ const Header_Container_Panel = styled.div`
 `;
 
 const Header_Search = styled.div`
+    cursor: pointer;
     width: calc(100% / 1.6181);
     padding: 0 16px;
     outline: #fff;
