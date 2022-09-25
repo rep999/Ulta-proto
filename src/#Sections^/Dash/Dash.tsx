@@ -63,6 +63,7 @@ const Dash = ({ fires }: Fire) => {
             }
             setNwFireDT(t);
             setRenderTG(!renderTG);
+            // n
         } else {
             setNwFireDT('');
         }
