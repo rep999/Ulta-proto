@@ -27,7 +27,7 @@ const Card = ({
     text_title,
     title,
     topic,
-    url,
+    url, // inactive
     category,
     weight,
 }: Fire) => {
@@ -36,9 +36,6 @@ const Card = ({
     const CardClick = () => {};
 
     const CubeClick = () => {};
-    // ANCHOR: This is a comment anchor.
-    //   <Card key={i} Text={Text} count={fire.count}  created_at={fire.created_at}
-    //   id={fire.id} text={fire.text} title={fire.title} topic={fire.topic} url={fire.url}></Card>
 
     const CardMainTitleME = () => {};
     const CardMainTitleMO = () => {};
