@@ -8,14 +8,15 @@ import { compareCreated_At } from '$Sections/Dash/Fn/compare';
 import isHighlighted from './%Utils/isHighlighted';
 
 const Panel = () => {
-    // @ts-ignore        Topics Enum
-    const topicsEnum = useStore((state) => state.topics);
     // @ts-ignore        Selected Topic
     const topicSelection = useStore((state) => state.topicSelection);
     // @ts-ignore        Add Topic
     const selectTopic = useStore((state) => state.selectTopic);
-    // @ts-ignore        Remove Topic
-    const removeTopic = useStore((state) => state.removeTopic);
+    // @ts-ignore        Selected Topic
+    const categorySelection = useStore((state) => state.categorySelection);
+    // @ts-ignore        Add Topic
+    const selectCategory = useStore((state) => state.selectCategory);
+
     // STATE TOGGLES
     const [centerCircleToggled, setCenterCircleToggled] = useState(false);
     const [centerTopCircleToggled, setCenterTopCircleToggled] = useState(false);
@@ -50,12 +51,13 @@ const Panel = () => {
         if (circSelectedST && CircClickedCN != circSelectedST) { 
             circSelectedST.src = '/whiteCircle.png';
         }
-        // Circle clicked with no highlight
+        // AND Circle clicked with no highlight
         if (CircClickedCN && !isHighlighted(CircClickedCN)) {
             CircClickedCN.src = '/purpleStrokedCircle.png';
             setCircSelectedST(CircClickedCN);
             stateSetter(true);
             CircClickedCN.style.zIndex = '999';
+        // Circle with Highlight
         } else {
             if (CircClickedCN) {
                 CircClickedCN.src = '/whiteCircle.png';
@@ -65,6 +67,25 @@ const Panel = () => {
             CircClickedCN.style.zIndex = '0';
         }
     }
+
+    const CenterCircleFn = (parentID: any, elementID: any, stateSetter: any, stateVal: any): any => {
+        // Do some other shit...
+        // switch (moniker) {
+        //     case 'topics':
+        //         circleHighlighterFn(stateSetter, elementID, stateVal)
+        //         // If its the Same Selection:
+        //         if (topicSelection === textFinder(parentID)) { 
+        //             selectTopic('') 
+        //         } else {
+        //             selectTopic(textFinder(parentID))
+        //         }
+        //       break;
+        //     case 'category':
+        //     case 'weight':
+        //     default:
+        //       console.log(`DEFAULT`);
+        //   }
+    };
 
     const CircleSelectionFn = (parentID: any, elementID: any, stateSetter: any, stateVal: any): any => {
         switch (moniker) {
@@ -78,6 +99,14 @@ const Panel = () => {
                 }
               break;
             case 'category':
+                circleHighlighterFn(stateSetter, elementID, stateVal)
+                // If its the Same Selection:
+                if (categorySelection === textFinder(parentID)) { 
+                    selectCategory('') 
+                } else {
+                    selectCategory(textFinder(parentID))
+                }
+              break;
             case 'weight':
             default:
               console.log(`DEFAULT`);
@@ -109,6 +138,31 @@ const Panel = () => {
     };
 
     const MenuHeirachyArrowRightME = () => {
+        switch (moniker) {
+            // This is the first case, always:
+            case 'topics':
+                setMoniker('category')
+              break;
+            // Second
+            case 'category':
+                // circleHighlighterFn(stateSetter, elementID, stateVal)
+                // // If its the Same Selection:
+                // if (categorySelection === textFinder(parentID)) { 
+                //     selectCategory('') 
+                // } else {
+                //     selectCategory(textFinder(parentID))
+                // }
+                // setMoniker('weight')
+              break;
+            case 'weight':
+                setMoniker('topics')
+            break;
+            default:
+              console.log(`DEFAULT`);
+          }
+        if (circSelectedST) { 
+            circSelectedST.src = '/whiteCircle.png'
+         }
         const DockTextEl = document.getElementById('DockText');
         if (DockTextEl) {
             DockTextEl.innerText = 'Menu Heirarchy Arrow';
@@ -125,7 +179,7 @@ const Panel = () => {
     return (
         <PanelParent>
             <PanelWrapper>
-                <FireNetLogo id='FireNetLogo' src='/OfficialLogo.png'></FireNetLogo>
+                <FireNetLogo id='FireNetLogo' src='/Logo.png'></FireNetLogo>
                 <FruitCake id='FruitCake'>
                     <C0 id='C0'>
                         {topics
@@ -137,7 +191,7 @@ const Panel = () => {
                             : ''}
                         <CenterCircle
                             onClick={() =>
-                                CircleSelectionFn(
+                                CenterCircleFn(
                                     'C0',
                                     'CenterCircle',
                                     setCenterCircleToggled,
@@ -168,7 +222,7 @@ const Panel = () => {
                             src='/whiteCircle.png'></CenterTopCircle>
                     </C1>
                     <C7 id='C7'>
-                        {topics ? 'Tech' : subTopics ? 'Note' : subSubTopics ? '71-77' : ''}
+                        {topics ? 'Tech' : subTopics ? 'General' : subSubTopics ? '71-77' : ''}
                         <CenterTopTopCircle
                             onClick={() =>
                                 CircleSelectionFn(

@@ -28,6 +28,8 @@ interface Fire {
 const Dash = ({ fires }: Fire) => {
     // @ts-ignore
     const topicSelection = useStore((state) => state.topicSelection);
+    // @ts-ignore
+    const categorySelection = useStore((state) => state.categorySelection);
     const [initialRender, setInitialRender] = useState(true);
     const [welcomeTitleTxt, setWelcomeTitleTxt] = useState('Welcome to The FireNet');
     const [fireDT, setFireDT] = useState<any>([]);
@@ -37,18 +39,12 @@ const Dash = ({ fires }: Fire) => {
     const [firesDesc, setFiresDesc] = useState<boolean>(false);
 
     useEffect(() => {
-        // ANCHOR important...
-
-        // Bug List:  
-        // 1.  When you click a topic that has no items, um wrong result?
-        // 2.  When you click a topic that has no items, um wrong result?
-        
         if (topicSelection) {
             const t = fireDT.filter((fire) => fire.topic === topicSelection);
-            if (t.length === 0) { 
-                setWelcomeTitleTxt('Nothing here yet 🥲')} 
-                    else {
-                setWelcomeTitleTxt('Welcome to The FireNet')
+            if (t.length === 0) {
+                setWelcomeTitleTxt('Nothing here yet 🥲');
+            } else {
+                setWelcomeTitleTxt('Welcome to The FireNet');
             }
             setNwFireDT(t);
             setRenderTG(!renderTG);
@@ -56,6 +52,36 @@ const Dash = ({ fires }: Fire) => {
             setNwFireDT('');
         }
     }, [topicSelection]);
+
+    useEffect(() => {
+        if (categorySelection) {
+            const t = fireDT.filter((fire) => fire.category === categorySelection);
+            if (t.length === 0) {
+                setWelcomeTitleTxt('Nothing here yet 🥲');
+            } else {
+                setWelcomeTitleTxt('Welcome to The FireNet');
+            }
+            setNwFireDT(t);
+            setRenderTG(!renderTG);
+        } else {
+            setNwFireDT('');
+        }
+    }, [categorySelection]);
+
+    useEffect(() => {
+        if (categorySelection) {
+            const t = fireDT.filter((fire) => fire.category === categorySelection);
+            if (t.length === 0) {
+                setWelcomeTitleTxt('Nothing here yet 🥲');
+            } else {
+                setWelcomeTitleTxt('Welcome to The FireNet');
+            }
+            setNwFireDT(t);
+            setRenderTG(!renderTG);
+        } else {
+            setNwFireDT('');
+        }
+    }, [categorySelection]);
 
     let apple = fires;
     if (fireDT && fireDT.length !== fires.length) {
@@ -93,10 +119,6 @@ const Dash = ({ fires }: Fire) => {
         }
     };
 
-    // useEffect(() => { ANCHOR
-    //     console.log(`hi23`);
-    // }, []);
-
     const ByCategoryClick = () => {};
     return (
         <DashContainer>
@@ -104,13 +126,7 @@ const Dash = ({ fires }: Fire) => {
                 <TopHeaderTitleRow>
                     <WelcomeTitleContainer>
                         <WelcomeTitle>{welcomeTitleTxt} </WelcomeTitle>
-                        {/* <WelcomeTitleImgContainer>
-              <WelcomeTitleImg src="/OfficialLogo.png" />
-            </WelcomeTitleImgContainer> */}
                     </WelcomeTitleContainer>
-                    <GlamourShotContainer>
-                        <GlamourShot src='/ProfilePic.jpg'></GlamourShot>
-                    </GlamourShotContainer>
                 </TopHeaderTitleRow>
                 <TopHeaderSpacerContainer>
                     <TopHeaderSpacer></TopHeaderSpacer>
@@ -226,13 +242,12 @@ const TopHeaderTitleRow = styled.div`
 `;
 
 const WelcomeTitleContainer = styled.div`
-    /* border: 2px solid white; */
     height: 100%;
-    width: 30%;
-    min-width: 280px;
+    width: 100%;
     position: relative;
     display: flex;
     align-items: center;
+    justify-content: center;
 `;
 
 const WelcomeTitleImgContainer = styled.div`
@@ -282,15 +297,12 @@ const GlamourShot = styled.img`
 `;
 
 const WelcomeTitle = styled.span`
-    /* border: 2px solid pink; */
     height: 50%;
-    width: 100%;
-    /* position: relative; */
-    left: 0px;
-    padding-left: 9px;
+    width: 40%;
+    text-align: center;
     color: white;
-    display: flex;
     font-size: 23px;
+    text-align: center;
 `;
 
 const TopHeaderSpacerContainer = styled.div`

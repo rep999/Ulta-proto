@@ -5,9 +5,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from '$styles/Home.module.css';
 // REPorts
-import Header from 'src/#Sections^/Header';
+import Header from '$Sections/Header/Header';
 import Dash from 'src/#Sections^/Dash/Dash';
-import Testy from 'src/#Sections^/Testy';
 import Nav from 'src/#Sections^/Nav';
 import Panel from 'src/#Sections^/Panel/Panel';
 import Auth from 'src/@components^/Auth';
@@ -94,6 +93,7 @@ const WebFire_App_Shell_Content = styled.div`
     display: flex;
     flex: 1 1 auto;
     overflow: hidden;
+    background-color: #181a1f;
     position: relative;
     border: 2px solid white;
 `;

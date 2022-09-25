@@ -3,9 +3,13 @@ import styled from 'styled-components';
 import dynamic from 'next/dynamic';
 import Modal from '$components/Modal.js';
 
+// ANCHOR how do you make this always centered above cube?
+// ANCHOR how do you make the seach bar centered as well?
+// Solution...You make the boxes that equate to the ones below them..
 const Parent = styled.div`
     display: flex;
-    /* Temp */
+    position: absolute;
+    right: 48px;
     width: 253px;
     height: 36px;
     border: 2px solid white;

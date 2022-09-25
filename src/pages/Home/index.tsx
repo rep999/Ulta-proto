@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { useState } from 'react';
 // REPorts
 // @ts-ignore
-import Header from '$Sections/Header';
+import Header from '$Sections/Header/Header';
 // @ts-ignore
 import Nav from '$Sections/Nav';
 // @ts-ignore

@@ -45,37 +45,13 @@ selectTopic: (topic) =>
     set((state) => ({
         topicSelection: topic
     })),
-// removeTopic: async (topic) =>
-//     set((state) => ({
-//         topicSelection: ''
-//     })),
-pushSubTopic: (subTopic) =>
+selectCategory: (category) =>
     set((state) => ({
-        subTopicsSelected: [
-            { name: subTopic.name, id: Math.random() * 100 },
-            ...state.subTopicsSelected,
-        ]
+        categorySelection: category
     })),
-pushSubSubTopic: (subSubTopic) =>
+selectWeight: (category) =>
     set((state) => ({
-        subSubTopicsSelected: [
-            { name: subSubTopic.name, id: Math.random() * 100 },
-            ...state.subSubTopicsSelected,
-        ]
-    })),
-pushCategory: (category) =>
-    set((state) => ({
-        subSubTopicsSelected: [
-            { name: category.name, id: Math.random() * 100 },
-            ...state.subSubTopicsSelected,
-        ]
-    })),
-selectWeight: (weight) =>
-    set((state) => ({
-        weightSelected: [
-            { name: weight.name, id: Math.random() * 100 },
-            ...state.weightSelected,
-        ]
+        categorySelection: category
     })),
 addPokemons: (pokemon) =>
     set((state) => ({

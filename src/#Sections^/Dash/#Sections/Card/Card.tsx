@@ -599,7 +599,7 @@ const CardTopicContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 50%;
+    height: 100%;
     width: 100%;
 `;
 
@@ -608,7 +608,7 @@ const CardCategoryContainer = styled.div`
     display: flex;
     display: flex;
     align-items: center;
-    height: 50%;
+    height: 100%;
     width: 100%;
 `;
 
