@@ -48,7 +48,7 @@ const Modal = ({ onClose }) => {
       <SMWrapper>
         <SMain>
           <SMHeader>
-            <SMTitle>Richy's Note</SMTitle>
+            <SMTitle>Make Fire</SMTitle>
           </SMHeader>
           <SMBody>
             <SMForm onsubmit={saveClick()}>

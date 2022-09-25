@@ -75,8 +75,6 @@ const Dash = ({ fires }: Fire) => {
     }, [categorySelection]);
 
     useEffect(() => {
-        console.log(`weightSelection`);
-        console.log(weightSelection);
         if (weightSelection) {
             const t = fireDT.filter((fire) => fire.weight === weightSelection);
             if (t.length === 0) {
@@ -244,10 +242,10 @@ const WelcomeTitleContainer = styled.div`
 `;
 
 const TheFireNet = styled.span`
-    height: 50%;
+    height: 56%;
     width: 40%;
     text-align: center;
-    color: white;
+    color: #b59ceb;
     font-size: 23px;
     text-align: center;
     &:hover {

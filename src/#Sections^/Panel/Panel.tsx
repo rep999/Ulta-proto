@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 // @ts-ignore
 import useStore from '$Store';
@@ -8,6 +8,10 @@ import { compareCreated_At } from '$Sections/Dash/Fn/compare';
 import isHighlighted from './%Utils/isHighlighted';
 
 const Panel = () => {
+    // ~ Refs
+    const PanelWrapperRef = useRef();
+    const EagleRef = useRef();
+    const CubeRef = useRef();
     // @ts-ignore        Selected Topic
     const topicSelection = useStore((state) => state.topicSelection);
     // @ts-ignore        Add Topic
@@ -22,6 +26,7 @@ const Panel = () => {
     const weightSelection = useStore((state) => state.weightSelection);
 
     // STATE TOGGLES
+    const [eagleVisible, setEagleVisible] = useState(true);
     const [centerCircleToggled, setCenterCircleToggled] = useState(false);
     const [centerTopCircleToggled, setCenterTopCircleToggled] = useState(false);
     const [centerTopTopCircleToggled, setCenterTopTopCircleToggled] = useState(false);
@@ -71,6 +76,31 @@ const Panel = () => {
         }
     }
 
+    function PanelParentE() {
+        setEagleVisible(!eagleVisible);
+        if (EagleRef && CubeRef && !eagleVisible) {
+            // @ts-ignore
+            EagleRef.current.style.display = 'block';
+            // @ts-ignore
+            CubeRef.current.display = 'none';
+        } else if (EagleRef && CubeRef && eagleVisible) {
+            // @ts-ignore
+            EagleRef.current.style.display = 'none';
+            // @ts-ignore
+            CubeRef.current.style.display = 'flex';
+        } else {
+            alert(`nooo`);
+        }
+    }
+
+    function PanelParentL() {
+        setEagleVisible(true);
+        // @ts-ignore
+        EagleRef.current.style.display = 'block';
+        // @ts-ignore
+        CubeRef.current.style.display = 'none';
+    }
+
     const CenterCircleClickFn = (
         parentID: any,
         elementID: any,
@@ -109,7 +139,6 @@ const Panel = () => {
                 }
                 break;
             case 'category':
-                console.log(`category hit `);
                 circleHighlighterFn(stateSetter, elementID, stateVal);
                 // If its the Same Selection:
                 if (categorySelection === textFinder(parentID)) {
@@ -119,7 +148,6 @@ const Panel = () => {
                 }
                 break;
             case 'weight':
-                console.log(`weight hit `);
                 circleHighlighterFn(stateSetter, elementID, stateVal);
                 // If its the Same Selection:
                 if (weightSelection === textFinder(parentID)) {
@@ -192,10 +220,20 @@ const Panel = () => {
     };
 
     return (
-        <PanelParent>
-            <PanelWrapper>
-                <FireNetLogo id='FireNetLogo' src='/Logo.png'></FireNetLogo>
-                <FruitCake id='FruitCake'>
+        <PanelParent onMouseEnter={() => PanelParentE()} onMouseLeave={() => PanelParentL()}>
+            <PanelWrapper
+                // @ts-ignore
+                ref={PanelWrapperRef}
+                id='PanelWrapper'>
+                <Eagle
+                    // @ts-ignore
+                    ref={EagleRef}
+                    id='Eagle'
+                    src='/Logo.png'></Eagle>
+                <Cube
+                    // @ts-ignore
+                    ref={CubeRef}
+                    id='Cube'>
                     <C0 id='C0'>
                         {topics
                             ? centerCircle
@@ -390,7 +428,7 @@ const Panel = () => {
                             id='CenterBottomBottomCircle'
                             src='/whiteCircle.png'></CenterBottomBottomCircle>
                     </C10>
-                </FruitCake>
+                </Cube>
             </PanelWrapper>
             <DockWrapper>
                 <Dock>
@@ -439,20 +477,19 @@ const PanelWrapper = styled.div`
     justify-content: center;
 `;
 
-const FireNetLogo = styled.img`
+const Eagle = styled.img`
     height: 88%;
     width: 88%;
     position: absolute;
     flex-grow: 1;
-    display: none;
 `;
 
-const FruitCake = styled.div`
+const Cube = styled.div`
     height: 94%;
     width: 94%;
     position: absolute;
     flex-grow: 1;
-    display: flex;
+    display: none;
     border: 1px solid transparent;
     // border-radius: 50%;
     justify-content: center;
@@ -470,7 +507,7 @@ const C0 = styled.div`
     height: calc(305.5px / 5);
     width: calc(305.5px / 5);
     position: absolute;
-    color: #37bfb0;
+    color: #b59ceb;
     display: flex;
     justify-content: center;
     align-items: center;
