@@ -7,7 +7,7 @@ import styles from '$styles/Home.module.css';
 // REPorts
 import Header from '$Sections/Header/Header';
 import Dash from 'src/#Sections^/Dash/Dash';
-import Nav from 'src/#Sections^/Nav';
+import Nav from '$Sections/Nav/Nav';
 import Panel from 'src/#Sections^/Panel/Panel';
 import Auth from 'src/@components^/Auth';
 import styled from 'styled-components';

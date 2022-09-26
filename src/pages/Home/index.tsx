@@ -4,7 +4,7 @@ import { useState } from 'react';
 // @ts-ignore
 import Header from '$Sections/Header/Header';
 // @ts-ignore
-import Nav from '$Sections/Nav';
+import Nav from '$Sections/Nav/Nav';
 // @ts-ignore
 import Panel from '$Sections/Panel/Panel';
 import { useRouter } from 'next/router';
