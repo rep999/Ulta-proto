@@ -13,8 +13,6 @@ interface Fire {
     text_title?: string;
     title?: string;
     topic?: string;
-    subtopic?: string;
-    subsubtopic?: string;
     url?: string;
     category?: string;
     weight?: string;
@@ -64,20 +62,8 @@ const Card = ({
                                     <CardTopicContainerText>{topic}</CardTopicContainerText>
                                 </CardTopicContainer>
                                 <CardCategoryContainer>
-                                    <CardSubTopicContainerText>
-                                        {category}
-                                    </CardSubTopicContainerText>
+                                    <Card_Category_Text>{category}</Card_Category_Text>
                                 </CardCategoryContainer>
-                                {/* <CardCategoryContainer>
-                                    <CardSubTopicContainerText>
-                                        {subtopic}
-                                    </CardSubTopicContainerText>
-                                </CardCategoryContainer>
-                                <CardSubSubTopicContainer>
-                                    <CardSubSubTopicContainerText>
-                                        {subsubtopic}
-                                    </CardSubSubTopicContainerText>
-                                </CardSubSubTopicContainer> */}
                             </CardWrapper>
                         </CardMainTitleContainer>
                         <TextSection>
@@ -613,7 +599,7 @@ const CardTopicContainerText = styled.div`
     color: white;
     text-align: center;
 `;
-const CardSubTopicContainerText = styled.div`
+const Card_Category_Text = styled.div`
     color: white;
 `;
 

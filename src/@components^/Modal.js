@@ -83,7 +83,7 @@ const Modal = ({ onClose }) => {
                     <Social name="Social" type="checkbox"></Social>
                   </SocialContainer>
                 </SMTopicContainer>
-                <SMSubTopicContainer>
+                <SMCategoryContainer>
                   <QuestionContainer>
                     <QuestionLabel>Question</QuestionLabel>
                     <Question name="Question" type="checkbox"></Question>
@@ -103,12 +103,12 @@ const Modal = ({ onClose }) => {
                     <NoteLabel>Note</NoteLabel>
                     <Note name="Note" type="checkbox"></Note>
                   </NoteContainer>
-                </SMSubTopicContainer>
-                <SMSubSubTopicContainer>
+                </SMCategoryContainer>
+                <SM_Weight_Container>
                   <SMSliderDiv>
                     <SMInputSlider type="range" min="10" max="100" />
                   </SMSliderDiv>
-                </SMSubSubTopicContainer>
+                </SM_Weight_Container>
                 <SMFinishButtonContainer>
                   <SMFinishButton type="submit">Save</SMFinishButton>
                 </SMFinishButtonContainer>
@@ -163,12 +163,6 @@ const SMTopicContainer = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-`
-
-const SMTopicLabel = styled.div`
-  width: 30%;
-  height: 30%;
-  border: 1px solid grey;
 `
 
 const KnowledgeContainer = styled.div`
@@ -294,14 +288,14 @@ const Note = styled.input`
   border: 1px solid grey;
 `
 
-const SMSubTopicContainer = styled.div`
+const SMCategoryContainer = styled.div`
   width: 100%;
   height: 40%;
   display: flex;
   width: 100%;
 `
 
-const SMSubTopicLabel = styled.label`
+const SMWeightLabel = styled.label`
   width: 100%;
   height: 100%;
   border: 1px solid grey;
@@ -373,7 +367,7 @@ const NoteLabel = styled.div`
   font-size: 0.85rem;
 `
 
-const SMSubSubTopicContainer = styled.div`
+const SM_Weight_Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;

@@ -17,8 +17,6 @@ interface Fire {
     text_title?: string;
     title?: string;
     topic?: string;
-    subtopic?: string;
-    subsubtopic?: string;
     url?: string;
     category?: string;
     weight?: string;
@@ -175,8 +173,6 @@ const Dash = ({ fires }: Fire) => {
                                       text_title={fire.text_title}
                                       title={fire.title}
                                       topic={fire.topic}
-                                      subtopic={fire.subtopic}
-                                      subsubtopic={fire.subsubtopic}
                                       // @ts-ignore
                                       category={fire.category}
                                       // @ts-ignore
@@ -193,8 +189,6 @@ const Dash = ({ fires }: Fire) => {
                                       text_title={fire.text_title}
                                       title={fire.title}
                                       topic={fire.topic}
-                                      subtopic={fire.subtopic}
-                                      subsubtopic={fire.subsubtopic}
                                       // @ts-ignore
                                       category={fire.category}
                                       // @ts-ignore

@@ -21,8 +21,6 @@ interface Fire {
     text_title?: string;
     title?: string;
     topic?: string;
-    subtopic?: string;
-    subsubtopic?: string;
     url?: string;
 }
 

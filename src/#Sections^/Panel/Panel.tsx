@@ -12,6 +12,8 @@ const Panel = () => {
     const PanelWrapperRef = useRef();
     const EagleRef = useRef();
     const CubeRef = useRef();
+
+    // ^Store
     // @ts-ignore        Selected Topic
     const topicSelection = useStore((state) => state.topicSelection);
     // @ts-ignore        Add Topic
@@ -25,30 +27,27 @@ const Panel = () => {
     // @ts-ignore        Add Topic
     const weightSelection = useStore((state) => state.weightSelection);
 
-    // STATE TOGGLES
-    const [eagleVisible, setEagleVisible] = useState(true);
+    // !State
+    const [bottomLeftCircleToggled, setBottomLeftCircleToggled] = useState(false);
+    const [bottomLeftLeftCircleToggled, setBottomLeftLeftCircleToggled] = useState(false);
+    const [bottomRightCircleToggled, setBottomRightCircleToggled] = useState(false);
+    const [bottomRightRightCircleToggled, setBottomRightRightCircleToggled] = useState(false);
+    const [category, setCategory] = useState(true);
+    const [centerBottomBottomCircleToggled, setCenterBottomBottomCircleToggled] = useState(false);
+    const [centerBottomCircleToggled, setCenterBottomCircleToggled] = useState(false);
+    const [centerCircle, setCenterCircle] = useState('Topics');
     const [centerCircleToggled, setCenterCircleToggled] = useState(false);
     const [centerTopCircleToggled, setCenterTopCircleToggled] = useState(false);
     const [centerTopTopCircleToggled, setCenterTopTopCircleToggled] = useState(false);
-    const [centerBottomCircleToggled, setCenterBottomCircleToggled] = useState(false);
-    const [centerBottomBottomCircleToggled, setCenterBottomBottomCircleToggled] = useState(false);
-    const [upperRightCircleToggled, setUpperRightCircleToggled] = useState(false);
-    const [upperRightRightCircleToggled, setUpperRightRightCircleToggled] = useState(false);
+    const [circSelectedST, setCircSelectedST] = useState<any>();
+    const [eagleVisible, setEagleVisible] = useState(true);
+    const [moniker, setMoniker] = useState('topics');
+    const [topics, setTopics] = useState(true);
     const [upperLeftCircleToggled, setUpperLeftCircleToggled] = useState(false);
     const [upperLeftLeftCircleToggled, setUpperLeftLeftCircleToggled] = useState(false);
-    const [bottomRightCircleToggled, setBottomRightCircleToggled] = useState(false);
-    const [bottomRightRightCircleToggled, setBottomRightRightCircleToggled] = useState(false);
-    const [bottomLeftCircleToggled, setBottomLeftCircleToggled] = useState(false);
-    const [bottomLeftLeftCircleToggled, setBottomLeftLeftCircleToggled] = useState(false);
-    // STATE BOOLEANS
-    const [topics, setTopics] = useState(true);
-    const [subTopics, setSubTopics] = useState(false);
-    const [subSubTopics, setSubSubTopics] = useState(false);
-    // STATE CIRCLES
-    const [centerCircle, setCenterCircle] = useState('Topics');
-    // New State
-    const [moniker, setMoniker] = useState('topics');
-    const [circSelectedST, setCircSelectedST] = useState<any>();
+    const [upperRightCircleToggled, setUpperRightCircleToggled] = useState(false);
+    const [upperRightRightCircleToggled, setUpperRightRightCircleToggled] = useState(false);
+    const [weight, setWeight] = useState(true);
 
     // ANCHOR
     useEffect(() => {}, [topicSelection]);
@@ -170,18 +169,18 @@ const Panel = () => {
     const MenuHeirachyArrowRightClk = () => {
         if (topics) {
             setTopics(false);
-            setSubTopics(true);
-            setSubSubTopics(false);
+            setCategory(true);
+            setWeight(false);
         }
-        if (subTopics) {
+        if (category) {
             setTopics(false);
-            setSubTopics(false);
-            setSubSubTopics(true);
+            setCategory(false);
+            setWeight(true);
         }
-        if (subSubTopics) {
+        if (weight) {
             setTopics(true);
-            setSubTopics(false);
-            setSubSubTopics(false);
+            setCategory(false);
+            setWeight(false);
         }
     };
 
@@ -235,13 +234,7 @@ const Panel = () => {
                     ref={CubeRef}
                     id='Cube'>
                     <C0 id='C0'>
-                        {topics
-                            ? centerCircle
-                            : subTopics
-                            ? 'Category'
-                            : subSubTopics
-                            ? 'Weight '
-                            : ''}
+                        {topics ? centerCircle : category ? 'Category' : weight ? 'Weight ' : ''}
                         <CenterCircle
                             onClick={() =>
                                 CenterCircleClickFn(
@@ -255,7 +248,7 @@ const Panel = () => {
                             src='/whiteCircle.png'></CenterCircle>
                     </C0>
                     <C1 id='C1'>
-                        {topics ? 'Religion' : subTopics ? 'Important' : subSubTopics ? '90s' : ''}
+                        {topics ? 'Religion' : category ? 'Important' : weight ? '90s' : ''}
                         <CenterTopCircle
                             onClick={() =>
                                 CircleClickFn(
@@ -269,7 +262,7 @@ const Panel = () => {
                             src='/whiteCircle.png'></CenterTopCircle>
                     </C1>
                     <C7 id='C7'>
-                        {topics ? 'Tech' : subTopics ? 'General' : subSubTopics ? '100' : ''}
+                        {topics ? 'Tech' : category ? 'General' : weight ? '100' : ''}
                         <CenterTopTopCircle
                             onClick={() =>
                                 CircleClickFn(
@@ -283,7 +276,7 @@ const Panel = () => {
                             src='/whiteCircle.png'></CenterTopTopCircle>
                     </C7>
                     <C2 id='C2'>
-                        {topics ? 'News' : subTopics ? 'Key' : subSubTopics ? '80s' : ''}
+                        {topics ? 'News' : category ? 'Key' : weight ? '80s' : ''}
                         <UpperRightCircle
                             onClick={() =>
                                 CircleClickFn(
@@ -297,7 +290,7 @@ const Panel = () => {
                             src='/whiteCircle.png'></UpperRightCircle>
                     </C2>
                     <C8 id='C8'>
-                        {topics ? 'Business' : subTopics ? 'Date' : subSubTopics ? '70s' : ''}
+                        {topics ? 'Business' : category ? 'Date' : weight ? '70s' : ''}
                         <UpperRightRightCircle
                             onClick={() =>
                                 CircleClickFn(
@@ -311,13 +304,7 @@ const Panel = () => {
                             src='/whiteCircle.png'></UpperRightRightCircle>
                     </C8>
                     <C6 id='C6'>
-                        {topics
-                            ? 'Software'
-                            : subTopics
-                            ? 'Interesting'
-                            : subSubTopics
-                            ? '2-9'
-                            : ''}
+                        {topics ? 'Software' : category ? 'Interesting' : weight ? '2-9' : ''}
                         <UpperLeftCircle
                             onClick={() =>
                                 CircleClickFn(
@@ -331,7 +318,7 @@ const Panel = () => {
                             src='/whiteCircle.png'></UpperLeftCircle>
                     </C6>
                     <C12 id='C12'>
-                        {topics ? 'Fitness' : subTopics ? 'Helpful' : subSubTopics ? '1' : ''}
+                        {topics ? 'Fitness' : category ? 'Helpful' : weight ? '1' : ''}
                         <UpperLeftLeftCircle
                             onClick={() =>
                                 CircleClickFn(
@@ -345,7 +332,7 @@ const Panel = () => {
                             src='/whiteCircle.png'></UpperLeftLeftCircle>
                     </C12>
                     <C9 id='C9'>
-                        {topics ? 'Science' : subTopics ? 'Applicable' : subSubTopics ? '50s' : ''}
+                        {topics ? 'Science' : category ? 'Applicable' : weight ? '50s' : ''}
                         <BottomRightRightCircle
                             onClick={() =>
                                 CircleClickFn(
@@ -359,7 +346,7 @@ const Panel = () => {
                             src='/whiteCircle.png'></BottomRightRightCircle>
                     </C9>
                     <C3 id='C3'>
-                        {topics ? 'Nature' : subTopics ? 'Career' : subSubTopics ? '60s' : ''}
+                        {topics ? 'Nature' : category ? 'Career' : weight ? '60s' : ''}
                         <BottomRightCircle
                             onClick={() =>
                                 CircleClickFn(
@@ -373,7 +360,7 @@ const Panel = () => {
                             src='/whiteCircle.png'></BottomRightCircle>
                     </C3>
                     <C5 id='C5'>
-                        {topics ? 'Health' : subTopics ? 'Knowledge' : subSubTopics ? '20s' : ''}
+                        {topics ? 'Health' : category ? 'Knowledge' : weight ? '20s' : ''}
                         <BottomLeftCircle
                             onClick={() =>
                                 CircleClickFn(
@@ -387,7 +374,7 @@ const Panel = () => {
                             src='/whiteCircle.png'></BottomLeftCircle>
                     </C5>
                     <C11 id='C11'>
-                        {topics ? 'Fashion' : subTopics ? 'Question' : subSubTopics ? '10s' : ''}
+                        {topics ? 'Fashion' : category ? 'Question' : weight ? '10s' : ''}
                         <BottomLeftLeftCircle
                             onClick={() =>
                                 CircleClickFn(
@@ -401,7 +388,7 @@ const Panel = () => {
                             src='/whiteCircle.png'></BottomLeftLeftCircle>
                     </C11>
                     <C4 id='C4'>
-                        {topics ? 'Art' : subTopics ? 'Insightful' : subSubTopics ? '40s' : ''}
+                        {topics ? 'Art' : category ? 'Insightful' : weight ? '40s' : ''}
                         <CenterBottomCircle
                             onClick={() =>
                                 CircleClickFn(
@@ -415,7 +402,7 @@ const Panel = () => {
                             src='/whiteCircle.png'></CenterBottomCircle>
                     </C4>
                     <C10 id='C10'>
-                        {topics ? 'Finance' : subTopics ? 'Funny' : subSubTopics ? '30s' : ''}
+                        {topics ? 'Finance' : category ? 'Funny' : weight ? '30s' : ''}
                         <CenterBottomBottomCircle
                             onClick={() =>
                                 CircleClickFn(
