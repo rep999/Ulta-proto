@@ -8,7 +8,8 @@ import Nav from '$Sections/Nav/Nav';
 // @ts-ignore
 import Panel from '$Sections/Panel/Panel';
 import { useRouter } from 'next/router';
-import Dash from 'src/#Sections^/Dash/Dash';
+// @ts-ignore
+import Dash from '$Sections/Dash/Dash';
 import styled from 'styled-components';
 import create from 'zustand';
 import { supabase } from '../../../client.js';

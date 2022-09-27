@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 // @ts-ignore
-import useStore from '$Store';
+import useStore from 'src/*Store^/Store';
 // @ts-ignore
 import isFound from '$Utils/isFound.ts';
-import { compareCreated_At } from '$Sections/Dash/Fn/compare';
+import { compareCreated_At } from 'src/!Sections^/Dash/Fn/compare';
 import isHighlighted from './%Utils/isHighlighted';
 
 const Panel = () => {
@@ -125,10 +125,8 @@ const Panel = () => {
     };
 
     const CircleClickFn = (parentID: any, elementID: any, stateSetter: any, stateVal: any): any => {
-        console.log(moniker);
         switch (moniker) {
             case 'topics':
-                console.log(`topics hit `);
                 circleHighlighterFn(stateSetter, elementID, stateVal);
                 // If its the Same Selection:
                 if (topicSelection === textFinder(parentID)) {
@@ -185,8 +183,6 @@ const Panel = () => {
     };
 
     const MenuHeirachyArrowRightME = () => {
-        console.log(`moniker by butt`);
-        console.log(moniker);
         switch (moniker) {
             // This is the first case, always:
             case 'topics':

@@ -24,6 +24,7 @@ export default Actions;
 const Actions_Parent = styled.div`
     display: flex;
     position: relative;
+    margin-right: 12px;
     justify-content: center;
     align-items: center;
     width: calc(333px / 1.6181);

@@ -7,7 +7,7 @@ import { text } from 'stream/consumers';
 import Card from './#Sections/Card/Card';
 import { compareCreated_At, compareFiresAsc, compareFiresDesc } from './Fn/compare';
 // @ts-ignore
-import useStore from '$Store';
+import useStore from 'src/*Store^/Store';
 
 interface Fire {
     count?: string;
@@ -39,8 +39,6 @@ const Dash = ({ fires }: Fire) => {
     const [firesDesc, setFiresDesc] = useState<boolean>(false);
 
     useEffect(() => {
-        console.log(`topicSelection`);
-        console.log(topicSelection);
         if (topicSelection) {
             const t = fireDT.filter((fire) => fire.topic === topicSelection);
             if (t.length === 0) {
@@ -56,8 +54,6 @@ const Dash = ({ fires }: Fire) => {
     }, [topicSelection]);
 
     useEffect(() => {
-        console.log(`categorySelection`);
-        console.log(categorySelection);
         if (categorySelection) {
             const t = fireDT.filter((fire) => fire.category === categorySelection);
             if (t.length === 0) {

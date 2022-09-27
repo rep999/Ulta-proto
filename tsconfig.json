@@ -3,8 +3,8 @@
     "baseUrl": ".",
     "paths": {
       "$components/*": ["src/@components^/*"],
-      "$Sections/*": ["src/#Sections^/*"],
-      "$Store": ["src/!Store^/Store.ts"],
+      "$Sections/*": ["src/!Sections^/*"],
+      "$Store": ["src/*Store^/Store.ts"],
       "$Utils/*": ["src/%Utils^/*"],
       "$styles/*": ["/styles/*"]
     },
