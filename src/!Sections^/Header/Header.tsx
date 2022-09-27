@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 // @ts-ignore
-import Actions from './components/Actions/Actions';
+import Actions from './Actions';
 
 const Header = () => {
     return (

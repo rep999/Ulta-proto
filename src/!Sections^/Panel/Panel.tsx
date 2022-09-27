@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import useStore from 'src/*Store^/Store';
 // @ts-ignore
 import isFound from '$Utils/isFound.ts';
-import { compareCreated_At } from 'src/!Sections^/Dash/Fn/compare';
-import isHighlighted from './%Utils/isHighlighted';
+import { compareCreated_At } from '$Sections/Dash/3_utils/compare';
+import isHighlighted from './3_utils/isHighlighted';
 
 const Panel = () => {
     // ~ Refs

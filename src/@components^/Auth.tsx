@@ -7,7 +7,7 @@ export default function Auth() {
     const router = useRouter();
     const [loading, setLoading] = useState(false);
     const [email, setEmail] = useState('');
-    const [session, setSession] = useState(null);
+    const [session, setSession] = useState<any>(null);
 
     const handleLogin = async (email) => {
         try {
@@ -29,14 +29,14 @@ export default function Auth() {
             const {
                 data: { session },
             } = await supabase.auth.getSession();
-            console.log(`session`);
-            console.log(session);
+            // console.log(`session`);
+            // console.log(session);
             // only update the react state if the component is still mounted
             if (mounted) {
                 if (session) {
-                    console.log(session);
+                    setSession(session);
                 }
-                console.log(session);
+                setLoading(false);
             }
         }
 
@@ -58,9 +58,9 @@ export default function Auth() {
         if (session) {
             router.push('/Home');
         }
-        if (!session) {
-            router.push('/Home');
-        }
+        // if (!session) {
+        //     router.push('/Home');
+        // }
     }, [session]);
 
     return (

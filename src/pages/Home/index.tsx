@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 // REPorts
 // @ts-ignore
 import Header from '$Sections/Header/Header';
@@ -13,6 +13,7 @@ import Dash from '$Sections/Dash/Dash';
 import styled from 'styled-components';
 import create from 'zustand';
 import { supabase } from '../../../client.js';
+import cookie from 'cookie';
 
 interface Fire {
     count?: string;
@@ -50,6 +51,41 @@ export default function Home({ fires }: Fire) {
     const [session, setSession] = useState<any>(null);
     const [session2, setSession2] = useState<any>(null);
     const router = useRouter();
+
+    useEffect(() => {
+        let mounted = true;
+
+        async function getInitialSession() {
+            const user = await supabase.auth.getUser();
+            console.log(`user`);
+            console.log(user);
+            const {
+                data: { session },
+            } = await supabase.auth.getSession();
+            console.log(`session`);
+            console.log(session);
+            // only update the react state if the component is still mounted
+            if (mounted) {
+                if (session) {
+                    setSession(session);
+                }
+                setIsLoading(false);
+            }
+        }
+
+        getInitialSession();
+
+        // const { subscription } = supabase.auth.onAuthStateChange(
+        //   (_event, session) => {
+        //     setSession(session)
+        //   }
+        // )
+
+        return () => {
+            mounted = false;
+            // subscription?.unsubscribe()
+        };
+    }, []);
 
     return (
         <WebFire_App>

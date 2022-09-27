@@ -23,11 +23,12 @@ export default function Home() {
         let mounted = true;
 
         async function getInitialSession() {
+            console.log(`aaaa`);
             const {
                 data: { session },
             } = await supabase.auth.getSession();
-            console.log(`session`);
-            console.log(session);
+            // console.log(`session`);
+            // console.log(session);
             // only update the react state if the component is still mounted
             if (mounted) {
                 if (session) {

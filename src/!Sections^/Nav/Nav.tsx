@@ -41,7 +41,7 @@ const Nav = () => {
                                     <DecoratedTextSage>
                                         <TextSageDecoration_Icon>
                                             <SVGSage_Wrapper>
-                                                <SagePNG src='/Logo.png'></SagePNG>
+                                                <SagePNG src='/Project_Musa_Logo.jpg'></SagePNG>
                                             </SVGSage_Wrapper>
                                         </TextSageDecoration_Icon>
                                         <LILabel>Richy's Wall</LILabel>

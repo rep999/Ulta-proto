@@ -1,11 +1,11 @@
+import { compareCreated_At, compareFiresAsc, compareFiresDesc } from './3_utils/compare';
+import { GetServerSideProps } from 'next';
+import { supabase } from '../../../client.js';
+import { text } from 'stream/consumers';
+import Card from './1_sections/Card';
+import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import Image from 'next/image';
-import { supabase } from '../../../client.js';
-import { GetServerSideProps } from 'next';
-import { text } from 'stream/consumers';
-import Card from './#Sections/Card/Card';
-import { compareCreated_At, compareFiresAsc, compareFiresDesc } from './Fn/compare';
 // @ts-ignore
 import useStore from 'src/*Store^/Store';
 
@@ -208,7 +208,7 @@ const DashContainer = styled.div`
 
 const TopHeaderContainer = styled.div`
     /* border: 2px solid green; */
-    height: 15.12%;
+    height: 12.12%;
     min-height: 93px;
     max-height: 103px;
     width: 100%;
@@ -217,7 +217,7 @@ const TopHeaderContainer = styled.div`
 `;
 const TopHeaderTitleRow = styled.div`
     /* border: 2px solid orange; */
-    height: 50%;
+    height: 45%;
     width: 100%;
     display: flex;
 `;
@@ -257,10 +257,10 @@ const TopHeaderSpacerContainer = styled.div`
 
 const DockPanel = styled.div`
     // border: 2px solid pink;
-    height: 34%;
+    height: 39%;
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: center;ß
     align-items: center;
 `;
 
@@ -273,11 +273,12 @@ const ByDateContainer = styled.div`
     align-items: center;
 `;
 
-const ByDate = styled.h3`
+const ByDate = styled.span`
     height: 100%;
     width: 44%;
     text-align: center;
     color: white;
+    font-size: 16px;
     cursor: pointer;
     display: flex;
     // border: 2px solid purple;
@@ -294,11 +295,12 @@ const ByFireContainer = styled.div`
     align-items: center;
 `;
 
-const ByFire = styled.h3`
+const ByFire = styled.span`
     height: 100%;
     width: 41%;
     text-align: center;
     color: white;
+    font-size: 16px;
     cursor: pointer;
     display: flex;
     // border: 2px solid purple;
@@ -316,15 +318,17 @@ const ByCategoryContainer = styled.div`
     align-items: center;
 `;
 
-const ByCategory = styled.h3`
+const ByCategory = styled.span`
+    // border: 2px solid purple;
     height: 100%;
     width: 55%;
     text-align: center;
     color: white;
     display: flex;
-    // border: 2px solid purple;
+    font-size: 16px;
     white-space: nowrap;
     align-items: center;
+    width: 64%;
 `;
 
 const DockBtnSpace = styled.div`
