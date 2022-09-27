@@ -354,6 +354,9 @@ const DockBtnContainer = styled.div`
     justify-content: space-evenly;
     color: white;
     position: relative;
+    box-shadow: rgba(255, 255, 255, 0.0212) 0px 4px 55px, rgba(217, 217, 217, 0.062) 0px -12px 30px,
+        rgba(224, 224, 224, 0.06) 0px 4px 6px, rgba(233, 233, 233, 0.07) 0px 12px 13px,
+        rgba(227, 227, 227, 0.07) 0px -3px 5px;
     align-items: center;
     &:hover {
         box-shadow: rgba(255, 255, 255, 0.4212) 0px 4px 55px,

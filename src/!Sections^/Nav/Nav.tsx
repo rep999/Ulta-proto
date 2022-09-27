@@ -94,8 +94,10 @@ const NavListUL = styled.ul`
 const NavListLI = styled.li`
     align-items: center;
     display: flex;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
+    margin-top:
     position: relative;
+    rgb(255 255 255 / 1%) 0px 4px 55px, rgb(217 217 217 / 1%) 0px -12px 30px, rgb(224 224 224 / 2%) 0px 4px 6px, rgb(233 233 233 / 5%) 0px 12px 13px, rgb(227 227 227 / 7%) 0px -3px 5px;
 `;
 const NavListLink = styled.a`
     border: 2px solid white;
