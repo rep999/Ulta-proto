@@ -44,6 +44,7 @@ export default function Home({ fires }: Fire) {
     // const topicsSelected = useStore((state) => state.topicsSelected);
     // const topicsEnum = useStore((state) => state.topics);
     // const selectTopic = useStore((state) => state.selectTopic);
+
     const useStore = create((set) => ({
         topicSelection: 'monkey',
     }));
@@ -56,9 +57,6 @@ export default function Home({ fires }: Fire) {
         let mounted = true;
 
         async function getInitialSession() {
-            const user = await supabase.auth.getUser();
-            console.log(`user`);
-            console.log(user);
             const {
                 data: { session },
             } = await supabase.auth.getSession();

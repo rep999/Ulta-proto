@@ -231,13 +231,14 @@ const WelcomeTitleContainer = styled.div`
     justify-content: center;
 `;
 
-const TheFireNet = styled.span`
-    height: 56%;
+const TheFireNet = styled.div`
+    height: 65%;
     width: 40%;
     text-align: center;
     color: #b59ceb;
-    font-size: 23px;
+    font-size: 28px;
     text-align: center;
+    margin-bottom: 1px;
     &:hover {
         transform: scale(1.2);
         box-shadow: rgba(255, 255, 255, 0.1112) 0px 4px 5px, rgba(217, 217, 217, 0.11) 0px -12px 3px,
