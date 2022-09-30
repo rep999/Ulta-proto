@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import useStore from 'src/*Store^/Store';
 // @ts-ignore
 import isFound from '$Utils/isFound.ts';
-import { compareCreated_At } from '$Sections/Dash/3_utils/compare';
+import { compareCreated_At } from '$Sections/Dash/2_utils/compare';
 // @ts-ignore
 import isHighlighted from '../../%Utils^/isHighlighted';
 import SpacePort from './components/SpacePort';

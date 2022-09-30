@@ -19,38 +19,38 @@ export default function Home() {
     const [session, setSession] = useState<any>(null);
     const router = useRouter();
 
-    useEffect(() => {
-        let mounted = true;
+    // useEffect(() => {
+    //     let mounted = true;
 
-        async function getInitialSession() {
-            console.log(`aaaa`);
-            const {
-                data: { session },
-            } = await supabase.auth.getSession();
-            // console.log(`session`);
-            // console.log(session);
-            // only update the react state if the component is still mounted
-            if (mounted) {
-                if (session) {
-                    setSession(session);
-                }
-                setIsLoading(false);
-            }
-        }
+    //     async function getInitialSession() {
+    //         console.log(`aaaa`);
+    //         const {
+    //             data: { session },
+    //         } = await supabase.auth.getSession();
+    //         // console.log(`session`);
+    //         // console.log(session);
+    //         // only update the react state if the component is still mounted
+    //         if (mounted) {
+    //             if (session) {
+    //                 setSession(session);
+    //             }
+    //             setIsLoading(false);
+    //         }
+    //     }
 
-        getInitialSession();
+    //     getInitialSession();
 
-        // const { subscription } = supabase.auth.onAuthStateChange(
-        //   (_event, session) => {
-        //     setSession(session)
-        //   }
-        // )
+    //     // const { subscription } = supabase.auth.onAuthStateChange(
+    //     //   (_event, session) => {
+    //     //     setSession(session)
+    //     //   }
+    //     // )
 
-        return () => {
-            mounted = false;
-            // subscription?.unsubscribe()
-        };
-    }, []);
+    //     return () => {
+    //         mounted = false;
+    //         // subscription?.unsubscribe()
+    //     };
+    // }, []);
 
     // useEffect(() => {
     //     if (session) {

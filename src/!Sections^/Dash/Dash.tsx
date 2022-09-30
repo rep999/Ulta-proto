@@ -1,8 +1,8 @@
-import { compareCreated_At, compareFiresAsc, compareFiresDesc } from './3_utils/compare';
+import { compareCreated_At, compareFiresAsc, compareFiresDesc } from './2_utils/compare';
 import { GetServerSideProps } from 'next';
 import { supabase } from '../../../client.js';
 import { text } from 'stream/consumers';
-import Card from './1_sections/Card';
+import Card from './1_components/Card';
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';

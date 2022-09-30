@@ -9,18 +9,18 @@ export default function Auth() {
     const [email, setEmail] = useState('');
     const [session, setSession] = useState<any>(null);
 
-    const handleLogin = async (email) => {
-        try {
-            setLoading(true);
-            const { error } = await supabase.auth.signInWithOtp({ email });
-            if (error) throw error;
-            alert('Check your email for the login link!');
-        } catch (error) {
-            console.log(`aye`);
-        } finally {
-            setLoading(false);
-        }
-    };
+    // const handleLogin = async (email) => {
+    //     try {
+    //         setLoading(true);
+    //         const { error } = await supabase.auth.signInWithOtp({ email });
+    //         if (error) throw error;
+    //         alert('Check your email for the login link!');
+    //     } catch (error) {
+    //         console.log(`aye`);
+    //     } finally {
+    //         setLoading(false);
+    //     }
+    // };
 
     useEffect(() => {
         let mounted = true;
@@ -81,7 +81,6 @@ export default function Auth() {
                     <button
                         onClick={(e) => {
                             e.preventDefault();
-                            handleLogin(email);
                         }}
                         className='button block'
                         disabled={loading}>
