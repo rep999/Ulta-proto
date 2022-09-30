@@ -5,7 +5,9 @@ import useStore from 'src/*Store^/Store';
 // @ts-ignore
 import isFound from '$Utils/isFound.ts';
 import { compareCreated_At } from '$Sections/Dash/3_utils/compare';
-import isHighlighted from './3_utils/isHighlighted';
+// @ts-ignore
+import isHighlighted from '../../%Utils^/isHighlighted';
+import SpacePort from './components/SpacePort';
 
 const Panel = () => {
     // ~ Refs
@@ -49,22 +51,21 @@ const Panel = () => {
     const [upperRightRightCircleToggled, setUpperRightRightCircleToggled] = useState(false);
     const [weight, setWeight] = useState(true);
 
-    // ANCHOR
     useEffect(() => {}, [topicSelection]);
 
     function circleHighlighterFn(stateSetter, elementID, stateVal) {
         const CircClickedCN = document.getElementById(elementID) as HTMLImageElement;
-        // Remove the highlight from the other circle ; new click happened..
+        // ~Remove the highlight from the other circle ; new click happened..
         if (circSelectedST && CircClickedCN != circSelectedST) {
             circSelectedST.src = '/whiteCircle.png';
         }
-        // AND Circle clicked with no highlight
+        // ~AND Circle clicked with no highlight
         if (CircClickedCN && !isHighlighted(CircClickedCN)) {
             CircClickedCN.src = '/purpleStrokedCircle.png';
             setCircSelectedST(CircClickedCN);
             stateSetter(true);
             CircClickedCN.style.zIndex = '999';
-            // Circle with Highlight
+            // ~Circle with Highlight
         } else {
             if (CircClickedCN) {
                 CircClickedCN.src = '/whiteCircle.png';
@@ -431,6 +432,9 @@ const Panel = () => {
                     </DockTextContainer>
                 </DockTextWrapper>
             </DockWrapper>
+            <SpacePortParent>
+                <SpacePort></SpacePort>
+            </SpacePortParent>
         </PanelParent>
     );
 };
@@ -445,7 +449,7 @@ const PanelParent = styled.div`
     max-width: calc(333px);
     min-width: calc(333px);
 `;
-// PANEL
+
 const PanelWrapper = styled.div`
     max-height: calc(333px);
     min-height: calc(333px);
@@ -638,9 +642,7 @@ const BottomRightCircle = styled(Circle)``;
 const BottomRightRightCircle = styled(Circle)``;
 const BottomLeftCircle = styled(Circle)``;
 const BottomLeftLeftCircle = styled(Circle)``;
-// end
 
-// DOCK
 const DockWrapper = styled.div`
     max-height: calc(66px);
     min-height: calc(66px);
@@ -749,4 +751,10 @@ const DockText = styled.div`
     color: white;
 `;
 
-// end
+const SpacePortParent = styled.div`
+    height: calc(100% - 399px);
+    width: 100%;
+    border: 2px solid pink;
+    top: 399px;
+    position: relative;
+`;

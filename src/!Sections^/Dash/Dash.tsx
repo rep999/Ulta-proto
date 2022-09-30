@@ -30,7 +30,6 @@ const Dash = ({ fires }: Fire) => {
     const categorySelection = useStore((state) => state.categorySelection);
     // @ts-ignore
     const weightSelection = useStore((state) => state.weightSelection);
-    const [initialRender, setInitialRender] = useState(true);
     const [TheFireNetText, setTheFireNetText] = useState('The FireNet');
     const [fireDT, setFireDT] = useState<any>([]);
     const [nwFireDT, setNwFireDT] = useState<any>([]);
@@ -466,7 +465,7 @@ const TopHeaderCatchUpText = styled.div`
 
 const ContentSectional = styled.section`
     /* border: 2px solid orange; */
-    height: 84.88%;
+    height: 88.88%;
     width: 100%;
     display: flex;
     color: white;
@@ -478,11 +477,16 @@ const ContentSectional = styled.section`
     /* &:hover {
     transform: scale(1.04);
   } */
+
+    &::-webkit-scrollbar-track {
+        background: linear-gradient(0deg, rgba(255, 0, 0, 1) 0%, rgba(7, 0, 211, 1) 100%);
+    }
 `;
 
 const CardsContentContainer = styled.div`
     width: 100%;
     border: 2px solid white;
+    overflow-y: scroll;
 `;
 
 const CardListUL = styled.ul`

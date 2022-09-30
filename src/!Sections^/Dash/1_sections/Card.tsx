@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
 import { supabase } from '../../../../client.js';
@@ -29,21 +29,27 @@ const Card = ({
     category,
     weight,
 }: Fire) => {
-    const [initialRender, setInitialRender] = useState(true);
-    const [mockFireData, setMockFireData] = useState<any>([]);
-    const CardClick = () => {};
+    const Card_List_Li_Ref = useRef();
+    const Card_List_LiMO = () => {
+        if (Card_List_Li_Ref) {
+            // @ts-ignore
+            Card_List_Li_Ref.current.style.transform = 'scale(1.005)';
+        }
+    };
 
-    const CubeClick = () => {};
+    const Card_List_LiL = () => {
+        if (Card_List_Li_Ref) {
+            // @ts-ignore
+            Card_List_Li_Ref.current.style.transform = 'scale(.995024875)';
+        }
+    };
 
-    const CardMainTitleME = () => {};
-    const CardMainTitleMO = () => {};
-
-    const ByDateClick = () => {};
-
-    const ByFireClick = () => {};
-    const ByTextClick = () => {};
     return (
-        <CardListLi>
+        <Card_List_Li
+            // @ts-ignore
+            ref={Card_List_Li_Ref}
+            onMouseOver={() => Card_List_LiMO()}
+            onMouseLeave={() => Card_List_LiL()}>
             <CardListItem>
                 <CardMainSection>
                     <CardMainContainer>
@@ -52,11 +58,7 @@ const Card = ({
                             <LikesContainer>{count}</LikesContainer>
                         </FireEmojiContainer>
                         <CardMainTitleContainer>
-                            <CardMainTitle
-                                onMouseEnter={() => CardMainTitleME()}
-                                onMouseOut={() => CardMainTitleMO()}>
-                                {title}
-                            </CardMainTitle>
+                            <CardMainTitle>{title}</CardMainTitle>
                             <CardWrapper>
                                 <CardTopicContainer>
                                     <CardTopicContainerText>{topic}</CardTopicContainerText>
@@ -86,7 +88,7 @@ const Card = ({
                     </CardDateContainer>
                 </CardDateSection>
             </CardListItem>
-        </CardListLi>
+        </Card_List_Li>
     );
 };
 
@@ -108,7 +110,7 @@ export default Card;
 //   };
 // }
 
-const CardListLi = styled.li`
+const Card_List_Li = styled.li`
     /* border: 2px solid purple; */
     padding: 8px 0;
 `;
@@ -121,7 +123,8 @@ const CardListItem = styled.div`
     display: flex;
     position: relative;
     height: 77.7px;
-    width: 100%;
+    width: 99%;
+    margin-left: 3.3px;
     box-shadow: rgba(255, 255, 255, 0.0212) 0px 12px 55px, rgba(217, 217, 217, 0.062) 0px -12px 30px,
         rgba(224, 224, 224, 0.06) 0px 10px 6px, rgba(233, 233, 233, 0.07) 0px 12px 13px,
         rgba(227, 227, 227, 0.07) 0px -3px 5px;
