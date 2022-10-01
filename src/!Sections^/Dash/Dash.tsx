@@ -474,13 +474,6 @@ const ContentSectional = styled.section`
     right: 0px;
     border: 2px solid white;
     cursor: pointer;
-    /* &:hover {
-    transform: scale(1.04);
-  } */
-
-    &::-webkit-scrollbar-track {
-        background: linear-gradient(0deg, rgba(255, 0, 0, 1) 0%, rgba(7, 0, 211, 1) 100%);
-    }
 `;
 
 const CardsContentContainer = styled.div`

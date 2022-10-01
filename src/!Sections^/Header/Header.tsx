@@ -81,6 +81,7 @@ const Glamour_Shot = styled.img`
         transform: scale(1.14);
     }
 `;
+
 const Header_Container_Main = styled.section`
     width: calc(100% - 176px);
     max-height: 76px;
@@ -88,6 +89,7 @@ const Header_Container_Main = styled.section`
     // border: 3px solid white;
     display: flex;
 `;
+
 const Header_Container_Dash = styled.div`
     // border: 3px solid white;
     width: calc(100% - 333px);
@@ -99,6 +101,7 @@ const Header_Container_Dash = styled.div`
     justify-content: center;
     align-items: center;
 `;
+
 const Header_Container_Panel = styled.div`
     max-width: calc(333px);
     min-width: calc(333px);
@@ -121,8 +124,8 @@ const Header_Search = styled.div`
     border-radius: 2px;
     &:hover {
         transform: scale(1.01);
-        box-shadow: rgba(255, 255, 255, 0.1112) 0px 4px 5px, rgba(217, 217, 217, 0.11) 0px -12px 3px,
-            rgba(224, 224, 224, 0.11) 0px 4px 6px, rgba(233, 233, 233, 0.11) 0px 3px 3px,
+        box-shadow: rgba(255, 255, 255, 0.1112) 0px 4px 5px, rgba(217, 217, 217, 0.081) 0px -4px 3px,
+            rgba(224, 224, 224, 0.11) 0px 4px 2px, rgba(233, 233, 233, 0.081) 0px 3px 3px,
             rgba(227, 227, 227, 0.09) 0px -3px 5px;
     }
     box-shadow: rgba(255, 255, 255, 0.0212) 0px 4px 55px, rgba(217, 217, 217, 0.062) 0px -12px 30px,
