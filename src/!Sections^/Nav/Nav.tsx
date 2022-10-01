@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import SpacePort from './components/SpacePort';
 
 const Nav = () => {
     return (
@@ -51,6 +52,10 @@ const Nav = () => {
                         </NavListLI>
                     </NavListUL>
                 </GroupNav>
+
+                <SpacePortParent>
+                    <SpacePort></SpacePort>
+                </SpacePortParent>
             </NavWrapper>
         </NavParent>
     );
@@ -75,6 +80,7 @@ const NavWrapper = styled.div`
     flex-direction: column;
     min-height: 0;
     overflow: hidden;
+    height: 100%;
 `;
 
 const GroupNav = styled.nav`
@@ -82,14 +88,14 @@ const GroupNav = styled.nav`
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    // margin-bottom: 16px;
-    // flex-shrink: 0;
+    height: 160px;
 `;
 
 const NavListUL = styled.ul`
     border: 2px solid white;
     margin: 0;
-    padding: 2px;
+    // padding: 2px;
+    padding: 4px;
 `;
 const NavListLI = styled.li`
     align-items: center;
@@ -98,7 +104,17 @@ const NavListLI = styled.li`
     margin-top:
     position: relative;
     rgb(255 255 255 / 1%) 0px 4px 55px, rgb(217 217 217 / 1%) 0px -12px 30px, rgb(224 224 224 / 2%) 0px 4px 6px, rgb(233 233 233 / 5%) 0px 12px 13px, rgb(227 227 227 / 7%) 0px -3px 5px;
+    &:hover {
+        transform: scale(1.023);
+        box-shadow: rgba(255, 255, 255, 0.0812) 0px 4px 5px, rgba(217, 217, 217, 0.07) 0px -12px 3px,
+            rgba(224, 224, 224, 0.11) 0px 4px 6px, rgba(233, 233, 233, 0.11) 0px 3px 3px,
+            rgba(227, 227, 227, 0.09) 0px -3px 5px;
+    }
+    box-shadow: rgba(255, 255, 255, 0.0212) 0px 4px 55px, rgba(217, 217, 217, 0.062) 0px -12px 30px,
+        rgba(224, 224, 224, 0.06) 0px 4px 6px, rgba(233, 233, 233, 0.07) 0px 12px 13px,
+        rgba(227, 227, 227, 0.07) 0px -3px 5px;
 `;
+
 const NavListLink = styled.a`
     border: 2px solid white;
     align-items: center;
@@ -186,4 +202,11 @@ const LILabel = styled.span`
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+`;
+
+const SpacePortParent = styled.div`
+    height: calc(100%);
+    width: 100%;
+    border: 2px solid pink;
+    position: relative;
 `;
