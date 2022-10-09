@@ -3,6 +3,7 @@ import { GetServerSideProps } from 'next';
 import { supabase } from '../../../client.js';
 import { text } from 'stream/consumers';
 import Card from './1_components/Card';
+import Cube from './1_components/Cube';
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
@@ -36,6 +37,8 @@ const Dash = ({ fires }: Fire) => {
     const [renderTG, setRenderTG] = useState<boolean>(false);
     const [firesAsc, setFiresAsc] = useState<boolean>(false);
     const [firesDesc, setFiresDesc] = useState<boolean>(false);
+    const [cardsView, setCardsView] = useState<boolean>(true);
+    const [cubesView, setCubesView] = useState<boolean>(false);
 
     useEffect(() => {
         if (topicSelection) {
@@ -87,9 +90,15 @@ const Dash = ({ fires }: Fire) => {
     if (fireDT && fireDT.length !== fires.length) {
         setFireDT(apple);
     }
-    const CardClick = () => {};
+    const CardClick = () => {
+        setCardsView(!cardsView);
+        setCubesView(!cubesView);
+    };
 
-    const CubeClick = () => {};
+    const CubeClick = () => {
+        setCardsView(!cardsView);
+        setCubesView(!cubesView);
+    };
 
     const ByDateClick = () => {
         setFireDT(fireDT.sort(compareCreated_At));
@@ -155,43 +164,89 @@ const Dash = ({ fires }: Fire) => {
             </TopHeaderContainer>
 
             <ContentSectional>
-                <CardsContentContainer>
-                    <CardListUL>
-                        {fireDT && nwFireDT.length === 0
-                            ? fireDT.map((fire: Fire, i: number) => (
-                                  <Card
-                                      key={Math.random()}
-                                      count={fire.count}
-                                      created_at={fire.created_at}
-                                      id={fire.id}
-                                      text={fire.text}
-                                      text_title={fire.text_title}
-                                      title={fire.title}
-                                      topic={fire.topic}
-                                      // @ts-ignore
-                                      category={fire.category}
-                                      // @ts-ignore
-                                      weight={fire.weight}
-                                      url={fire.url}></Card>
-                              ))
-                            : nwFireDT.map((fire: Fire, i: number) => (
-                                  <Card
-                                      key={Math.random()}
-                                      count={fire.count}
-                                      created_at={fire.created_at}
-                                      id={fire.id}
-                                      text={fire.text}
-                                      text_title={fire.text_title}
-                                      title={fire.title}
-                                      topic={fire.topic}
-                                      // @ts-ignore
-                                      category={fire.category}
-                                      // @ts-ignore
-                                      weight={fire.weight}
-                                      url={fire.url}></Card>
-                              ))}
-                    </CardListUL>
-                </CardsContentContainer>
+                {cardsView ? (
+                    <CardsContentContainer>
+                        <CardListUL>
+                            {fireDT && nwFireDT.length === 0
+                                ? fireDT.map((fire: Fire, i: number) => (
+                                      <Card
+                                          key={Math.random()}
+                                          count={fire.count}
+                                          created_at={fire.created_at}
+                                          id={fire.id}
+                                          text={fire.text}
+                                          text_title={fire.text_title}
+                                          title={fire.title}
+                                          topic={fire.topic}
+                                          // @ts-ignore
+                                          category={fire.category}
+                                          // @ts-ignore
+                                          weight={fire.weight}
+                                          url={fire.url}></Card>
+                                  ))
+                                : nwFireDT.map((fire: Fire, i: number) => (
+                                      <Card
+                                          key={Math.random()}
+                                          count={fire.count}
+                                          created_at={fire.created_at}
+                                          id={fire.id}
+                                          text={fire.text}
+                                          text_title={fire.text_title}
+                                          title={fire.title}
+                                          topic={fire.topic}
+                                          // @ts-ignore
+                                          category={fire.category}
+                                          // @ts-ignore
+                                          weight={fire.weight}
+                                          url={fire.url}></Card>
+                                  ))}
+                        </CardListUL>
+                    </CardsContentContainer>
+                ) : (
+                    <Cube_Row>
+                        {/* <Cube_Column> */}
+                        <Blue_Column></Blue_Column>
+                        <Orange_Column></Orange_Column>
+                        <Blue_Column></Blue_Column>
+                        <Orange_Column></Orange_Column>
+                        <Blue_Column></Blue_Column>
+                        <Orange_Column></Orange_Column>
+                        {/* {fireDT && nwFireDT.length === 0
+                                ? fireDT.map((fire: Fire, i: number) => (
+                                      <Cube
+                                          key={Math.random()}
+                                          count={fire.count}
+                                          created_at={fire.created_at}
+                                          id={fire.id}
+                                          text={fire.text}
+                                          text_title={fire.text_title}
+                                          title={fire.title}
+                                          topic={fire.topic}
+                                          // @ts-ignore
+                                          category={fire.category}
+                                          // @ts-ignore
+                                          weight={fire.weight}
+                                          url={fire.url}></Cube>
+                                  ))
+                                : nwFireDT.map((fire: Fire, i: number) => (
+                                      <Cube
+                                          key={Math.random()}
+                                          count={fire.count}
+                                          created_at={fire.created_at}
+                                          id={fire.id}
+                                          text={fire.text}
+                                          text_title={fire.text_title}
+                                          title={fire.title}
+                                          topic={fire.topic}
+                                          // @ts-ignore
+                                          category={fire.category}
+                                          // @ts-ignore
+                                          weight={fire.weight}
+                                          url={fire.url}></Cube>
+                                  ))} */}
+                        {/* </Cube_Column> */}
+                    </Cube_Row>
+                )}
             </ContentSectional>
         </DashContainer>
     );
@@ -464,13 +519,14 @@ const TopHeaderCatchUpText = styled.div`
 `;
 
 const ContentSectional = styled.section`
-    /* border: 2px solid orange; */
+    /* border: 2px solid orange; 
+    // position: relative;
+    // flex-direction: column;
+    */
     height: 88.88%;
     width: 100%;
     display: flex;
     color: white;
-    position: relative;
-    flex-direction: column;
     right: 0px;
     border: 2px solid white;
     cursor: pointer;
@@ -487,4 +543,51 @@ const CardListUL = styled.ul`
     margin: 0;
     padding: 0;
     list-style: none;
+`;
+
+const Cube_Row = styled.div`
+    // display: flex;
+    // flex-direction: row;
+    // flex-wrap: wrap;
+    // width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    flex-direction: row;
+    width: 100%;
+`;
+
+// const Cube_Column = styled.div`
+//     display: flex;
+//     flex-direction: column;
+//     flex-basis: 100%;
+//     flex: 1;
+//     border: 6px solid orange;
+//     height: 400px;
+// `;
+
+const Blue_Column = styled.div`
+    // width: 430px;
+    // height: 400px;
+    // border: 2px solid orange;
+    flex: 1 0 500px;
+    align-self: stretch;
+    max-width: 100%;
+    min-height: 10rem;
+    margin: 5px;
+    border: 2px solid #ccc;
+    background: white;
+`;
+
+const Orange_Column = styled.div`
+    // width: 430px;
+    // height: 400px;
+    // border: 2px solid pink;
+    flex: 1 0 500px;
+    align-self: stretch;
+    max-width: 100%;
+    min-height: 10rem;
+    margin: 5px;
+    border: 2px solid #ccc;
+    background: white;ß
 `;
