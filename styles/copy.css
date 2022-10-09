@@ -144,7 +144,7 @@ background: grey;
 	position: relative;
 	width: var(--hexWidth);
 	height: var(--hexHeight);
-	background: rgb(66, 66, 66);
+	background: rgb(42, 42, 42);
 	margin: 0.01px;
 	clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 	transition: 2s;

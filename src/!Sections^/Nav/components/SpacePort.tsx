@@ -345,6 +345,74 @@ const SpacePort = ({}) => {
                     <div className='hexagon'></div>
                     <div className='hexagon'></div>
                 </div>
+                <div className='row'>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                </div>
+                <div className='row'>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                    <div className='hexagon'></div>
+                </div>
             </div>
         </SpacePortWrapper>
     );
