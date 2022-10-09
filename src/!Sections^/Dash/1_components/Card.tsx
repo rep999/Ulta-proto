@@ -122,7 +122,7 @@ const CardListItem = styled.div`
     border-radius: 8px;
     display: flex;
     position: relative;
-    height: 77.7px;
+    height: 177.7px;
     width: 99%;
     margin-left: 3.3px;
     box-shadow: rgba(255, 255, 255, 0.0212) 0px 12px 55px, rgba(217, 217, 217, 0.062) 0px -12px 30px,

@@ -204,47 +204,39 @@ const Dash = ({ fires }: Fire) => {
                     </CardsContentContainer>
                 ) : (
                     <Cube_Row>
-                        {/* <Cube_Column> */}
-                        <Blue_Column></Blue_Column>
-                        <Orange_Column></Orange_Column>
-                        <Blue_Column></Blue_Column>
-                        <Orange_Column></Orange_Column>
-                        <Blue_Column></Blue_Column>
-                        <Orange_Column></Orange_Column>
-                        {/* {fireDT && nwFireDT.length === 0
-                                ? fireDT.map((fire: Fire, i: number) => (
-                                      <Cube
-                                          key={Math.random()}
-                                          count={fire.count}
-                                          created_at={fire.created_at}
-                                          id={fire.id}
-                                          text={fire.text}
-                                          text_title={fire.text_title}
-                                          title={fire.title}
-                                          topic={fire.topic}
-                                          // @ts-ignore
-                                          category={fire.category}
-                                          // @ts-ignore
-                                          weight={fire.weight}
-                                          url={fire.url}></Cube>
-                                  ))
-                                : nwFireDT.map((fire: Fire, i: number) => (
-                                      <Cube
-                                          key={Math.random()}
-                                          count={fire.count}
-                                          created_at={fire.created_at}
-                                          id={fire.id}
-                                          text={fire.text}
-                                          text_title={fire.text_title}
-                                          title={fire.title}
-                                          topic={fire.topic}
-                                          // @ts-ignore
-                                          category={fire.category}
-                                          // @ts-ignore
-                                          weight={fire.weight}
-                                          url={fire.url}></Cube>
-                                  ))} */}
-                        {/* </Cube_Column> */}
+                        {fireDT && nwFireDT.length === 0
+                            ? fireDT.map((fire: Fire, i: number) => (
+                                  <Cube
+                                      key={Math.random()}
+                                      count={fire.count}
+                                      created_at={fire.created_at}
+                                      id={fire.id}
+                                      text={fire.text}
+                                      text_title={fire.text_title}
+                                      title={fire.title}
+                                      topic={fire.topic}
+                                      // @ts-ignore
+                                      category={fire.category}
+                                      // @ts-ignore
+                                      weight={fire.weight}
+                                      url={fire.url}></Cube>
+                              ))
+                            : nwFireDT.map((fire: Fire, i: number) => (
+                                  <Cube
+                                      key={Math.random()}
+                                      count={fire.count}
+                                      created_at={fire.created_at}
+                                      id={fire.id}
+                                      text={fire.text}
+                                      text_title={fire.text_title}
+                                      title={fire.title}
+                                      topic={fire.topic}
+                                      // @ts-ignore
+                                      category={fire.category}
+                                      // @ts-ignore
+                                      weight={fire.weight}
+                                      url={fire.url}></Cube>
+                              ))}
                     </Cube_Row>
                 )}
             </ContentSectional>
@@ -530,6 +522,7 @@ const ContentSectional = styled.section`
     right: 0px;
     border: 2px solid white;
     cursor: pointer;
+    overflow-y: scroll;
 `;
 
 const CardsContentContainer = styled.div`
@@ -555,16 +548,8 @@ const Cube_Row = styled.div`
     align-items: stretch;
     flex-direction: row;
     width: 100%;
+    overflow-y: scroll;
 `;
-
-// const Cube_Column = styled.div`
-//     display: flex;
-//     flex-direction: column;
-//     flex-basis: 100%;
-//     flex: 1;
-//     border: 6px solid orange;
-//     height: 400px;
-// `;
 
 const Blue_Column = styled.div`
     // width: 430px;

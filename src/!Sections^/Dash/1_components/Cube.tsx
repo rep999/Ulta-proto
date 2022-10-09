@@ -53,10 +53,6 @@ const Cube = ({
             <CubeListItem>
                 <CubeMainSection>
                     <CubeMainContainer>
-                        <FireEmojiContainer>
-                            <FireEmoji src='/FireEmoji.png'></FireEmoji>
-                            <LikesContainer>{count}</LikesContainer>
-                        </FireEmojiContainer>
                         <CubeMainTitleContainer>
                             <CubeMainTitle>{title}</CubeMainTitle>
                             <CubeWrapper>
@@ -86,6 +82,10 @@ const Cube = ({
                         {/* @ts-ignore */}
                         <CubeLikesCount>{weight}</CubeLikesCount>
                     </CubeDateContainer>
+                    <FireEmojiContainer>
+                        <FireEmojiCube src='/FireEmoji.png'></FireEmojiCube>
+                        <LikesContainer>{count}</LikesContainer>
+                    </FireEmojiContainer>
                 </CubeDateSection>
             </CubeListItem>
         </Cube_Div>
@@ -95,11 +95,18 @@ const Cube = ({
 export default Cube;
 
 const Cube_Div = styled.div`
-    border: 2px solid purple;
-    padding: 8px 0;
-    height: 400px;
-    border: 2px solid white;
-    width: 40%;
+    // border: 2px solid purple;
+    // padding: 8px 0;
+    // height: 400px;
+    // border: 2px solid white;
+    // width: 40%;
+    flex: 1 0 500px;
+    align-self: stretch;
+    max-width: 100%;
+    min-height: 21rem;
+    margin: 5px;
+    border: 2px solid #ccc;
+    background: white;
 `;
 
 const CubeListItem = styled.div`
@@ -109,7 +116,7 @@ const CubeListItem = styled.div`
     border-radius: 8px;
     display: flex;
     position: relative;
-    height: 77.7px;
+    height: 100%;
     width: 99%;
     margin-left: 3.3px;
     box-shadow: rgba(255, 255, 255, 0.0212) 0px 12px 55px, rgba(217, 217, 217, 0.062) 0px -12px 30px,
@@ -134,18 +141,13 @@ const CubeMainContainer = styled.div`
 `;
 
 const FireEmojiContainer = styled.div`
-    // border: 2px solid orange;
     display: flex;
     align-self: center;
     position: relative;
     flex-direction: column;
-    // max-height: 28px;
-    // max-width: 28px;
     justify-content: center;
-    height: 100%;
-    min-height: 28px;
-    min-width: 28px;
     margin: 0px 7px;
+    height: 80px;
 `;
 
 const FireEmoji = styled.img`
@@ -157,6 +159,17 @@ const FireEmoji = styled.img`
     min-width: 28px;
     max-height: 28px;
     max-width: 28px;
+    height: 100%;
+    width: 100%;
+`;
+
+const FireEmojiCube = styled.img`
+    display: flex;
+    align-self: center;
+    min-height: 48px;
+    min-width: 48px;
+    max-height: 48px;
+    max-width: 48px;
     height: 100%;
     width: 100%;
 `;
@@ -198,9 +211,9 @@ const TextContainer = styled.div`
 `;
 
 const TextTitleContainer = styled.div`
-    /* border: 1px solid yellow; */
+    // border: 1px solid yellow;
     display: flex-start;
-    height: 50%;
+    height: 10%;
     width: 100%;
     flex-direction: column;
 `;
@@ -274,14 +287,14 @@ const Cube_Category_Text = styled.div`
 `;
 
 const CubeDateSection = styled.section`
-    /* border: 2px solid white; */
+    // border: 8px solid purple;
     display: flex;
     justify-self: flex-end;
     justify-content: center;
     align-items: center;
     height: 100%;
     width: 20%;
-    border: 1px solid whitesmoke;
+    flex-direction: column;
 `;
 
 const CubeDateContainer = styled.div`
