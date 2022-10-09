@@ -30,6 +30,12 @@ const Card = ({
     weight,
 }: Fire) => {
     const Card_List_Li_Ref = useRef();
+    const [weightState, setWeightState] = useState(weight);
+    const [topicState, setTopicState] = useState(topic);
+    const [categoryState, setCategoryState] = useState(category);
+    const [initialWeight, setInitialWeight] = useState<any>();
+    const [initialTopic, setInitialTopic] = useState<any>();
+    const [initialCategory, setInitialCategory] = useState<any>();
     const Card_List_LiMO = () => {
         if (Card_List_Li_Ref) {
             // @ts-ignore
@@ -43,6 +49,36 @@ const Card = ({
             Card_List_Li_Ref.current.style.transform = 'scale(.995024875)';
         }
     };
+
+    useEffect(() => {
+        setInitialWeight(weight);
+        setInitialCategory(category);
+        setInitialTopic(topic);
+    }, []);
+
+    function Card_Topic_ME() {
+        setTopicState('Topic');
+    }
+
+    function Card_Topic_L() {
+        setTopicState(initialTopic);
+    }
+
+    function Card_Category_ME() {
+        setCategoryState('Category');
+    }
+
+    function Card_Category_L() {
+        setCategoryState(initialCategory);
+    }
+
+    function Card_WeightME() {
+        setWeightState('Weight');
+    }
+
+    function Card_WeightL() {
+        setWeightState(initialWeight);
+    }
 
     return (
         <Card_List_Li
@@ -59,14 +95,6 @@ const Card = ({
                         </FireEmojiContainer>
                         <CardMainTitleContainer>
                             <CardMainTitle>{title}</CardMainTitle>
-                            <CardWrapper>
-                                <CardTopicContainer>
-                                    <CardTopicContainerText>{topic}</CardTopicContainerText>
-                                </CardTopicContainer>
-                                <CardCategoryContainer>
-                                    <Card_Category_Text>{category}</Card_Category_Text>
-                                </CardCategoryContainer>
-                            </CardWrapper>
                         </CardMainTitleContainer>
                         <TextSection>
                             <TextContainer>
@@ -81,11 +109,35 @@ const Card = ({
                     </CardMainContainer>
                 </CardMainSection>
                 <CardDateSection>
-                    <CardDateContainer>
-                        <CardDate>{created_at?.slice(0, 10)}</CardDate>
+                    <Card_Data_Container>
+                        <Card_Date_Container>
+                            <Card_Date>{created_at?.slice(0, 10)}</Card_Date>
+                        </Card_Date_Container>
                         {/* @ts-ignore */}
-                        <CardLikesCount>{weight}</CardLikesCount>
-                    </CardDateContainer>
+                        <CardWrapper>
+                            <CardTopicContainer>
+                                <CardTopicContainerText
+                                    onMouseEnter={() => Card_Topic_ME()}
+                                    onMouseLeave={() => Card_Topic_L()}>
+                                    {topicState}
+                                </CardTopicContainerText>
+                            </CardTopicContainer>
+                            <CardCategoryContainer>
+                                <Card_Category_Text
+                                    onMouseEnter={() => Card_Category_ME()}
+                                    onMouseLeave={() => Card_Category_L()}>
+                                    {categoryState}
+                                </Card_Category_Text>
+                            </CardCategoryContainer>
+                        </CardWrapper>
+                        <Card_Weight_Container>
+                            <Card_Weight
+                                onMouseEnter={() => Card_WeightME()}
+                                onMouseLeave={() => Card_WeightL()}>
+                                {weightState}
+                            </Card_Weight>
+                        </Card_Weight_Container>
+                    </Card_Data_Container>
                 </CardDateSection>
             </CardListItem>
         </Card_List_Li>
@@ -297,7 +349,7 @@ const CardDateSection = styled.section`
     border: 1px solid whitesmoke;
 `;
 
-const CardDateContainer = styled.div`
+const Card_Data_Container = styled.div`
     /* border: 2px solid purple; */
     border-radius: 2px;
     display: flex;
@@ -308,7 +360,7 @@ const CardDateContainer = styled.div`
     border: 1px solid whitesmoke;
 `;
 
-const CardDate = styled.div`
+const Card_Date_Container = styled.div`
     /* border: 1px solid white; */
     display: flex;
     align-self: center;
@@ -317,12 +369,29 @@ const CardDate = styled.div`
     width: 100%;
     text-align: center;
 `;
-const CardLikesCount = styled.div`
+
+const Card_Date = styled.div`
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+`;
+
+const Card_Weight_Container = styled.div`
     /* border: 1px solid white; */
     display: flex;
     align-self: center;
     justify-content: center;
     height: 50%;
+    width: 100%;
+    text-align: center;
+`;
+
+const Card_Weight = styled.div`
+    display: flex;
+    align-self: center;
+    justify-content: center;
     width: 100%;
     text-align: center;
 `;

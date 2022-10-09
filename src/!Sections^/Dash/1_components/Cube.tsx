@@ -191,6 +191,7 @@ const CubeMainTitleContainer = styled.div`
     display: flex-start;
     height: 100%;
     width: 38%;
+    margin-left: 8px;
     flex-direction: column;
 `;
 
