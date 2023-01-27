@@ -328,11 +328,11 @@ const CardCategoryContainer = styled.div`
 `;
 
 const CardTopicContainerText = styled.div`
-    color: white;
+    color: black;
     text-align: center;
 `;
 const Card_Category_Text = styled.div`
-    color: white;
+    color: black;
 `;
 
 const CardDateSection = styled.section`

@@ -67,8 +67,7 @@ const NavParent = styled.section`
     position: absolute;
     left: 0px;
     flex-grow: 1;
-    background: #181920;
-    background: white;
+    background: #f6f6f6;
 `;
 
 const NavWrapper = styled.div`
@@ -85,7 +84,7 @@ const GroupNav = styled.nav`
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    height: 160px;
+    height: 460px;
 `;
 
 const NavListUL = styled.ul`
@@ -151,7 +150,7 @@ const DecoratedTextSage = styled.span`
     display: inline-flex;
 `;
 const TextSageDecoration_Icon = styled.span`
-    margin-right: 3px;
+    margin-right: 0px;
     align-items: center;
     border-radius: 4px;
     // color: #ebeef2;
@@ -188,11 +187,15 @@ const SagePNG = styled.img`
 `;
 const LILabel = styled.span`
     text-align: center;
-    color: white;
+    color: black;
     max-width: 164px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    font-size: 16px;
+    margin-right: 4px;
+    font-family: helvetica;
+    font-weight: 800;
 `;
 
 const SpacePortParent = styled.div`

@@ -277,11 +277,11 @@ const CubeCategoryContainer = styled.div`
 `;
 
 const CubeTopicContainerText = styled.div`
-    color: white;
+    color: black;
     text-align: center;
 `;
 const Cube_Category_Text = styled.div`
-    color: white;
+    color: black;
 `;
 
 const CubeDateSection = styled.section`
@@ -340,7 +340,7 @@ const CubeLikesCount = styled.div`
 //     height: 100%;
 //     width: 100%;
 //     display: flex;
-//     color: white;
+//     color: black;
 //     position: relative;
 //     right: 0px;
 //     justify-self: center;
@@ -356,7 +356,7 @@ const CubeLikesCount = styled.div`
 //     height: 100%;
 //     width: 100%;
 //     display: flex;
-//     color: white;
+//     color: black;
 //     position: relative;
 //     right: 0px;
 //     justify-self: center;
@@ -372,7 +372,7 @@ const CubeLikesCount = styled.div`
 //     height: 100%;
 //     width: 100%;
 //     display: flex;
-//     color: white;
+//     color: black;
 //     position: relative;
 //     right: 0px;
 //     justify-self: center;
@@ -388,7 +388,7 @@ const CubeLikesCount = styled.div`
 //     height: 100%;
 //     width: 100%;
 //     display: flex;
-//     color: white;
+//     color: black;
 //     position: relative;
 //     right: 0px;
 //     justify-self: center;
@@ -404,7 +404,7 @@ const CubeLikesCount = styled.div`
 //     height: 100%;
 //     width: 100%;
 //     display: flex;
-//     color: white;
+//     color: black;
 //     position: relative;
 //     right: 0px;
 //     justify-self: center;
@@ -420,7 +420,7 @@ const CubeLikesCount = styled.div`
 //     height: 100%;
 //     width: 100%;
 //     display: flex;
-//     color: white;
+//     color: black;
 //     position: relative;
 //     right: 0px;
 //     justify-self: center;

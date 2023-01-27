@@ -59,6 +59,8 @@ const Header_Container_One = styled.section`
     display: flex;
     align-items: center;
     justify-content: start;
+    border: 4px solid white;
+    background-color: #ebebeb;
 `;
 
 const Hamburger_Container = styled.div`
@@ -154,7 +156,7 @@ const Header_Search_Icon = styled.img`
     font-family: 12px;
     background-color: #F5F5F5;
     position: relative;
-    right: 11px;
+    right: 9px;
     top: 5px;
     z-index: 999;
 `;

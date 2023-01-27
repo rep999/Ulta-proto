@@ -447,6 +447,9 @@ const PanelParent = styled.div`
     min-width: calc(333px);
     display: flex;
     justify-content: end;
+    border: 2.8px solid black;
+    border-top: 0px solid white;
+    background-color: #f3f3f3;
 `;
 
 const PanelWrapper = styled.div`
@@ -656,6 +659,7 @@ const DockWrapper = styled.div`
     justify-content: center;
     top: 0px;
     flex-direction: column;
+    border-bottom: 3px solid black;
 `;
 
 const Dock = styled.div`

@@ -166,7 +166,7 @@ const Dash = ({ fires }: Fire) => {
             <ContentSectional>
                 {cardsView ? (
                     <CardsContentContainer>
-                        <CardListUL>
+                        <CardListUL src="Ulta/To-Be-Process.png">
                             {/* {fireDT && nwFireDT.length === 0
                                 ? fireDT.map((fire: Fire, i: number) => (
                                       <Card
@@ -283,7 +283,7 @@ const TheFireNet = styled.div`
     text-align: center;
     font-family: Helvetica;
     font-weight: bold;
-    color: white;
+    color: black;
     font-size: 28px;
     text-align: center;
     margin-bottom: 1px;
@@ -308,7 +308,6 @@ const DockPanel = styled.div`
 `;
 
 const ByDateContainer = styled.div`
-    // border: 2px solid pink;
     height: 100%;
     width: 23%;
     display: flex;
@@ -320,13 +319,13 @@ const ByDate = styled.span`
     height: 100%;
     width: 44%;
     text-align: center;
-    color: white;
-    font-size: 16px;
+    color: black;
+    font-size: 18px;
     cursor: pointer;
     display: flex;
-    // border: 2px solid purple;
     white-space: nowrap;
     align-items: center;
+    font-weight: 800;
 `;
 
 const ByFireContainer = styled.div`
@@ -342,13 +341,14 @@ const ByFire = styled.span`
     height: 100%;
     width: 41%;
     text-align: center;
-    color: white;
-    font-size: 16px;
+    color: black;
+    font-size: 18px;
     cursor: pointer;
     display: flex;
     // border: 2px solid purple;
     white-space: nowrap;
     align-items: center;
+    font-weight: 800;
 `;
 
 const ByCategoryContainer = styled.div`
@@ -366,12 +366,13 @@ const ByCategory = styled.span`
     height: 100%;
     width: 55%;
     text-align: center;
-    color: white;
+    color: black;
     display: flex;
-    font-size: 16px;
+    font-size: 18px;
     white-space: nowrap;
     align-items: center;
     width: 64%;
+    font-weight: 800;
 `;
 
 const DockBtnSpace = styled.div`
@@ -380,14 +381,14 @@ const DockBtnSpace = styled.div`
     height: 37.2px;
     width: 100%;
     display: flex;
-    color: white;
+    color: black;
     right: 0px;
     justify-content: end;
     align-items: center;
 `;
 
 const DockBtnContainer = styled.div`
-    border: 0.4px solid black;
+    border: 1.8px solid black;
     border-radius: 3px;
     border-radius: 6px;
     height: 100%;
@@ -395,7 +396,7 @@ const DockBtnContainer = styled.div`
     right: 10px;
     display: flex;
     justify-content: space-evenly;
-    color: white;
+    color: black;
     position: relative;
 `;
 
@@ -406,11 +407,12 @@ const DockCardsBtnContainer = styled.div`
     height: 82%;
     width: 33px;
     display: flex;
-    color: white;
+    color: black;
     position: relative;
     right: 0px;
     justify-self: center;
     align-items: center;
+    top: 2.8px;
 `;
 
 const DockCardsBtn = styled.img`
@@ -418,7 +420,7 @@ const DockCardsBtn = styled.img`
     height: 100%;
     width: 100%;
     display: flex;
-    color: white;
+    color: black;
     position: relative;
     right: 0px;
     justify-self: center;
@@ -436,11 +438,12 @@ const DockCubesBtnContainer = styled.div`
     height: 82%;
     width: 33px;
     display: flex;
-    color: white;
+    color: black;
     position: relative;
     right: 0px;
     justify-content: center;
     align-items: center;
+    top: 2.8px;
 `;
 
 const DockCubesBtn = styled.img`
@@ -448,7 +451,7 @@ const DockCubesBtn = styled.img`
     height: 77%;
     width: 77%;
     display: flex;
-    color: white;
+    color: black;
     position: relative;
     right: 0px;
     justify-self: center;
@@ -465,25 +468,24 @@ const TopHeaderSpacer = styled.div`
     width: 90%;
     border-radius: 22%;
     background: rgb(167, 167, 167);
-    background: -moz-linear-gradient(
-        90deg,
-        rgba(167, 167, 167, 1) 0%,
-        rgba(167, 167, 204, 1) 33%,
-        rgba(156, 239, 255, 1) 100%
-    );
-    background: -webkit-linear-gradient(
-        90deg,
-        rgba(167, 167, 167, 1) 0%,
-        rgba(167, 167, 204, 1) 33%,
-        rgba(156, 239, 255, 1) 100%
-    );
-    background: linear-gradient(
-        90deg,
-        rgba(167, 167, 167, 1) 0%,
-        rgba(167, 167, 204, 1) 33%,
-        rgba(156, 239, 255, 1) 100%
-    );
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#a7a7a7",endColorstr="#9cefff",GradientType=1);
+    // background: -moz-linear-gradient(
+    //     90deg,
+    //     rgba(167, 167, 167, 1) 0%,
+    //     rgba(167, 167, 204, 1) 33%,
+    //     rgba(156, 239, 255, 1) 100%
+    // );
+    // background: -webkit-linear-gradient(
+    //     90deg,
+    //     rgba(167, 167, 167, 1) 0%,
+    //     rgba(167, 167, 204, 1) 33%,
+    //     rgba(156, 239, 255, 1) 100%
+    // );
+    // background: linear-gradient(
+    //     90deg,
+    //     rgba(167, 167, 167, 1) 0%,
+    //     rgba(167, 167, 204, 1) 33%,
+    //     rgba(156, 239, 255, 1) 100%
+    // );
     display: flex;
 `;
 
@@ -502,7 +504,7 @@ const ContentSectional = styled.section`
     height: 88.88%;
     width: 100%;
     display: flex;
-    color: white;
+    color: black;
     right: 0px;
     border: 1.4px solid black;
     cursor: pointer;
@@ -515,10 +517,12 @@ const CardsContentContainer = styled.div`
     overflow-y: scroll;
 `;
 
-const CardListUL = styled.ul`
-    /* border: 2px solid purple; */
+const CardListUL = styled.img`
+    border: 2px solid purple; 
     margin: 0;
     padding: 0;
+    height:100%;
+    width: 100%;
     list-style: none;
 `;
 

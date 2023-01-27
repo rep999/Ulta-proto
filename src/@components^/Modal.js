@@ -413,7 +413,7 @@ const SMHeader = styled.div`
 `
 
 const SMTitle = styled.div`
-  color: white;
+  color: black;
   width: 100%;
   display: flex;
   justify-content: center;
