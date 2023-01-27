@@ -166,7 +166,7 @@ const SMTopicContainer = styled.div`
 `
 
 const KnowledgeContainer = styled.div`
-  border: 1px solid grey;
+  border: 1px solid black;
   width: 100%;
   height: 100%;
   display: flex;
@@ -183,11 +183,11 @@ const KnowledgeLabel = styled.div`
 const Knowledge = styled.input`
   width: 30%;
   height: 30%;
-  border: 1px solid grey;
+  border: 1px solid black;
 `
 
 const LifeContainer = styled.div`
-  border: 1px solid grey;
+  border: 1px solid black;
   width: 100%;
   height: 100%;
   display: flex;
@@ -204,12 +204,12 @@ const LifeLabel = styled.div`
 const Life = styled.input`
   width: 30%;
   height: 30%;
-  border: 1px solid grey;
+  border: 1px solid black;
   color: black;
 `
 
 const EntertainmentContainer = styled.div`
-  border: 1px solid grey;
+  border: 1px solid black;
   width: 100%;
   height: 100%;
   justify-content: center;
@@ -226,11 +226,11 @@ const EntertainmentLabel = styled.div`
 const Entertainment = styled.input`
   width: 30%;
   height: 30%;
-  border: 1px solid grey;
+  border: 1px solid black;
 `
 
 const CareerContainer = styled.div`
-  border: 1px solid grey;
+  border: 1px solid black;
   width: 100%;
   height: 100%;
   display: flex;
@@ -247,11 +247,11 @@ const CareerLabel = styled.div`
 const Career = styled.input`
   width: 30%;
   height: 30%;
-  border: 1px solid grey;
+  border: 1px solid black;
 `
 
 const SocialContainer = styled.div`
-  border: 1px solid grey;
+  border: 1px solid black;
   width: 100%;
   height: 100%;
   display: flex;
@@ -268,24 +268,24 @@ const SocialLabel = styled.div`
 const Social = styled.input`
   width: 30%;
   height: 30%;
-  border: 1px solid grey;
+  border: 1px solid black;
 `
 const Important = styled.input`
   width: 30%;
   height: 30%;
-  border: 1px solid grey;
+  border: 1px solid black;
 `
 
 const Key = styled.input`
   width: 30%;
   height: 30%;
-  border: 1px solid grey;
+  border: 1px solid black;
 `
 
 const Note = styled.input`
   width: 30%;
   height: 30%;
-  border: 1px solid grey;
+  border: 1px solid black;
 `
 
 const SMCategoryContainer = styled.div`
@@ -298,11 +298,11 @@ const SMCategoryContainer = styled.div`
 const SMWeightLabel = styled.label`
   width: 100%;
   height: 100%;
-  border: 1px solid grey;
+  border: 1px solid black;
 `
 
 const QuestionContainer = styled.div`
-  border: 1px solid grey;
+  border: 1px solid black;
   width: 100%;
   height: 100%;
   display: flex;
@@ -319,11 +319,11 @@ const QuestionLabel = styled.div`
 const Question = styled.input`
   width: 30%;
   height: 30%;
-  border: 1px solid grey;
+  border: 1px solid black;
 `
 
 const ImportantContainer = styled.div`
-  border: 1px solid grey;
+  border: 1px solid black;
   width: 100%;
   height: 100%;
   display: flex;
@@ -338,7 +338,7 @@ const ImportantLabel = styled.div`
 `
 
 const KeyContainer = styled.div`
-  border: 1px solid grey;
+  border: 1px solid black;
   width: 100%;
   height: 100%;
   display: flex;
@@ -353,7 +353,7 @@ const KeyLabel = styled.div`
 `
 
 const NoteContainer = styled.div`
-  border: 1px solid grey;
+  border: 1px solid black;
   width: 100%;
   height: 100%;
   display: flex;
@@ -423,7 +423,7 @@ const SMain = styled.div`
   width: 100%;
   height: 100%;
   border-radius: 9px;
-  border: 2px solid grey;
+  border: 1.4px solid black;
   border-style: groove;
 `
 

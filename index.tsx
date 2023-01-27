@@ -113,7 +113,7 @@ export default function Home({ fires }: Fire) {
 }
 
 const WebFire_App = styled.div`
-    border: 2px solid white;
+    border: 1.4px solid black;
     height: 100%;
     width: 100%;
     display: block;
@@ -141,17 +141,16 @@ const WebFire_App_Shell_Content = styled.div`
     flex: 1 1 auto;
     overflow: hidden;
     position: relative;
-    border: 2px solid white;
+    border: 1.4px solid black;
 `;
 
 const MainFlexContainer = styled.main`
     display: flex;
-    /* flex: 1 1 auto; */
     width: calc(100% - 166px);
     left: 166px;
     overflow: hidden;
     left: 166px;
     position: relative;
-    border: 3px solid white;
-    border-top-left-radius: 12px;
+    border: 1.4px solid black;
+    background-color: grey!important;
 `;

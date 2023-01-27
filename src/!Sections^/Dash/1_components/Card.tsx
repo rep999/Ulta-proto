@@ -180,7 +180,7 @@ const CardListItem = styled.div`
 `;
 
 const CardMainSection = styled.section`
-    border: 2px solid white;
+    border: 1.4px solid black;
     height: 100%;
     width: 80%;
     display: flex;
@@ -235,7 +235,7 @@ const LikesContainer = styled.div`
 `;
 
 const CardMainTitleContainer = styled.div`
-    border: 1px solid white;
+    border: 1px solid black;
     border-radius: 2px;
     display: flex-start;
     height: 100%;
@@ -310,7 +310,7 @@ const CardWrapper = styled.div`
 `;
 
 const CardTopicContainer = styled.div`
-    border: 1px solid white;
+    border: 1px solid black;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -319,7 +319,7 @@ const CardTopicContainer = styled.div`
 `;
 
 const CardCategoryContainer = styled.div`
-    border: 1px solid white;
+    border: 1px solid black;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -336,14 +336,14 @@ const Card_Category_Text = styled.div`
 `;
 
 const CardDateSection = styled.section`
-    /* border: 2px solid white; */
+    /* border: 1.4px solid black; */
     display: flex;
     justify-self: flex-end;
     justify-content: center;
     align-items: center;
     height: 100%;
     width: 20%;
-    border: 1px solid whitesmoke;
+    border: 1px solid blacksmoke;
 `;
 
 const Card_Data_Container = styled.div`
@@ -354,11 +354,11 @@ const Card_Data_Container = styled.div`
     height: 61.81%;
     width: 61.81%;
     flex-direction: column;
-    border: 1px solid whitesmoke;
+    border: 1px solid blacksmoke;
 `;
 
 const Card_Date_Container = styled.div`
-    /* border: 1px solid white; */
+    /* border: 1px solid black; */
     display: flex;
     align-self: center;
     justify-content: center;
@@ -376,7 +376,7 @@ const Card_Date = styled.div`
 `;
 
 const Card_Weight_Container = styled.div`
-    /* border: 1px solid white; */
+    /* border: 1px solid black; */
     display: flex;
     align-self: center;
     justify-content: center;

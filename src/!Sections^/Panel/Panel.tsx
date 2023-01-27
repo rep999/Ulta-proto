@@ -203,7 +203,7 @@ const Panel = () => {
         }
         const DockTextEl = document.getElementById('DockText');
         if (DockTextEl) {
-            DockTextEl.innerText = 'Menu Heirarchy Arrow';
+            DockTextEl.innerText = 'Log Your Good Idea';
         }
     };
 
@@ -216,6 +216,25 @@ const Panel = () => {
 
     return (
         <PanelParent onMouseEnter={() => PanelParentE()} onMouseLeave={() => PanelParentL()}>
+
+            <DockWrapper>
+                <Dock>
+                    <DockButtonContainer>
+                        <MenuHeirachyArrowRightContainer>
+                            <MenuHeirachyArrowRight
+                                onClick={() => MenuHeirachyArrowRightClk()}
+                                onMouseEnter={() => MenuHeirachyArrowRightME()}
+                                onMouseOut={() => MenuHeirachyArrowRightMO()}
+                                src='/Ulta/Idea_Logo.png'></MenuHeirachyArrowRight>
+                        </MenuHeirachyArrowRightContainer>
+                    </DockButtonContainer>
+                </Dock>
+                <DockTextWrapper>
+                    <DockTextContainer>
+                        <DockText id='DockText'></DockText>
+                    </DockTextContainer>
+                </DockTextWrapper>
+            </DockWrapper>
             <PanelWrapper
                 // @ts-ignore
                 ref={PanelWrapperRef}
@@ -413,24 +432,6 @@ const Panel = () => {
                     </C10>
                 </Cube>
             </PanelWrapper>
-            <DockWrapper>
-                <Dock>
-                    <DockButtonContainer>
-                        <MenuHeirachyArrowRightContainer>
-                            <MenuHeirachyArrowRight
-                                onClick={() => MenuHeirachyArrowRightClk()}
-                                onMouseEnter={() => MenuHeirachyArrowRightME()}
-                                onMouseOut={() => MenuHeirachyArrowRightMO()}
-                                src='/MenuHeirarchyArrow.png'></MenuHeirachyArrowRight>
-                        </MenuHeirachyArrowRightContainer>
-                    </DockButtonContainer>
-                </Dock>
-                <DockTextWrapper>
-                    <DockTextContainer>
-                        <DockText id='DockText'></DockText>
-                    </DockTextContainer>
-                </DockTextWrapper>
-            </DockWrapper>
         </PanelParent>
     );
 };
@@ -444,6 +445,8 @@ const PanelParent = styled.div`
     flex-direction: column;
     max-width: calc(333px);
     min-width: calc(333px);
+    display: flex;
+    justify-content: end;
 `;
 
 const PanelWrapper = styled.div`
@@ -451,7 +454,7 @@ const PanelWrapper = styled.div`
     min-height: calc(333px);
     right: 0%;
     position: absolute;
-    border: 4px solid white;
+    border: 2px solid black;
     flex-grow: 1;
     max-width: calc(333px);
     min-width: calc(333px);
@@ -641,17 +644,17 @@ const BottomLeftCircle = styled(Circle)``;
 const BottomLeftLeftCircle = styled(Circle)``;
 
 const DockWrapper = styled.div`
-    max-height: calc(66px);
-    min-height: calc(66px);
+    max-height: calc(104px);
+    min-height: calc(104px);
     right: 0%;
     position: absolute;
-    border: 1px solid white;
+    border: 1px solid black;
     max-width: calc(333px);
     min-width: calc(333px);
     display: flex;
     align-items: center;
     justify-content: center;
-    top: 333px;
+    top: 0px;
     flex-direction: column;
 `;
 
@@ -666,7 +669,7 @@ const Dock = styled.div`
 const DockButtonContainer = styled.div`
     width: 100%;
     height: 100%;
-    // border: 1px solid white;
+    // border: 1px solid black;
     display: flex;
     justify-content: space-evenly;
     padding-top: 3px;
@@ -675,7 +678,7 @@ const DockButtonContainer = styled.div`
 const MenuHeirachyArrowLeftContainer = styled.div`
     width: 33px;
     height: 33px;
-    // border: 1px solid white;
+    // border: 1px solid black;
 `;
 
 const MenuHeirachyArrowLeft = styled.img`
@@ -687,7 +690,6 @@ const MenuHeirachyArrowLeft = styled.img`
 const MenuHeirachyArrowRightContainer = styled.div`
     width: 33px;
     height: 33px;
-    // border: 1px solid white;
 `;
 
 const MenuHeirachyArrowRight = styled.img`
@@ -699,7 +701,7 @@ const MenuHeirachyArrowRight = styled.img`
 const MenuOverFlowUpContainer = styled.div`
     width: 33px;
     height: 33px;
-    // border: 1px solid white;
+    // border: 1px solid black;
 `;
 
 const MenuOverFlowUp = styled.img`
@@ -709,7 +711,7 @@ const MenuOverFlowUp = styled.img`
 const MenuOverFlowDownContainer = styled.div`
     width: 33px;
     height: 33px;
-    // border: 1px solid white;
+    // border: 1px solid black;
 `;
 
 const MenuOverFlowDown = styled.img`
@@ -721,7 +723,7 @@ const MenuOverFlowDown = styled.img`
 const HistoryContainer = styled.div`
     width: 33px;
     height: 33px;
-    // border: 1px solid white;
+    // border: 1px solid black;
 `;
 
 const History = styled.img`
@@ -732,7 +734,7 @@ const History = styled.img`
 const DockTextWrapper = styled.div`
   width: 80%;
   height: 33px;
-  // border: 1px solid white;
+  // border: 1px solid black;
   display: flex;
   align-content; center;
 `;
@@ -745,7 +747,7 @@ const DockTextContainer = styled.div`
 `;
 
 const DockText = styled.div`
-    color: white;
+    color: black;
 `;
 
 const SpacePortParent = styled.div`

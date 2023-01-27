@@ -38,7 +38,7 @@ const Header = () => {
 export default Header;
 
 const Header_Parent = styled.header`
-    // border: 3px solid white;
+    // border: 1.4px solid black;
     max-height: 76px;
     min-height: 76px;
     width: 100%;
@@ -104,12 +104,13 @@ const Header_Container_Main = styled.section`
     width: calc(100% - 176px);
     max-height: 76px;
     min-height: 76px;
-    // border: 3px solid white;
+    // border: 1.4px solid black;
     display: flex;
+    background-color: white;
 `;
 
 const Header_Container_Dash = styled.div`
-    // border: 3px solid white;
+    // border: 1.4px solid black;
     width: calc(100% - 333px);
     max-height: 76px;
     min-height: 76px;

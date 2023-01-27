@@ -29,7 +29,6 @@ const Actions_Parent = styled.div`
     align-items: center;
     width: 40px;
     height: 40px;
-    border: 2px solid white;
     border-radius: 3px;
     cursor: pointer;
 `;
@@ -65,7 +64,6 @@ const Emoji_Fire_Img = styled.img`
     display: flex;
     height: 34px;
     width: 34px;
-    border: 3px solid white;
     align-self: center;
     justify-self: center;
 `;

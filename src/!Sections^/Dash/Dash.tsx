@@ -376,7 +376,7 @@ const ByCategory = styled.span`
 
 const DockBtnSpace = styled.div`
     position: absolute;
-    /* border: 2px solid white; */
+    /* border: 1.4px solid black; */
     height: 37.2px;
     width: 100%;
     display: flex;
@@ -387,7 +387,7 @@ const DockBtnSpace = styled.div`
 `;
 
 const DockBtnContainer = styled.div`
-    border: 0.4px solid white;
+    border: 0.4px solid black;
     border-radius: 3px;
     border-radius: 6px;
     height: 100%;
@@ -400,7 +400,7 @@ const DockBtnContainer = styled.div`
 `;
 
 const DockCardsBtnContainer = styled.div`
-    border: 0.4px solid white;
+    border: 0.4px solid black;
     padding: 4px;
     border-radius: 12px;
     height: 82%;
@@ -430,7 +430,7 @@ const DockCardsBtn = styled.img`
 `;
 
 const DockCubesBtnContainer = styled.div`
-    border: 0.4px solid white;
+    border: 0.4px solid black;
     padding: 4px;
     border-radius: 12px;
     height: 82%;
@@ -460,7 +460,7 @@ const DockCubesBtn = styled.img`
 `;
 
 const TopHeaderSpacer = styled.div`
-    /* border: 1px solid white; */
+    /* border: 1px solid black; */
     height: 3px;
     width: 90%;
     border-radius: 22%;
@@ -504,14 +504,14 @@ const ContentSectional = styled.section`
     display: flex;
     color: white;
     right: 0px;
-    border: 2px solid white;
+    border: 1.4px solid black;
     cursor: pointer;
     overflow-y: scroll;
 `;
 
 const CardsContentContainer = styled.div`
     width: 100%;
-    border: 2px solid white;
+    border: 1.4px solid black;
     overflow-y: scroll;
 `;
 

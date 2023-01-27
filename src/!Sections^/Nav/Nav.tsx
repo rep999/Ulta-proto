@@ -60,7 +60,7 @@ const Nav = () => {
 export default Nav;
 
 const NavParent = styled.section`
-    // border: 3px solid white;
+    // border: 1.4px solid black;
     height: 100%;
     min-width: 166px;
     max-width: 166px;
@@ -68,10 +68,11 @@ const NavParent = styled.section`
     left: 0px;
     flex-grow: 1;
     background: #181920;
+    background: white;
 `;
 
 const NavWrapper = styled.div`
-    border: 2px solid white;
+    border: 1.4px solid black;
     display: flex;
     flex-direction: column;
     min-height: 0;
@@ -80,7 +81,7 @@ const NavWrapper = styled.div`
 `;
 
 const GroupNav = styled.nav`
-    border: 2px solid white;
+    border: 1.4px solid black;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -88,7 +89,7 @@ const GroupNav = styled.nav`
 `;
 
 const NavListUL = styled.ul`
-    border: 2px solid white;
+    border: 1.4px solid black;
     margin: 0;
     // padding: 2px;
     padding: 4px;
@@ -103,7 +104,7 @@ const NavListLI = styled.li`
 `;
 
 const NavListLink = styled.a`
-    border: 2px solid white;
+    border: 1.4px solid black;
     align-items: center;
     border-radius: 4px;
     color: #ebeef2;
@@ -165,7 +166,7 @@ const TextSageDecoration_Icon = styled.span`
     text-decoration: none;
     width: 28px;
     height: 28px;
-    // border: 1px solid white;
+    // border: 1px solid black;
 `;
 const SVGSage_Wrapper = styled.span`
     // align-self: center;
