@@ -7,7 +7,6 @@ import isFound from '$Utils/isFound.ts';
 import { compareCreated_At } from '$Sections/Dash/2_utils/compare';
 // @ts-ignore
 import isHighlighted from '../../%Utils^/isHighlighted';
-import SpacePort from './components/SpacePort';
 
 const Panel = () => {
     // ~ Refs
@@ -87,7 +86,7 @@ const Panel = () => {
             // @ts-ignore
             EagleRef.current.style.display = 'none';
             // @ts-ignore
-            CubeRef.current.style.display = 'flex';
+            CubeRef.current.style.display = 'none';
         } else {
             alert(`nooo`);
         }
@@ -225,7 +224,7 @@ const Panel = () => {
                     // @ts-ignore
                     ref={EagleRef}
                     id='Eagle'
-                    src='/Logo.png'></Eagle>
+                    src='/Ulta/UBMedia_Logo.png'></Eagle>
                 <Cube
                     // @ts-ignore
                     ref={CubeRef}
@@ -432,9 +431,6 @@ const Panel = () => {
                     </DockTextContainer>
                 </DockTextWrapper>
             </DockWrapper>
-            <SpacePortParent>
-                <SpacePort></SpacePort>
-            </SpacePortParent>
         </PanelParent>
     );
 };
@@ -472,6 +468,7 @@ const Eagle = styled.img`
 `;
 
 const Cube = styled.div`
+    display: none;
     height: 94%;
     width: 94%;
     position: absolute;

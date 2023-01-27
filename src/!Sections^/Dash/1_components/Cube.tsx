@@ -82,10 +82,10 @@ const Cube = ({
                         {/* @ts-ignore */}
                         <CubeLikesCount>{weight}</CubeLikesCount>
                     </CubeDateContainer>
-                    <FireEmojiContainer>
+                    {/* <FireEmojiContainer>
                         <FireEmojiCube src='/FireEmoji.png'></FireEmojiCube>
                         <LikesContainer>{count}</LikesContainer>
-                    </FireEmojiContainer>
+                    </FireEmojiContainer> */}
                 </CubeDateSection>
             </CubeListItem>
         </Cube_Div>
@@ -119,9 +119,6 @@ const CubeListItem = styled.div`
     height: 100%;
     width: 99%;
     margin-left: 3.3px;
-    box-shadow: rgba(255, 255, 255, 0.0212) 0px 12px 55px, rgba(217, 217, 217, 0.062) 0px -12px 30px,
-        rgba(224, 224, 224, 0.06) 0px 10px 6px, rgba(233, 233, 233, 0.07) 0px 12px 13px,
-        rgba(227, 227, 227, 0.07) 0px -3px 5px;
 `;
 
 const CubeMainSection = styled.section`

@@ -90,7 +90,6 @@ a {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
@@ -99,10 +98,7 @@ a {
 ::-webkit-scrollbar-thumb {
   -webkit-border-radius: 10px;
   border-radius: 10px;
-  background: rgba(255,0,0,0.8); 
-  background: linear-gradient(180deg, rgb(214, 144, 182) 0%, rgb(209, 151, 174) 50%, rgb(213, 142, 156) 100%);
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
-  filter: opacity(50%)
+  background: white; 
 }
 ::-webkit-scrollbar-thumb:window-inactive {
 background: rgba(255,0,0,0.4); 

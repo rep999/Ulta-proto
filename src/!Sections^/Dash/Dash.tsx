@@ -31,7 +31,7 @@ const Dash = ({ fires }: Fire) => {
     const categorySelection = useStore((state) => state.categorySelection);
     // @ts-ignore
     const weightSelection = useStore((state) => state.weightSelection);
-    const [TheFireNetText, setTheFireNetText] = useState('The FireNet');
+    const [TheFireNetText, setTheFireNetText] = useState('UB Media');
     const [fireDT, setFireDT] = useState<any>([]);
     const [nwFireDT, setNwFireDT] = useState<any>([]);
     const [renderTG, setRenderTG] = useState<boolean>(false);
@@ -138,10 +138,10 @@ const Dash = ({ fires }: Fire) => {
                         <DockBtnSpace>
                             <DockBtnContainer>
                                 <DockCardsBtnContainer onClick={() => CardClick()}>
-                                    <DockCardsBtn src='/CardsIcon.png' />
+                                    <DockCardsBtn src='/Ulta/Flow_Chart.png' />
                                 </DockCardsBtnContainer>
                                 <DockCubesBtnContainer onClick={() => CubeClick()}>
-                                    <DockCubesBtn src='/CubesIcon.png' />
+                                    <DockCubesBtn src='/Calendar_Icon.png' />
                                 </DockCubesBtnContainer>
                             </DockBtnContainer>
                         </DockBtnSpace>
@@ -152,13 +152,13 @@ const Dash = ({ fires }: Fire) => {
                 </TopHeaderSpacerContainer>
                 <DockPanel>
                     <ByDateContainer>
-                        <ByDate onClick={() => ByDateClick()}>By Date</ByDate>
+                        <ByDate onClick={() => ByDateClick()}>OnSite</ByDate>
                     </ByDateContainer>
                     <ByCategoryContainer>
-                        <ByCategory onClick={() => ByCategoryClick()}>By Category</ByCategory>
+                        <ByCategory onClick={() => ByCategoryClick()}>Social Media</ByCategory>
                     </ByCategoryContainer>
                     <ByFireContainer>
-                        <ByFire onClick={() => ByFireClick()}>By Fire</ByFire>
+                        <ByFire onClick={() => ByFireClick()}>Offsite</ByFire>
                     </ByFireContainer>
                 </DockPanel>
             </TopHeaderContainer>
@@ -167,7 +167,7 @@ const Dash = ({ fires }: Fire) => {
                 {cardsView ? (
                     <CardsContentContainer>
                         <CardListUL>
-                            {fireDT && nwFireDT.length === 0
+                            {/* {fireDT && nwFireDT.length === 0
                                 ? fireDT.map((fire: Fire, i: number) => (
                                       <Card
                                           key={Math.random()}
@@ -199,7 +199,7 @@ const Dash = ({ fires }: Fire) => {
                                           // @ts-ignore
                                           weight={fire.weight}
                                           url={fire.url}></Card>
-                                  ))}
+                                  ))} */}
                         </CardListUL>
                     </CardsContentContainer>
                 ) : (
@@ -281,16 +281,12 @@ const TheFireNet = styled.div`
     height: 65%;
     width: 40%;
     text-align: center;
-    color: #b59ceb;
+    font-family: Helvetica;
+    font-weight: bold;
+    color: white;
     font-size: 28px;
     text-align: center;
     margin-bottom: 1px;
-    &:hover {
-        transform: scale(1.2);
-        box-shadow: rgba(255, 255, 255, 0.1112) 0px 4px 5px, rgba(217, 217, 217, 0.11) 0px -12px 3px,
-            rgba(224, 224, 224, 0.11) 0px 4px 6px, rgba(233, 233, 233, 0.11) 0px 3px 3px,
-            rgba(227, 227, 227, 0.09) 0px -3px 5px;
-    }
 `;
 
 const TopHeaderSpacerContainer = styled.div`
@@ -401,15 +397,6 @@ const DockBtnContainer = styled.div`
     justify-content: space-evenly;
     color: white;
     position: relative;
-    box-shadow: rgba(255, 255, 255, 0.0212) 0px 4px 55px, rgba(217, 217, 217, 0.062) 0px -12px 30px,
-        rgba(224, 224, 224, 0.06) 0px 4px 6px, rgba(233, 233, 233, 0.07) 0px 12px 13px,
-        rgba(227, 227, 227, 0.07) 0px -3px 5px;
-    align-items: center;
-    &:hover {
-        box-shadow: rgba(255, 255, 255, 0.4212) 0px 4px 55px,
-            rgba(217, 217, 217, 0.12) 0px -12px 30px, rgba(224, 224, 224, 0.12) 0px 4px 6px,
-            rgba(233, 233, 233, 0.17) 0px 12px 13px, rgba(227, 227, 227, 0.09) 0px -3px 5px;
-    }
 `;
 
 const DockCardsBtnContainer = styled.div`
@@ -424,9 +411,6 @@ const DockCardsBtnContainer = styled.div`
     right: 0px;
     justify-self: center;
     align-items: center;
-    box-shadow: rgba(255, 255, 255, 0.0212) 0px 54px 55px, rgba(217, 217, 217, 0.12) 0px -12px 30px,
-        rgba(224, 224, 224, 0.12) 0px 4px 6px, rgba(233, 233, 233, 0.17) 0px 12px 13px,
-        rgba(227, 227, 227, 0.09) 0px -3px 5px;
 `;
 
 const DockCardsBtn = styled.img`

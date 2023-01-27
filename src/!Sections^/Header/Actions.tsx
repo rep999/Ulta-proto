@@ -12,7 +12,7 @@ const Actions = () => {
     return (
         <Actions_Parent>
             <Make_Fire_Wrapper onClick={() => ChirpClk()}>
-                <Emoji_Fire_Img src='FireEmoji.png'></Emoji_Fire_Img>
+                <Emoji_Fire_Img src='Ulta/Cart.png'></Emoji_Fire_Img>
             </Make_Fire_Wrapper>
             {showModal && <Modal onClose={() => setShowModal(false)}></Modal>}
         </Actions_Parent>
@@ -27,20 +27,11 @@ const Actions_Parent = styled.div`
     margin-right: 12px;
     justify-content: center;
     align-items: center;
-    width: calc(333px / 1.6181);
-    height: 46.9px;
+    width: 40px;
+    height: 40px;
     border: 2px solid white;
     border-radius: 3px;
     cursor: pointer;
-    &:hover {
-        transform: scale(1.01);
-        box-shadow: rgba(255, 255, 255, 0.1112) 0px 4px 5px, rgba(217, 217, 217, 0.11) 0px -12px 3px,
-            rgba(224, 224, 224, 0.11) 0px 4px 6px, rgba(233, 233, 233, 0.11) 0px 3px 3px,
-            rgba(227, 227, 227, 0.09) 0px -3px 5px;
-    }
-    box-shadow: rgba(255, 255, 255, 0.0212) 0px 4px 55px, rgba(217, 217, 217, 0.062) 0px -12px 30px,
-        rgba(224, 224, 224, 0.06) 0px 4px 6px, rgba(233, 233, 233, 0.07) 0px 12px 13px,
-        rgba(227, 227, 227, 0.07) 0px -3px 5px;
 `;
 
 // 205.79   127.184     78.60
@@ -71,9 +62,10 @@ const Make_Fire_Wrappe2 = styled.div`
 `;
 
 const Emoji_Fire_Img = styled.img`
-    width: 100%;
-    height: 100%;
     display: flex;
+    height: 34px;
+    width: 34px;
+    border: 3px solid white;
     align-self: center;
     justify-self: center;
 `;

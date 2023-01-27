@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import SpacePort from './components/SpacePort';
+// import SpacePort from './components/SpacePort';
 
 const Nav = () => {
     return (
@@ -14,10 +14,10 @@ const Nav = () => {
                                     <DecoratedTextSage>
                                         <TextSageDecoration_Icon>
                                             <SVGSage_Wrapper>
-                                                <SagePNG src='/FireEmoji.png'></SagePNG>
+                                                {/* <SagePNG src='/FireEmoji.png'></SagePNG> */}
                                             </SVGSage_Wrapper>
                                         </TextSageDecoration_Icon>
-                                        <LILabel>What's hot?</LILabel>
+                                        <LILabel>Ad Products</LILabel>
                                     </DecoratedTextSage>
                                 </IconTextSage>
                             </NavListLink>
@@ -31,7 +31,7 @@ const Nav = () => {
                                                 <SagePNG src='/Logo.png'></SagePNG>
                                             </SVGSage_Wrapper>
                                         </TextSageDecoration_Icon>
-                                        <LILabel>First Last</LILabel>
+                                        <LILabel>Reports</LILabel>
                                     </DecoratedTextSage>
                                 </IconTextSage>
                             </NavListLink>
@@ -45,17 +45,13 @@ const Nav = () => {
                                                 <SagePNG src='/Project_Musa_Logo.jpg'></SagePNG>
                                             </SVGSage_Wrapper>
                                         </TextSageDecoration_Icon>
-                                        <LILabel>Richy's Wall</LILabel>
+                                        <LILabel>Audience</LILabel>
                                     </DecoratedTextSage>
                                 </IconTextSage>
                             </NavListLink>
                         </NavListLI>
                     </NavListUL>
                 </GroupNav>
-
-                <SpacePortParent>
-                    <SpacePort></SpacePort>
-                </SpacePortParent>
             </NavWrapper>
         </NavParent>
     );
@@ -104,15 +100,6 @@ const NavListLI = styled.li`
     margin-top:
     position: relative;
     rgb(255 255 255 / 1%) 0px 4px 55px, rgb(217 217 217 / 1%) 0px -12px 30px, rgb(224 224 224 / 2%) 0px 4px 6px, rgb(233 233 233 / 5%) 0px 12px 13px, rgb(227 227 227 / 7%) 0px -3px 5px;
-    &:hover {
-        transform: scale(1.023);
-        box-shadow: rgba(255, 255, 255, 0.0812) 0px 4px 5px, rgba(217, 217, 217, 0.07) 0px -12px 3px,
-            rgba(224, 224, 224, 0.11) 0px 4px 6px, rgba(233, 233, 233, 0.11) 0px 3px 3px,
-            rgba(227, 227, 227, 0.09) 0px -3px 5px;
-    }
-    box-shadow: rgba(255, 255, 255, 0.0212) 0px 4px 55px, rgba(217, 217, 217, 0.062) 0px -12px 30px,
-        rgba(224, 224, 224, 0.06) 0px 4px 6px, rgba(233, 233, 233, 0.07) 0px 12px 13px,
-        rgba(227, 227, 227, 0.07) 0px -3px 5px;
 `;
 
 const NavListLink = styled.a`
@@ -192,12 +179,15 @@ const SVGSage_Wrapper = styled.span`
     justify-content: center;
 `;
 const SagePNG = styled.img`
+    display: none;
     height: 100%;
     width: 100%;
     height: 23px;
     width: 23px;
 `;
 const LILabel = styled.span`
+    text-align: center;
+    color: white;
     max-width: 164px;
     overflow: hidden;
     text-overflow: ellipsis;
