@@ -1,6 +1,5 @@
 import { compareCreated_At, compareFiresAsc, compareFiresDesc } from './2_utils/compare';
 import { GetServerSideProps } from 'next';
-import { supabase } from '../../../client.js';
 import { text } from 'stream/consumers';
 import Card from './1_components/Card';
 import Cube from './1_components/Cube';
@@ -24,7 +23,7 @@ interface Fire {
 }
 
 // @ts-ignore
-const Dash = ({ fires }: Fire) => {
+const Dash = () => {
     // @ts-ignore
     const topicSelection = useStore((state) => state.topicSelection);
     // @ts-ignore
@@ -86,10 +85,10 @@ const Dash = ({ fires }: Fire) => {
         }
     }, [weightSelection]);
 
-    let apple = fires;
-    if (fireDT && fireDT.length !== fires.length) {
-        setFireDT(apple);
-    }
+    // let apple = fires;
+    // if (fireDT && fireDT.length !== fires.length) {
+    //     setFireDT(apple);
+    // }
     const CardClick = () => {
         setCardsView(!cardsView);
         setCubesView(!cubesView);

@@ -13,8 +13,36 @@ const Nav = () => {
                                 <IconTextSage>
                                     <DecoratedTextSage>
                                         <TextSageDecoration_Icon>
+                                            <SVGSage_Wrapper> 
+                                                <SagePNG src='/G_Icons/Dashboard.png'></SagePNG>
+                                            </SVGSage_Wrapper>
+                                        </TextSageDecoration_Icon>
+                                        <LILabel>Dashboard</LILabel>
+                                    </DecoratedTextSage>
+                                </IconTextSage>
+                            </NavListLink>
+                        </NavListLI>
+                        <NavListLI>
+                            <NavListLink>
+                                <IconTextSage>
+                                    <DecoratedTextSage>
+                                        <TextSageDecoration_Icon>
                                             <SVGSage_Wrapper>
-                                                {/* <SagePNG src='/FireEmoji.png'></SagePNG> */}
+                                                <SagePNG src='/G_Icons/Self_Serve_Icon.png'></SagePNG>
+                                            </SVGSage_Wrapper>
+                                        </TextSageDecoration_Icon>
+                                        <LILabel>Self Serve</LILabel>
+                                    </DecoratedTextSage>
+                                </IconTextSage>
+                            </NavListLink>
+                        </NavListLI>
+                        <NavListLI>
+                            <NavListLink>
+                                <IconTextSage>
+                                    <DecoratedTextSage>
+                                        <TextSageDecoration_Icon>
+                                            <SVGSage_Wrapper> 
+                                                <SagePNG src='/G_Icons/Ad_Products.png'></SagePNG>
                                             </SVGSage_Wrapper>
                                         </TextSageDecoration_Icon>
                                         <LILabel>Ad Products</LILabel>
@@ -28,7 +56,7 @@ const Nav = () => {
                                     <DecoratedTextSage>
                                         <TextSageDecoration_Icon>
                                             <SVGSage_Wrapper>
-                                                <SagePNG src='/Logo.png'></SagePNG>
+                                                <SagePNG src='/G_Icons/Reports_Products.png'></SagePNG>
                                             </SVGSage_Wrapper>
                                         </TextSageDecoration_Icon>
                                         <LILabel>Reports</LILabel>
@@ -42,7 +70,7 @@ const Nav = () => {
                                     <DecoratedTextSage>
                                         <TextSageDecoration_Icon>
                                             <SVGSage_Wrapper>
-                                                <SagePNG src='/Project_Musa_Logo.jpg'></SagePNG>
+                                                <SagePNG src='/G_Icons/Audience_Logo.png'></SagePNG>
                                             </SVGSage_Wrapper>
                                         </TextSageDecoration_Icon>
                                         <LILabel>Audience</LILabel>
@@ -100,7 +128,8 @@ const NavListLI = styled.li`
     margin-top:
     position: relative;
     rgb(255 255 255 / 1%) 0px 4px 55px, rgb(217 217 217 / 1%) 0px -12px 30px, rgb(224 224 224 / 2%) 0px 4px 6px, rgb(233 233 233 / 5%) 0px 12px 13px, rgb(227 227 227 / 7%) 0px -3px 5px;
-`;
+    box-shadow: rgb(50 50 93 / 45%) 0px 4px 12px -9px, rgb(0 0 0 / 30%) 0px 8px 7px -8px;
+    `;
 
 const NavListLink = styled.a`
     border: 1.4px solid black;
@@ -193,6 +222,7 @@ const LILabel = styled.span`
     text-overflow: ellipsis;
     white-space: nowrap;
     font-size: 16px;
+    font-weight: 700!important;
     margin-right: 4px;
     font-family: helvetica;
     font-weight: 800;

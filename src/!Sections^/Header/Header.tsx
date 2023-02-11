@@ -7,21 +7,16 @@ const Header = () => {
     return (
         <Header_Parent>
             <Header_Wrapper>
-                <Header_Container_One>
-                    <Hamburger_Container>
-                        <Hamburger src='/Hamburger.png'></Hamburger>
-                    </Hamburger_Container>
-                    <Glamour_Shot_Container>
-                        <Glamour_Shot src='/Ulta_Logo_Orange.png'></Glamour_Shot>
-                    </Glamour_Shot_Container>
-                </Header_Container_One>
+                <UBMedia_Container_Parent>
+                    <UBMedia_Logo_Wrapper>
+                        <UBMedia_Logo src='/G/G_UBMedia_Logo.png'></UBMedia_Logo>
+                    </UBMedia_Logo_Wrapper>
+                </UBMedia_Container_Parent>
 
                 <Header_Container_Main>
                     <Header_Container_Dash>
                         <Header_Search>
                             <Header_Search_Icon src='/Ulta/Search_Icon.png'>
-                                
-
                             </Header_Search_Icon>
                         </Header_Search>
                     </Header_Container_Dash>
@@ -51,7 +46,7 @@ const Header_Wrapper = styled.div`
     display: flex;
 `;
 
-const Header_Container_One = styled.section`
+const UBMedia_Container_Parent = styled.section`
     min-width: 232px;
     max-width: 232px;
     max-height: 76px;
@@ -60,46 +55,20 @@ const Header_Container_One = styled.section`
     align-items: center;
     justify-content: start;
     border: 4px solid white;
-    background-color: #ebebeb;
+    background-color: white;
 `;
 
-const Hamburger_Container = styled.div`
-    display: flex;
-    transform: scale(1);
-    min-width: 76px;
-    max-width: 76px;
-    max-height: 76px;
-    min-height: 76px;
-    border: 1.2px solid transparent;
-`;
-
-const Hamburger = styled.img`
+const UBMedia_Logo_Wrapper = styled.div`
     display: flex;
     border: 1.2px solid transparent;
+    background-color: white;
 `;
 
-const Glamour_Shot_Container = styled.div`
-    display: flex;
-    border: 1.2px solid transparent;
-    min-height: 158px;
-    min-width: 322px;
-    max-height: 158px;
-    max-width: 322px;
-    transform: scale(.47);
-    margin-left: 2px;
-    position: relative;
-    right: 90px;
-`;
-
-const Glamour_Shot = styled.img`
+const UBMedia_Logo = styled.img`
     align-self: center;
     display: flex;
     cursor: pointer;
     justify-self: center;
-
-    &:hover {
-        transform: scale(1.02);
-    }
 `;
 
 const Header_Container_Main = styled.section`
@@ -143,7 +112,7 @@ const Header_Search = styled.div`
     font-family: 12px;
     outline: #fff;
     height: 38px;
-    border: 2px solid #727272;
+    border: 2px solid black;
     border-radius: 40px;
     background-color: #F5F5F5;
 `;

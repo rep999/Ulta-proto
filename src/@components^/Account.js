@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { supabase } from '../../client.js'
 
 export default function Account({ session }) {
   const [loading, setLoading] = useState(true)
@@ -11,49 +10,49 @@ export default function Account({ session }) {
     getProfile()
   }, [session])
 
-  async function getCurrentUser() {
-    const {
-      data: { session },
-      error,
-    } = await supabase.auth.getSession()
+  // async function getCurrentUser() {
+  //   const {
+  //     data: { session },
+  //     error,
+  //   } = await supabase.auth.getSession()
 
-    if (error) {
-      throw error
-    }
+  //   if (error) {
+  //     throw error
+  //   }
 
-    if (!session?.user) {
-      throw new Error('User not logged in')
-    }
+  //   if (!session?.user) {
+  //     throw new Error('User not logged in')
+  //   }
 
-    return session.user
-  }
+  //   return session.user
+  // }
 
-  async function getProfile() {
-    try {
-      setLoading(true)
-      const user = await getCurrentUser()
+  // async function getProfile() {
+  //   try {
+  //     setLoading(true)
+  //     const user = await getCurrentUser()
 
-      let { data, error, status } = await supabase
-        .from('profiles')
-        .select(`username, website, avatar_url`)
-        .eq('id', user.id)
-        .single()
+  //     let { data, error, status } = await supabase
+  //       .from('profiles')
+  //       .select(`username, website, avatar_url`)
+  //       .eq('id', user.id)
+  //       .single()
 
-      if (error && status !== 406) {
-        throw error
-      }
+  //     if (error && status !== 406) {
+  //       throw error
+  //     }
 
-      if (data) {
-        setUsername(data.username)
-        setWebsite(data.website)
-        setAvatarUrl(data.avatar_url)
-      }
-    } catch (error) {
-      alert(error.message)
-    } finally {
-      setLoading(false)
-    }
-  }
+  //     if (data) {
+  //       setUsername(data.username)
+  //       setWebsite(data.website)
+  //       setAvatarUrl(data.avatar_url)
+  //     }
+  //   } catch (error) {
+  //     alert(error.message)
+  //   } finally {
+  //     setLoading(false)
+  //   }
+  // }
 
   async function updateProfile({ username, website, avatar_url }) {
     try {
@@ -68,7 +67,7 @@ export default function Account({ session }) {
         updated_at: new Date(),
       }
 
-      let { error } = await supabase.from('profiles').upsert(updates)
+      // let { error } = await supabase.from('profiles').upsert(updates)
 
       if (error) {
         throw error
@@ -116,10 +115,10 @@ export default function Account({ session }) {
       </div>
 
       <div>
-        <button
+        {/* <button
           className="button block"
           onClick={() => supabase.auth.signOut()}
-        >
+        > */}
           Sign Out
         </button>
       </div>

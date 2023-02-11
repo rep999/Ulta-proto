@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { supabase } from '../../client.js';
+// import { supabase } from '../../client.js';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
@@ -25,22 +25,22 @@ export default function Auth() {
     useEffect(() => {
         let mounted = true;
 
-        async function getInitialSession() {
-            const {
-                data: { session },
-            } = await supabase.auth.getSession();
-            // console.log(`session`);
-            // console.log(session);
-            // only update the react state if the component is still mounted
-            if (mounted) {
-                if (session) {
-                    setSession(session);
-                }
-                setLoading(false);
-            }
-        }
+        // async function getInitialSession() {
+        //     const {
+        //         data: { session },
+        //     } = await supabase.auth.getSession();
+        //     // console.log(`session`);
+        //     // console.log(session);
+        //     // only update the react state if the component is still mounted
+        //     if (mounted) {
+        //         if (session) {
+        //             setSession(session);
+        //         }
+        //         setLoading(false);
+        //     }
+        // }
 
-        getInitialSession();
+        // getInitialSession();
 
         // const { subscription } = supabase.auth.onAuthStateChange(
         //   (_event, session) => {
@@ -55,12 +55,9 @@ export default function Auth() {
     }, []);
 
     useEffect(() => {
-        if (session) {
+        if (!session) {
             router.push('/Home');
         }
-        // if (!session) {
-        //     router.push('/Home');
-        // }
     }, [session]);
 
     return (

@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
-import { supabase } from '../../../../client.js';
 import { GetServerSideProps } from 'next';
 import { text } from 'stream/consumers';
 

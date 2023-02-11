@@ -12,7 +12,7 @@ import { useRouter } from 'next/router';
 import Dash from '$Sections/Dash/Dash';
 import styled from 'styled-components';
 import create from 'zustand';
-import { supabase } from '../../../client.js';
+// import { supabase } from '../../../client.js';
 import cookie from 'cookie';
 
 interface Fire {
@@ -27,7 +27,7 @@ interface Fire {
 }
 
 export async function getServerSideProps() {
-    let { data: fires, error } = await supabase.from('fires').select('*');
+    // let { data: fires, error } = await supabase.from('fires').select('*');
 
     if (!fires) {
         return {
@@ -56,22 +56,22 @@ export default function Home({ fires }: Fire) {
     useEffect(() => {
         let mounted = true;
 
-        async function getInitialSession() {
-            const {
-                data: { session },
-            } = await supabase.auth.getSession();
-            console.log(`session`);
-            console.log(session);
-            // only update the react state if the component is still mounted
-            if (mounted) {
-                if (session) {
-                    setSession(session);
-                }
-                setIsLoading(false);
-            }
-        }
+        // async function getInitialSession() {
+        //     const {
+        //         data: { session },
+        //     } = await supabase.auth.getSession();
+        //     console.log(`session`);
+        //     console.log(session);
+        //     // only update the react state if the component is still mounted
+        //     if (mounted) {
+        //         if (session) {
+        //             setSession(session);
+        //         }
+        //         setIsLoading(false);
+        //     }
+        // }
 
-        getInitialSession();
+        // getInitialSession();
 
         // const { subscription } = supabase.auth.onAuthStateChange(
         //   (_event, session) => {
