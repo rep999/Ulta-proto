@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-// import SpacePort from './components/SpacePort';
 
 const Nav = () => {
     return (
@@ -226,11 +225,4 @@ const LILabel = styled.span`
     margin-right: 4px;
     font-family: helvetica;
     font-weight: 800;
-`;
-
-const SpacePortParent = styled.div`
-    height: calc(100%);
-    width: 100%;
-    border: 2px solid pink;
-    position: relative;
 `;

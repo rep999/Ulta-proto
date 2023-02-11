@@ -1,8 +1,6 @@
 import { compareCreated_At, compareFiresAsc, compareFiresDesc } from './2_utils/compare';
 import { GetServerSideProps } from 'next';
 import { text } from 'stream/consumers';
-import Card from './1_components/Card';
-import Cube from './1_components/Cube';
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
@@ -85,10 +83,6 @@ const Dash = () => {
         }
     }, [weightSelection]);
 
-    // let apple = fires;
-    // if (fireDT && fireDT.length !== fires.length) {
-    //     setFireDT(apple);
-    // }
     const CardClick = () => {
         setCardsView(!cardsView);
         setCubesView(!cubesView);
@@ -561,5 +555,5 @@ const Orange_Column = styled.div`
     min-height: 10rem;
     margin: 5px;
     border: 2px solid #ccc;
-    background: white;ß
+    background: white;
 `;
