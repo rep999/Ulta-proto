@@ -11,9 +11,9 @@ const Actions = () => {
 
     return (
         <Actions_Parent>
-            <Make_Fire_Wrapper onClick={() => ChirpClk()}>
-                <Emoji_Fire_Img src='Ulta/Cart.png'></Emoji_Fire_Img>
-            </Make_Fire_Wrapper>
+            <CartWrapper onClick={() => ChirpClk()}>
+                <Cart src='Ulta/Cart.png'></Cart>
+            </CartWrapper>
             {showModal && <Modal onClose={() => setShowModal(false)}></Modal>}
         </Actions_Parent>
     );
@@ -36,35 +36,15 @@ const Actions_Parent = styled.div`
 
 // 205.79   127.184     78.60
 
-const Make_Fire_Wrapper = styled.div`
-    min-width: 34px;
-    max-width: 34px;
-    min-height: 34px;
-    max-height: 34px;
+const CartWrapper = styled.div`
+    height: 23px;
+    widht: 23px;
 `;
 
-const Make_Fire_Wrappe2 = styled.div`
-    // min-width: 28.9px;
-    // max-width: 28.9px;
-    // height: 100%;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-    // background-color: pink;
-    min-width: 28px;
-    max-width: 28px;
-    min-height: 28px;
-    max-height: 28px;
+const Cart = styled.img`
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: pink;
-`;
-
-const Emoji_Fire_Img = styled.img`
-    display: flex;
-    height: 34px;
-    width: 34px;
+    height: 100%;
+    widht: 100%;
     align-self: center;
     justify-self: center;
 `;

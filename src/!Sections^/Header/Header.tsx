@@ -33,15 +33,14 @@ const Header = () => {
 export default Header;
 
 const Header_Parent = styled.header`
-    // border: 1.4px solid black;
-    max-height: 76px;
-    min-height: 76px;
-    width: 100%;
+    max-height: 66px;
+    min-height: 66px;
+    background: linear-gradient(111deg, rgba(0, 0, 0, 0.68) 11.2%, rgb(66, 66, 66) 77.6%);
 `;
 
 const Header_Wrapper = styled.div`
-    max-height: 76px;
-    min-height: 76px;
+    max-height: 66px;
+    min-height: 66px;
     align-items: center;
     display: flex;
 `;
@@ -49,19 +48,16 @@ const Header_Wrapper = styled.div`
 const UBMedia_Container_Parent = styled.section`
     min-width: 232px;
     max-width: 232px;
-    max-height: 76px;
-    min-height: 76px;
+    max-height: 66px;
+    min-height: 66px;
     display: flex;
     align-items: center;
     justify-content: start;
-    border: 4px solid white;
-    background-color: white;
 `;
 
 const UBMedia_Logo_Wrapper = styled.div`
     display: flex;
     border: 1.2px solid transparent;
-    background-color: white;
 `;
 
 const UBMedia_Logo = styled.img`
@@ -75,9 +71,7 @@ const Header_Container_Main = styled.section`
     width: calc(100% - 176px);
     max-height: 76px;
     min-height: 76px;
-    // border: 1.4px solid black;
     display: flex;
-    background-color: white;
 `;
 
 const Header_Container_Dash = styled.div`
@@ -106,26 +100,27 @@ const Header_Container_Panel = styled.div`
 
 const Header_Search = styled.div`
     cursor: pointer;
-    width: 370px;
-    padding: 0 16px;
+    width: 280px;
+    padding: 0 14px;
     font-family: sans-serif;
-    font-family: 12px;
     outline: #fff;
-    height: 38px;
-    border: 2px solid black;
-    border-radius: 40px;
-    background-color: #F5F5F5;
+    height: 33px;
+    border: 1.89px solid #898989;
+    border-radius: 21px;
+    background: rgb(209,209,209);
+    background: -moz-radial-gradient(circle, rgba(209,209,209,1) 0%, rgba(210,210,210,1) 50%, rgba(232,232,232,1) 100%);
+    background: -webkit-radial-gradient(circle, rgba(209,209,209,1) 0%, rgba(210,210,210,1) 50%, rgba(232,232,232,1) 100%);
+    background: radial-gradient(circle, rgba(209,209,209,1) 0%, rgba(210,210,210,1) 50%, rgba(232,232,232,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d1d1d1",endColorstr="#e8e8e8",GradientType=1);
 `;
 
 const Header_Search_Icon = styled.img`
     cursor: pointer;
-    width: 25px;
-    height: 25px;
+    width: 18.9px;
+    height: 18.9px;
     font-family: sans-serif;
-    font-family: 12px;
-    background-color: #F5F5F5;
     position: relative;
-    right: 9px;
-    top: 5px;
-    z-index: 999;
+    right: 8px;
+    top: 6px;
+    z-index: 99;
 `;
