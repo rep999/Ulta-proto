@@ -28,7 +28,7 @@ interface Fire {
 
 // @ts-ignore
 export default function Home({ fires }: Fire) {
-    
+
     return (
         <UBMedia_App>
             <Head>

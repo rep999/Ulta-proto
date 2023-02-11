@@ -18,6 +18,12 @@ const Header = () => {
                         <Header_Search>
                             <Header_Search_Icon src='/Ulta/Search_Icon.png'>
                             </Header_Search_Icon>
+                            <Header_Text_Wrapper>
+
+                                <Header_Text>
+
+                                </Header_Text>
+                            </Header_Text_Wrapper>
                         </Header_Search>
                     </Header_Container_Dash>
 
@@ -115,6 +121,28 @@ const Header_Search = styled.div`
 `;
 
 const Header_Search_Icon = styled.img`
+    cursor: pointer;
+    width: 18.9px;
+    height: 18.9px;
+    font-family: sans-serif;
+    position: relative;
+    right: 8px;
+    top: 6px;
+    z-index: 99;
+`;
+
+const Header_Text_Wrapper = styled.div`
+    cursor: pointer;
+    width: 18.9px;
+    height: 18.9px;
+    font-family: sans-serif;
+    position: relative;
+    right: 8px;
+    top: 6px;
+    z-index: 99;
+`;
+
+const Header_Text = styled.div`
     cursor: pointer;
     width: 18.9px;
     height: 18.9px;

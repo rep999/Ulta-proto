@@ -9,51 +9,6 @@ export default function Auth() {
     const [email, setEmail] = useState('');
     const [session, setSession] = useState<any>(null);
 
-    // const handleLogin = async (email) => {
-    //     try {
-    //         setLoading(true);
-    //         const { error } = await supabase.auth.signInWithOtp({ email });
-    //         if (error) throw error;
-    //         alert('Check your email for the login link!');
-    //     } catch (error) {
-    //         console.log(`aye`);
-    //     } finally {
-    //         setLoading(false);
-    //     }
-    // };
-
-    useEffect(() => {
-        let mounted = true;
-
-        // async function getInitialSession() {
-        //     const {
-        //         data: { session },
-        //     } = await supabase.auth.getSession();
-        //     // console.log(`session`);
-        //     // console.log(session);
-        //     // only update the react state if the component is still mounted
-        //     if (mounted) {
-        //         if (session) {
-        //             setSession(session);
-        //         }
-        //         setLoading(false);
-        //     }
-        // }
-
-        // getInitialSession();
-
-        // const { subscription } = supabase.auth.onAuthStateChange(
-        //   (_event, session) => {
-        //     setSession(session)
-        //   }
-        // )
-
-        return () => {
-            mounted = false;
-            // subscription?.unsubscribe()
-        };
-    }, []);
-
     useEffect(() => {
         if (!session) {
             router.push('/Home');

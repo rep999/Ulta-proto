@@ -100,30 +100,6 @@ const Panel = () => {
         CubeRef.current.style.display = 'none';
     }
 
-    const CenterCircleClickFn = (
-        parentID: any,
-        elementID: any,
-        stateSetter: any,
-        stateVal: any,
-    ): any => {
-        // Do some other shit...
-        // switch (moniker) {
-        //     case 'topics':
-        //         circleHighlighterFn(stateSetter, elementID, stateVal)
-        //         // If its the Same Selection:
-        //         if (topicSelection === textFinder(parentID)) {
-        //             selectTopic('')
-        //         } else {
-        //             selectTopic(textFinder(parentID))
-        //         }
-        //       break;
-        //     case 'category':
-        //     case 'weight':
-        //     default:
-        //       console.log(`DEFAULT`);
-        //   }
-    };
-
     const CircleClickFn = (parentID: any, elementID: any, stateSetter: any, stateVal: any): any => {
         switch (moniker) {
             case 'topics':
@@ -311,159 +287,6 @@ const Circle = styled.img`
     display: block;
 `;
 
-const C0 = styled.div`
-    height: calc(305.5px / 5);
-    width: calc(305.5px / 5);
-    position: absolute;
-    color: #b59ceb;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`;
-
-const CenterCircle = styled(Circle)``;
-
-const C1 = styled.div`
-    height: calc(305.5px / 5);
-    width: calc(305.5px / 5);
-    position: absolute;
-    top: 61.1px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`;
-
-const CenterTopCircle = styled(Circle)``;
-
-const C7 = styled.div`
-    height: calc(305.5px / 5);
-    width: calc(305.5px / 5);
-    position: absolute;
-    top: 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`;
-
-const C10 = styled.div`
-    height: calc(305.5px / 5);
-    width: calc(305.5px / 5);
-    position: absolute;
-    bottom: calc(0px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`;
-
-const C4 = styled.div`
-    height: calc(305.5px / 5);
-    width: calc(305.5px / 5);
-    position: absolute;
-    bottom: 61.15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`;
-
-const C6 = styled.div`
-    height: calc(305.5px / 5);
-    width: calc(305.5px / 5);
-    position: absolute;
-    left: 69.286px;
-    top: 90.5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`;
-
-const C12 = styled.div`
-    height: calc(305.5px / 5);
-    width: calc(305.5px / 5);
-    position: absolute;
-    left: 16.885px;
-    top: 61.1px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`;
-
-const C2 = styled.div`
-    height: calc(305.5px / 5);
-    width: calc(305.5px / 5);
-    position: absolute;
-    right: 69.286px;
-    top: 91.5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`;
-
-const C8 = styled.div`
-    height: calc(305.5px / 5);
-    width: calc(305.5px / 5);
-    position: absolute;
-    right: 16.885px;
-    top: 61.1px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`;
-
-const C3 = styled.div`
-    height: calc(305.5px / 5);
-    width: calc(305.5px / 5);
-    position: absolute;
-    right: 69.286px;
-    bottom: 90.5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`;
-
-const C9 = styled.div`
-    height: calc(305.5px / 5);
-    width: calc(305.5px / 5);
-    position: absolute;
-    right: 16.885px;
-    bottom: 60.1px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`;
-
-const C5 = styled.div`
-    height: calc(305.5px / 5);
-    width: calc(305.5px / 5);
-    position: absolute;
-    left: 69.286px;
-    bottom: 90.45px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`;
-const C11 = styled.div`
-    height: calc(305.5px / 5);
-    width: calc(305.5px / 5);
-    position: absolute;
-    left: 16.885px;
-    bottom: 60.1px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`;
-
-const CenterTopTopCircle = styled(Circle)``;
-const CenterBottomBottomCircle = styled(Circle)``;
-const CenterBottomCircle = styled(Circle)``;
-const UpperLeftCircle = styled(Circle)``;
-const UpperLeftLeftCircle = styled(Circle)``;
-const UpperRightCircle = styled(Circle)``;
-const UpperRightRightCircle = styled(Circle)``;
-const BottomRightCircle = styled(Circle)``;
-const BottomRightRightCircle = styled(Circle)``;
-const BottomLeftCircle = styled(Circle)``;
-const BottomLeftLeftCircle = styled(Circle)``;
-
 const DockWrapper = styled.div`
     max-height: calc(104px);
     min-height: calc(104px);
@@ -491,7 +314,6 @@ const Dock = styled.div`
 const DockButtonContainer = styled.div`
     width: 100%;
     height: 100%;
-    // border: 1px solid black;
     display: flex;
     justify-content: space-evenly;
     padding-top: 3px;
@@ -500,7 +322,6 @@ const DockButtonContainer = styled.div`
 const MenuHeirachyArrowLeftContainer = styled.div`
     width: 33px;
     height: 33px;
-    // border: 1px solid black;
 `;
 
 const MenuHeirachyArrowLeft = styled.img`
@@ -523,7 +344,6 @@ const MenuHeirachyArrowRight = styled.img`
 const MenuOverFlowUpContainer = styled.div`
     width: 33px;
     height: 33px;
-    // border: 1px solid black;
 `;
 
 const MenuOverFlowUp = styled.img`
@@ -533,7 +353,6 @@ const MenuOverFlowUp = styled.img`
 const MenuOverFlowDownContainer = styled.div`
     width: 33px;
     height: 33px;
-    // border: 1px solid black;
 `;
 
 const MenuOverFlowDown = styled.img`
@@ -545,7 +364,6 @@ const MenuOverFlowDown = styled.img`
 const HistoryContainer = styled.div`
     width: 33px;
     height: 33px;
-    // border: 1px solid black;
 `;
 
 const History = styled.img`
@@ -555,8 +373,7 @@ const History = styled.img`
 
 const DockTextWrapper = styled.div`
   width: 80%;
-  height: 33px;
-  // border: 1px solid black;
+  height: 33px
   display: flex;
   align-content; center;
 `;
