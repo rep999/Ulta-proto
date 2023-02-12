@@ -48,7 +48,6 @@ a {
   }
 
   body {
-    color: white;
     background: black;
   }
 }
@@ -98,7 +97,7 @@ a {
 ::-webkit-scrollbar-thumb {
   -webkit-border-radius: 10px;
   border-radius: 10px;
-  background: white; 
+  background: grey; 
 }
 ::-webkit-scrollbar-thumb:window-inactive {
 background: rgba(255,0,0,0.4); 

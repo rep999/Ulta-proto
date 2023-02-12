@@ -97,5 +97,5 @@ const MainFlexContainer = styled.main`
     position: relative;
     border: 1.4px solid black;
     border-top-left-radius: 12px;
-    background-color: white;
+    background-color: darkgrey;
 `;

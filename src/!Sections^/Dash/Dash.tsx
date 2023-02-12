@@ -331,7 +331,7 @@ const DockBtnContainer = styled.div`
 `;
 
 const DockCardsBtnContainer = styled.div`
-    border: 0.4px solid black;
+    border: 0.4px solid whitesmoke;
     padding: 4px;
     border-radius: 12px;
     height: 82%;
@@ -362,7 +362,7 @@ const DockCardsBtn = styled.img`
 `;
 
 const DockCubesBtnContainer = styled.div`
-    border: 0.4px solid black;
+    border: 0.4px solid whitesmoke;
     padding: 4px;
     border-radius: 12px;
     height: 82%;

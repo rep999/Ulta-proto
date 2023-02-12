@@ -76,20 +76,20 @@ const Panel = () => {
     }
 
     function PanelParentE() {
-        setEagleVisible(!eagleVisible);
-        if (EagleRef && CubeRef && !eagleVisible) {
-            // @ts-ignore
-            EagleRef.current.style.display = 'block';
-            // @ts-ignore
-            CubeRef.current.display = 'none';
-        } else if (EagleRef && CubeRef && eagleVisible) {
-            // @ts-ignore
-            EagleRef.current.style.display = 'none';
-            // @ts-ignore
-            CubeRef.current.style.display = 'none';
-        } else {
-            alert(`nooo`);
-        }
+        // setEagleVisible(!eagleVisible);
+        // if (EagleRef && CubeRef && !eagleVisible) {
+        //     // @ts-ignore
+        //     EagleRef.current.style.display = 'block';
+        //     // @ts-ignore
+        //     CubeRef.current.display = 'none';
+        // } else if (EagleRef && CubeRef && eagleVisible) {
+        //     // @ts-ignore
+        //     EagleRef.current.style.display = 'none';
+        //     // @ts-ignore
+        //     CubeRef.current.style.display = 'none';
+        // } else {
+        //     alert(`nooo`);
+        // }
     }
 
     function PanelParentL() {
@@ -215,11 +215,18 @@ const Panel = () => {
                 // @ts-ignore
                 ref={PanelWrapperRef}
                 id='PanelWrapper'>
-                <Eagle
+                {/* <Eagle
                     // @ts-ignore
                     ref={EagleRef}
                     id='Eagle'
-                    src='/Ulta/UBMedia_Logo.png'></Eagle>
+                    src='/Ulta/UBMedia_Logo.png'></Eagle> */}
+                <video
+                    // @ts-ignore
+                    ref={EagleRef}
+                    id='Eagle'
+                    autoplay
+                    muted
+                    src='/Ulta/ZeusSpectacle.mov'></video>
                 <Cube
                     // @ts-ignore
                     ref={CubeRef}
@@ -251,8 +258,8 @@ const PanelParent = styled.div`
 `;
 
 const PanelWrapper = styled.div`
-    max-height: calc(333px);
-    min-height: calc(333px);
+    max-height: calc(733px);
+    min-height: calc(233px);
     right: 0%;
     position: absolute;
     border: 2px solid black;
@@ -269,7 +276,7 @@ const PanelWrapper = styled.div`
 `;
 
 const Eagle = styled.img`
-    height: 88%;
+    height: 400px;;
     width: 88%;
     position: absolute;
     flex-grow: 1;
@@ -394,6 +401,6 @@ const DockTextContainer = styled.div`
 `;
 
 const DockText = styled.div`
-    color: black;
+    color: whitesmoke;
 `;
 
