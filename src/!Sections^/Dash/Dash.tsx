@@ -28,7 +28,7 @@ const Dash = () => {
     const categorySelection = useStore((state) => state.categorySelection);
     // @ts-ignore
     const weightSelection = useStore((state) => state.weightSelection);
-    const [TheFireNetText, setTheFireNetText] = useState('UB Media');
+    const [SubNavTitleText, setTheFireNetText] = useState('UB Media');
     const [fireDT, setFireDT] = useState<any>([]);
     const [nwFireDT, setNwFireDT] = useState<any>([]);
     const [renderTG, setRenderTG] = useState<boolean>(false);
@@ -127,7 +127,7 @@ const Dash = () => {
             <TopHeaderContainer>
                 <TopHeaderTitleRow>
                     <WelcomeTitleContainer>
-                        <TheFireNet>{TheFireNetText} </TheFireNet>
+                        <SubNavTitle>{SubNavTitleText} </SubNavTitle>
                         <DockBtnSpace>
                             <DockBtnContainer>
                                 <DockCardsBtnContainer onClick={() => CardClick()}>
@@ -160,76 +160,11 @@ const Dash = () => {
                 {cardsView ? (
                     <CardsContentContainer>
                         <CardListUL src="Ulta/To-Be-Process.png">
-                            {/* {fireDT && nwFireDT.length === 0
-                                ? fireDT.map((fire: Fire, i: number) => (
-                                      <Card
-                                          key={Math.random()}
-                                          count={fire.count}
-                                          created_at={fire.created_at}
-                                          id={fire.id}
-                                          text={fire.text}
-                                          text_title={fire.text_title}
-                                          title={fire.title}
-                                          topic={fire.topic}
-                                          // @ts-ignore
-                                          category={fire.category}
-                                          // @ts-ignore
-                                          weight={fire.weight}
-                                          url={fire.url}></Card>
-                                  ))
-                                : nwFireDT.map((fire: Fire, i: number) => (
-                                      <Card
-                                          key={Math.random()}
-                                          count={fire.count}
-                                          created_at={fire.created_at}
-                                          id={fire.id}
-                                          text={fire.text}
-                                          text_title={fire.text_title}
-                                          title={fire.title}
-                                          topic={fire.topic}
-                                          // @ts-ignore
-                                          category={fire.category}
-                                          // @ts-ignore
-                                          weight={fire.weight}
-                                          url={fire.url}></Card>
-                                  ))} */}
                         </CardListUL>
+
                     </CardsContentContainer>
                 ) : (
                     <Cube_Row>
-                        {fireDT && nwFireDT.length === 0
-                            ? fireDT.map((fire: Fire, i: number) => (
-                                  <Cube
-                                      key={Math.random()}
-                                      count={fire.count}
-                                      created_at={fire.created_at}
-                                      id={fire.id}
-                                      text={fire.text}
-                                      text_title={fire.text_title}
-                                      title={fire.title}
-                                      topic={fire.topic}
-                                      // @ts-ignore
-                                      category={fire.category}
-                                      // @ts-ignore
-                                      weight={fire.weight}
-                                      url={fire.url}></Cube>
-                              ))
-                            : nwFireDT.map((fire: Fire, i: number) => (
-                                  <Cube
-                                      key={Math.random()}
-                                      count={fire.count}
-                                      created_at={fire.created_at}
-                                      id={fire.id}
-                                      text={fire.text}
-                                      text_title={fire.text_title}
-                                      title={fire.title}
-                                      topic={fire.topic}
-                                      // @ts-ignore
-                                      category={fire.category}
-                                      // @ts-ignore
-                                      weight={fire.weight}
-                                      url={fire.url}></Cube>
-                              ))}
                     </Cube_Row>
                 )}
             </ContentSectional>
@@ -237,22 +172,24 @@ const Dash = () => {
     );
 };
 
-export default Dash;
+export default Dash; 
 
 const DashContainer = styled.div`
     height: 100%;
     width: calc(100% - 333px);
-    /* border: 6px solid purple; */
 `;
 
 const TopHeaderContainer = styled.div`
-    /* border: 2px solid green; */
     height: 12.12%;
     min-height: 93px;
     max-height: 103px;
     width: 100%;
     display: flex;
     flex-direction: column;
+    background: -moz-linear-gradient(90deg, rgba(34,34,34,1) 0%, rgba(50,50,50,1) 33%, rgba(41,41,41,1) 66%, rgba(27,27,27,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(34,34,34,1) 0%, rgba(50,50,50,1) 33%, rgba(41,41,41,1) 66%, rgba(27,27,27,1) 100%);
+    background: linear-gradient(90deg, rgba(34,34,34,1) 0%, rgba(50,50,50,1) 33%, rgba(41,41,41,1) 66%, rgba(27,27,27,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#222222",endColorstr="#1b1b1b",GradientType=1);
 `;
 const TopHeaderTitleRow = styled.div`
     /* border: 2px solid orange; */
@@ -270,7 +207,7 @@ const WelcomeTitleContainer = styled.div`
     justify-content: center;
 `;
 
-const TheFireNet = styled.div`
+const SubNavTitle = styled.div`
     height: 65%;
     width: 40%;
     text-align: center;
@@ -381,7 +318,7 @@ const DockBtnSpace = styled.div`
 `;
 
 const DockBtnContainer = styled.div`
-    border: 1.8px solid black;
+    border: 1.8px solid whitesmoke;
     border-radius: 3px;
     border-radius: 6px;
     height: 100%;
@@ -456,30 +393,17 @@ const DockCubesBtn = styled.img`
 `;
 
 const TopHeaderSpacer = styled.div`
-    /* border: 1px solid black; */
     height: 3px;
     width: 90%;
     border-radius: 22%;
     background: rgb(167, 167, 167);
-    // background: -moz-linear-gradient(
-    //     90deg,
-    //     rgba(167, 167, 167, 1) 0%,
-    //     rgba(167, 167, 204, 1) 33%,
-    //     rgba(156, 239, 255, 1) 100%
-    // );
-    // background: -webkit-linear-gradient(
-    //     90deg,
-    //     rgba(167, 167, 167, 1) 0%,
-    //     rgba(167, 167, 204, 1) 33%,
-    //     rgba(156, 239, 255, 1) 100%
-    // );
-    // background: linear-gradient(
-    //     90deg,
-    //     rgba(167, 167, 167, 1) 0%,
-    //     rgba(167, 167, 204, 1) 33%,
-    //     rgba(156, 239, 255, 1) 100%
-    // );
+    background: rgb(236,235,255);
+    background: -moz-linear-gradient(90deg, rgba(236,235,255,1) 0%, rgba(240,240,240,1) 33%, rgba(177,223,250,1) 66%, rgba(193,245,255,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(236,235,255,1) 0%, rgba(240,240,240,1) 33%, rgba(177,223,250,1) 66%, rgba(193,245,255,1) 100%);
+    background: linear-gradient(90deg, rgba(236,235,255,1) 0%, rgba(240,240,240,1) 33%, rgba(177,223,250,1) 66%, rgba(193,245,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ecebff",endColorstr="#c1f5ff",GradientType=1);
     display: flex;
+    transform: scale(.77);
 `;
 
 const TopHeaderCatchUpText = styled.div`
