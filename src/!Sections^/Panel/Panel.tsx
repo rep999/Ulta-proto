@@ -203,6 +203,20 @@ const Panel = () => {
                                 onMouseOut={() => MenuHeirachyArrowRightMO()}
                                 src='/Ulta/Idea_Logo.png'></MenuHeirachyArrowRight>
                         </MenuHeirachyArrowRightContainer>
+                        <MenuHeirachyArrowRightContainer2>
+                            <MenuHeirachyArrowRight2
+                                onClick={() => MenuHeirachyArrowRightClk()}
+                                onMouseEnter={() => MenuHeirachyArrowRightME()}
+                                onMouseOut={() => MenuHeirachyArrowRightMO()}
+                                src='/Ulta/ReadMe_Icon.png'></MenuHeirachyArrowRight2>
+                        </MenuHeirachyArrowRightContainer2>
+                        <MenuHeirachyArrowRightContainer3>
+                            <MenuHeirachyArrowRight3
+                                onClick={() => MenuHeirachyArrowRightClk()}
+                                onMouseEnter={() => MenuHeirachyArrowRightME()}
+                                onMouseOut={() => MenuHeirachyArrowRightMO()}
+                                src='/Ulta/ContactUsIcon.png'></MenuHeirachyArrowRight3>
+                        </MenuHeirachyArrowRightContainer3>
                     </DockButtonContainer>
                 </Dock>
                 <DockTextWrapper>
@@ -220,13 +234,15 @@ const Panel = () => {
                     ref={EagleRef}
                     id='Eagle'
                     src='/Ulta/UBMedia_Logo.png'></Eagle> */}
-                <video
+                <GangstaEarth
                     // @ts-ignore
                     ref={EagleRef}
                     id='Eagle'
-                    autoplay
+                    className='GangstaEarth'
                     muted
-                    src='/Ulta/ZeusSpectacle.mov'></video>
+                    controls
+                    autoplay
+                    src='/Videos/GangstaAFEarth.mov'></GangstaEarth>
                 <Cube
                     // @ts-ignore
                     ref={CubeRef}
@@ -258,21 +274,7 @@ const PanelParent = styled.div`
 `;
 
 const PanelWrapper = styled.div`
-    max-height: calc(733px);
-    min-height: calc(233px);
-    right: 0%;
-    position: absolute;
-    border: 2px solid black;
-    flex-grow: 1;
-    max-width: calc(333px);
-    min-width: calc(333px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgb(34,34,34);
-    background: -moz-linear-gradient(90deg, rgba(34,34,34,1) 0%, rgba(50,50,50,1) 33%, rgba(41,41,41,1) 66%, rgba(27,27,27,1) 100%);
-    background: -webkit-linear-gradient(90deg, rgba(34,34,34,1) 0%, rgba(50,50,50,1) 33%, rgba(41,41,41,1) 66%, rgba(27,27,27,1) 100%);
-    background: linear-gradient(90deg, rgba(34,34,34,1) 0%, rgba(50,50,50,1) 33%, rgba(41,41,41,1) 66%, rgba(27,27,27,1) 100%);
+
 `;
 
 const Eagle = styled.img`
@@ -280,6 +282,14 @@ const Eagle = styled.img`
     width: 88%;
     position: absolute;
     flex-grow: 1;
+`;
+
+const GangstaEarth = styled.video`
+    height: 100%;
+    width: 100%;
+    position: relative;
+    justify-content: center;
+    align-items: center;
 `;
 
 const Cube = styled.div`
@@ -350,7 +360,29 @@ const MenuHeirachyArrowRightContainer = styled.div`
     height: 33px;
 `;
 
+const MenuHeirachyArrowRightContainer2 = styled.div`
+    width: 33px;
+    height: 33px;
+`;
+
+const MenuHeirachyArrowRightContainer3 = styled.div`
+    width: 33px;
+    height: 33px;
+`;
+
 const MenuHeirachyArrowRight = styled.img`
+    height: 100%;
+    width: 100%;
+    // transform: rotate(180deg);
+`;
+
+const MenuHeirachyArrowRight2 = styled.img`
+    height: 100%;
+    width: 100%;
+    // transform: rotate(180deg);
+`;
+
+const MenuHeirachyArrowRight3 = styled.img`
     height: 100%;
     width: 100%;
     // transform: rotate(180deg);

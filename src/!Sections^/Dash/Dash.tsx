@@ -28,7 +28,7 @@ const Dash = () => {
     const categorySelection = useStore((state) => state.categorySelection);
     // @ts-ignore
     const weightSelection = useStore((state) => state.weightSelection);
-    const [SubNavTitleText, setTheFireNetText] = useState('UB Media');
+    const [SubNavTitleText, setTheFireNetText] = useState('Welcome L\'OReal');
     const [fireDT, setFireDT] = useState<any>([]);
     const [nwFireDT, setNwFireDT] = useState<any>([]);
     const [renderTG, setRenderTG] = useState<boolean>(false);
@@ -208,15 +208,19 @@ const WelcomeTitleContainer = styled.div`
 `;
 
 const SubNavTitle = styled.div`
-    height: 65%;
-    width: 40%;
+    height: auto;
+    width: auto;
     text-align: center;
-    font-family: Helvetica;
+    font-family: organetto;
+    letter-spacing: 1.28px;
     font-weight: bold;
-    color: black;
-    font-size: 28px;
+    color: #ededed;
+    font-size: 21.21px;
     text-align: center;
-    margin-bottom: 1px;
+    position: relative;
+    top: 6.6px;
+    // background: transparent;
+    // box-shadow: rgb(128 128 145 / 45%) 0px 1px 42px 3px;
 `;
 
 const TopHeaderSpacerContainer = styled.div`
@@ -249,8 +253,8 @@ const ByDate = styled.span`
     height: 100%;
     width: 44%;
     text-align: center;
-    color: black;
-    font-size: 18px;
+    color: #ededed;
+    font-size: 13.33px;
     cursor: pointer;
     display: flex;
     white-space: nowrap;
@@ -272,33 +276,32 @@ const ByFire = styled.span`
     width: 41%;
     text-align: center;
     color: black;
-    font-size: 18px;
+    font-size: 13.33px;
     cursor: pointer;
     display: flex;
-    // border: 2px solid purple;
+    color: #ededed;
     white-space: nowrap;
     align-items: center;
     font-weight: 800;
 `;
 
 const ByCategoryContainer = styled.div`
-    // border: 2px solid pink;
     height: 100%;
     width: 23%;
     cursor: pointer;
     display: flex;
+    color: #ededed;
     justify-content: center;
     align-items: center;
 `;
 
 const ByCategory = styled.span`
-    // border: 2px solid purple;
     height: 100%;
     width: 55%;
     text-align: center;
-    color: black;
+    color: #ededed;
     display: flex;
-    font-size: 18px;
+    font-size: 13.33px;
     white-space: nowrap;
     align-items: center;
     width: 64%;
@@ -319,10 +322,9 @@ const DockBtnSpace = styled.div`
 
 const DockBtnContainer = styled.div`
     border: 1.8px solid whitesmoke;
-    border-radius: 3px;
     border-radius: 6px;
-    height: 100%;
-    width: 86.6px;
+    height: 102%;
+    width: 82.6px;
     right: 10px;
     display: flex;
     justify-content: space-evenly;
@@ -333,16 +335,16 @@ const DockBtnContainer = styled.div`
 const DockCardsBtnContainer = styled.div`
     border: 0.4px solid whitesmoke;
     padding: 4px;
-    border-radius: 12px;
-    height: 82%;
-    width: 33px;
+    border-radius: 7px;
+    height: 28px;
+    width: 28px;
     display: flex;
     color: black;
     position: relative;
     right: 0px;
     justify-self: center;
     align-items: center;
-    top: 2.8px;
+    top: 3.5px;
 `;
 
 const DockCardsBtn = styled.img`
@@ -362,18 +364,27 @@ const DockCardsBtn = styled.img`
 `;
 
 const DockCubesBtnContainer = styled.div`
-    border: 0.4px solid whitesmoke;
+border: 0.4px solid whitesmoke;
     padding: 4px;
-    border-radius: 12px;
-    height: 82%;
-    width: 33px;
+    border-radius: 6px;
+    height: 28px;
+    width: 28px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     color: black;
     position: relative;
     right: 0px;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
-    top: 2.8px;
+    top: 3.5px;
 `;
 
 const DockCubesBtn = styled.img`

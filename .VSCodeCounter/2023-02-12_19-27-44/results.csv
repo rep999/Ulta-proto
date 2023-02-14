@@ -1,0 +1,25 @@
+"filename", "language", "TypeScript JSX", "JavaScript", "TypeScript", "comment", "blank", "total"
+"/Users/richardpitts/Desktop/UB Media/src/!Sections^/Dash/1_components/Card copy.tsx", "TypeScript JSX", 332, 0, 0, 127, 50, 509
+"/Users/richardpitts/Desktop/UB Media/src/!Sections^/Dash/1_components/Cube copy.tsx", "TypeScript JSX", 289, 0, 0, 114, 38, 441
+"/Users/richardpitts/Desktop/UB Media/src/!Sections^/Dash/2_utils/compare.ts", "TypeScript", 0, 0, 27, 0, 2, 29
+"/Users/richardpitts/Desktop/UB Media/src/!Sections^/Dash/Dash.tsx", "TypeScript JSX", 277, 0, 0, 209, 0, 486
+"/Users/richardpitts/Desktop/UB Media/src/!Sections^/Header/3_utils/compare.ts", "TypeScript", 0, 0, 27, 0, 2, 29
+"/Users/richardpitts/Desktop/UB Media/src/!Sections^/Header/Actions.tsx", "TypeScript JSX", 42, 0, 0, 1, 8, 51
+"/Users/richardpitts/Desktop/UB Media/src/!Sections^/Header/Header.tsx", "TypeScript JSX", 137, 0, 0, 1, 19, 157
+"/Users/richardpitts/Desktop/UB Media/src/!Sections^/Nav/Nav.tsx", "TypeScript JSX", 215, 0, 0, 0, 8, 223
+"/Users/richardpitts/Desktop/UB Media/src/!Sections^/Panel/Panel.tsx", "TypeScript JSX", 164, 0, 0, 220, 23, 407
+"/Users/richardpitts/Desktop/UB Media/src/%Utils^/compare.ts", "TypeScript", 0, 0, 27, 0, 2, 29
+"/Users/richardpitts/Desktop/UB Media/src/%Utils^/isFound.ts", "TypeScript", 0, 0, 8, 0, 1, 9
+"/Users/richardpitts/Desktop/UB Media/src/%Utils^/isHighlighted.ts", "TypeScript", 0, 0, 7, 0, 0, 7
+"/Users/richardpitts/Desktop/UB Media/src/*Store^/Store.ts", "TypeScript", 0, 0, 44, 0, 4, 48
+"/Users/richardpitts/Desktop/UB Media/src/@components^/Account.js", "JavaScript", 0, 71, 0, 39, 17, 127
+"/Users/richardpitts/Desktop/UB Media/src/@components^/Auth.tsx", "TypeScript JSX", 41, 0, 0, 1, 4, 46
+"/Users/richardpitts/Desktop/UB Media/src/@components^/Modal.js", "JavaScript", 0, 382, 0, 4, 59, 445
+"/Users/richardpitts/Desktop/UB Media/src/pages/Home/index.tsx", "TypeScript JSX", 85, 0, 0, 7, 10, 102
+"/Users/richardpitts/Desktop/UB Media/src/pages/_app.tsx", "TypeScript JSX", 6, 0, 0, 0, 3, 9
+"/Users/richardpitts/Desktop/UB Media/src/pages/_document.tsx", "TypeScript JSX", 13, 0, 0, 0, 2, 15
+"/Users/richardpitts/Desktop/UB Media/src/pages/api/auth.js", "JavaScript", 0, 5, 0, 0, 1, 6
+"/Users/richardpitts/Desktop/UB Media/src/pages/api/form.js", "JavaScript", 0, 15, 0, 8, 5, 28
+"/Users/richardpitts/Desktop/UB Media/src/pages/api/hello.ts", "TypeScript", 0, 0, 10, 1, 3, 14
+"/Users/richardpitts/Desktop/UB Media/src/pages/index.tsx", "TypeScript JSX", 16, 0, 0, 1, 3, 20
+"Total", "-", 1617, 473, 150, 733, 264, 3237

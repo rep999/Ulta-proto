@@ -134,7 +134,6 @@ const NavListLI = styled.li`
     background: -webkit-linear-gradient(90deg, rgba(34,34,34,1) 0%, rgba(50,50,50,1) 33%, rgba(41,41,41,1) 66%, rgba(27,27,27,1) 100%);
     background: linear-gradient(90deg, rgba(34,34,34,1) 0%, rgba(50,50,50,1) 33%, rgba(41,41,41,1) 66%, rgba(27,27,27,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#222222",endColorstr="#1b1b1b",GradientType=1);
-    //box-shadow: rgb(50 50 93 / 45%) 0px 4px 12px -9px, rgb(0 0 0 / 30%) 0px 8px 7px -8px;
     box-shadow: rgba(128, 128, 145, 0.15) 0px 13px 27px -5px, rgba(192, 192, 230, 0.3) 0px 8px 16px -8px;
     `;
 
@@ -213,9 +212,10 @@ const LILabel = styled.span`
     color: #75b6e7;
     overflow: hidden;
     white-space: nowrap;
-    font-size: 14.4px;
+    font-size: 12.3px;
     left: 3.3px;
     position: relative;
     font-weight: 600!important;
-    font-family: helvetica;
+    font-family: organetto;
+    letter-spacing: 0.66px;
 `;

@@ -118,7 +118,7 @@ const Header_Search = styled.div`
     background: -webkit-radial-gradient(circle, rgba(209,209,209,1) 0%, rgba(210,210,210,1) 50%, rgba(232,232,232,1) 100%);
     background: radial-gradient(circle, rgba(209,209,209,1) 0%, rgba(210,210,210,1) 50%, rgba(232,232,232,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d1d1d1",endColorstr="#e8e8e8",GradientType=1);
-    box-shadow: rgb(128 128 123 / 15%) 0px 12px 2px -5px, rgb(112 122 140) 0px 6px 36px -8px
+    box-shadow: rgb(228 228 228 / 7%) 12px 14px 23px 12px, rgb(112 112 112) 0px 6px 6px -111.1px;
     
 `;
 
