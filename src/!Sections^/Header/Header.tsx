@@ -41,6 +41,8 @@ export default Header;
 const Header_Parent = styled.header`
     max-height: 66px;
     min-height: 66px;
+    background-size: 140% 140%!important;
+    animation: gradientAnimation 16s ease-in-out infinite;
     background: linear-gradient(111deg, rgba(0, 0, 0, 0.68) 11.2%, rgb(66, 66, 66) 77.6%);
 `;
 

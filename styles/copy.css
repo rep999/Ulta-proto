@@ -107,7 +107,7 @@ background: grey;
 .container
 {
 	position: relative;
-  animation: animate 2s linear infinite;
+  animation: gradientAnimation 2s linear infinite;
   overflow: hidden;
 }
 @keyframes animate

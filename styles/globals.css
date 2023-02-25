@@ -7,8 +7,21 @@
   box-sizing: border-box;
   /* font-family: helvetica; */
   font-family: organetto;
+  /* font-family: helvetica; */
   overflow-x: hidden;
   overflow-y: hidden;
+}
+
+@keyframes animate {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 html,
@@ -108,20 +121,22 @@ background: grey;
 .container
 {
 	position: relative;
-  animation: animate 2s linear infinite;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  animation: gradientAnimation 2s linear infinite;
   overflow: hidden;
 }
-@keyframes animate
-{
-	0%
-	{
-		filter: hue-rotate(121deg);
-	}
-	100%
-	{
-		filter: hue-rotate(199deg);
-	}
+@keyframes gradientAnimation {
+0% {
+  background-position: 0% 50%;
 }
+50% {
+  background-position: 100% 50%;
+}
+100% {
+  background-position: 0% 50%;
+}
+}
+
 .row
 {
 	display: inline-flex;

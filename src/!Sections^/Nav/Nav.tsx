@@ -1,13 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
+import Link from "next/link";
 
 const Nav = () => {
+    const handleClick = (path) => {
+        console.log(`up`);
+        if (path === "/AdProducts") {
+          console.log("I clicked on the About Page");
+        }
+        if (path === "/posts") {
+          console.log("I clicked on the Posts Page");
+        }
+      };
+    
     return (
         <NavParent>
             <NavWrapper>
                 <GroupNav>
                     <NavListUL>
-                        <NavListLI>
+                        {/* <NavListLI>
                             <NavListLink>
                                 <IconTextSage>
                                     <DecoratedTextSage>
@@ -19,9 +30,9 @@ const Nav = () => {
                                         <LILabel>Dashboard</LILabel>
                                     </DecoratedTextSage>
                                 </IconTextSage>
-                            </NavListLink>
-                        </NavListLI>
-                        <NavListLI>
+                            </NavListLink> 
+                        </NavListLI> */}
+                        {/* <NavListLI>
                             <NavListLink>
                                 <IconTextSage>
                                     <DecoratedTextSage>
@@ -34,7 +45,8 @@ const Nav = () => {
                                     </DecoratedTextSage>
                                 </IconTextSage>
                             </NavListLink>
-                        </NavListLI>
+                        </NavListLI> */}
+
                         <NavListLI>
                             <NavListLink>
                                 <IconTextSage>
@@ -44,12 +56,15 @@ const Nav = () => {
                                                 <SagePNG src='/G_Icons/Ad_Products_Icon.png'></SagePNG>
                                             </SVGSage_Wrapper>
                                         </TextSageDecoration_Icon>
+                                        <Link href='/AdProducts'> 
                                         <LILabel>Ad Products</LILabel>
+                                        </Link>
                                     </DecoratedTextSage>
                                 </IconTextSage>
                             </NavListLink>
                         </NavListLI>
-                        <NavListLI>
+
+                                                <NavListLI>
                             <NavListLink>
                                 <IconTextSage>
                                     <DecoratedTextSage>
@@ -63,6 +78,7 @@ const Nav = () => {
                                 </IconTextSage>
                             </NavListLink>
                         </NavListLI>
+
                         <NavListLI>
                             <NavListLink>
                                 <IconTextSage>
@@ -98,7 +114,9 @@ const NavParent = styled.section`
     background: -webkit-radial-gradient(circle, rgba(62,62,62,1) 0%, rgba(65,65,65,1) 33%, rgba(59,59,59,1) 66%, rgba(56,56,56,1) 100%);
     background: radial-gradient(circle, rgba(62,62,62,1) 0%, rgba(65,65,65,1) 33%, rgba(59,59,59,1) 66%, rgba(56,56,56,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3e3e3e",endColorstr="#383838",GradientType=1);
-`;
+    background-size: 240% 240%!important;
+    animation: gradientAnimation 4s ease-in-out infinite;
+    `;
 
 const NavWrapper = styled.div`
     border: 1.4px solid black;
@@ -216,6 +234,7 @@ const LILabel = styled.span`
     left: 3.3px;
     position: relative;
     font-weight: 600!important;
+    font-family: helvetica;
     font-family: organetto;
     letter-spacing: 0.66px;
 `;

@@ -183,6 +183,31 @@ const Panel = () => {
         }
     };
 
+    const MenuReadMeME = () => {
+        switch (moniker) {
+            // This is the first case, always:
+            case 'topics':
+                setMoniker('category');
+                break;
+            // Second
+            case 'category':
+                setMoniker('weight');
+                break;
+            case 'weight':
+                setMoniker('topics');
+                break;
+            default:
+                console.log(`DEFAULT`);
+        }
+        if (circSelectedST) {
+            circSelectedST.src = '/whiteCircle.png';
+        }
+        const DockTextEl = document.getElementById('DockText');
+        if (DockTextEl) {
+            DockTextEl.innerText = 'Read Me and Learn how to use UB Media SS';
+        }
+    };
+
     const MenuHeirachyArrowRightMO = () => {
         const DockTextEl = document.getElementById('DockText');
         if (DockTextEl) {
@@ -204,11 +229,11 @@ const Panel = () => {
                                 src='/Ulta/Idea_Logo.png'></MenuHeirachyArrowRight>
                         </MenuHeirachyArrowRightContainer>
                         <MenuHeirachyArrowRightContainer2>
-                            <MenuHeirachyArrowRight2
+                            <MenuReadMe
                                 onClick={() => MenuHeirachyArrowRightClk()}
-                                onMouseEnter={() => MenuHeirachyArrowRightME()}
+                                onMouseEnter={() => MenuReadMeME()}
                                 onMouseOut={() => MenuHeirachyArrowRightMO()}
-                                src='/Ulta/ReadMe_Icon.png'></MenuHeirachyArrowRight2>
+                                src='/Ulta/ReadMe_Icon.png'></MenuReadMe>
                         </MenuHeirachyArrowRightContainer2>
                         <MenuHeirachyArrowRightContainer3>
                             <MenuHeirachyArrowRight3
@@ -271,7 +296,8 @@ const PanelParent = styled.div`
     background: -moz-linear-gradient(90deg, rgba(34,34,34,1) 0%, rgba(50,50,50,1) 33%, rgba(41,41,41,1) 66%, rgba(27,27,27,1) 100%);
     background: -webkit-linear-gradient(90deg, rgba(34,34,34,1) 0%, rgba(50,50,50,1) 33%, rgba(41,41,41,1) 66%, rgba(27,27,27,1) 100%);
     background: linear-gradient(90deg, rgba(34,34,34,1) 0%, rgba(50,50,50,1) 33%, rgba(41,41,41,1) 66%, rgba(27,27,27,1) 100%);
-`;
+    animation: gradientAnimation 7s ease-in-out infinite;
+    `;
 
 const PanelWrapper = styled.div`
 
@@ -376,10 +402,10 @@ const MenuHeirachyArrowRight = styled.img`
     // transform: rotate(180deg);
 `;
 
-const MenuHeirachyArrowRight2 = styled.img`
+const MenuReadMe = styled.img`
     height: 100%;
     width: 100%;
-    // transform: rotate(180deg);
+
 `;
 
 const MenuHeirachyArrowRight3 = styled.img`

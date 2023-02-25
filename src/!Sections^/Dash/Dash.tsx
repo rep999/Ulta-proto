@@ -148,7 +148,7 @@ const Dash = () => {
                         <ByDate onClick={() => ByDateClick()}>OnSite</ByDate>
                     </ByDateContainer>
                     <ByCategoryContainer>
-                        <ByCategory onClick={() => ByCategoryClick()}>Social Media</ByCategory>
+                        <ByCategory onClick={() => ByCategoryClick()}>PowerBI</ByCategory>
                     </ByCategoryContainer>
                     <ByFireContainer>
                         <ByFire onClick={() => ByFireClick()}>Offsite</ByFire>
@@ -186,13 +186,14 @@ const TopHeaderContainer = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
+    background-size: 140% 140%!important;
     background: -moz-linear-gradient(90deg, rgba(34,34,34,1) 0%, rgba(50,50,50,1) 33%, rgba(41,41,41,1) 66%, rgba(27,27,27,1) 100%);
     background: -webkit-linear-gradient(90deg, rgba(34,34,34,1) 0%, rgba(50,50,50,1) 33%, rgba(41,41,41,1) 66%, rgba(27,27,27,1) 100%);
     background: linear-gradient(90deg, rgba(34,34,34,1) 0%, rgba(50,50,50,1) 33%, rgba(41,41,41,1) 66%, rgba(27,27,27,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#222222",endColorstr="#1b1b1b",GradientType=1);
-`;
+    animation: gradientAnimation 7s ease-in-out infinite;
+    `;
 const TopHeaderTitleRow = styled.div`
-    /* border: 2px solid orange; */
     height: 45%;
     width: 100%;
     display: flex;
@@ -243,10 +244,12 @@ const DockPanel = styled.div`
 
 const ByDateContainer = styled.div`
     height: 100%;
-    width: 23%;
+    width: 166px;
+    margin-left: 44px;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: helvetica;
 `;
 
 const ByDate = styled.span`
@@ -263,12 +266,12 @@ const ByDate = styled.span`
 `;
 
 const ByFireContainer = styled.div`
-    // border: 2px solid pink;
     height: 100%;
-    width: 23%;
+    width: 166px;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: helvetica;
 `;
 
 const ByFire = styled.span`
@@ -282,17 +285,19 @@ const ByFire = styled.span`
     color: #ededed;
     white-space: nowrap;
     align-items: center;
-    font-weight: 800;
+    font-weight: 100;
+    background: transparent;
 `;
 
 const ByCategoryContainer = styled.div`
     height: 100%;
-    width: 23%;
+    width: 166px;
     cursor: pointer;
     display: flex;
     color: #ededed;
     justify-content: center;
     align-items: center;
+    font-family: helvetica;
 `;
 
 const ByCategory = styled.span`
@@ -310,7 +315,6 @@ const ByCategory = styled.span`
 
 const DockBtnSpace = styled.div`
     position: absolute;
-    /* border: 1.4px solid black; */
     height: 37.2px;
     width: 100%;
     display: flex;
@@ -414,21 +418,17 @@ const TopHeaderSpacer = styled.div`
     background: linear-gradient(90deg, rgba(236,235,255,1) 0%, rgba(240,240,240,1) 33%, rgba(177,223,250,1) 66%, rgba(193,245,255,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ecebff",endColorstr="#c1f5ff",GradientType=1);
     display: flex;
-    transform: scale(.77);
+    background-size: 400% 400%;
+    animation: gradientAnimation 6s ease infinite;
 `;
 
 const TopHeaderCatchUpText = styled.div`
-    /* border: 2px solid orange; */
     height: 30%;
     width: 100%;
     display: flex;
 `;
 
 const ContentSectional = styled.section`
-    /* border: 2px solid orange; 
-    // position: relative;
-    // flex-direction: column;
-    */
     height: 88.88%;
     width: 100%;
     display: flex;
@@ -437,6 +437,8 @@ const ContentSectional = styled.section`
     border: 1.4px solid black;
     cursor: pointer;
     overflow-y: scroll;
+    animation: gradientAnimation 7s ease-in-out infinite;
+    background-size: 400% 400%;
 `;
 
 const CardsContentContainer = styled.div`

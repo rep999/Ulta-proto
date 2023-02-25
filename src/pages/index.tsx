@@ -4,7 +4,6 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from '$styles/Home.module.css';
-// REPorts
 import Header from 'src/!Sections^/Header/Header';
 import Dash from 'src/!Sections^/Dash/Dash';
 import Nav from 'src/!Sections^/Nav/Nav';
