@@ -121,6 +121,29 @@ const Dash = () => {
         }
     };
 
+    const HomeDashClicked = () => {
+        // ANCHOR
+        if (!firesAsc && !firesDesc) {
+            // Initial State
+            setFireDT(fireDT.sort(compareFiresAsc));
+            setRenderTG(!renderTG);
+            setFiresAsc(true);
+            setFiresDesc(false);
+        } else if (firesAsc && !firesDesc) {
+            // Asc
+            setFireDT(fireDT.sort(compareFiresDesc));
+            setRenderTG(!renderTG);
+            setFiresAsc(false);
+            setFiresDesc(true);
+        } else if (!firesAsc && firesDesc) {
+            // Desc
+            setFireDT(fireDT.sort(compareFiresAsc));
+            setRenderTG(!renderTG);
+            setFiresAsc(true);
+            setFiresDesc(false);
+        }
+    };
+
     const ByCategoryClick = () => {};
     return (
         <DashContainer>
@@ -159,7 +182,7 @@ const Dash = () => {
             <ContentSectional>
                 {cardsView ? (
                     <CardsContentContainer>
-                        <CardListUL src="Ulta/To-Be-Process.png">
+                        <CardListUL onClick={() => HomeDashClicked()} src="Photoshop/LandingPage_1.png">
                         </CardListUL>
 
                     </CardsContentContainer>

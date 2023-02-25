@@ -56,7 +56,7 @@ const Nav = () => {
                                                 <SagePNG src='/G_Icons/Ad_Products_Icon.png'></SagePNG>
                                             </SVGSage_Wrapper>
                                         </TextSageDecoration_Icon>
-                                        <Link href='/AdProducts'> 
+                                        <Link href='/Ad_Products'> 
                                         <LILabel>Ad Products</LILabel>
                                         </Link>
                                     </DecoratedTextSage>
