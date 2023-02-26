@@ -53,11 +53,11 @@ const Nav = () => {
                                     <DecoratedTextSage>
                                         <TextSageDecoration_Icon>
                                             <SVGSage_Wrapper> 
-                                                <SagePNG src='/G_Icons/Ad_Products_Icon.png'></SagePNG>
+                                                <SagePNG src='/G_Icons/Dashboard_Icon.png'></SagePNG>
                                             </SVGSage_Wrapper>
                                         </TextSageDecoration_Icon>
-                                        <Link href='/Ad_Products'> 
-                                        <LILabel>Ad Products</LILabel>
+                                        <Link href='/'> 
+                                        <LILabel>Home</LILabel>
                                         </Link>
                                     </DecoratedTextSage>
                                 </IconTextSage>
@@ -70,10 +70,12 @@ const Nav = () => {
                                     <DecoratedTextSage>
                                         <TextSageDecoration_Icon>
                                             <SVGSage_Wrapper>
-                                                <SagePNG src='/G_Icons/Reports_Icon.png'></SagePNG>
+                                                <SagePNG src='/G_Icons/Ad_Products.png'></SagePNG>
                                             </SVGSage_Wrapper>
                                         </TextSageDecoration_Icon>
-                                        <LILabel>Reports</LILabel>
+                                        <Link href='/'> 
+                                        <LILabel>Ad Products</LILabel>
+                                        </Link>
                                     </DecoratedTextSage>
                                 </IconTextSage>
                             </NavListLink>
@@ -85,10 +87,10 @@ const Nav = () => {
                                     <DecoratedTextSage>
                                         <TextSageDecoration_Icon>
                                             <SVGSage_Wrapper>
-                                                <SagePNG src='/G_Icons/Audience_Icon.png'></SagePNG>
+                                                <SagePNG src='/G_Icons/Reports_Icon.png'></SagePNG>
                                             </SVGSage_Wrapper>
                                         </TextSageDecoration_Icon>
-                                        <LILabel>Audience</LILabel>
+                                        <LILabel>Reports</LILabel>
                                     </DecoratedTextSage>
                                 </IconTextSage>
                             </NavListLink>

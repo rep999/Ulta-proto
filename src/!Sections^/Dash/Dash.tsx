@@ -28,7 +28,7 @@ const Dash = () => {
     const categorySelection = useStore((state) => state.categorySelection);
     // @ts-ignore
     const weightSelection = useStore((state) => state.weightSelection);
-    const [SubNavTitleText, setTheFireNetText] = useState('Welcome L\'OReal');
+    const [SubNavTitleText, setTheFireNetText] = useState('Welcome Dior');
     const [fireDT, setFireDT] = useState<any>([]);
     const [nwFireDT, setNwFireDT] = useState<any>([]);
     const [renderTG, setRenderTG] = useState<boolean>(false);
@@ -123,25 +123,40 @@ const Dash = () => {
 
     const HomeDashClicked = () => {
         // ANCHOR
-        if (!firesAsc && !firesDesc) {
-            // Initial State
-            setFireDT(fireDT.sort(compareFiresAsc));
-            setRenderTG(!renderTG);
-            setFiresAsc(true);
-            setFiresDesc(false);
-        } else if (firesAsc && !firesDesc) {
-            // Asc
-            setFireDT(fireDT.sort(compareFiresDesc));
-            setRenderTG(!renderTG);
-            setFiresAsc(false);
-            setFiresDesc(true);
-        } else if (!firesAsc && firesDesc) {
-            // Desc
-            setFireDT(fireDT.sort(compareFiresAsc));
-            setRenderTG(!renderTG);
-            setFiresAsc(true);
-            setFiresDesc(false);
+        // const CardListUL = document.getElementById('CardListUL');
+        // CardListUL?.src = "/public/Photoshop/LandingPage_2.png"'
+        const CardListUL = document.getElementById("CardListUL") as HTMLImageElement;
+        // console.log(CardListUL.src);
+        if (CardListUL.src === "http://localhost:3000/Photoshop/Landing3.png") { 
+            CardListUL.src = "Photoshop/Landing3.png";
         }
+        if (CardListUL.src === "http://localhost:3000/Photoshop/Landing2.png") { 
+            CardListUL.src = "Photoshop/Landing3.png";
+        }
+        if (CardListUL.src === "http://localhost:3000/Photoshop/Landing1.png") { 
+            CardListUL.src = "Photoshop/Landing2.png";
+        }
+
+
+        // // ~Remove the highlight from the other circle ; new click happened..
+        // if (circSelectedST && CircClickedCN != circSelectedST) {
+        //     circSelectedST.src = '/whiteCircle.png';
+        // }
+        // // ~AND Circle clicked with no highlight
+        // if (CircClickedCN && !isHighlighted(CircClickedCN)) {
+        //     CircClickedCN.src = '/purpleStrokedCircle.png';
+        //     setCircSelectedST(CircClickedCN);
+        //     stateSetter(true);
+        //     CircClickedCN.style.zIndex = '999';
+        //     // ~Circle with Highlight
+        // } else {
+        //     if (CircClickedCN) {
+        //         CircClickedCN.src = '/whiteCircle.png';
+        //         setCenterCircle('Topics');
+        //     }
+        //     stateSetter(false);
+        //     CircClickedCN.style.zIndex = '0';
+        // }
     };
 
     const ByCategoryClick = () => {};
@@ -182,7 +197,7 @@ const Dash = () => {
             <ContentSectional>
                 {cardsView ? (
                     <CardsContentContainer>
-                        <CardListUL onClick={() => HomeDashClicked()} src="Photoshop/LandingPage_1.png">
+                        <CardListUL id="CardListUL" onClick={() => HomeDashClicked()} src="Photoshop/LandingPage_1.png">
                         </CardListUL>
 
                     </CardsContentContainer>
