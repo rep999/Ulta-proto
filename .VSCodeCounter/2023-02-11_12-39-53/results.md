@@ -34,7 +34,7 @@ Summary / [Details](details.md) / [Diff Summary](diff.md) / [Diff Details](diff-
 | @components^ | 4 | 500 | 105 | 90 | 695 |
 | pages | 7 | 150 | 17 | 27 | 194 |
 | pages (Files) | 3 | 35 | 1 | 8 | 44 |
-| pages/Home | 1 | 85 | 7 | 10 | 102 |
+| pages/Dior | 1 | 85 | 7 | 10 | 102 |
 | pages/api | 3 | 30 | 9 | 9 | 48 |
 
 Summary / [Details](details.md) / [Diff Summary](diff.md) / [Diff Details](diff-details.md)

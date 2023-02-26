@@ -57,7 +57,7 @@ const Nav = () => {
                                             </SVGSage_Wrapper>
                                         </TextSageDecoration_Icon>
                                         <Link href='/'> 
-                                        <LILabel>Home</LILabel>
+                                        <LILabel>Dior</LILabel>
                                         </Link>
                                     </DecoratedTextSage>
                                 </IconTextSage>
@@ -70,10 +70,10 @@ const Nav = () => {
                                     <DecoratedTextSage>
                                         <TextSageDecoration_Icon>
                                             <SVGSage_Wrapper>
-                                                <SagePNG src='/G_Icons/Ad_Products.png'></SagePNG>
+                                                <SagePNG src='/G_Icons/Ad_Products_Icon.png'></SagePNG>
                                             </SVGSage_Wrapper>
                                         </TextSageDecoration_Icon>
-                                        <Link href='/'> 
+                                        <Link href='/Ad_Products'> 
                                         <LILabel>Ad Products</LILabel>
                                         </Link>
                                     </DecoratedTextSage>

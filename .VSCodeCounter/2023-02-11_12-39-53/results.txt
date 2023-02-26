@@ -33,7 +33,7 @@ Directories
 | @components^                                                                                 |          4 |        500 |        105 |         90 |        695 |
 | pages                                                                                        |          7 |        150 |         17 |         27 |        194 |
 | pages (Files)                                                                                |          3 |         35 |          1 |          8 |         44 |
-| pages/Home                                                                                   |          1 |         85 |          7 |         10 |        102 |
+| pages/Dior                                                                                   |          1 |         85 |          7 |         10 |        102 |
 | pages/api                                                                                    |          3 |         30 |          9 |          9 |         48 |
 +----------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
 
@@ -58,7 +58,7 @@ Files
 | /Users/richardpitts/Documents/UB Media Portal/src/@components^/Auth.tsx                      | TypeScript React |         47 |         34 |         10 |         91 |
 | /Users/richardpitts/Documents/UB Media Portal/src/@components^/Modal.js                      | JavaScript       |        382 |         11 |         59 |        452 |
 | /Users/richardpitts/Documents/UB Media Portal/src/@components^/pallete.js                    | JavaScript       |          0 |         21 |          4 |         25 |
-| /Users/richardpitts/Documents/UB Media Portal/src/pages/Home/index.tsx                       | TypeScript React |         85 |          7 |         10 |        102 |
+| /Users/richardpitts/Documents/UB Media Portal/src/pages/Dior/index.tsx                       | TypeScript React |         85 |          7 |         10 |        102 |
 | /Users/richardpitts/Documents/UB Media Portal/src/pages/_app.tsx                             | TypeScript React |          6 |          0 |          3 |          9 |
 | /Users/richardpitts/Documents/UB Media Portal/src/pages/_document.tsx                        | TypeScript React |         13 |          0 |          2 |         15 |
 | /Users/richardpitts/Documents/UB Media Portal/src/pages/api/auth.js                          | JavaScript       |          5 |          0 |          1 |          6 |

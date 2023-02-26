@@ -267,7 +267,7 @@ const Panel = () => {
                     muted
                     controls
                     autoplay
-                    src='/Videos/GangstaAFEarth.mov'></GangstaEarth>
+                    src='/Videos/Earth.mov'></GangstaEarth>
                 <Cube
                     // @ts-ignore
                     ref={CubeRef}

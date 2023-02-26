@@ -27,7 +27,7 @@ Total : 23 files,  2240 codes, 733 comments, 264 blanks, all 3237 lines
 | [src/@components^/Account.js](/src/@components%5E/Account.js) | JavaScript | 71 | 39 | 17 | 127 |
 | [src/@components^/Auth.tsx](/src/@components%5E/Auth.tsx) | TypeScript JSX | 41 | 1 | 4 | 46 |
 | [src/@components^/Modal.js](/src/@components%5E/Modal.js) | JavaScript | 382 | 4 | 59 | 445 |
-| [src/pages/Home/index.tsx](/src/pages/Home/index.tsx) | TypeScript JSX | 85 | 7 | 10 | 102 |
+| [src/pages/Dior/index.tsx](/src/pages/Dior/index.tsx) | TypeScript JSX | 85 | 7 | 10 | 102 |
 | [src/pages/_app.tsx](/src/pages/_app.tsx) | TypeScript JSX | 6 | 0 | 3 | 9 |
 | [src/pages/_document.tsx](/src/pages/_document.tsx) | TypeScript JSX | 13 | 0 | 2 | 15 |
 | [src/pages/api/auth.js](/src/pages/api/auth.js) | JavaScript | 5 | 0 | 1 | 6 |

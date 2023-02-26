@@ -11,7 +11,7 @@ export default function Auth() {
 
     useEffect(() => {
         if (!session) {
-            router.push('/Home');
+            router.push('/Dior');
         }
     }, [session]);
 

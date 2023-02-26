@@ -66,33 +66,26 @@ a {
   }
 }
 
-.main {
-  background: purple;
-}
 
-/* REPorts */
+
 #header {
   width: 100%;
-  border: 2px solid purple;
   height: 30%;
 }
 
 #nav {
   width: 100%;
   height: 30%;
-  border: 12px solid purple;
 }
 
 #dash {
   width: 100%;
   height: 30%;
-  border: 2px solid purple;
 }
 
 #panel {
   width: 100%;
   height: 30%;
-  border: 2px solid purple;
   height: 10%;
 }
 

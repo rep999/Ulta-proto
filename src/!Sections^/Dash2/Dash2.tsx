@@ -21,14 +21,14 @@ interface Fire {
 }
 
 // @ts-ignore
-const Dash = () => {
+const Dash2 = () => {
     // @ts-ignore
     const topicSelection = useStore((state) => state.topicSelection);
     // @ts-ignore
     const categorySelection = useStore((state) => state.categorySelection);
     // @ts-ignore
     const weightSelection = useStore((state) => state.weightSelection);
-    const [SubNavTitleText, setTheFireNetText] = useState('Welcome Dior');
+    const [SubNavTitleText, setTheFireNetText] = useState('Ad Products');
     const [fireDT, setFireDT] = useState<any>([]);
     const [nwFireDT, setNwFireDT] = useState<any>([]);
     const [renderTG, setRenderTG] = useState<boolean>(false);
@@ -93,9 +93,9 @@ const Dash = () => {
         setCubesView(!cubesView);
     };
 
-    const ByDateClick = () => {
-        setFireDT(fireDT.sort(compareCreated_At));
-        setRenderTG(!renderTG);
+    const ProcessClicked = () => {
+        const CardListUL = document.getElementById("CardListUL") as HTMLImageElement;
+            CardListUL.src = "To-Be.png";
     };
 
     const ByFireClick = () => {
@@ -179,13 +179,13 @@ const Dash = () => {
                 </TopHeaderSpacerContainer>
                 <DockPanel>
                     <ByDateContainer>
-                        <ByDate onClick={() => ByDateClick()}>OnSite</ByDate>
+                        <ByDate onClick={() => ProcessClicked()}>Process</ByDate>
                     </ByDateContainer>
                     <ByCategoryContainer>
-                        <ByCategory onClick={() => ByCategoryClick()}>PowerBI</ByCategory>
+                        <ByCategory onClick={() => ByCategoryClick()}>Launch</ByCategory>
                     </ByCategoryContainer>
                     <ByFireContainer>
-                        <ByFire onClick={() => ByFireClick()}>Offsite</ByFire>
+                        <ByFire onClick={() => ByFireClick()}>Track</ByFire>
                     </ByFireContainer>
                 </DockPanel>
             </TopHeaderContainer>
@@ -193,7 +193,7 @@ const Dash = () => {
             <ContentSectional>
                 {cardsView ? (
                     <CardsContentContainer>
-                        <CardListUL id="CardListUL" onClick={() => DiorDashClicked()} src="Photoshop/Landing1.png">
+                        <CardListUL id="CardListUL" onClick={() => DiorDashClicked()} src="Photoshop/Landing3.png">
                         </CardListUL>
 
                     </CardsContentContainer>
@@ -206,7 +206,7 @@ const Dash = () => {
     );
 };
 
-export default Dash; 
+export default Dash2; 
 
 const DashContainer = styled.div`
     height: 100%;
@@ -310,7 +310,7 @@ const ByFireContainer = styled.div`
 
 const ByFire = styled.span`
     height: 100%;
-    width: 41%;
+    width: 100%;
     text-align: center;
     color: black;
     font-size: 13.33px;

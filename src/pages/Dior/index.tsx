@@ -25,7 +25,7 @@ interface Fire {
 }
 
 // @ts-ignore
-export default function Home({ fires }: Fire) {
+export default function Dior({ fires }: Fire) {
 
     return (
         <UBMedia_App>

@@ -8,7 +8,7 @@ import Nav from '$Sections/Nav/Nav';
 import Panel from '$Sections/Panel/Panel';
 import { useRouter } from 'next/router';
 // @ts-ignore
-import Dash from '$Sections/Dash/Dash';
+import Dash2 from '$Sections/Dash2/Dash2';
 import styled from 'styled-components';
 import create from 'zustand';
 import cookie from 'cookie';
@@ -25,7 +25,7 @@ interface Fire {
 }
 
 // @ts-ignore
-export default function Home({ fires }: Fire) {
+export default function Dior({ fires }: Fire) {
 
     return (
         <UBMedia_App>
@@ -43,7 +43,7 @@ export default function Home({ fires }: Fire) {
                     <UBMedia_App_Shell_Content>
                         <Nav></Nav>
                         <MainFlexContainer>
-                            <Dash></Dash>
+                            <Dash2></Dash2>
                             <Panel></Panel>
                         </MainFlexContainer>
                     </UBMedia_App_Shell_Content>

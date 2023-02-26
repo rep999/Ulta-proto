@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from '$styles/Home.module.css';
+import styles from '$styles/Dior.module.css';
 import Header from 'src/!Sections^/Header/Header';
 import Dash from 'src/!Sections^/Dash/Dash';
 import Nav from 'src/!Sections^/Nav/Nav';
@@ -12,7 +12,7 @@ import Auth from 'src/@components^/Auth';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 
-export default function Home() {
+export default function Dior() {
 
     return <Auth />;
 }

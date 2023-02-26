@@ -31,7 +31,7 @@ Directories
 | @components^                                                                        |          3 |        494 |         44 |         80 |        618 |
 | pages                                                                               |          7 |        150 |         17 |         27 |        194 |
 | pages (Files)                                                                       |          3 |         35 |          1 |          8 |         44 |
-| pages/Home                                                                          |          1 |         85 |          7 |         10 |        102 |
+| pages/Dior                                                                          |          1 |         85 |          7 |         10 |        102 |
 | pages/api                                                                           |          3 |         30 |          9 |          9 |         48 |
 +-------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
 
@@ -55,7 +55,7 @@ Files
 | /Users/richardpitts/Desktop/UB Media/src/@components^/Account.js                    | JavaScript     |         71 |         39 |         17 |        127 |
 | /Users/richardpitts/Desktop/UB Media/src/@components^/Auth.tsx                      | TypeScript JSX |         41 |          1 |          4 |         46 |
 | /Users/richardpitts/Desktop/UB Media/src/@components^/Modal.js                      | JavaScript     |        382 |          4 |         59 |        445 |
-| /Users/richardpitts/Desktop/UB Media/src/pages/Home/index.tsx                       | TypeScript JSX |         85 |          7 |         10 |        102 |
+| /Users/richardpitts/Desktop/UB Media/src/pages/Dior/index.tsx                       | TypeScript JSX |         85 |          7 |         10 |        102 |
 | /Users/richardpitts/Desktop/UB Media/src/pages/_app.tsx                             | TypeScript JSX |          6 |          0 |          3 |          9 |
 | /Users/richardpitts/Desktop/UB Media/src/pages/_document.tsx                        | TypeScript JSX |         13 |          0 |          2 |         15 |
 | /Users/richardpitts/Desktop/UB Media/src/pages/api/auth.js                          | JavaScript     |          5 |          0 |          1 |          6 |
