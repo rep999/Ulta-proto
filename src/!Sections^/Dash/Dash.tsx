@@ -179,13 +179,13 @@ const Dash = () => {
                 </TopHeaderSpacerContainer>
                 <DockPanel>
                     <ByDateContainer>
-                        <ByDate onClick={() => ByDateClick()}>OnSite</ByDate>
+                        <ByDate onClick={() => ByDateClick()}>Item1</ByDate>
                     </ByDateContainer>
                     <ByCategoryContainer>
-                        <ByCategory onClick={() => ByCategoryClick()}>PowerBI</ByCategory>
+                        <ByCategory onClick={() => ByCategoryClick()}>Item2</ByCategory>
                     </ByCategoryContainer>
                     <ByFireContainer>
-                        <ByFire onClick={() => ByFireClick()}>Offsite</ByFire>
+                        <ByFire onClick={() => ByFireClick()}>Item3</ByFire>
                     </ByFireContainer>
                 </DockPanel>
             </TopHeaderContainer>

@@ -90,7 +90,21 @@ const Nav = () => {
                                                 <SagePNG src='/G_Icons/Reports_Icon.png'></SagePNG>
                                             </SVGSage_Wrapper>
                                         </TextSageDecoration_Icon>
-                                        <LILabel>Reports</LILabel>
+                                        <LILabel>Outcomes</LILabel>
+                                    </DecoratedTextSage>
+                                </IconTextSage>
+                            </NavListLink>
+                        </NavListLI>
+                        <NavListLI>
+                            <NavListLink>
+                                <IconTextSage>
+                                    <DecoratedTextSage>
+                                        <TextSageDecoration_Icon>
+                                            <SVGSage_Wrapper>
+                                                <SagePNG src='/G_Icons/Audience_Icon.png'></SagePNG>
+                                            </SVGSage_Wrapper>
+                                        </TextSageDecoration_Icon>
+                                        <LILabel>Audience</LILabel>
                                     </DecoratedTextSage>
                                 </IconTextSage>
                             </NavListLink>
